@@ -67,7 +67,7 @@ class Eclairage {
 	
 	class IHMJardin {
 	  public:
-		void set(const Ent & ent);
+		void set( Ent & ent);
 
 	};
 	
@@ -78,8 +78,7 @@ class Eclairage {
 
 			void doIt();
 		
-		private:
-			public:Ent ent;
+			Ent ent;
 			PersiBny persiBny;
 
 			enum Etat {id, active, allume, nom, conso};

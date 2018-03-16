@@ -97,14 +97,33 @@ unsigned int Eclairage::Ent::getConsommation()
 
 
 //*************** PERSIBNY ****************
-void Eclairage::PersiBny::set(const Eclairage::Ent & ent) {
+void Eclairage::PersiBny::set(const Eclairage::Ent & ent)
+{
 }
 
-void Eclairage::PersiBny::get(Eclairage::Ent & ent) {
+void Eclairage::PersiBny::get(Eclairage::Ent & ent)
+{
 }
 
 //*************** IHM JARDIN ****************
-void Eclairage::IHMJardin::set(const Eclairage::Ent & ent) {
+void Eclairage::IHMJardin::set(Eclairage::Ent & ent)
+{
+	std::string ihm;
+	std::string imageLampe = "<div class='lampe'>";
+
+	//Choisi le logo en fonction de l'etat de la lampe
+	switch(ent.getAllume())
+	{
+		case true:
+			imageLampe += "<img src='img/imgLampeAllumee.png'/>";
+			break;
+
+		default:
+			imageLampe += "<img src='img/imgLampeEteinte.png'/>";
+			break;
+	}
+
+	imageLampe += "</div>";
 }
 
 

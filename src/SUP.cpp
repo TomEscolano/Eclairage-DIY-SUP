@@ -21,4 +21,4 @@ int SUP::main() {
 
 #endif
 
-//g++ -o Eclairage Eclairage.cpp Cycle.cpp EclairageMulticolore.cpp EclairageUnicolore.cpp -I . -lsqlite3 -D NDEBUG
+//g++ -o Eclairage Eclairage.cpp Cycle.cpp EclairageMulticolore.cpp EclairageUnicolore.cpp UcMettreAJour.cpp -I . -lsqlite3 -D NDEBUG

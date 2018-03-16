@@ -7,12 +7,20 @@
 
 
 #include "EclairageMulticolore.h"
+#include <fstream>
 
 //**************** IHM FORMULAIRE ********************
-void EclairageMulticolore::IHMFormulaire::set(const Eclairage::Ent & ent) {
+void EclairageMulticolore::IHMFormulaire::set(const Eclairage::Ent & ent)
+{
+	//Lecture du fichier contenant le HTML du formulaire
+	std::ifstream ihmstream("formulaireMulticolore.html");
+	std::string ihm((std::istreambuf_iterator<char>(ihmstream)),
+							(std::istreambuf_iterator<char>()));
 }
 
-void EclairageMulticolore::IHMFormulaire::get(Eclairage::Ent & ent) {
+void EclairageMulticolore::IHMFormulaire::get(Eclairage::Ent & ent)
+{
+	//TODO: Recuperer les valeurs passées en paramètres de l'URL
 }
 
 //****************** CONTROLEUR **********************

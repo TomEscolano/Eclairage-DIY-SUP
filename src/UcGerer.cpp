@@ -13,13 +13,17 @@
 void UcGerer::emettreConfiguration(const Ent & eclairage) {
 }
 
-void UcGerer::desactiverEclairage(const Ent & eclairage) {
+void UcGerer::desactiverEclairage(const Ent & eclairage)
+{
+	eclairage.controleur.activer(false);
 }
 
-void UcGerer::supprimerEclairage(const Ent & eclairage) {
+void UcGerer::supprimerEclairage(const Ent & eclairage, const sqlite3 & bd) {
 }
 
-void UcGerer::activerEclairage(const Ent & eclairage) {
+void UcGerer::activerEclairage(const Ent & eclairage)
+{
+	eclairage.controleur.activer(true);
 }
 
 void UcGerer::ajouterEclairage(const Ent & eclairage, const sqlite3 & bd) {

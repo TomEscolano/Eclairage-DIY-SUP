@@ -15,7 +15,6 @@ class UcMettreAJour {
   private:
     FILE firmware;
 
-
   public:
     void doIt(const std::string & adresseIP, const unsigned int & port);
 
