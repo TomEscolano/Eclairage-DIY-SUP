@@ -54,12 +54,11 @@
 
   cpp_default_h_content "/**
 * \\file ${name}.h
-* $Author$
-* $Rev$
-* $Date$
+* \\author Tom ESCOLANO
 
-\\brief Projet : nomProjet
+\\brief Projet : Eclairage DIY - SUP
 *******************************************************/
+
 #ifndef ${NAMESPACE}_${NAME}_H
 #define ${NAMESPACE}_${NAME}_H
 
@@ -71,14 +70,13 @@ ${definition}
 ${namespace_end}
 #endif
 "
-  cpp_default_src_content "/*****************************************************
+  cpp_default_src_content "/**
 * \\file ${name}.cpp
-* $Author$
-* $Rev$
-* $Date$
+* \\author Tom ESCOLANO
 
-\\brief Projet : nomProjet
+\\brief Projet : Eclairage DIY - SUP
 *******************************************************/
+
 ${comment}
 ${includes}
 ${namespace_start}
@@ -86,40 +84,7 @@ ${members}
 ${namespace_end}
 
 #ifndef NDEBUG
-/*
-compléter la ligne de commande de génération pour le test unitaire
-g++ -o ${name}Ut ${name}.cpp -std=c++11 -D _${name}_UT_ .....
-ou
-g++ -o ${name}Ut ${name}.cpp -std=c++11 -D _CLASSE_ABSTRAITE_ -D _${name}_UT_ .....
 
-commande de compilation générant le fichier objet
-
-g++ -c ${name}.cpp  -std=c++11 -D NDEBUG 
-*/
-#include <assert.h>
-#ifdef _${name}_UT_
-  #ifdef _CLASSE_ABSTRAITE_
-    class Test: public ${namespace}::${name}{
-      public:
-        Test(parametres):${name}(parametres){} 
-       //définir toutes les méthodes abstraites (i.e. =0) avec un corps vide
-     };
- #endif // _CLASSE_ABSTRAITE_
-int main(int argc, char** argv){
-  #ifdef _CLASSE_ABSTRAITE_
-   ${namespace}::${name}* ptrInstance =new Test(parametres);
-  type valeur=?????;
-  ptrInstance->setAttr1(valeur);
-  assert(ptrInstance->getAttr1() == valeur);
- #else
-  //instanciation de la classe à tester
-  ${namespace}::${name} instance(parametres);
-  //test de chaque méthode ; ici les accesseurs et mutateurs
-  type valeur=?????;
-  instance.setAttr1(valeur);
-  assert(instance.getAttr1() == valeur);
- #endif // _CLASSE_ABSTRAITE_
-}
 #endif
 #endif"
   cpp_default_class_decl "${comment}${template}class ${name}${inherit} {

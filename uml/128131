@@ -1,6 +1,6 @@
 format 216
 "analyse" // analyse
-  revision 3
+  revision 5
   modified_by 3 "tom"
   // class settings
   
@@ -42,6 +42,7 @@ format 216
     
     activitydiagramsettings
      end
+    associated_deployment_view deploymentview_ref 128515 // vc
     classdiagram 134531 "dca"
       classdiagramsettings member_max_width 0 end
       size A0
@@ -487,6 +488,19 @@ ${inlines}
 	  
 	end
       end
+
+      classrelation 145411 // <aggregation>
+	relation_ref 143747 // <aggregation>
+      end
+
+      classrelation 145923 // cycle (<directional composition>)
+	relation 144131 *-->
+	  a role_name "cycle" multiplicity "1" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 145923 // cycle (<directional composition>)
+	  b parent class_ref 151171 // Cycle
+      end
     end
 
     class 136707 "EclairageUnicolore"
@@ -625,6 +639,38 @@ ${items}};
       explicit_switch_type ""
       mysql_decl ""
       
+      attribute 144643 "Bleu"
+	public type class_ref 136835 // Couleur
+	cpp_decl "  ${name}${value},${comment}"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 144771 "Blanc"
+	public type class_ref 136835 // Couleur
+	cpp_decl "  ${name}${value},${comment}"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 144899 "Rouge"
+	public type class_ref 136835 // Couleur
+	cpp_decl "  ${name}${value},${comment}"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
     end
 
     class 136963 "EclairageMulticolore"
@@ -996,7 +1042,7 @@ ${inlines}
       end
 
       operation 148227 "main"
-	public explicit_return_type "void"
+	public explicit_return_type "int"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -1007,6 +1053,33 @@ ${inlines}
 	
 	
 	
+      end
+
+      classrelation 144515 // ucExporter (<directional composition>)
+	relation 143363 *-->
+	  a role_name "ucExporter" multiplicity "1" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 144515 // ucExporter (<directional composition>)
+	  b parent class_ref 150787 // UcExporter
+      end
+
+      classrelation 144771 // ucImporter (<directional composition>)
+	relation 143491 *-->
+	  a role_name "ucImporter" multiplicity "1" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 144771 // ucImporter (<directional composition>)
+	  b parent class_ref 150659 // UcImporter
+      end
+
+      classrelation 152579 // ucGerer (<directional composition>)
+	relation 150659 *-->
+	  a role_name "ucGerer" multiplicity "1" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 152579 // ucGerer (<directional composition>)
+	  b parent class_ref 144131 // UcGerer
       end
     end
 
@@ -1171,6 +1244,907 @@ ${inlines}
 	
 	
 	
+      end
+
+      classrelation 145283 // eclairages (<aggregation>)
+	relation 143747 o---
+	  a role_name "eclairages" multiplicity "*" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type} *> ${name}${value};
+"
+	    classrelation_ref 145283 // eclairages (<aggregation>)
+	  b role_name "ucGerer" multiplicity "1" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 145411 // <aggregation>
+      end
+
+      classrelation 145539 // ucMettreAJour (<directional composition>)
+	relation 143875 *-->
+	  a role_name "ucMettreAJour" multiplicity "1" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 145539 // ucMettreAJour (<directional composition>)
+	  b parent class_ref 150915 // UcMettreAJour
+      end
+
+      classrelation 145795 // ucCommander (<directional composition>)
+	relation 144003 *-->
+	  a role_name "ucCommander" multiplicity "1" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 145795 // ucCommander (<directional composition>)
+	  b parent class_ref 151043 // UcCommander
+      end
+    end
+
+    class 150659 "UcImporter"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      operation 156163 "doIt"
+	public explicit_return_type "void"
+	nparams 2
+	  param in name "fichierCSV" explicit_type "FILE"
+	  param in name "ucGerer" explicit_type "UcGerer"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 156419 "getFile"
+	private explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 156547 "ajouter"
+	public explicit_return_type "void"
+	nparams 2
+	  param in name "eclairage" explicit_type "Ent"
+	  param in name "ucGerer" type class_ref 144131 // UcGerer
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+    end
+
+    class 150787 "UcExporter"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      operation 156291 "doIt"
+	public explicit_return_type "FILE"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+    end
+
+    class 150915 "UcMettreAJour"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      attribute 144515 "firmware"
+	private explicit_type "FILE"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      operation 156675 "doIt"
+	public explicit_return_type "void"
+	nparams 2
+	  param in name "adresseIP" explicit_type "std::string"
+	  param in name "port" explicit_type "unsigned int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+    end
+
+    class 151043 "UcCommander"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      operation 156803 "getSelection"
+	public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 156931 "afficherMenuSelection"
+	public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 157059 "getAction"
+	public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 157187 "execAction"
+	public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 157315 "enregistrer"
+	public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+    end
+
+    class 151171 "Cycle"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      class 151299 "Ent"
+	visibility package 
+	cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+	java_decl ""
+	php_decl ""
+	python_2_2 python_decl ""
+	idl_decl ""
+	explicit_switch_type ""
+	mysql_decl ""
+	
+	attribute 145027 "heureDebut"
+	  private explicit_type "std::string"
+	  cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	  java_decl ""
+	  php_decl ""
+	  python_decl ""
+	  idl_decl ""
+	  mysql_decl ""
+	  MysqlColumn
+	end
+
+	attribute 145155 "heureFin"
+	  private explicit_type "std::string"
+	  cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	  java_decl ""
+	  php_decl ""
+	  python_decl ""
+	  idl_decl ""
+	  mysql_decl ""
+	  MysqlColumn
+	end
+
+	attribute 145283 "jours"
+	  private explicit_type "std::array<bool>"
+	  cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	  java_decl ""
+	  php_decl ""
+	  python_decl ""
+	  idl_decl ""
+	  mysql_decl ""
+	  MysqlColumn
+	end
+
+	attribute 145411 "actif"
+	  private explicit_type "bool"
+	  cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	  java_decl ""
+	  php_decl ""
+	  python_decl ""
+	  idl_decl ""
+	  mysql_decl ""
+	  MysqlColumn
+	end
+      end
+
+      class 151427 "Controleur"
+	visibility package 
+	cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+	java_decl ""
+	php_decl ""
+	python_2_2 python_decl ""
+	idl_decl ""
+	explicit_switch_type ""
+	mysql_decl ""
+	
+	operation 157443 "activer"
+	  public explicit_return_type "void"
+	  nparams 1
+	    param in name "actif" explicit_type "bool"
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 157571 "setHoraires"
+	  public explicit_return_type "void"
+	  nparams 2
+	    param in name "heureDebut" explicit_type "std::string"
+	    param in name "heureFin" explicit_type "std::string"
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 157699 "setJours"
+	  public explicit_return_type "void"
+	  nparams 1
+	    param in name "jours" explicit_type "std:array<bool>"
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 157827 "getHoraires"
+	  public explicit_return_type "void"
+	  nparams 2
+	    param out name "heureDebut" explicit_type "std::string"
+	    param in name "heureFin" explicit_type "std::string"
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${t0} & ${p0}, const ${t1} & ${p1}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 157955 "getJours"
+	  public explicit_return_type "std::array<bool>"
+	  nparams 0
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+      end
+    end
+  end
+
+  deploymentview 128515 "vc"
+    //deployment diagram settings
+    deploymentdiagramsettings
+     end
+    artifact 133635 "Eclairage"
+      stereotype "source"
+      cpp_h "/**
+* \\file ${name}.h
+* \\author Tom ESCOLANO
+
+\\brief Projet : Eclairage DIY - SUP
+*******************************************************/
+
+#ifndef ${NAMESPACE}_${NAME}_H
+#define ${NAMESPACE}_${NAME}_H
+
+${comment}
+${includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "/**
+* \\file ${name}.cpp
+* \\author Tom ESCOLANO
+
+\\brief Projet : Eclairage DIY - SUP
+*******************************************************/
+
+${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}
+
+#ifndef NDEBUG
+
+#endif
+#endif"
+      associated_elems
+	class_ref 135811 // Eclairage
+      end
+    end
+
+    artifact 133763 "EclairageUnicolore"
+      stereotype "source"
+      cpp_h "/**
+* \\file ${name}.h
+* \\author Tom ESCOLANO
+
+\\brief Projet : Eclairage DIY - SUP
+*******************************************************/
+
+#ifndef ${NAMESPACE}_${NAME}_H
+#define ${NAMESPACE}_${NAME}_H
+
+${comment}
+${includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "/**
+* \\file ${name}.cpp
+* \\author Tom ESCOLANO
+
+\\brief Projet : Eclairage DIY - SUP
+*******************************************************/
+
+${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}
+
+#ifndef NDEBUG
+
+#endif
+#endif"
+      associated_elems
+	class_ref 136707 // EclairageUnicolore
+      end
+    end
+
+    artifact 133891 "Couleur"
+      stereotype "source"
+      cpp_h "/**
+* \\file ${name}.h
+* \\author Tom ESCOLANO
+
+\\brief Projet : Eclairage DIY - SUP
+*******************************************************/
+
+#ifndef ${NAMESPACE}_${NAME}_H
+#define ${NAMESPACE}_${NAME}_H
+
+${comment}
+${includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "/**
+* \\file ${name}.cpp
+* \\author Tom ESCOLANO
+
+\\brief Projet : Eclairage DIY - SUP
+*******************************************************/
+
+${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}
+
+#ifndef NDEBUG
+
+#endif
+#endif"
+      java_src "${comment}
+${package}
+${imports}
+${definition}"
+      php_src "<?php
+${comment}
+${namespace}
+${require_once}
+${definition}
+?>
+"
+      python_src "${comment}
+${import}
+${definition}"
+      idl_src "#ifndef ${MODULE}_${NAME}_H
+#define ${MODULE}_${NAME}_H
+
+${comment}
+${includes}
+${module_start}
+${definition}
+${module_end}
+#endif
+"
+      associated_elems
+	class_ref 136835 // Couleur
+      end
+    end
+
+    artifact 134019 "EclairageMulticolore"
+      stereotype "source"
+      cpp_h "/**
+* \\file ${name}.h
+* \\author Tom ESCOLANO
+
+\\brief Projet : Eclairage DIY - SUP
+*******************************************************/
+
+#ifndef ${NAMESPACE}_${NAME}_H
+#define ${NAMESPACE}_${NAME}_H
+
+${comment}
+${includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "/**
+* \\file ${name}.cpp
+* \\author Tom ESCOLANO
+
+\\brief Projet : Eclairage DIY - SUP
+*******************************************************/
+
+${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}
+
+#ifndef NDEBUG
+
+#endif
+#endif"
+      associated_elems
+	class_ref 136963 // EclairageMulticolore
+      end
+    end
+
+    artifact 134147 "SUP"
+      stereotype "source"
+      cpp_h "/**
+* \\file ${name}.h
+* \\author Tom ESCOLANO
+
+\\brief Projet : Eclairage DIY - SUP
+*******************************************************/
+
+#ifndef ${NAMESPACE}_${NAME}_H
+#define ${NAMESPACE}_${NAME}_H
+
+${comment}
+${includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "/**
+* \\file ${name}.cpp
+* \\author Tom ESCOLANO
+
+\\brief Projet : Eclairage DIY - SUP
+*******************************************************/
+
+${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}
+
+#ifndef NDEBUG
+
+#endif
+#endif"
+      associated_elems
+	class_ref 144003 // SUP
+      end
+    end
+
+    artifact 134275 "UcGerer"
+      stereotype "source"
+      cpp_h "/**
+* \\file ${name}.h
+* \\author Tom ESCOLANO
+
+\\brief Projet : Eclairage DIY - SUP
+*******************************************************/
+
+#ifndef ${NAMESPACE}_${NAME}_H
+#define ${NAMESPACE}_${NAME}_H
+
+${comment}
+${includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "/**
+* \\file ${name}.cpp
+* \\author Tom ESCOLANO
+
+\\brief Projet : Eclairage DIY - SUP
+*******************************************************/
+
+${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}
+
+#ifndef NDEBUG
+
+#endif
+#endif"
+      associated_elems
+	class_ref 144131 // UcGerer
+      end
+    end
+
+    artifact 134403 "UcImporter"
+      stereotype "source"
+      cpp_h "/**
+* \\file ${name}.h
+* \\author Tom ESCOLANO
+
+\\brief Projet : Eclairage DIY - SUP
+*******************************************************/
+
+#ifndef ${NAMESPACE}_${NAME}_H
+#define ${NAMESPACE}_${NAME}_H
+
+${comment}
+${includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "/**
+* \\file ${name}.cpp
+* \\author Tom ESCOLANO
+
+\\brief Projet : Eclairage DIY - SUP
+*******************************************************/
+
+${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}
+
+#ifndef NDEBUG
+
+#endif
+#endif"
+      associated_elems
+	class_ref 150659 // UcImporter
+      end
+    end
+
+    artifact 134531 "UcExporter"
+      stereotype "source"
+      cpp_h "/**
+* \\file ${name}.h
+* \\author Tom ESCOLANO
+
+\\brief Projet : Eclairage DIY - SUP
+*******************************************************/
+
+#ifndef ${NAMESPACE}_${NAME}_H
+#define ${NAMESPACE}_${NAME}_H
+
+${comment}
+${includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "/**
+* \\file ${name}.cpp
+* \\author Tom ESCOLANO
+
+\\brief Projet : Eclairage DIY - SUP
+*******************************************************/
+
+${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}
+
+#ifndef NDEBUG
+
+#endif
+#endif"
+      associated_elems
+	class_ref 150787 // UcExporter
+      end
+    end
+
+    artifact 134659 "UcMettreAJour"
+      stereotype "source"
+      cpp_h "/**
+* \\file ${name}.h
+* \\author Tom ESCOLANO
+
+\\brief Projet : Eclairage DIY - SUP
+*******************************************************/
+
+#ifndef ${NAMESPACE}_${NAME}_H
+#define ${NAMESPACE}_${NAME}_H
+
+${comment}
+${includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "/**
+* \\file ${name}.cpp
+* \\author Tom ESCOLANO
+
+\\brief Projet : Eclairage DIY - SUP
+*******************************************************/
+
+${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}
+
+#ifndef NDEBUG
+
+#endif
+#endif"
+      associated_elems
+	class_ref 150915 // UcMettreAJour
+      end
+    end
+
+    artifact 134787 "UcCommander"
+      stereotype "source"
+      cpp_h "/**
+* \\file ${name}.h
+* \\author Tom ESCOLANO
+
+\\brief Projet : Eclairage DIY - SUP
+*******************************************************/
+
+#ifndef ${NAMESPACE}_${NAME}_H
+#define ${NAMESPACE}_${NAME}_H
+
+${comment}
+${includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "/**
+* \\file ${name}.cpp
+* \\author Tom ESCOLANO
+
+\\brief Projet : Eclairage DIY - SUP
+*******************************************************/
+
+${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}
+
+#ifndef NDEBUG
+
+#endif
+#endif"
+      associated_elems
+	class_ref 151043 // UcCommander
+      end
+    end
+
+    artifact 134915 "Cycle"
+      stereotype "source"
+      cpp_h "/**
+* \\file ${name}.h
+* \\author Tom ESCOLANO
+
+\\brief Projet : Eclairage DIY - SUP
+*******************************************************/
+
+#ifndef ${NAMESPACE}_${NAME}_H
+#define ${NAMESPACE}_${NAME}_H
+
+${comment}
+${includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "/**
+* \\file ${name}.cpp
+* \\author Tom ESCOLANO
+
+\\brief Projet : Eclairage DIY - SUP
+*******************************************************/
+
+${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}
+
+#ifndef NDEBUG
+
+#endif
+#endif"
+      associated_elems
+	class_ref 151171 // Cycle
       end
     end
   end

@@ -1,17 +1,15 @@
-window_sizes 1366 719 406 954 666 0
+window_sizes 1920 1055 406 1508 1002 0
 cleanlooks_style
 diagrams
   classdiagram_ref 128003 // dcd
     763 532 107 Legal-Landscape 0 0
   active  classdiagram_ref 134531 // dca
-    1508 1002 83 A0 108 0
+    1508 1002 64 A0 0 0
 end
 show_stereotypes
-selected operation_ref 148867 // visualiserInfo
+selected operation_ref 156675 // doIt
 open
   classview_ref 128003 // vc
-  operation_ref 148355 // suivreConsoElectricite
-  operation_ref 148227 // main
-  class_ref 144131 // UcGerer
+  class_ref 150915 // UcMettreAJour
 end
 end

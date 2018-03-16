@@ -1,9 +1,9 @@
 format 216
 "umlV3"
-  revision 11
+  revision 12
   modified_by 3 "tom"
-  cpp_root_dir "/tmp/guest-snir/eclipse-workspace/"
-  java_root_dir "/tmp/guest-snir/eclipse-workspace/"
+  cpp_root_dir "/home/tom/Documents/Projet/srcBouml/"
+  java_root_dir "/home/tom/Documents/Projet/srcBouml/"
 
   class_default_description "\\class ${name}
 \\brief quel est le rôle de la classe
