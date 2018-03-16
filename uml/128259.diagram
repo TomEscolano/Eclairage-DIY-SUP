@@ -1,0 +1,27 @@
+format 216
+
+classcanvas 128003 class_ref 129411 // Ent
+  classdiagramsettings member_max_width 0 end
+  xyz 60 120 2000
+end
+classcanvas 128131 class_ref 129539 // PersiBny
+  classdiagramsettings member_max_width 0 end
+  xyz 160 40 2000
+end
+classcanvas 128259 class_ref 129667 // Controleur
+  classdiagramsettings member_max_width 0 end
+  xyz 39 40 2000
+end
+relationcanvas 128387 relation_ref 129283 // <composition>
+  from ref 128259 z 2001 to ref 128003
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 128515 relation_ref 129411 // <directional composition>
+  decenter_begin 585
+  decenter_end 585
+  from ref 128259 z 2001 to ref 128131
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+end

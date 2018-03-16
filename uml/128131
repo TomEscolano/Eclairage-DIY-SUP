@@ -1,0 +1,1177 @@
+format 216
+"analyse" // analyse
+  revision 3
+  modified_by 3 "tom"
+  // class settings
+  
+  classdiagramsettings member_max_width 0 end
+  
+  usecasediagramsettings end
+  
+  sequencediagramsettings end
+  
+  collaborationdiagramsettings end
+  
+  objectdiagramsettings end
+  
+  componentdiagramsettings
+   end
+  
+  deploymentdiagramsettings
+   end
+  
+  statediagramsettings
+   end
+  
+  activitydiagramsettings
+   end
+  
+  classview 134531 "vc"
+    
+    classdiagramsettings member_max_width 0 end
+    
+    collaborationdiagramsettings end
+    
+    objectdiagramsettings end
+    
+    sequencediagramsettings end
+    
+    statediagramsettings
+     end
+    
+    
+    activitydiagramsettings
+     end
+    classdiagram 134531 "dca"
+      classdiagramsettings member_max_width 0 end
+      size A0
+    end
+
+    class 135811 "Eclairage"
+      abstract visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      class 135939 "Controleur"
+	visibility package 
+	cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+	java_decl ""
+	php_decl ""
+	python_2_2 python_decl ""
+	idl_decl ""
+	explicit_switch_type ""
+	mysql_decl ""
+	
+	classrelation 136323 // persiBny (<directional composition>)
+	  relation 135683 *-->
+	    a role_name "persiBny" multiplicity "1" private
+	      cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	      classrelation_ref 136323 // persiBny (<directional composition>)
+	    b parent class_ref 136195 // PersiBny
+	end
+
+	classrelation 136451 // ent (<composition>)
+	  relation 135811 *---
+	    a role_name "ent" multiplicity "1" private
+	      cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	      classrelation_ref 136451 // ent (<composition>)
+	    b role_name "controleur" multiplicity "1" private
+	      cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	      classrelation_ref 136579 // controleur (<composition>)
+	end
+
+	classrelation 136707 // ihmJardin (<directional composition>)
+	  relation 135939 *-->
+	    a role_name "ihmJardin" multiplicity "1" private
+	      cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	      classrelation_ref 136707 // ihmJardin (<directional composition>)
+	    b parent class_ref 136323 // IHMJardin
+	end
+
+	operation 137603 "activer"
+	  public explicit_return_type "void"
+	  nparams 1
+	    param in name "etat" explicit_type "bool"
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 137731 "allumer"
+	  public explicit_return_type "void"
+	  nparams 1
+	    param in name "etat" explicit_type "bool"
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 137859 "getIHMJardin"
+	  public explicit_return_type "void"
+	  nparams 0
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 137987 "getIHMFormulaire"
+	  public explicit_return_type "void"
+	  nparams 0
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 138115 "set"
+	  public explicit_return_type "void"
+	  nparams 1
+	    param in name "ent" type class_ref 136067 // Ent
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 138243 "get"
+	  public explicit_return_type "void"
+	  nparams 1
+	    param out name "ent" type class_ref 136067 // Ent
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+      end
+
+      class 136067 "Ent"
+	visibility package 
+	cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+	java_decl ""
+	php_decl ""
+	python_2_2 python_decl ""
+	idl_decl ""
+	explicit_switch_type ""
+	mysql_decl ""
+	
+	classrelation 136579 // controleur (<composition>)
+	  relation_ref 135811 // <composition>
+	end
+
+	attribute 136579 "id"
+	  private explicit_type "unsigned int"
+	  cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	  java_decl ""
+	  php_decl ""
+	  python_decl ""
+	  idl_decl ""
+	  mysql_decl ""
+	  MysqlColumn
+	end
+
+	attribute 136707 "allume"
+	  private explicit_type "bool"
+	  cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	  java_decl ""
+	  php_decl ""
+	  python_decl ""
+	  idl_decl ""
+	  mysql_decl ""
+	  MysqlColumn
+	end
+
+	attribute 136835 "active"
+	  private explicit_type "bool"
+	  cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	  java_decl ""
+	  php_decl ""
+	  python_decl ""
+	  idl_decl ""
+	  mysql_decl ""
+	  MysqlColumn
+	end
+
+	attribute 136963 "nom"
+	  private explicit_type "std::string"
+	  cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	  java_decl ""
+	  php_decl ""
+	  python_decl ""
+	  idl_decl ""
+	  mysql_decl ""
+	  MysqlColumn
+	end
+
+	attribute 137091 "consommation"
+	  private explicit_type "unsigned int"
+	  cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	  java_decl ""
+	  php_decl ""
+	  python_decl ""
+	  idl_decl ""
+	  mysql_decl ""
+	  MysqlColumn
+	end
+
+	operation 139011 "setID"
+	  public explicit_return_type "void"
+	  nparams 1
+	    param in name "id" explicit_type "unsigned int"
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 139139 "setAllume"
+	  public explicit_return_type "void"
+	  nparams 1
+	    param in name "etat" explicit_type "bool"
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 139267 "setActive"
+	  public explicit_return_type "void"
+	  nparams 1
+	    param in name "etat" explicit_type "bool"
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 139395 "setNom"
+	  public explicit_return_type "void"
+	  nparams 1
+	    param in name "nom" explicit_type "std::string"
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 139523 "setConsommation"
+	  public explicit_return_type "void"
+	  nparams 1
+	    param in name "conso" explicit_type "unsigned int"
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 139651 "getID"
+	  public explicit_return_type "unsigned int"
+	  nparams 0
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 139779 "getAllume"
+	  public explicit_return_type "bool"
+	  nparams 0
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 139907 "getActive"
+	  public explicit_return_type "bool"
+	  nparams 0
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 140035 "getNom"
+	  public explicit_return_type "std::string"
+	  nparams 0
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 140163 "getConsommation"
+	  public explicit_return_type "unsigned int"
+	  nparams 0
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+      end
+
+      class 136195 "PersiBny"
+	visibility package 
+	cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+	java_decl ""
+	php_decl ""
+	python_2_2 python_decl ""
+	idl_decl ""
+	explicit_switch_type ""
+	mysql_decl ""
+	
+	operation 138755 "set"
+	  public explicit_return_type "void"
+	  nparams 1
+	    param in name "ent" type class_ref 136067 // Ent
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 138883 "get"
+	  public explicit_return_type "void"
+	  nparams 1
+	    param out name "ent" type class_ref 136067 // Ent
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+      end
+
+      class 136323 "IHMJardin"
+	visibility package 
+	cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+	java_decl ""
+	php_decl ""
+	python_2_2 python_decl ""
+	idl_decl ""
+	explicit_switch_type ""
+	mysql_decl ""
+	
+	operation 138371 "set"
+	  public explicit_return_type "void"
+	  nparams 1
+	    param in name "ent" type class_ref 136067 // Ent
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+      end
+    end
+
+    class 136707 "EclairageUnicolore"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 136963 // <generalisation>
+	relation 136195 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 136963 // <generalisation>
+	  b parent class_ref 135811 // Eclairage
+      end
+
+      classrelation 137091 // <dependency>
+	relation 136323 -_->
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 137091 // <dependency>
+	  b parent class_ref 136835 // Couleur
+      end
+
+      class 137347 "Ent"
+	visibility package 
+	cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+	java_decl ""
+	php_decl ""
+	python_2_2 python_decl ""
+	idl_decl ""
+	explicit_switch_type ""
+	mysql_decl ""
+	
+	attribute 137219 "couleur"
+	  private explicit_type "Couleur"
+	  cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	  java_decl ""
+	  php_decl ""
+	  python_decl ""
+	  idl_decl ""
+	  mysql_decl ""
+	  MysqlColumn
+	end
+
+	classrelation 137987 // <composition>
+	  relation_ref 136835 // <composition>
+	end
+      end
+
+      class 137475 "Controleur"
+	visibility package 
+	cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+	java_decl ""
+	php_decl ""
+	python_2_2 python_decl ""
+	idl_decl ""
+	explicit_switch_type ""
+	mysql_decl ""
+	
+	classrelation 137859 // ent (<composition>)
+	  relation 136835 *---
+	    a role_name "ent" multiplicity "1" private
+	      cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	      classrelation_ref 137859 // ent (<composition>)
+	    b role_name "controleur" multiplicity "1" private
+	      cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	      classrelation_ref 137987 // <composition>
+	end
+
+	operation 141571 "setCouleur"
+	  public explicit_return_type "void"
+	  nparams 1
+	    param in name "couleur" explicit_type "std::string"
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 141699 "getCouleur"
+	  public explicit_return_type "std::string"
+	  nparams 0
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+      end
+    end
+
+    class 136835 "Couleur"
+      visibility package stereotype "enum"
+      cpp_decl "${comment}enum ${name} {
+${items}};
+"
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}enum ${name}${implements} {
+${items};
+${members}}
+"
+      php_decl "${comment}${visibility}final class ${name} {
+${items}}
+"
+      python_2_2 python_decl "class ${name}:
+${docstring}${members}
+"
+      idl_decl "${comment}enum ${name} {
+${items}};
+"
+      explicit_switch_type ""
+      mysql_decl ""
+      
+    end
+
+    class 136963 "EclairageMulticolore"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      class 136451 "IHMFormulaire"
+	visibility package 
+	cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+	java_decl ""
+	php_decl ""
+	python_2_2 python_decl ""
+	idl_decl ""
+	explicit_switch_type ""
+	mysql_decl ""
+	
+	operation 138499 "set"
+	  public explicit_return_type "void"
+	  nparams 1
+	    param in name "ent" type class_ref 136067 // Ent
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 138627 "get"
+	  public explicit_return_type "void"
+	  nparams 1
+	    param out name "ent" type class_ref 136067 // Ent
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	classrelation 137731 // <composition>
+	  relation_ref 136707 // <composition>
+	end
+      end
+
+      classrelation 137219 // <generalisation>
+	relation 136451 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 137219 // <generalisation>
+	  b parent class_ref 135811 // Eclairage
+      end
+
+      class 137091 "Ent"
+	visibility package 
+	cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+	java_decl ""
+	php_decl ""
+	python_2_2 python_decl ""
+	idl_decl ""
+	explicit_switch_type ""
+	mysql_decl ""
+	
+	attribute 137987 "couleur"
+	  private explicit_type "std::string"
+	  cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	  java_decl ""
+	  php_decl ""
+	  python_decl ""
+	  idl_decl ""
+	  mysql_decl ""
+	  MysqlColumn
+	end
+
+	attribute 137859 "adresseMACBluetooth"
+	  private explicit_type "std::string"
+	  cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	  java_decl ""
+	  php_decl ""
+	  python_decl ""
+	  idl_decl ""
+	  mysql_decl ""
+	  MysqlColumn
+	end
+
+	attribute 137731 "niveauBatterie"
+	  private explicit_type "unsigned int"
+	  cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	  java_decl ""
+	  php_decl ""
+	  python_decl ""
+	  idl_decl ""
+	  mysql_decl ""
+	  MysqlColumn
+	end
+
+	attribute 137603 "versionFirmware"
+	  private explicit_type "float"
+	  cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	  java_decl ""
+	  php_decl ""
+	  python_decl ""
+	  idl_decl ""
+	  mysql_decl ""
+	  MysqlColumn
+	end
+
+	attribute 137475 "socket"
+	  private explicit_type "int"
+	  cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	  java_decl ""
+	  php_decl ""
+	  python_decl ""
+	  idl_decl ""
+	  mysql_decl ""
+	  MysqlColumn
+	end
+
+	attribute 137347 "adresseIP"
+	  private explicit_type "std::string"
+	  cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	  java_decl ""
+	  php_decl ""
+	  python_decl ""
+	  idl_decl ""
+	  mysql_decl ""
+	  MysqlColumn
+	end
+
+	classrelation 137475 // <composition>
+	  relation_ref 136579 // <composition>
+	end
+      end
+
+      class 137219 "Controleur"
+	visibility package 
+	cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+	java_decl ""
+	php_decl ""
+	python_2_2 python_decl ""
+	idl_decl ""
+	explicit_switch_type ""
+	mysql_decl ""
+	
+	classrelation 137347 // ent (<composition>)
+	  relation 136579 *---
+	    a role_name "ent" multiplicity "1" private
+	      cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	      classrelation_ref 137347 // ent (<composition>)
+	    b role_name "controleur" multiplicity "1" private
+	      cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	      classrelation_ref 137475 // <composition>
+	end
+
+	operation 140291 "recevoir"
+	  public explicit_return_type "void"
+	  nparams 0
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 140419 "envoyer"
+	  public explicit_return_type "void"
+	  nparams 0
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 140547 "setCouleur"
+	  public explicit_return_type "void"
+	  nparams 1
+	    param in name "couleur" explicit_type "std::string"
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 140675 "setAdresseMac"
+	  public explicit_return_type "void"
+	  nparams 1
+	    param in name "adresseMac" explicit_type "std::string"
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 140803 "setNiveauBatterie"
+	  public explicit_return_type "void"
+	  nparams 1
+	    param in name "niveauBatterie" explicit_type "unsigned int"
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 140931 "setVersionFirmware"
+	  public explicit_return_type "void"
+	  nparams 1
+	    param in name "version" explicit_type "float"
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 141059 "setAdresseIP"
+	  public explicit_return_type "void"
+	  nparams 1
+	    param in name "adresseIP" explicit_type "std::string"
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 141187 "getCouleur"
+	  public explicit_return_type "std::string"
+	  nparams 0
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 141315 "getAdresseMac"
+	  public explicit_return_type "std::string"
+	  nparams 0
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 141443 "getNiveauBatterie"
+	  public explicit_return_type "unsigned int"
+	  nparams 0
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	classrelation 137603 // ihmAjouter (<composition>)
+	  relation 136707 *---
+	    a role_name "ihmAjouter" multiplicity "0..1" private
+	      cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value};
+"
+	      classrelation_ref 137603 // ihmAjouter (<composition>)
+	    b role_name "controleur" multiplicity "1" private
+	      classrelation_ref 137731 // <composition>
+	end
+      end
+    end
+
+    class 144003 "SUP"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      operation 148355 "suivreConsoElectricite"
+	public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 148227 "main"
+	public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+    end
+
+    class 144131 "UcGerer"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      operation 148483 "emettreConfiguration"
+	public explicit_return_type "void"
+	nparams 1
+	  param in name "eclairage" explicit_type "Ent"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 149507 "desactiverEclairage"
+	public explicit_return_type "void"
+	nparams 1
+	  param in name "eclairage" explicit_type "Ent"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 149251 "supprimerEclairage"
+	public explicit_return_type "void"
+	nparams 1
+	  param in name "eclairage" explicit_type "Ent"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 149379 "activerEclairage"
+	public explicit_return_type "void"
+	nparams 1
+	  param in name "eclairage" explicit_type "Ent"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 149123 "ajouterEclairage"
+	public explicit_return_type "void"
+	nparams 2
+	  param in name "eclairage" explicit_type "Ent"
+	  param in name "bd" explicit_type "sqlite3"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 149635 "recevoirEclairage"
+	public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 148995 "modifierConfiguration"
+	public explicit_return_type "void"
+	nparams 1
+	  param in name "eclairage" explicit_type "Ent"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 148739 "extraireEclairage"
+	public explicit_return_type "void"
+	nparams 1
+	  param in name "bd" explicit_type "sqlite3"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 148611 "recevoirInfo"
+	public explicit_return_type "void"
+	nparams 1
+	  param in name "eclairage" explicit_type "Ent"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 148867 "visualiserInfo"
+	public explicit_return_type "void"
+	nparams 1
+	  param in name "eclairage" explicit_type "Ent"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+    end
+  end
+end
