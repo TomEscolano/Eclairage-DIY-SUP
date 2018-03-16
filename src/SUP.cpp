@@ -20,4 +20,5 @@ int SUP::main() {
 #ifndef NDEBUG
 
 #endif
-#endif
+
+//g++ -o Eclairage Eclairage.cpp Cycle.cpp EclairageMulticolore.cpp EclairageUnicolore.cpp -I . -lsqlite3 -D NDEBUG

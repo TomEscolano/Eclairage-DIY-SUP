@@ -12,95 +12,97 @@
 #include <string>
 #include "Cycle.h"
 
-class UcGerer;
-
 class Eclairage {
-
-
 
   public:
   
-    Eclairage():controleur(),ent(),persiBny(){};
-    ~Eclairage();
-    
-    class Ent {
-      private:
+	Eclairage():controleur(){};
 
-        unsigned int id;
+	//~Eclairage();
+	
+	class Ent {
+	  private:
 
-        bool allume;
+		unsigned int id;
 
-        bool active;
+		bool allume;
 
-        std::string nom;
+		bool active;
 
-        unsigned int consommation;
+		std::string nom;
+
+		unsigned int consommation;
 
 
-      public:
-        void setID(const unsigned int & id);
+	  public:
+		void setID(const unsigned int & id);
 
-        void setAllume(bool etat);
+		void setAllume(bool etat);
 
-        void setActive(bool etat);
+		void setActive(bool etat);
 
-        void setNom(const std::string & nom);
+		void setNom(const std::string & nom);
 
-        void setConsommation(const unsigned int & conso);
+		void setConsommation(const unsigned int & conso);
 
-        unsigned int getID();
+		unsigned int getID();
 
-        bool getAllume();
+		bool getAllume();
 
-        bool getActive();
+		bool getActive();
 
-        std::string getNom();
+		std::string getNom();
 
-        unsigned int getConsommation();
+		unsigned int getConsommation();
 
-    };
+	};
 
-    class Controleur {
-      public:
-        void activer(bool etat);
+	class PersiBny {
+	  public:
+		void set(const Ent & ent);
 
-        void allumer(bool etat);
+		void get(Ent & ent);
 
-        void getIHMJardin();
+	};
+	
+	class IHMJardin {
+	  public:
+		void set(const Ent & ent);
 
-        void getIHMFormulaire();
+	};
+	
+	class Controleur {
 
-        void set(const Ent & ent);
+		public:
+			Controleur():ent(),persiBny(){};
 
-        void get(Ent & ent);
+			void doIt();
+		
+		private:
+			public:Ent ent;
+			PersiBny persiBny;
 
-    };
-    
-    
-    class PersiBny {
-      public:
-        void set(const Ent & ent);
+			enum Etat {id, active, allume, nom, conso};
 
-        void get(Ent & ent);
+			void activer(bool etat);
 
-    };
-    
-    class IHMJardin {
-      public:
-        void set(const Ent & ent);
+			void allumer(bool etat);
 
-    };
-    
+			void getIHMJardin();
 
-  private:
-    UcGerer * ucGerer;
-    Cycle cycle;
+			void getIHMFormulaire();
 
+			void set( Ent & ent);
+
+			void get(Ent & ent);
+
+			void reguler(Cycle& cycle);
+
+	};
+	
 private:
-
-    Controleur controleur;
-    Ent ent;
-    PersiBny persiBny;
+	Cycle cycle;
+	public: Controleur controleur;
 
 };
 #endif

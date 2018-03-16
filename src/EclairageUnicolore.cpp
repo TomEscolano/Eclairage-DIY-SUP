@@ -8,14 +8,26 @@
 
 #include "EclairageUnicolore.h"
 
-void EclairageUnicolore::Controleur::setCouleur(const std::string & couleur) {
+void EclairageUnicolore::Controleur::setCouleur( Couleur couleur)
+{
+	this->ent.setCouleur(couleur);
 }
 
-std::string EclairageUnicolore::Controleur::getCouleur() {
+Couleur EclairageUnicolore::Controleur::getCouleur()
+{
+	return this->ent.getCouleur();
 }
 
+void EclairageUnicolore::Ent::setCouleur( Couleur couleur)
+{
+	this->couleur = couleur;
+}
+
+Couleur EclairageUnicolore::Ent::getCouleur()
+{
+	return this->couleur;
+}
 
 #ifndef NDEBUG
 
-#endif
 #endif

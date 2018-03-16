@@ -27,7 +27,7 @@ class EclairageMulticolore : public Eclairage {
       private:
         std::string couleur;
 
-        std::string adresseMACBluetooth;
+        std::string adresseMac;
 
         unsigned int niveauBatterie;
 
@@ -38,6 +38,24 @@ class EclairageMulticolore : public Eclairage {
         std::string adresseIP;
 
         Controleur controleur;
+
+        public:
+            void setCouleur(const std::string & couleur);
+
+            void setAdresseMac(const std::string & adresseMac);
+        
+            void setNiveauBatterie(const unsigned int & niveauBatterie);
+        
+            void setVersionFirmware(float version);
+        
+            void setAdresseIP(const std::string & adresseIP);
+        
+            std::string getCouleur();
+        
+            std::string getAdresseMac();
+        
+            unsigned int getNiveauBatterie();
+
 
     };
     
@@ -69,7 +87,7 @@ class EclairageMulticolore : public Eclairage {
 
 
       private:
-        <IHMFormulaire> ihmAjouter;
+        IHMFormulaire ihmAjouter;
 
     };
     

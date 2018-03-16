@@ -17,6 +17,11 @@
 class EclairageUnicolore : public Eclairage {
   public:
     class Ent {
+      public:
+        void setCouleur(Couleur couleur);
+        
+        Couleur getCouleur();
+
       private:
         Couleur couleur;
 
@@ -28,11 +33,10 @@ class EclairageUnicolore : public Eclairage {
       private:
         Ent ent;
 
-
       public:
-        void setCouleur(const std::string & couleur);
+        void setCouleur(Couleur couleur);
 
-        std::string getCouleur();
+        Couleur getCouleur();
 
     };
     
