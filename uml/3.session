@@ -1,10 +1,10 @@
-window_sizes 1920 1055 406 1508 1002 0
+window_sizes 1366 719 406 954 666 0
 cleanlooks_style
 diagrams
   classdiagram_ref 128003 // dcd
     763 532 107 Legal-Landscape 0 0
   active  classdiagram_ref 134531 // dca
-    1508 1002 64 A0 0 0
+    954 666 59 A0 96 0
 end
 show_stereotypes
 selected operation_ref 156675 // doIt
