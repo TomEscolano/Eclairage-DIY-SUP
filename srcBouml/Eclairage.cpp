@@ -15,8 +15,9 @@
 #include <string.h>
 #include <iostream>
 
+
 //**************** IHM FORMULAIRE ********************
-void Eclairage::IHMFormulaire::set( Ent & ent)
+void Eclairage::IHMFormulaire::set(Ent & ent)
 {
 	std::vector<std::pair<std::string, std::string> > contenu = {{"_nom", ent.getNom()}, {"_unicolore", ""}, {"_multicolore", "selected"}};
 	std::cout << Utility::remplacer("formulaire.html",  contenu);

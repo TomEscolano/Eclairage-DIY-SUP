@@ -7,9 +7,15 @@
 
 
 #include "UcExporter.h"
+#include "SqlitePersiBny.h"
 
 FILE UcExporter::doIt()
 {
+	std::string requete = "INSERT * from eclairages";
+	SqlitePersiBny::resultat resultat;
+	
+	int code_retour = persiBny.executerSql(requete, resultat&);
+
 }
 
 
