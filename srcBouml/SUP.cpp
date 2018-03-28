@@ -7,8 +7,9 @@
 
 
 #include "SUP.h"
-#include "UcExporter.h"
+/*#include "UcExporter.h"
 #include "UcImporter.h"
+#include "UcGerer.h"*/
 
 void SUP::suivreConsoElectricite() {
 }
@@ -17,8 +18,14 @@ int SUP::main() {
 }
 
 
-#ifndef NDEBUG
+#ifdef _UT_SUP_
+
+int main(int argc, char const *argv[])
+{
+	SUP sup;
+	return 0;
+}
 
 #endif
 
-//g++ -o Eclairage Eclairage.cpp Cycle.cpp EclairageMulticolore.cpp EclairageUnicolore.cpp UcMettreAJour.cpp -I . -lsqlite3 -D NDEBUG
+ // g++ -o Eclairage Eclairage.cpp SqlitePersiBny.cpp UcCommander.cpp Utility.cpp  -I . -lsqlite3 -D NDEBUG -std=c++11 -w && rm Eclairage

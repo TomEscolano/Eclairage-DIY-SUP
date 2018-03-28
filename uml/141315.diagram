@@ -1,0 +1,89 @@
+format 216
+
+classinstance 128003 class_ref 144003 // SUP
+  name ""   xyz 55 6 2005 life_line_z 2000
+classinstance 128131 class_ref 144131 // UcGerer
+  name ""   xyz 284 6 2005 life_line_z 2000
+classinstance 128259 class_ref 135939 // Controleur
+  name "eclairage"   xyz 465 135 2005 life_line_z 2000
+classinstance 129539 class_ref 136195 // PersiBny
+  name ""   xyz 389 5 2010 life_line_z 2000
+durationcanvas 128387 classinstance_ref 128003 // :SUP
+  xyzwh 74 195 2010 11 40
+end
+durationcanvas 128515 classinstance_ref 128131 // :UcGerer
+  xyzwh 314 195 2010 11 25
+end
+durationcanvas 128771 classinstance_ref 128131 // :UcGerer
+  xyzwh 314 252 2010 11 40
+end
+durationcanvas 128899 classinstance_ref 128259 // eclairage:Controleur
+  xyzwh 527 252 2010 11 25
+end
+durationcanvas 129155 classinstance_ref 128003 // :SUP
+  xyzwh 70 86 2010 11 40
+end
+durationcanvas 129283 classinstance_ref 128131 // :UcGerer
+  xyzwh 314 85 2010 11 25
+end
+durationcanvas 129667 classinstance_ref 128131 // :UcGerer
+  xyzwh 314 132 2010 11 40
+end
+durationcanvas 129795 classinstance_ref 129539 // :PersiBny
+  xyzwh 420 132 2010 11 25
+end
+durationcanvas 130051 classinstance_ref 128003 // :SUP
+  xyzwh 74 321 2010 11 40
+end
+durationcanvas 130179 classinstance_ref 128131 // :UcGerer
+  xyzwh 314 321 2010 11 29
+end
+durationcanvas 130435 classinstance_ref 128131 // :UcGerer
+  xyzwh 314 369 2010 11 40
+end
+durationcanvas 130563 classinstance_ref 129539 // :PersiBny
+  xyzwh 420 369 2010 11 25
+end
+msg 128643 asynchronous
+  from durationcanvas_ref 128387
+  to durationcanvas_ref 128515
+  yz 195 2015 msg operation_ref 148995 // "modifierConfiguration(in eclairage : Ent) : void"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "eclairage"
+  label_xy 95 177
+msg 129027 asynchronous
+  from durationcanvas_ref 128771
+  to durationcanvas_ref 128899
+  yz 252 2015 msg operation_ref 138115 // "set(in ent : Eclairage::Ent) : void"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "eclairage"
+  label_xy 361 235
+msg 129411 asynchronous
+  from durationcanvas_ref 129155
+  to durationcanvas_ref 129283
+  yz 83 2015 msg operation_ref 149123 // "ajouterEclairage(in eclairage : Ent, in bd : sqlite3) : void"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "eclairage, bdd"
+  label_xy 97 68
+msg 129923 asynchronous
+  from durationcanvas_ref 129667
+  to durationcanvas_ref 129795
+  yz 129 2015 msg operation_ref 138755 // "set(in ent : Eclairage::Ent) : void"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "eclairage"
+  label_xy 329 115
+msg 130307 asynchronous
+  from durationcanvas_ref 130051
+  to durationcanvas_ref 130179
+  yz 319 2015 msg operation_ref 149251 // "supprimerEclairage(in eclairage : Ent) : void"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "eclairage"
+  label_xy 104 304
+msg 130691 asynchronous
+  from durationcanvas_ref 130435
+  to durationcanvas_ref 130563
+  yz 366 2015 msg operation_ref 138755 // "set(in ent : Eclairage::Ent) : void"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "eclairage"
+  label_xy 328 352
+end

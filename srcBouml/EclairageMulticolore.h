@@ -15,13 +15,6 @@
 
 class EclairageMulticolore : public Eclairage {
   public:
-    class IHMFormulaire {
-      public:
-        void set(const Eclairage::Ent & ent);
-
-        void get(Eclairage::Ent & ent);
-
-    };
     
     class Ent {
       private:

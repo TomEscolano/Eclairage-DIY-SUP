@@ -13,7 +13,7 @@ FILE UcExporter::doIt()
 }
 
 
-#ifndef NDEBUG
+#ifdef NDEBUG
 
 #endif
 #endif

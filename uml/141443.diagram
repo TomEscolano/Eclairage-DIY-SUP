@@ -1,0 +1,35 @@
+format 216
+
+classinstance 128003 class_ref 144003 // SUP
+  name ""   xyz 202 4 2005 life_line_z 2000
+classinstance 128131 class_ref 151043 // UcCommander
+  name ""   xyz 334 5 2005 life_line_z 2000
+classinstance 128259 class_ref 135939 // Controleur
+  name "eclairage"   xyz 475 6 2005 life_line_z 2000
+durationcanvas 128387 classinstance_ref 128003 // :SUP
+  xyzwh 221 91 2010 11 40
+end
+durationcanvas 128515 classinstance_ref 128131 // :UcCommander
+  xyzwh 386 91 2010 11 25
+end
+durationcanvas 128771 classinstance_ref 128131 // :UcCommander
+  xyzwh 382 135 2010 11 40
+end
+durationcanvas 128899 classinstance_ref 128259 // eclairage:Controleur
+  xyzwh 541 134 2010 11 25
+end
+msg 128643 asynchronous
+  from durationcanvas_ref 128387
+  to durationcanvas_ref 128515
+  yz 88 2015 explicitmsg "allumer()"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "eclairage, etat"
+  label_xy 237 70
+msg 129027 asynchronous
+  from durationcanvas_ref 128771
+  to durationcanvas_ref 128899
+  yz 132 2015 msg operation_ref 137731 // "allumer(in etat : bool) : void"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "etat"
+  label_xy 427 117
+end

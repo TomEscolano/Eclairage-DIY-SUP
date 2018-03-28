@@ -1,16 +1,6 @@
-/******************************************************************
- * Auteurs:
- *   Frédéric Sutre (Frederic-Albert.Sutre@ac-nice.fr)
- *   Eric Valade (Eric.Valade@ac-nice.fr)
- * LGT Les Eucalyptus - Nice
- * Section de technicien supérieur
- * Systèmes Numériques option Informatique et réseau (SN-IR)
- * $Id: TcpIpComBnyException.cpp 133 2016-03-03 17:21:00Z eric $
- * $HeadURL: svn://buffalo500/IrisDesignPattern/trunk/Model/ComBnyBase/sansHeritageNiCatalogue/TcpIpComBnyException.cpp $
- ******************************************************************/
 #include "TcpIpComBnyException.h"
 
-#ifndef NDEBUG
+#ifdef NDEBUG
 #ifdef TcpIpComBnyException_Ut_
 #include <cassert>
 #include <iostream>

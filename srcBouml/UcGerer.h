@@ -8,7 +8,7 @@
 #ifndef _UCGERER_H
 #define _UCGERER_H
 
-
+#include "Eclairage.h"
 #include "UcMettreAJour.h"
 #include "UcCommander.h"
 #include <sqlite3.h>
@@ -20,11 +20,11 @@ class UcGerer {
   public:
     void emettreConfiguration(const Eclairage::Ent & eclairage);
 
-    void desactiverEclairage(const Eclairage::Ent & eclairage);
+    void desactiverEclairage(Eclairage::Ent & eclairage);
 
-    void supprimerEclairage(const Eclairage::Ent & eclairage);
+    void supprimerEclairage(const Eclairage::Ent & eclairage, const sqlite3 & bd);
 
-    void activerEclairage(const Eclairage::Ent & eclairage);
+    void activerEclairage(Eclairage::Ent & eclairage);
 
     void ajouterEclairage(const Eclairage::Ent & eclairage, const sqlite3 & bd);
 

@@ -1,0 +1,54 @@
+format 216
+
+classinstance 128003 class_ref 144003 // SUP
+  name ""   xyz 192 4 2005 life_line_z 2000
+classinstance 128131 class_ref 158083 // BDD
+  name ""   xyz 339 5 2000 life_line_z 2000
+classinstance 128259 class_ref 136067 // Ent
+  name ""   xyz 483 5 2000 life_line_z 2000
+durationcanvas 128387 classinstance_ref 128003 // :SUP
+  xyzwh 211 114 2010 11 40
+end
+durationcanvas 128515 classinstance_ref 128131 // :BDD
+  xyzwh 358 113 2010 11 25
+end
+durationcanvas 129027 classinstance_ref 128131 // :BDD
+  xyzwh 358 174 2010 11 40
+end
+durationcanvas 129155 classinstance_ref 128003 // :SUP
+  xyzwh 211 173 2010 11 25
+end
+durationcanvas 129411 classinstance_ref 128003 // :SUP
+  xyzwh 211 244 2010 11 40
+end
+durationcanvas 129539 classinstance_ref 128259 // :Ent
+  xyzwh 502 244 2010 11 26
+end
+durationcanvas 129795 classinstance_ref 128003 // :SUP
+  xyzwh 211 57 2010 11 40
+end
+msg 128643 asynchronous
+  from durationcanvas_ref 128387
+  to durationcanvas_ref 128515
+  yz 111 2015 explicitmsg "getEclairages()"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 241 97
+msg 129283 asynchronous
+  from durationcanvas_ref 129027
+  to durationcanvas_ref 129155
+  yz 171 2015 explicitmsg "eclairages"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 257 156
+msg 129667 asynchronous
+  from durationcanvas_ref 129411
+  to durationcanvas_ref 129539
+  yz 241 2015 explicitmsg "set(in ent: eclairage)"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "eclairage"
+  label_xy 308 227
+reflexivemsg 129923 asynchronous
+  to durationcanvas_ref 129795
+  yz 114 2015 explicitmsg "getFile()"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 221 38
+end

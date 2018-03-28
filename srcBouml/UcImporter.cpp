@@ -19,7 +19,6 @@ void UcImporter::ajouter(const Ent & eclairage, const UcGerer & ucGerer) {
 }
 
 
-#ifndef NDEBUG
+#ifdef NDEBUG
 
-#endif
 #endif

@@ -11,6 +11,7 @@
 
 #include <string>
 #include "Cycle.h"
+#include "SqlitePersiBny.h"
 
 class Eclairage {
 
@@ -19,7 +20,7 @@ class Eclairage {
 	Eclairage():controleur(){};
 
 	//~Eclairage();
-	
+
 	class Ent {
 	  private:
 
@@ -70,6 +71,14 @@ class Eclairage {
 		void set( Ent & ent);
 
 	};
+
+	class IHMFormulaire {
+      public:
+        void set( Ent & ent);
+
+        void get(Ent & ent);
+
+    };
 	
 	class Controleur {
 
@@ -101,7 +110,9 @@ class Eclairage {
 	
 private:
 	Cycle cycle;
-	public: Controleur controleur;
+public:
+	Controleur controleur;
+	//SqlitePersiBny persiBny;
 
 };
 #endif

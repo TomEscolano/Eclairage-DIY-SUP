@@ -9,7 +9,6 @@
 #include "Couleur.h"
 
 
-#ifndef NDEBUG
+#ifdef NDEBUG
 
-#endif
 #endif

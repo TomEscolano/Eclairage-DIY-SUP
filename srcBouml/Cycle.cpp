@@ -70,6 +70,6 @@ bool Cycle::Ent::getActif()
 	return this->actif;
 }
 
-#ifndef NDEBUG
+#ifdef NDEBUG
 
 #endif

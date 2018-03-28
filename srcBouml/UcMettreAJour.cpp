@@ -17,14 +17,14 @@
 void UcMettreAJour::doIt(const std::string & adresseIP, const unsigned int & port)
 {
 
-	ClientTcpComBny clientTCP;
+	//ClientTcpComBny clientTCP;
 
-	clientTCP.connecter(adresseIP, port);
+	/*clientTCP.connecter(adresseIP, port);
 	clientTCP.fprintf(this->firmware);
-	clientTCP.deconnecter();
+	clientTCP.deconnecter();*/
 
 }
 
 
-#ifndef NDEBUG
+#ifdef NDEBUG
 #endif

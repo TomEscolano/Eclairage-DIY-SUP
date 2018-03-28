@@ -10,42 +10,50 @@
 #include "Eclairage.h"
 #include "UcCommander.h"
 
-void UcGerer::emettreConfiguration(const Ent & eclairage) {
+void UcGerer::emettreConfiguration(const Eclairage::Ent & eclairage) {
 }
 
-void UcGerer::desactiverEclairage(const Ent & eclairage)
+void UcGerer::desactiverEclairage(Eclairage::Ent & eclairage)
 {
-	eclairage.controleur.activer(false);
+	eclairage.setActive(false);
 }
 
-void UcGerer::supprimerEclairage(const Ent & eclairage, const sqlite3 & bd) {
+void UcGerer::supprimerEclairage(const Eclairage::Ent & eclairage, const sqlite3 & bd) {
 }
 
-void UcGerer::activerEclairage(const Ent & eclairage)
+void UcGerer::activerEclairage(Eclairage::Ent & eclairage)
 {
-	eclairage.controleur.activer(true);
+	eclairage.setActive(true);
 }
 
-void UcGerer::ajouterEclairage(const Ent & eclairage, const sqlite3 & bd) {
+void UcGerer::ajouterEclairage(const Eclairage::Ent & eclairage, const sqlite3 & bd) {
 }
 
 void UcGerer::recevoirEclairage() {
 }
 
-void UcGerer::modifierConfiguration(const Ent & eclairage) {
+void UcGerer::modifierConfiguration(const Eclairage::Ent & eclairage) {
 }
 
 void UcGerer::extraireEclairage(const sqlite3 & bd) {
 }
 
-void UcGerer::recevoirInfo(const Ent & eclairage) {
+void UcGerer::recevoirInfo(const Eclairage::Ent & eclairage) {
 }
 
-void UcGerer::visualiserInfo(const Ent & eclairage) {
+void UcGerer::visualiserInfo(const Eclairage::Ent & eclairage) {
 }
 
 
-#ifndef NDEBUG
+#ifdef _UT_UCGERER_
 
-#endif
+int main(int argc, char const *argv[])
+{
+	UcGerer ucGerer;
+
+	return 0;
+}
+
+//g++ -o UcGerer Eclairage.cpp UcGerer.cpp Utility.cpp SqlitePersiBny.cpp -I . -lsqlite3 -D _UT_UCGERER_ -std=c++11 -w
+
 #endif

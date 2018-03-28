@@ -7,6 +7,25 @@
 
 
 #include "Eclairage.h"
+#include <vector>
+#include "Utility.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
+#include <iostream>
+
+//**************** IHM FORMULAIRE ********************
+void Eclairage::IHMFormulaire::set( Ent & ent)
+{
+	std::vector<std::pair<std::string, std::string> > contenu = {{"_nom", ent.getNom()}, {"_unicolore", ""}, {"_multicolore", "selected"}};
+	std::cout << Utility::remplacer("formulaire.html",  contenu);
+}
+
+void Eclairage::IHMFormulaire::get(Ent & ent)
+{
+	//TODO: Recuperer les valeurs passées en paramètres de l'URL
+}
 
 //*************** CONTROLEUR ****************
 void Eclairage::Controleur::activer(bool etat)
@@ -42,7 +61,6 @@ void Eclairage::Controleur::get(Eclairage::Ent & ent)
 	ent.setNom(this->ent.getNom());
 	ent.setConsommation(this->ent.getConsommation());
 }
-
 
 //*************** ENTITY ****************
 void Eclairage::Ent::setID(const unsigned int & id)
@@ -99,35 +117,19 @@ unsigned int Eclairage::Ent::getConsommation()
 //*************** PERSIBNY ****************
 void Eclairage::PersiBny::set(const Eclairage::Ent & ent)
 {
+	/*std::string requete = "INSERT INTO ECLAIRAGES";
+	persiBny.executerSql(std::string requete)*/
 }
 
-void Eclairage::PersiBny::get(Eclairage::Ent & ent)
-{
+void Eclairage::PersiBny::get(Eclairage::Ent & ent){
 }
 
 //*************** IHM JARDIN ****************
-void Eclairage::IHMJardin::set(Eclairage::Ent & ent)
-{
-	std::string ihm;
-	std::string imageLampe = "<div class='lampe'>";
-
-	//Choisi le logo en fonction de l'etat de la lampe
-	switch(ent.getAllume())
-	{
-		case true:
-			imageLampe += "<img src='img/imgLampeAllumee.png'/>";
-			break;
-
-		default:
-			imageLampe += "<img src='img/imgLampeEteinte.png'/>";
-			break;
-	}
-
-	imageLampe += "</div>";
+void Eclairage::IHMJardin::set(Eclairage::Ent & ent){
 }
 
 
-#ifdef NDEBUG
+#ifdef _UT_ECLAIRAGE_
 
 #include <iostream>
 
@@ -138,4 +140,7 @@ int main(int argc, char const *argv[])
 
 	return 0;
 }
+
+//g++ -o Eclairage Eclairage.cpp SqlitePersiBny.cpp Utility.cpp -I . -lsqlite3 -D _UT_ECLAIRAGE_ -std=c++11 -w
+
 #endif

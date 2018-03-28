@@ -11,7 +11,7 @@
 
 class UcCommander {
   public:
-    void getSelection();
+    /*void getSelection();
 
     void afficherMenuSelection();
 
@@ -19,7 +19,10 @@ class UcCommander {
 
     void execAction();
 
-    void enregistrer();
+    void enregistrer();*/
+    void allumer(Eclairage::Ent & ent, bool etat);
+
+	void activer(Eclairage::Ent & ent, bool etat);
 
 };
 #endif

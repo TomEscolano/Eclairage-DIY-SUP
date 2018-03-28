@@ -8,6 +8,7 @@
 
 int main(int argc, char **argv)
 {
+
    try
    {
       //cgicc::Cgicc cgi;
@@ -18,9 +19,11 @@ int main(int argc, char **argv)
       // Generation du document HTML
       std::cout << cgicc::html() << std::endl << cgicc::head() << std::endl <<
          cgicc::title("Superviseur") << std::endl <<
+         cgicc::script().set("type", "text/javascript") <<  "var i = 0; var x; var y;" << cgicc::script() << std::endl <<
          cgicc::link().set("rel","stylesheet").set("href", "http://localhost/css/w3.css") << std::endl <<
          cgicc::link().set("rel","stylesheet").set("href", "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css") << std::endl <<
          cgicc::link().set("rel","stylesheet").set("href", "http://localhost/css/style.css") << std::endl <<
+         cgicc::script().set("type", "text/javascript").set("src", "http://localhost/js/index.js") << cgicc::script() << std::endl <<
       cgicc::head() << std::endl;
 
       std::cout << cgicc::body() << std::endl;
@@ -37,7 +40,7 @@ int main(int argc, char **argv)
       cgicc::div() << std::endl;
 
       // Image de la maison
-      std::cout << cgicc::img().set("src", "http://localhost/img/t.png") << cgicc::img() << std::endl;
+      std::cout << cgicc::img().set("src", "http://localhost/img/t.png").set("onclick", "creerBoutonAjout(event,this);") << cgicc::img() << std::endl;
 
       // Fermeture du document HTML
       std::cout << cgicc::body() << cgicc::html();
