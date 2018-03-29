@@ -12,6 +12,8 @@
 void EclairageUnicolore::Controleur::setCouleur( Couleur couleur)
 {
 	this->ent.setCouleur(couleur);
+	Utility::log_action(this->id, "Couleur", couleur);
+
 }
 
 Couleur EclairageUnicolore::Controleur::getCouleur()

@@ -49,9 +49,13 @@ void Eclairage::Controleur::set( Eclairage::Ent & ent)
 {
 	this->ent.setID(ent.getID());
 	this->ent.setAllume(ent.getAllume());
+	Utility::log_action(this->id, "Allumer", ent.getAllume() ? "true":"false");
 	this->ent.setActive(ent.getActive());
+	Utility::log_action(this->id, "Activer", ent.getActive() ? "true":"false");
 	this->ent.setNom(ent.getNom());
+	Utility::log_action(this->id, "Nom", ent.getNom());
 	this->ent.setConsommation(ent.getConsommation());
+	Utility::log_action(this->id, "Consommation", ent.getConsommation());
 }
 
 void Eclairage::Controleur::get(Eclairage::Ent & ent)
@@ -67,26 +71,31 @@ void Eclairage::Controleur::get(Eclairage::Ent & ent)
 void Eclairage::Ent::setID(const unsigned int & id)
 {
 	this->id = id;
+
 }
 
 void Eclairage::Ent::setAllume(bool etat)
 {
 	this->allume = etat;
+
 }
 
 void Eclairage::Ent::setActive(bool etat)
 {
 	this->active = etat;
+
 }
 
 void Eclairage::Ent::setNom(const std::string & nom)
 {
 	this->nom = nom;
+
 }
 
 void Eclairage::Ent::setConsommation(const unsigned int & conso)
 {
 	this->consommation = conso;
+
 }
 
 unsigned int Eclairage::Ent::getID()

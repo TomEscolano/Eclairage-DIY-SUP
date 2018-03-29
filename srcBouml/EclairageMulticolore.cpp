@@ -7,6 +7,7 @@
 
 #include <EclairageMulticolore.h>
 #include <fstream>
+#include <string>
 
 //****************** CONTROLEUR **********************
 void EclairageMulticolore::Controleur::recevoir() {
@@ -18,26 +19,36 @@ void EclairageMulticolore::Controleur::envoyer() {
 void EclairageMulticolore::Controleur::setCouleur(const std::string & couleur)
 {
 	this->ent.setCouleur(couleur);
+	Utility::log_action(this->id, "Couleur", couleur);
+
 }
 
 void EclairageMulticolore::Controleur::setAdresseMac(const std::string & adresseMac)
 {
 	this->ent.setAdresseMac(adresseMac);
+	Utility::log_action(this->id, "AdresseMAC", adresseMac);
+
 }
 
 void EclairageMulticolore::Controleur::setNiveauBatterie(const unsigned int & niveauBatterie)
 {
 	this->ent.setNiveauBatterie(niveauBatterie);
+	Utility::log_action(this->id, "NiveauBatterie", std::to_string(niveauBatterie));
+
 }
 
 void EclairageMulticolore::Controleur::setVersionFirmware(float version)
 {
 	this->ent.setVersionFirmware(version);
+	Utility::log_action(this->id, "VersionFirmware", std::to_string(version));
+
 }
 
 void EclairageMulticolore::Controleur::setAdresseIP(const std::string & adresseIP)
 {
 	this->ent.setAdresseIP(adresseIP);
+	Utility::log_action(this->id, "AdresseIP", adresseIP);
+
 }
 
 std::string EclairageMulticolore::Controleur::getCouleur()

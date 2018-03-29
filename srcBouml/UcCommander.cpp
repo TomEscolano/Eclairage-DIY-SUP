@@ -28,13 +28,11 @@ void UcCommander::enregistrer() {
 void UcCommander::allumer(Eclairage::Ent & ent, bool etat)
 {
 	ent.setAllume(etat);
-	Utility::log_action(ent.getID(), "Allumer", etat ? "true":"false");
 }
 
 void UcCommander::activer(Eclairage::Ent & ent, bool etat)
 {
 	ent.setActive(etat);
-	Utility::log_action(ent.getID(), "Activer", etat ? "true":"false");
 }
 
 

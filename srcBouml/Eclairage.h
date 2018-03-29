@@ -88,7 +88,10 @@ class Eclairage {
 			void doIt();
 		
 			Ent ent;
+
 			PersiBny persiBny;
+
+			Controleur controleur;
 
 			enum Etat {id, active, allume, nom, conso};
 
@@ -110,9 +113,6 @@ class Eclairage {
 	
 private:
 	Cycle cycle;
-public:
-	Controleur controleur;
-	//SqlitePersiBny persiBny;
 
 };
 #endif
