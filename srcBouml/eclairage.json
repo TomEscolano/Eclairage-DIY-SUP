@@ -1,0 +1,7 @@
+{
+    "id" : 1,
+    "nom" : "eclairage2",
+    "allume" : true,
+    "active" : true,
+    "consommation" : 32
+}

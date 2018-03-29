@@ -7,7 +7,7 @@
 
 #include <regex>
 #include <vector>
-#include <fichierTextePersiBny.h>
+#include <FichierTextePersiBny.h>
 #include <SqlitePersiBny.h>
 #include <Utility.h>
 #include <jsoncpp/json/json.h>
@@ -34,24 +34,6 @@ void Utility::log_action(unsigned int id, std::string action, std::string value)
 	persi.executerSql("INSERT INTO logs VALUES(" + std::to_string(id) + ", " + action + ", " + value + ");");
 
 
-}
-
-void replaceAll(std::string& str, const std::string& from, const std::string& to)
-{
-    size_t start_pos = 0;
-    while((start_pos = str.find(from, start_pos)) != std::string::npos)
-    {
-        str.replace(start_pos, from.length(), to);
-        start_pos += to.length();
-    }
-}
-
-Json::Value decodeJson(std::string toDecode)
-{
-	Json::Value root;   
-    Json::Reader reader;
-    bool parsingSuccessful = reader.parse( toDecode.c_str(), root );
-    //std::cout << root.get("mykey", "A Default Value if not exists" ).asString() << std::endl;
 }
 
 #ifdef _UT_UTILITY_
