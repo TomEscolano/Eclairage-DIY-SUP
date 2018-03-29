@@ -1,7 +1,17 @@
 {
-    "id" : 1,
-    "nom" : "eclairage2",
-    "allume" : true,
-    "active" : true,
-    "consommation" : 32
+    "1":
+    {
+        "nom" : "eclairage1",
+        "allume" : true,
+          "active" : true,
+          "consommation" : 32
+    },
+    "2":
+    {
+        "nom" : "eclairage2",
+        "allume" : false,
+        "active" : true,
+        "consommation" : 42
+    }
+
 }

@@ -33,19 +33,20 @@ void UcImporter::doIt(std::ifstream & fichierCSV, const UcGerer & ucGerer)
 	// Parse du fichier dans la structure XML
 	reader.parse(fichierCSV, root);
 
-	// Création d'une entity temporaire
-	Eclairage::Ent ent;
+	for(int i = 1; i < root.size()+1; i++)
+	{
+		// Création d'une entity temporaire
+		Eclairage::Ent ent;
 
-	//Assignation des valeurs d'eclairage
-	ent.setID((unsigned int)root.get("id", 0).asInt());
-	ent.setAllume(root.get("allume", 0).asBool());
-	ent.setActive(root.get("active", 0).asBool());
-	ent.setNom(root.get("nom", "").asString());
-	ent.setConsommation((unsigned int)root.get("consommation", 0).asInt());
+		//Assignation des valeurs d'eclairage
+		ent.setID((unsigned int)root[std::to_string(i)].get("id", 0).asInt());
+		ent.setAllume(root[std::to_string(i)].get("allume", 0).asBool());
+		ent.setActive(root[std::to_string(i)].get("active", 0).asBool());
+		ent.setNom(root[std::to_string(i)].get("nom", "").asString());
+		ent.setConsommation((unsigned int)root[std::to_string(i)].get("consommation", 0).asInt());
 
-	std::cout << ent.getID() << ", " << ent.getAllume() << ", " << ent.getActive() << ", " << ent.getNom() << ", " << ent.getConsommation() << std::endl;
-
-	//ucGerer.modifierConfiguration();
+		ucGerer.modifierConfiguration(ent);
+	}
 
 }
 

@@ -12,17 +12,19 @@
 #include <UcMettreAJour.h>
 #include <UcCommander.h>
 #include <sqlite3.h>
+#include <SqlitePersiBny.h>
 
 class Eclairage;
 class UcCommander;
 
 class UcGerer {
   public:
+
     void emettreConfiguration(const Eclairage::Ent & eclairage);
 
     void desactiverEclairage(Eclairage::Ent & eclairage);
 
-    void supprimerEclairage(const Eclairage::Ent & eclairage, const sqlite3 & bd);
+    void supprimerEclairage(Eclairage::Ent & eclairage, const sqlite3 & bd);
 
     void activerEclairage(Eclairage::Ent & eclairage);
 
@@ -30,7 +32,7 @@ class UcGerer {
 
     void recevoirEclairage();
 
-    void modifierConfiguration(const Eclairage::Ent & eclairage);
+    void modifierConfiguration(Eclairage::Ent & eclairage);
 
     void extraireEclairage(const sqlite3 & bd);
 

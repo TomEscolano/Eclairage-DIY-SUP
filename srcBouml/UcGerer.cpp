@@ -9,6 +9,9 @@
 #include <UcGerer.h>
 #include <Eclairage.h>
 #include <UcCommander.h>
+#include <SqlitePersiBny.h>
+
+#define DB "eclairagediy.db"
 
 void UcGerer::emettreConfiguration(const Eclairage::Ent & eclairage) {
 }
@@ -18,7 +21,12 @@ void UcGerer::desactiverEclairage(Eclairage::Ent & eclairage)
 	eclairage.setActive(false);
 }
 
-void UcGerer::supprimerEclairage(const Eclairage::Ent & eclairage, const sqlite3 & bd) {
+void UcGerer::supprimerEclairage( Eclairage::Ent & eclairage, const sqlite3 & bd)
+{
+	SqlitePersiBny persi(DB);
+	std::string requete = "DELETE FROM eclairages WHERE id = " + std::to_string(eclairage.getID()) + ";";
+
+	persi.executerSql(requete);
 }
 
 void UcGerer::activerEclairage(Eclairage::Ent & eclairage)
@@ -32,10 +40,18 @@ void UcGerer::ajouterEclairage(const Eclairage::Ent & eclairage, const sqlite3 &
 void UcGerer::recevoirEclairage() {
 }
 
-void UcGerer::modifierConfiguration(const Eclairage::Ent & eclairage) {
+void UcGerer::modifierConfiguration( Eclairage::Ent & eclairage)
+{
+    SqlitePersiBny persi(DB);
+	
+	std::string requete = "UPDATE eclairages SET nom = " + eclairage.getNom() + "allume = " + std::to_string(eclairage.getAllume()) + "active = " + std::to_string(eclairage.getActive()) + "consommation =" + std::to_string(eclairage.getConsommation()) + " WHERE id = " + std::to_string(eclairage.getID()) + ";";
+
+	persi.executerSql(requete);
 }
 
-void UcGerer::extraireEclairage(const sqlite3 & bd) {
+void UcGerer::extraireEclairage(const sqlite3 & bd)
+{
+
 }
 
 void UcGerer::recevoirInfo(const Eclairage::Ent & eclairage) {

@@ -33,7 +33,6 @@ void Utility::log_action(unsigned int id, std::string action, std::string value)
 	SqlitePersiBny persi(DB);
 	persi.executerSql("INSERT INTO logs VALUES(" + std::to_string(id) + ", " + action + ", " + value + ");");
 
-
 }
 
 #ifdef _UT_UTILITY_
