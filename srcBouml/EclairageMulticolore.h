@@ -9,7 +9,7 @@
 #define _ECLAIRAGEMULTICOLORE_H
 
 
-#include "Eclairage.h"
+#include <Eclairage.h>
 #include <string>
 
 

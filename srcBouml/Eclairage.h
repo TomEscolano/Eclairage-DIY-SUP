@@ -10,8 +10,8 @@
 
 
 #include <string>
-#include "Cycle.h"
-#include "SqlitePersiBny.h"
+#include <Cycle.h>
+#include <SqlitePersiBny.h>
 
 class Eclairage {
 

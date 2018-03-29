@@ -6,9 +6,9 @@
 *******************************************************/
 
 
-#include "UcGerer.h"
-#include "Eclairage.h"
-#include "UcCommander.h"
+#include <UcGerer.h>
+#include <Eclairage.h>
+#include <UcCommander.h>
 
 void UcGerer::emettreConfiguration(const Eclairage::Ent & eclairage) {
 }

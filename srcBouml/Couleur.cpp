@@ -6,7 +6,7 @@
 *******************************************************/
 
 
-#include "Couleur.h"
+#include <Couleur.h>
 
 
 #ifdef NDEBUG

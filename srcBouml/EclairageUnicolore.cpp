@@ -6,7 +6,7 @@
 *******************************************************/
 
 
-#include "EclairageUnicolore.h"
+#include <EclairageUnicolore.h>
 
 //****************** CONTROLEUR *****************
 void EclairageUnicolore::Controleur::setCouleur( Couleur couleur)

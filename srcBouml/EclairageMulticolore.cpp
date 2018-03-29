@@ -5,7 +5,7 @@
 \brief Projet : Eclairage DIY - SUP
 *******************************************************/
 
-#include "EclairageMulticolore.h"
+#include <EclairageMulticolore.h>
 #include <fstream>
 
 //****************** CONTROLEUR **********************

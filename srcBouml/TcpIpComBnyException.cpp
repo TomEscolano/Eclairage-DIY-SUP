@@ -1,4 +1,4 @@
-#include "TcpIpComBnyException.h"
+#include <TcpIpComBnyException.h>
 
 #ifdef NDEBUG
 #ifdef TcpIpComBnyException_Ut_

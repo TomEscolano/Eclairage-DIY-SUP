@@ -9,8 +9,8 @@
 #define _ECLAIRAGEUNICOLORE_H
 
 
-#include "Eclairage.h"
-#include "Couleur.h"
+#include <Eclairage.h>
+#include <Couleur.h>
 #include <string>
 
 

@@ -8,9 +8,9 @@
 #ifndef _UCGERER_H
 #define _UCGERER_H
 
-#include "Eclairage.h"
-#include "UcMettreAJour.h"
-#include "UcCommander.h"
+#include <Eclairage.h>
+#include <UcMettreAJour.h>
+#include <UcCommander.h>
 #include <sqlite3.h>
 
 class Eclairage;
