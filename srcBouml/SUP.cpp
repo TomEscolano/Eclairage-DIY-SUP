@@ -7,11 +7,27 @@
 
 
 #include <SUP.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
+#include <iostream>
+#include <FichierTextePersiBny.h>
 
 void SUP::suivreConsoElectricite() {
 }
 
-int SUP::main() {
+int SUP::main()
+{
+	try
+	{
+		FichierTextePersiBny fichier("html/index.html");
+		std::cout << fichier.getContenu();
+	}catch(std::exception &e)
+	{
+		std::cout << "Erreur dans la lecture de l'index";
+	}
+	
 }
 
 
@@ -20,10 +36,11 @@ int SUP::main() {
 int main(int argc, char const *argv[])
 {
 	SUP sup;
-	
+	sup.main();
+
 	return 0;
 }
 
 #endif
 
- // g++ -o Eclairage Eclairage.cpp SqlitePersiBny.cpp UcCommander.cpp Utility.cpp  -I . -lsqlite3 -D NDEBUG -std=c++11 -w && rm Eclairage
+//g++ -o SUP SUP.cpp -I . -D _UT_SUP_ -std=c++11 -w && rm SUP

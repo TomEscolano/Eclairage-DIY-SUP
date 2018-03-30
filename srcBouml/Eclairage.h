@@ -36,6 +36,8 @@ class Eclairage {
 
 
 	  public:
+	  	Ent():id(0),allume(false), active(false),nom("undefined"), consommation(0){}
+
 		void setID(const unsigned int & id);
 
 		void setAllume(bool etat);
@@ -58,8 +60,11 @@ class Eclairage {
 
 	};
 
-	class PersiBny {
+	class PersiBny : public SqlitePersiBny {
 	  public:
+
+	  	PersiBny(): SqlitePersiBny("/var/eclairage/bdd.db"){};
+
 		void set(const Ent & ent);
 
 		void get(Ent & ent);
@@ -81,20 +86,18 @@ class Eclairage {
     };
 	
 	class Controleur {
+		private:
+			enum Etat {id, active, allume, nom, conso};
+
+		private:
+			Ent ent;
+			PersiBny persiBny;
 
 		public:
 			Controleur():ent(),persiBny(){};
 
 			void doIt();
 		
-			Ent ent;
-
-			PersiBny persiBny;
-
-			Controleur controleur;
-
-			enum Etat {id, active, allume, nom, conso};
-
 			void activer(bool etat);
 
 			void allumer(bool etat);
@@ -113,6 +116,9 @@ class Eclairage {
 	
 private:
 	Cycle cycle;
+
+public:
+	Controleur controleur;
 
 };
 #endif

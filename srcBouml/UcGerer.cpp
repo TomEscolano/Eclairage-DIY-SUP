@@ -34,7 +34,13 @@ void UcGerer::activerEclairage(Eclairage::Ent & eclairage)
 	eclairage.setActive(true);
 }
 
-void UcGerer::ajouterEclairage(const Eclairage::Ent & eclairage, const sqlite3 & bd) {
+void UcGerer::ajouterEclairage(Eclairage::Ent & eclairage, const sqlite3 & bd)
+{
+	SqlitePersiBny persi(DB);
+
+	std::string requete = "INSERT INTO eclairages (nom, allume, active, consommation) VALUES (" + eclairage.getNom() + ", " + std::to_string(eclairage.getAllume()) + ", " + std::to_string(eclairage.getActive()) + ", " + std::to_string(eclairage.getConsommation()) + ");";
+
+	persi.executerSql(requete);
 }
 
 void UcGerer::recevoirEclairage() {

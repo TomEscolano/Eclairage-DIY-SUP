@@ -15,8 +15,10 @@
 
 class EclairageMulticolore : public Eclairage {
   public:
+  
+    EclairageMulticolore():Eclairage(),controleur(){};
     
-    class Ent {
+    class Ent : public Eclairage::Ent {
       private:
         std::string couleur;
 
@@ -30,9 +32,9 @@ class EclairageMulticolore : public Eclairage {
 
         std::string adresseIP;
 
-        Controleur controleur;
-
         public:
+            Ent():Eclairage::Ent(),couleur("undefined"), adresseMac("undefined"), niveauBatterie(0), versionFirmware(0.0F), socket(-1), adresseIP("undefined"){};
+
             void setCouleur(const std::string & couleur);
 
             void setAdresseMac(const std::string & adresseMac);
@@ -42,6 +44,8 @@ class EclairageMulticolore : public Eclairage {
             void setVersionFirmware(float version);
         
             void setAdresseIP(const std::string & adresseIP);
+
+            unsigned int getID();
         
             std::string getCouleur();
         
@@ -51,13 +55,24 @@ class EclairageMulticolore : public Eclairage {
 
 
     };
+
+    class PersiBny : public Eclairage::PersiBny {
+        public:
+            PersiBny():Eclairage::PersiBny("/var/eclairage/bdd.db"){};
+
+            void set(const Ent & ent);
+
+            void get(Ent & ent);
+    };
     
-    class Controleur {
+    class Controleur : public Eclairage::Controleur{
       private:
         Ent ent;
-
+        PersiBny persiBny;
 
       public:
+        Controleur():Eclairage::Controleur(), ent(), persiBny(){};
+        
         void recevoir();
 
         void envoyer();
@@ -84,5 +99,7 @@ class EclairageMulticolore : public Eclairage {
 
     };
     
+    Controleur controleur;
+
 };
 #endif

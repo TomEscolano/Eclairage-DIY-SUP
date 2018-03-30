@@ -11,15 +11,7 @@
 
 class UcCommander {
   public:
-    /*void getSelection();
 
-    void afficherMenuSelection();
-
-    void getAction();
-
-    void execAction();
-
-    void enregistrer();*/
     void allumer(Eclairage::Ent & ent, bool etat);
 
 	void activer(Eclairage::Ent & ent, bool etat);

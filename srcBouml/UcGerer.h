@@ -28,7 +28,7 @@ class UcGerer {
 
     void activerEclairage(Eclairage::Ent & eclairage);
 
-    void ajouterEclairage(const Eclairage::Ent & eclairage, const sqlite3 & bd);
+    void ajouterEclairage(Eclairage::Ent & eclairage, const sqlite3 & bd);
 
     void recevoirEclairage();
 

@@ -37,8 +37,6 @@ Couleur EclairageUnicolore::Ent::getCouleur()
 int main(int argc, char const *argv[])
 {
 
-	EclairageUnicolore monUnicolore;
-	EclairageUnicolore::Ent ent;
 	EclairageUnicolore::Controleur controleur;
 
 	return 0;

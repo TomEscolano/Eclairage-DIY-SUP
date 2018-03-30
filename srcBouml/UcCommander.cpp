@@ -10,21 +10,6 @@
 #include <UcCommander.h>
 #include <Utility.h>
 
-/*void UcCommander::getSelection() {
-}
-
-void UcCommander::afficherMenuSelection() {
-}
-
-void UcCommander::getAction() {
-}
-
-void UcCommander::execAction() {
-}
-
-void UcCommander::enregistrer() {
-}*/
-
 void UcCommander::allumer(Eclairage::Ent & ent, bool etat)
 {
 	ent.setAllume(etat);
