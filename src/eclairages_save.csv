@@ -1,0 +1,2 @@
+type, id, nom, consommation, allume, active, couleur, adresseMac, niveauBatterie, versionFirmware, adresseIP
+"unicolore", 1, "test", 0, "true", "true", "bleu", "", 1, 1.0, ""

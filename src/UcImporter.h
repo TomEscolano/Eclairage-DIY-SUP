@@ -14,7 +14,7 @@ class UcGerer;
 
 class UcImporter {
   public:
-	void doIt(std::ifstream & fichierCSV, const UcGerer & ucGerer);
+	void doIt(std::string fichierCSV, const UcGerer & ucGerer);
 
 
   private:

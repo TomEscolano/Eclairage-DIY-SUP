@@ -29,7 +29,7 @@ class EclairageUnicolore : public Eclairage {
 
     };
     
-    class Controleur {
+    class Controleur : public Eclairage::Controleur{
       private:
         Ent ent;
 

@@ -7,12 +7,13 @@
 
 
 #include <EclairageUnicolore.h>
+#include <string.h>
 
 //****************** CONTROLEUR *****************
 void EclairageUnicolore::Controleur::setCouleur( Couleur couleur)
 {
 	this->ent.setCouleur(couleur);
-	Utility::log_action(this->id, "Couleur", couleur);
+	Utility::log_action(this->getID(), "Couleur", std::to_string(couleur));
 
 }
 

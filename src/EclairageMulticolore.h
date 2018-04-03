@@ -58,7 +58,7 @@ class EclairageMulticolore : public Eclairage {
 
     class PersiBny : public Eclairage::PersiBny {
         public:
-            PersiBny():Eclairage::PersiBny("/var/eclairage/bdd.db"){};
+            PersiBny():Eclairage::PersiBny(){};
 
             void set(const Ent & ent);
 

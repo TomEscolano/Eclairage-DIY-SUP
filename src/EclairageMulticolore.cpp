@@ -14,7 +14,6 @@
 #include <iostream>
 
 void EclairageMulticolore::Controleur::recevoir() {
-	std::cout << "schprout" << std::endl;
 }
 
 void EclairageMulticolore::Controleur::envoyer() {
@@ -123,11 +122,12 @@ int main(int argc, char const *argv[])
 
 	EclairageMulticolore eclairageMulticolore;
 	
-	eclairageMulticolore.controleur.recevoir();
+	//Appel d'une fonction de la classe mère via le controleur
+	eclairageMulticolore.controleur.getIHMJardin();
 
 	return 0;
 }
 
-//g++ -o EclairageMulticolore EclairageMulticolore.cpp -I . -lsqlite3 -D _UT_MULTICOLORE_ -std=c++11 -w
+// g++ -o EclairageMulticolore EclairageMulticolore.cpp SqlitePersiBny.cpp Eclairage.cpp Utility.cpp -I . -lsqlite3 -D _UT_MULTICOLORE_ -std=c++11 -w
 
 #endif

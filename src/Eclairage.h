@@ -12,6 +12,7 @@
 #include <string>
 #include <Cycle.h>
 #include <SqlitePersiBny.h>
+#include <Utility.h>
 
 class Eclairage {
 
@@ -86,11 +87,12 @@ class Eclairage {
     };
 	
 	class Controleur {
-		private:
-			enum Etat {id, active, allume, nom, conso};
+		/*private:
+			enum Etat {id, active, allume, nom, conso};*/
 
 		private:
 			Ent ent;
+
 			PersiBny persiBny;
 
 		public:
@@ -106,11 +108,31 @@ class Eclairage {
 
 			void getIHMFormulaire();
 
-			void set( Ent & ent);
+			void setID(const unsigned int & id);
 
-			void get(Ent & ent);
+			void setAllume(bool etat);
 
-			void reguler(Cycle& cycle);
+			void setActive(bool etat);
+
+			void setNom(const std::string & nom);
+
+			void setConsommation(const unsigned int & conso);
+
+			unsigned int getID();
+
+			bool getAllume();
+
+			bool getActive();
+
+			std::string getNom();
+
+			unsigned int getConsommation();
+
+			/*void set(Ent & ent);
+
+			void get(Ent & ent);*/
+
+			//void reguler(Cycle& cycle);
 
 	};
 	

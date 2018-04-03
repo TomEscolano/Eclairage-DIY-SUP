@@ -24,7 +24,26 @@ SqlitePersiBny::~SqlitePersiBny() throw (SqlitePersiBnyException) {
 int SqlitePersiBny::executerSql(std::string requete,
 		SqlitePersiBny::Resultat& resultat) throw (SqlitePersiBnyException) {
 	sqlite3_stmt *stmt;
-	int rc = sqlite3_prepare_v2(this->db, requete.c_str(), -1, &stmt, NULL);
+	/*
+		Fix pour le problème de multiaccès
+		NOTE: Rajouter "IMMEDIATE; ... END;" pour wrapper les requetes
+		Le mode de transaction par défaut dans sqlite est DEFERRED,
+		ce qui signifie qu'un verrou est acquis uniquement lors de la première tentative d'écriture.
+		Avec les transactions IMMEDIATE, le verrou est acquis immédiatement ou vous obtenez SQLITE_BUSY immédiatement.
+	*/
+	
+	//Encapsulation des requetes pour sécuriser l'accès
+	std::string before = "IMMEDIATE; ";
+	std::string after = " END;";
+	std::string request = before + requete.c_str() + after;
+
+	sqlite3_busy_timeout(this->db, 1000); // Attente de 1sec si la bdd est occupée
+	int rc;
+	do
+	{
+		rc = sqlite3_prepare_v2(this->db, request.c_str(), -1, &stmt, NULL); // Reessaye tant ue la BDD est occupée
+	}while(rc == SQLITE_BUSY);
+
 	if (rc != SQLITE_OK) {
 		throw SqlitePersiBnyException("sqlite3_prepare_v2",
 				sqlite3_errcode(this->db));
@@ -58,8 +77,29 @@ int SqlitePersiBny::executerSql(std::string requete,
 void SqlitePersiBny::executerSql(std::string requete)
 		throw (SqlitePersiBnyException) {
 	char *zErrMsg = 0;
-	sqlite3_exec(this->db, "BEGIN TRANSACTION", 0, 0, 0);
-	int rc = sqlite3_exec(db, requete.c_str(), NULL, NULL, &zErrMsg);
+
+	/*
+		Fix pour le problème de multiaccès
+		NOTE: Rajouter "IMMEDIATE; ... END;" pour wrapper les requetes
+		Le mode de transaction par défaut dans sqlite est DEFERRED,
+		ce qui signifie qu'un verrou est acquis uniquement lors de la première tentative d'écriture.
+		Avec les transactions IMMEDIATE, le verrou est acquis immédiatement ou vous obtenez SQLITE_BUSY immédiatement.
+	*/
+	
+	//Encapsulation des requetes pour sécuriser l'accès
+	std::string before = "IMMEDIATE; ";
+	std::string after = " END;";
+	std::string request = before + requete.c_str() + after;
+
+	sqlite3_busy_timeout(this->db, 1000); // Attente de 1sec si la bdd est occupée
+	int rc;
+	int timeout_count = 0;
+	do
+	{
+		rc = sqlite3_exec(db, requete.c_str(), NULL, NULL, &zErrMsg); // Reessaye tant ue la BDD est occupée
+		timeout_count++;
+	}while(rc == SQLITE_BUSY && timeout_count < 5);
+
 	if (rc != SQLITE_OK) {
 		sqlite3_free(zErrMsg);
 		throw SqlitePersiBnyException("sqlite3_exec",
