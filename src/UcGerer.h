@@ -9,6 +9,8 @@
 #define _UCGERER_H
 
 #include <Eclairage.h>
+#include <EclairageUnicolore.h>
+#include <EclairageMulticolore.h>
 #include <UcMettreAJour.h>
 #include <UcCommander.h>
 #include <sqlite3.h>
@@ -32,9 +34,11 @@ class UcGerer {
 
     void recevoirEclairage();
 
-    void modifierConfiguration(Eclairage::Ent & eclairage);
+    void modifierConfiguration(Eclairage::Controleur & eclairage);
 
-    void extraireEclairage(const sqlite3 & bd);
+    std::vector<EclairageMulticolore> extraireEclairagesMulticolores();
+    
+    std::vector<EclairageUnicolore> extraireEclairagesUnicolores();
 
     void recevoirInfo(const Eclairage::Ent & eclairage);
 

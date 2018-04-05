@@ -63,6 +63,16 @@ unsigned int EclairageMulticolore::Controleur::getNiveauBatterie()
 	return this->ent.getNiveauBatterie();
 }
 
+float EclairageMulticolore::Controleur::getVersionFirmware()
+{
+	return this->ent.getVersionFirmware();
+}
+
+std::string EclairageMulticolore::Controleur::getAdresseIP()
+{
+	return this->ent.getAdresseIP();
+}
+
 //******************** ENT **********************
 void EclairageMulticolore::Ent::setCouleur(const std::string & couleur)
 {
@@ -109,10 +119,19 @@ unsigned int EclairageMulticolore::Ent::getNiveauBatterie()
 	return this->niveauBatterie;
 }
 
-
 unsigned int EclairageMulticolore::Ent::getID()
 {
 	return this->getID();
+}
+
+float EclairageMulticolore::Ent::getVersionFirmware()
+{
+	return this->versionFirmware;
+}
+
+std::string EclairageMulticolore::Ent::getAdresseIP()
+{
+	return this->adresseIP;
 }
 
 #ifdef _UT_MULTICOLORE_

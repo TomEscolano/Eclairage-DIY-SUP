@@ -16,7 +16,7 @@
 
 class EclairageUnicolore : public Eclairage {
   public:
-    class Ent {
+    class Ent : public Eclairage::Ent {
       public:
         void setCouleur(Couleur couleur);
         
@@ -24,8 +24,6 @@ class EclairageUnicolore : public Eclairage {
 
       private:
         Couleur couleur;
-
-        Controleur controleur;
 
     };
     
@@ -39,6 +37,8 @@ class EclairageUnicolore : public Eclairage {
         Couleur getCouleur();
 
     };
-    
+  
+  Controleur controleur;
+
 };
 #endif

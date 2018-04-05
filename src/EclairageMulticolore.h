@@ -53,6 +53,10 @@ class EclairageMulticolore : public Eclairage {
         
             unsigned int getNiveauBatterie();
 
+            float getVersionFirmware();
+
+            std::string getAdresseIP();
+
 
     };
 
@@ -92,6 +96,11 @@ class EclairageMulticolore : public Eclairage {
         std::string getAdresseMac();
 
         unsigned int getNiveauBatterie();
+
+        float getVersionFirmware();
+
+        std::string getAdresseIP();
+
 
 
       private:

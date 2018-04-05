@@ -8,10 +8,12 @@
 #ifndef _UCEXPORTER_H
 #define _UCEXPORTER_H
 
+#include <UcGerer.h>
 
 class UcExporter {
   public:
-    FILE doIt();
-
+    void doIt();
+  private:
+  	UcGerer ucgerer;
 };
 #endif

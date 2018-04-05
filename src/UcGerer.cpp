@@ -8,8 +8,11 @@
 
 #include <UcGerer.h>
 #include <Eclairage.h>
+#include <EclairageUnicolore.h>
+#include <EclairageMulticolore.h>
 #include <UcCommander.h>
 #include <SqlitePersiBny.h>
+#include <vector>
 
 #define DB "eclairagediy.db"
 
@@ -25,7 +28,6 @@ void UcGerer::supprimerEclairage( Eclairage::Ent & eclairage, const sqlite3 & bd
 {
 	SqlitePersiBny persi(DB);
 	std::string requete = "DELETE FROM eclairages WHERE id = " + std::to_string(eclairage.getID()) + ";";
-
 	persi.executerSql(requete);
 }
 
@@ -46,7 +48,7 @@ void UcGerer::ajouterEclairage(Eclairage::Ent & eclairage, const sqlite3 & bd)
 void UcGerer::recevoirEclairage() {
 }
 
-void UcGerer::modifierConfiguration( Eclairage::Ent & eclairage)
+void UcGerer::modifierConfiguration( Eclairage::Controleur & eclairage)
 {
     SqlitePersiBny persi(DB);
 	
@@ -55,8 +57,25 @@ void UcGerer::modifierConfiguration( Eclairage::Ent & eclairage)
 	persi.executerSql(requete);
 }
 
-void UcGerer::extraireEclairage(const sqlite3 & bd)
+std::vector<EclairageMulticolore> UcGerer::extraireEclairagesMulticolores()
 {
+	SqlitePersiBny persi(DB);
+
+	std::string requete = "SELECT * FROM eclairagesMulticolore;";
+	SqlitePersiBny::Resultat resultat;
+
+	persi.executerSql(requete, resultat);
+
+}
+
+std::vector<EclairageUnicolore> UcGerer::extraireEclairagesUnicolores()
+{
+	SqlitePersiBny persi(DB);
+
+	std::string requete = "SELECT * FROM eclairagesUnicolore;";
+	SqlitePersiBny::Resultat resultat;
+
+	persi.executerSql(requete, resultat);
 
 }
 
@@ -76,6 +95,7 @@ int main(int argc, char const *argv[])
 	return 0;
 }
 
-//g++ -o UcGerer Eclairage.cpp UcGerer.cpp Utility.cpp SqlitePersiBny.cpp -I . -lsqlite3 -D _UT_UCGERER_ -std=c++11 -w
+//g++ -o UcGerer Eclairage.cpp UcGerer.cpp Utility.cpp SqlitePersiBny.cpp EclairageUnicolore.cpp EclairageMulticolore.cpp UcCommander.cpp -I . -lsqlite3 -D _UT_UCGERER_ -std=c++11 -w
+
 
 #endif

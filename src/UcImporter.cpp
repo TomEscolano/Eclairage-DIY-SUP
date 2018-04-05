@@ -8,7 +8,6 @@
 #include "csvReader.h"
 //https://github.com/ben-strasser/fast-cpp-csv-parser
 #include <UcImporter.h>
-#include <UcGerer.h>
 #include <Eclairage.h>
 #include <EclairageUnicolore.h>
 #include <EclairageMulticolore.h>
@@ -56,8 +55,9 @@ void UcImporter::doIt(std::string fichierCSV, const UcGerer & ucGerer)
 			eclairage.controleur.setActive((active == "true")? true: false);
 			eclairage.controleur.setNom(nom);
 			eclairage.controleur.setConsommation(consommation);
+			
 			//Creation de l'eclairage
-			//ucGerer.modifierConfiguration(eclairage);
+			this->ucGerer.modifierConfiguration(eclairage);
 		}
 	}
 }

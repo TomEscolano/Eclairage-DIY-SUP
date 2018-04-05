@@ -6,7 +6,7 @@
 #include <vector>
 #include <utility>
 /*
- * http://www.cplusplus.com/reference/string/ pout conversion de string vers C types primitifs
+ * http://www.cplusplus.com/reference/string/ pour conversion de string vers C types primitifs
  * std::stoi
  * std::stof
  * std::stod
@@ -39,4 +39,3 @@ Ligne >| valeur 1 | valeur 2 | valeur 3 | valeur 4 |<-|
     static std::string resultatToString(SqlitePersiBny::Resultat& resultat);
 };
 #endif 
-

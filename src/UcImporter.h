@@ -8,7 +8,8 @@
 #ifndef _UCIMPORTER_H
 #define _UCIMPORTER_H
 
-#include "Eclairage.h"
+#include <Eclairage.h>
+#include <UcGerer.h>
 
 class UcGerer;
 
@@ -19,6 +20,7 @@ class UcImporter {
 
   private:
     void getFile();
+    UcGerer ucGerer;
 
 
   public:
