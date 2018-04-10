@@ -61,11 +61,11 @@ void UcGerer::recevoirEclairage(){
 
 void UcGerer::modifierConfiguration(Eclairage::Controleur & eclairage)
 {
-    SqlitePersiBny persi(DB);
+    /*SqlitePersiBny persi(DB);
 	
 	std::string requete = "UPDATE eclairages SET nom = " + eclairage.getNom() + "allume = " + std::to_string(eclairage.getAllume()) + "active = " + std::to_string(eclairage.getActive()) + "consommation =" + std::to_string(eclairage.getConsommation()) + " WHERE id = " + std::to_string(eclairage.getID()) + ";";
 
-	persi.executerSql(requete);
+	persi.executerSql(requete);*/
 }
 
 std::vector<EclairageMulticolore> UcGerer::extraireEclairagesMulticolores()
@@ -82,12 +82,25 @@ std::vector<EclairageMulticolore> UcGerer::extraireEclairagesMulticolores()
 std::vector<EclairageUnicolore> UcGerer::extraireEclairagesUnicolores()
 {
 	SqlitePersiBny persi(DB);
-
-	std::string requete = "SELECT * FROM eclairagesUnicolore;";
 	SqlitePersiBny::Resultat resultat;
+	persi.executerSql("SELECT * FROM eclairagesUnicolore;", resultat);
 
-	persi.executerSql(requete, resultat);
-
+	std::vector<EclairageUnicolore> eclairages;
+	for(int i = 0; i < resultat.size(); i++)
+	{
+		EclairageUnicolore tmp;
+		tmp.controleur.setID(atoi(resultat.at(i).at(0).second.c_str()));
+		Couleur couleur;
+		if(resultat.at(i).at(1).second == "Bleu")
+			couleur = Bleu;
+		if(resultat.at(i).at(1).second == "Rouge")
+			couleur = Rouge;
+		if(resultat.at(i).at(1).second == "Blanc")
+			couleur = Blanc;
+		tmp.controleur.setCouleur(couleur);
+		eclairages.push_back(tmp);
+	}
+	return eclairages;
 }
 
 void UcGerer::recevoirInfo(const Eclairage::Ent & eclairage) {

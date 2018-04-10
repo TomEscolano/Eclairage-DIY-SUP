@@ -151,7 +151,7 @@ void EclairageUnicolore::PersiBny::set(EclairageUnicolore::Ent & ent)
 	usleep(100);
 
 	//Insère dans la table unicolores les propriétés
-	this->executerSql("INSERT INTO unicolores(id,couleur) VALUES(" + std::to_string(ent.getID()) + ", \"" + std::to_string(ent.getCouleur()) + "\");");
+	this->executerSql("UPDATE eclairages SET couleur = \"" + std::to_string(ent.getCouleur()) + "\" WHERE id = " + std::to_string(ent.getID()) + ";");
 }
 
 void EclairageUnicolore::PersiBny::get(Ent & ent)
@@ -167,9 +167,8 @@ void EclairageUnicolore::PersiBny::get(Ent & ent)
 	if(resultat.at(0).at(1).second == "Rouge")
 		ent.setCouleur(Rouge);
 	if(resultat.at(0).at(1).second == "Blanc")
-		ent.setCouleur(Blanc);
-	
-} 
+		ent.setCouleur(Blanc);	
+}
 
 #ifdef _UT_UNICOLORE_
 

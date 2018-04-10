@@ -161,7 +161,7 @@ unsigned int Eclairage::Ent::getConsommation()
 //*************** PERSIBNY ****************
 void Eclairage::PersiBny::set(Eclairage::Ent & ent)
 {
-	this->executerSql("INSERT INTO eclairages(id,allume,active, nom, consommation) VALUES(" + std::to_string(ent.getID()) + ", " + std::to_string(ent.getAllume()) + ", " + std::to_string(ent.getActive()) + ", \"" + ent.getNom() + "\", " + std::to_string(ent.getConsommation()) + " );");
+	this->executerSql("UPDATE eclairages SET allume = " + std::to_string(ent.getAllume()) + ", active = " + std::to_string(ent.getActive()) + ", nom = " + ent.getNom() + ", consommation = " + std::to_string(ent.getConsommation()) + " WHERE id = " + std::to_string(ent.getID()) + ";");
 }
 
 void Eclairage::PersiBny::get(Eclairage::Ent & ent)

@@ -230,15 +230,15 @@ std::string EclairageMulticolore::Ent::getAdresseIP()
 //********************* PERSI ********************
 void EclairageMulticolore::PersiBny::set(EclairageMulticolore::Ent & ent)
 {
-	//Insère dans la table eclairages les popriétés
+	//Màj dans la table eclairages les popriétés
 	//Utilisation du set de la classe mère
 	this->Eclairage::PersiBny::set(ent);
 
 	//Délai de traitement
 	usleep(1000);
 
-	//Insère dans la table multicolores les propriétés
-	this->executerSql("INSERT INTO multicolores(id,adresseBluetooth,adresseIP,versionFirmware, couleur) VALUES(" + std::to_string(ent.getID()) + ", \"" + ent.getAdresseMac() + "\", \"" + ent.getAdresseIP() + "\", " + std::to_string(ent.getVersionFirmware()) + ", \"" + ent.getCouleur() + "\");");
+	//Màj dans la table multicolores les propriétés
+	this->executerSql("UPDATE eclairages SET adresseBluetooth = " + ent.getAdresseMac() + ", adresseIP = \"" + ent.getAdresseIP() + "\", versionFirmware = " + std::to_string(ent.getVersionFirmware()) + ", couleur = \"" + ent.getCouleur() + "\" WHERE id = " + std::to_string(ent.getID()) + ";");
 }
 
 void EclairageMulticolore::PersiBny::get(Ent & ent)
