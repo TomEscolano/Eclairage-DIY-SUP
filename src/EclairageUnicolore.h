@@ -15,30 +15,88 @@
 
 
 class EclairageUnicolore : public Eclairage {
-  public:
-    class Ent : public Eclairage::Ent {
-      public:
-        void setCouleur(Couleur couleur);
-        
-        Couleur getCouleur();
+	public:
+		class Ent : public Eclairage::Ent {
+			public:
 
-      private:
-        Couleur couleur;
+				Ent():Eclairage::Ent(), couleur(Bleu){};
 
-    };
-    
-    class Controleur : public Eclairage::Controleur{
-      private:
-        Ent ent;
+				void setCouleur(Couleur couleur);
 
-      public:
-        void setCouleur(Couleur couleur);
+				void setID(unsigned int id);
 
-        Couleur getCouleur();
+				void setAllume(bool etat);
 
-    };
-  
-  Controleur controleur;
+				void setActive(bool etat);
+
+				void setNom(std::string nom);
+
+				void setConsommation(unsigned int conso);
+
+				Couleur getCouleur();
+
+				unsigned int getID();
+
+				bool getAllume();
+
+				bool getActive();
+
+				std::string getNom();
+
+				unsigned int getConsommation();
+
+			private:
+				Couleur couleur;
+
+		};
+		
+		class PersiBny : public Eclairage::PersiBny {
+		public:
+
+			PersiBny():Eclairage::PersiBny(){};
+
+			void set(EclairageUnicolore::Ent & ent);
+
+			void get(Ent & ent);
+
+	};
+
+	class Controleur : public Eclairage::Controleur{
+
+			public:
+				Ent ent;
+
+				PersiBny persiBny;
+
+				Controleur():Eclairage::Controleur(), ent(), persiBny(){};
+
+				void setCouleur(Couleur couleur);
+
+				void setID(unsigned int id);
+
+				void setAllume(bool etat);
+
+				void setActive(bool etat);
+
+				void setNom(std::string nom);
+
+				void setConsommation(unsigned int conso);
+
+				Couleur getCouleur();
+				
+				unsigned int getID();
+
+				bool getAllume();
+
+				bool getActive();
+
+				std::string getNom();
+
+				unsigned int getConsommation();
+
+		};
+	
+	Controleur controleur;
 
 };
 #endif

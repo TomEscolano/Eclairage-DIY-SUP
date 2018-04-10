@@ -66,7 +66,7 @@ class Eclairage {
 
 	  	PersiBny(): SqlitePersiBny("/var/eclairage/bdd.db"){};
 
-		void set(const Ent & ent);
+		void set(Ent & ent);
 
 		void get(Ent & ent);
 
@@ -87,8 +87,6 @@ class Eclairage {
     };
 	
 	class Controleur {
-		/*private:
-			enum Etat {id, active, allume, nom, conso};*/
 
 		private:
 			Ent ent;
@@ -127,12 +125,6 @@ class Eclairage {
 			std::string getNom();
 
 			unsigned int getConsommation();
-
-			/*void set(Ent & ent);
-
-			void get(Ent & ent);*/
-
-			//void reguler(Cycle& cycle);
 
 	};
 	
