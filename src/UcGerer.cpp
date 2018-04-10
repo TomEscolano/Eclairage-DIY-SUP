@@ -71,12 +71,21 @@ void UcGerer::modifierConfiguration(Eclairage::Controleur & eclairage)
 std::vector<EclairageMulticolore> UcGerer::extraireEclairagesMulticolores()
 {
 	SqlitePersiBny persi(DB);
-
-	std::string requete = "SELECT * FROM eclairagesMulticolore;";
 	SqlitePersiBny::Resultat resultat;
+	persi.executerSql("SELECT * FROM eclairagesMulticolore;", resultat);
 
-	persi.executerSql(requete, resultat);
-
+	std::vector<EclairageMulticolore> eclairages;
+	for(int i = 0; i < resultat.size(); i++)
+	{
+		EclairageMulticolore tmp;
+		tmp.controleur.setID(atoi(resultat.at(i).at(0).second.c_str()));
+		tmp.controleur.setAdresseMac(resultat.at(i).at(1).second);
+		tmp.controleur.setAdresseIP(resultat.at(i).at(2).second);
+		tmp.controleur.setVersionFirmware(atof(resultat.at(i).at(3).second.c_str()));
+		tmp.controleur.setCouleur(resultat.at(i).at(4).second);
+		eclairages.push_back(tmp);
+	}
+	return eclairages;
 }
 
 std::vector<EclairageUnicolore> UcGerer::extraireEclairagesUnicolores()
