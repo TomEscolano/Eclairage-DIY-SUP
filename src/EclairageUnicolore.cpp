@@ -156,7 +156,19 @@ void EclairageUnicolore::PersiBny::set(EclairageUnicolore::Ent & ent)
 
 void EclairageUnicolore::PersiBny::get(Ent & ent)
 {
+	//On update l'ent grâce à la classe mère
+	this->Eclairage::PersiBny::get(ent);
 
+	SqlitePersiBny::Resultat resultat;
+	this->executerSql("SELECT * FROM unicolores WHERE id = " + std::to_string(ent.getID()) + ";", resultat);
+
+	if(resultat.at(0).at(1).second == "Bleu")
+		ent.setCouleur(Bleu);
+	if(resultat.at(0).at(1).second == "Rouge")
+		ent.setCouleur(Rouge);
+	if(resultat.at(0).at(1).second == "Blanc")
+		ent.setCouleur(Blanc);
+	
 } 
 
 #ifdef _UT_UNICOLORE_
@@ -166,14 +178,18 @@ int main(int argc, char const *argv[])
 
 	EclairageUnicolore eclairage;
 
+	
+	eclairage.controleur.setID(9);
 	eclairage.controleur.setCouleur(Bleu);
-	eclairage.controleur.setID(10);
 	eclairage.controleur.setNom("Eclairage1");
 	eclairage.controleur.setConsommation(40);
 	eclairage.controleur.setAllume(false);
 	eclairage.controleur.setActive(true);
 
 	eclairage.controleur.persiBny.set(eclairage.controleur.ent);
+	//eclairage.controleur.persiBny.get(eclairage.controleur.ent);
+
+	std::cout << "Couleur : " << eclairage.controleur.getCouleur() << std::endl;
 
 	return 0;
 }

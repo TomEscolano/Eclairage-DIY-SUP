@@ -88,7 +88,7 @@ class Eclairage {
 	
 	class Controleur {
 
-		private:
+		public:
 			Ent ent;
 
 			PersiBny persiBny;

@@ -238,12 +238,21 @@ void EclairageMulticolore::PersiBny::set(EclairageMulticolore::Ent & ent)
 	usleep(1000);
 
 	//Insère dans la table multicolores les propriétés
-	this->executerSql("INSERT INTO multicolores(id,adresseBluetooth,adresseIP,versionFirmware) VALUES(" + std::to_string(ent.getID()) + ", \"" + ent.getAdresseMac() + "\", \"" + ent.getAdresseIP() + "\", " + std::to_string(ent.getVersionFirmware()) + ");");
+	this->executerSql("INSERT INTO multicolores(id,adresseBluetooth,adresseIP,versionFirmware, couleur) VALUES(" + std::to_string(ent.getID()) + ", \"" + ent.getAdresseMac() + "\", \"" + ent.getAdresseIP() + "\", " + std::to_string(ent.getVersionFirmware()) + ", \"" + ent.getCouleur() + "\");");
 }
 
 void EclairageMulticolore::PersiBny::get(Ent & ent)
 {
+	//On update l'ent grâce à la classe mère
+	this->Eclairage::PersiBny::get(ent);
 
+	SqlitePersiBny::Resultat resultat;
+	this->executerSql("SELECT * FROM multicolores WHERE id = " + std::to_string(ent.getID()) + ";", resultat);
+
+	ent.setAdresseMac(resultat.at(0).at(1).second);
+	ent.setAdresseIP(resultat.at(0).at(2).second);
+	ent.setVersionFirmware((unsigned int) atoi(resultat.at(0).at(3).second.c_str()));
+	ent.setCouleur(resultat.at(0).at(4).second);
 }
 
 #ifdef _UT_MULTICOLORE_
@@ -266,7 +275,7 @@ int main(int argc, char const *argv[])
 	eclairageMulticolore.controleur.setAdresseIP("127.0.0.1");
 
 	eclairageMulticolore.controleur.persiBny.set(eclairageMulticolore.controleur.ent);
-
+	eclairageMulticolore.controleur.persiBny.get(eclairageMulticolore.controleur.ent);
 
 	std::cout << "ID : " << eclairageMulticolore.controleur.getID() << std::endl;
 	std::cout << "Allume : " << eclairageMulticolore.controleur.getAllume() << std::endl;

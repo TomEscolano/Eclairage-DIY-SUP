@@ -179,10 +179,18 @@ unsigned int Eclairage::Ent::getConsommation()
 //*************** PERSIBNY ****************
 void Eclairage::PersiBny::set(Eclairage::Ent & ent)
 {
-	this->executerSql("INSERT INTO eclairages(id,allume,active,nom) VALUES(" + std::to_string(ent.getID()) + ", " + std::to_string(ent.getAllume()) + ", " + std::to_string(ent.getActive()) + ", \"" + ent.getNom() + "\");");
+	this->executerSql("INSERT INTO eclairages(id,allume,active,nom, consommation) VALUES(" + std::to_string(ent.getID()) + ", " + std::to_string(ent.getAllume()) + ", " + std::to_string(ent.getActive()) + ", \"" + ent.getNom() + "\", " + std::to_string(ent.getConsommation()) + " );");
 }
 
-void Eclairage::PersiBny::get(Eclairage::Ent & ent){
+void Eclairage::PersiBny::get(Eclairage::Ent & ent)
+{
+	SqlitePersiBny::Resultat resultat;
+	this->executerSql("SELECT * FROM eclairages WHERE id = " + std::to_string(ent.getID()) + ";", resultat);
+
+	ent.setAllume(resultat.at(0).at(1).second == "1" ? true : false);
+	ent.setActive(resultat.at(0).at(2).second == "1" ? true : false);
+	ent.setNom(resultat.at(0).at(3).second);
+	ent.setConsommation((unsigned int)atoi(resultat.at(0).at(4).second.c_str()));
 }
 
 //*************** IHM JARDIN ****************
@@ -199,6 +207,10 @@ int main(int argc, char const *argv[])
 {
 
 	Eclairage eclairage;
+
+	eclairage.controleur.setID(9);
+	eclairage.controleur.persiBny.set(eclairage.controleur.ent);
+	eclairage.controleur.persiBny.get(eclairage.controleur.ent);
 
 	return 0;
 }
