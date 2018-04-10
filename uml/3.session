@@ -1,15 +1,18 @@
-window_sizes 1366 719 406 954 666 0
+window_sizes 1920 1055 406 1508 1002 0
 cleanlooks_style
 diagrams
   classdiagram_ref 128003 // dcd
     763 532 107 Legal-Landscape 0 0
   active  classdiagram_ref 134531 // dca
-    954 666 49 A0 0 0
+    1508 1002 112 A0 240 845
+  sequencediagram_ref 141059 // dsq
+    120 106 165 A4 0 0
 end
 show_stereotypes
 selected classdiagram_ref 134531 // dca
 open
-  class_ref 144131 // UcGerer
-  class_ref 151043 // UcCommander
+  
+  package_ref 128003 // domaine
+  classview_ref 134531 // vc
 end
 end

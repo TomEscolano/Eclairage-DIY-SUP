@@ -25,7 +25,7 @@ void Eclairage::IHMFormulaire::set(Ent & ent)
 
 void Eclairage::IHMFormulaire::get(Ent & ent)
 {
-	//TODO: Recuperer les valeurs passées en paramètres de l'URL
+
 }
 
 //*************** CONTROLEUR ****************
@@ -118,35 +118,35 @@ void Eclairage::Controleur::get(Eclairage::Ent & ent)
 void Eclairage::Ent::setID(const unsigned int & id)
 {
 	this->id = id;
-	Utility::log_action(this->id, "ID", std::to_string(id));
+	//Utility::log_action(this->id, "ID", std::to_string(id));
 
 }
 
 void Eclairage::Ent::setAllume(bool etat)
 {
 	this->allume = etat;
-	Utility::log_action(this->id, "Allumer", etat ? "true":"false");
+	//Utility::log_action(this->id, "Allumer", etat ? "true":"false");
 
 }
 
 void Eclairage::Ent::setActive(bool etat)
 {
 	this->active = etat;
-	Utility::log_action(this->id, "Activer", etat ? "true":"false");
+	//Utility::log_action(this->id, "Activer", etat ? "true":"false");
 
 }
 
 void Eclairage::Ent::setNom(const std::string & nom)
 {
 	this->nom = nom;
-	Utility::log_action(this->id, "Nom", nom);
+	//Utility::log_action(this->id, "Nom", nom);
 
 }
 
 void Eclairage::Ent::setConsommation(const unsigned int & conso)
 {
 	this->consommation = conso;
-	Utility::log_action(this->id, "Consommation", std::to_string(conso));
+	//Utility::log_action(this->id, "Consommation", std::to_string(conso));
 
 }
 
@@ -187,7 +187,9 @@ void Eclairage::PersiBny::get(Eclairage::Ent & ent){
 }
 
 //*************** IHM JARDIN ****************
-void Eclairage::IHMJardin::set(Eclairage::Ent & ent){
+void Eclairage::IHMJardin::set(Ent & ent)
+{
+	//
 }
 
 

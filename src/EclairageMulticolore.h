@@ -16,99 +16,135 @@
 class EclairageMulticolore : public Eclairage {
   public:
   
-    EclairageMulticolore():Eclairage(),controleur(){};
-    
-    class Ent : public Eclairage::Ent {
-      private:
-        std::string couleur;
+	EclairageMulticolore():Eclairage(),controleur(){};
+	
+	class Ent : public Eclairage::Ent {
+	  private:
+		std::string couleur;
 
-        std::string adresseMac;
+		std::string adresseMac;
 
-        unsigned int niveauBatterie;
+		unsigned int niveauBatterie;
 
-        float versionFirmware;
+		float versionFirmware;
 
-        int socket;
+		int socket;
 
-        std::string adresseIP;
+		std::string adresseIP;
 
-        public:
-            Ent():Eclairage::Ent(),couleur("undefined"), adresseMac("undefined"), niveauBatterie(0), versionFirmware(0.0F), socket(-1), adresseIP("undefined"){};
+		public:
+			Ent():Eclairage::Ent(),couleur("undefined"), adresseMac("undefined"), niveauBatterie(0), versionFirmware(0.0F), socket(-1), adresseIP("undefined"){};
 
-            void setCouleur(const std::string & couleur);
+			void setCouleur(const std::string & couleur);
 
-            void setAdresseMac(const std::string & adresseMac);
-        
-            void setNiveauBatterie(const unsigned int & niveauBatterie);
-        
-            void setVersionFirmware(float version);
-        
-            void setAdresseIP(const std::string & adresseIP);
+			void setAdresseMac(const std::string & adresseMac);
+		
+			void setNiveauBatterie(const unsigned int & niveauBatterie);
+		
+			void setVersionFirmware(float version);
+		
+			void setAdresseIP(const std::string & adresseIP);
 
-            unsigned int getID();
-        
-            std::string getCouleur();
-        
-            std::string getAdresseMac();
-        
-            unsigned int getNiveauBatterie();
+			void setID(unsigned int id);
 
-            float getVersionFirmware();
+			void setAllume(bool etat);
 
-            std::string getAdresseIP();
+			void setActive(bool etat);
 
+			void setNom(std::string nom);
 
-    };
+			void setConsommation(unsigned int conso);
+		
+			unsigned int getID();
 
-    class PersiBny : public Eclairage::PersiBny {
-        public:
-            PersiBny():Eclairage::PersiBny(){};
+			bool getAllume();
 
-            void set(const Ent & ent);
+			bool getActive();
 
-            void get(Ent & ent);
-    };
-    
-    class Controleur : public Eclairage::Controleur{
-      private:
-        Ent ent;
-        PersiBny persiBny;
+			std::string getNom();
 
-      public:
-        Controleur():Eclairage::Controleur(), ent(), persiBny(){};
-        
-        void recevoir();
+			unsigned int getConsommation();
 
-        void envoyer();
+			std::string getCouleur();
+		
+			std::string getAdresseMac();
+		
+			unsigned int getNiveauBatterie();
 
-        void setCouleur(const std::string & couleur);
+			float getVersionFirmware();
 
-        void setAdresseMac(const std::string & adresseMac);
-
-        void setNiveauBatterie(const unsigned int & niveauBatterie);
-
-        void setVersionFirmware(float version);
-
-        void setAdresseIP(const std::string & adresseIP);
-
-        std::string getCouleur();
-
-        std::string getAdresseMac();
-
-        unsigned int getNiveauBatterie();
-
-        float getVersionFirmware();
-
-        std::string getAdresseIP();
+			std::string getAdresseIP();
 
 
+	};
 
-      private:
-        IHMFormulaire ihmAjouter;
+	class PersiBny : public Eclairage::PersiBny {
+		public:
+			PersiBny():Eclairage::PersiBny(){};
 
-    };
-    
-    Controleur controleur;
+			void set(EclairageMulticolore::Ent & ent);
+
+			void get(Ent & ent);
+	};
+	
+	class Controleur : public Eclairage::Controleur{
+	  public:
+		Ent ent;
+
+		PersiBny persiBny;
+
+		Controleur():Eclairage::Controleur(), ent(), persiBny(){};
+		
+		void recevoir();
+
+		void envoyer();
+
+		void setCouleur(const std::string & couleur);
+
+		void setAdresseMac(const std::string & adresseMac);
+
+		void setNiveauBatterie(const unsigned int & niveauBatterie);
+
+		void setVersionFirmware(float version);
+
+		void setAdresseIP(const std::string & adresseIP);
+
+		void setID(unsigned int id);
+
+		void setAllume(bool etat);
+
+		void setActive(bool etat);
+
+		void setNom(std::string nom);
+
+		unsigned int getID();
+
+		bool getAllume();
+
+		bool getActive();
+
+		std::string getNom();
+
+		unsigned int getConsommation();
+
+		void setConsommation(unsigned int conso);
+
+		std::string getCouleur();
+
+		std::string getAdresseMac();
+
+		unsigned int getNiveauBatterie();
+
+		float getVersionFirmware();
+
+		std::string getAdresseIP();
+
+	  private:
+		IHMFormulaire ihmAjouter;
+
+	};
+	
+	Controleur controleur;
 
 };
 #endif

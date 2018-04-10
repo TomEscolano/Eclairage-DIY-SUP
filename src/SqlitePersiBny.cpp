@@ -1,6 +1,7 @@
 //https://www.sqlite.org/cintro.html
 #include <SqlitePersiBny.h>
 #include <iostream>
+#include <unistd.h>
 
 SqlitePersiBny::SqlitePersiBny(const char* fichierBdd)
 		throw (SqlitePersiBnyException) :
@@ -87,17 +88,15 @@ void SqlitePersiBny::executerSql(std::string requete)
 	*/
 	
 	//Encapsulation des requetes pour sécuriser l'accès
-	std::string before = "IMMEDIATE; ";
-	std::string after = " END;";
-	std::string request = before + requete.c_str() + after;
 
 	sqlite3_busy_timeout(this->db, 1000); // Attente de 1sec si la bdd est occupée
 	int rc;
 	int timeout_count = 0;
 	do
 	{
-		rc = sqlite3_exec(db, requete.c_str(), NULL, NULL, &zErrMsg); // Reessaye tant ue la BDD est occupée
+		rc = sqlite3_exec(db, requete.c_str(), NULL, NULL, &zErrMsg); // Reessaye tant que la BDD est occupée
 		timeout_count++;
+		usleep(500);
 	}while(rc == SQLITE_BUSY && timeout_count < 5);
 
 	if (rc != SQLITE_OK) {

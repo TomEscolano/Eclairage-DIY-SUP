@@ -1,6 +1,6 @@
 format 216
 "analyse" // analyse
-  revision 6
+  revision 7
   modified_by 3 "tom"
   // class settings
   
@@ -61,6 +61,51 @@ ${inlines}
       explicit_switch_type ""
       mysql_decl ""
       
+      class 136451 "IHMFormulaire"
+	visibility package 
+	cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+	java_decl ""
+	php_decl ""
+	python_2_2 python_decl ""
+	idl_decl ""
+	explicit_switch_type ""
+	mysql_decl ""
+	
+	operation 138499 "set"
+	  public explicit_return_type "void"
+	  nparams 1
+	    param in name "ent" type class_ref 136067 // Ent
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 138627 "get"
+	  public explicit_return_type "void"
+	  nparams 1
+	    param out name "ent" type class_ref 136067 // Ent
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+      end
+
       class 135939 "Controleur"
 	visibility package 
 	cpp_decl "${comment}${template}class ${name}${inherit} {
@@ -190,6 +235,15 @@ ${inlines}
 	  
 	  
 	  
+	end
+
+	classrelation 159107 // ihmFormulaire (<directional composition>)
+	  relation 157187 *-->
+	    a role_name "ihmFormulaire" multiplicity "1" private
+	      cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	      classrelation_ref 159107 // ihmFormulaire (<directional composition>)
+	    b parent class_ref 136451 // IHMFormulaire
 	end
       end
 
@@ -686,54 +740,6 @@ ${inlines}
       explicit_switch_type ""
       mysql_decl ""
       
-      class 136451 "IHMFormulaire"
-	visibility package 
-	cpp_decl "${comment}${template}class ${name}${inherit} {
-${members}};
-${inlines}
-"
-	java_decl ""
-	php_decl ""
-	python_2_2 python_decl ""
-	idl_decl ""
-	explicit_switch_type ""
-	mysql_decl ""
-	
-	operation 138499 "set"
-	  public explicit_return_type "void"
-	  nparams 1
-	    param in name "ent" type class_ref 136067 // Ent
-	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
-"
-	  cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	  
-	  
-	  
-	  
-	end
-
-	operation 138627 "get"
-	  public explicit_return_type "void"
-	  nparams 1
-	    param out name "ent" type class_ref 136067 // Ent
-	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
-"
-	  cpp_def "${inline}${type} ${class}::${name}${(}${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	  
-	  
-	  
-	  
-	end
-
-	classrelation 137731 // <composition>
-	  relation_ref 136707 // <composition>
-	end
-      end
-
       classrelation 137219 // <generalisation>
 	relation 136451 ---|>
 	  a public
@@ -1002,15 +1008,6 @@ ${inlines}
 	  
 	end
 
-	classrelation 137603 // ihmAjouter (<composition>)
-	  relation 136707 *---
-	    a role_name "ihmAjouter" multiplicity "0..1" private
-	      cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value};
-"
-	      classrelation_ref 137603 // ihmAjouter (<composition>)
-	    b role_name "controleur" multiplicity "1" private
-	      classrelation_ref 137731 // <composition>
-	end
       end
     end
 
@@ -1420,12 +1417,14 @@ ${inlines}
       explicit_switch_type ""
       mysql_decl ""
       
-      operation 156803 "getSelection"
+      operation 164483 "allumer"
 	public explicit_return_type "void"
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+	nparams 2
+	  param in name "eclairage" type class_ref 135811 // Eclairage
+	  param in name "etat" explicit_type "bool"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}, ${t1} ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+	cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
 "
 	
@@ -1434,54 +1433,14 @@ ${inlines}
 	
       end
 
-      operation 156931 "afficherMenuSelection"
+      operation 164611 "activer"
 	public explicit_return_type "void"
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+	nparams 2
+	  param in name "eclairage" type class_ref 135811 // Eclairage
+	  param in name "etat" explicit_type "bool"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}, ${t1} ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-      end
-
-      operation 157059 "getAction"
-	public explicit_return_type "void"
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-      end
-
-      operation 157187 "execAction"
-	public explicit_return_type "void"
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-      end
-
-      operation 157315 "enregistrer"
-	public explicit_return_type "void"
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+	cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
 "
 	
@@ -1655,6 +1614,11 @@ ${inlines}
 	  
 	end
       end
+    end
+
+    sequencediagram 141059 "dsq"
+      sequencediagramsettings end
+      overlapping_bars size A4
     end
   end
 

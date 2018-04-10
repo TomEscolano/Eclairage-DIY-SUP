@@ -15,7 +15,7 @@
 #include <jsoncpp/json/writer.h>
 #include <jsoncpp/json/value.h>
 
-#define DB "eclairage-DIY.db"
+#define DB "/var/eclairage/bdd.db"
 
 std::string Utility::remplacer(std::string nomFichier, std::vector<std::pair<std::string, std::string> >& conversion)
 {
@@ -30,8 +30,8 @@ std::string Utility::remplacer(std::string nomFichier, std::vector<std::pair<std
 
 void Utility::log_action(unsigned int id, std::string action, std::string value)
 {
-	SqlitePersiBny persi(DB);
-	persi.executerSql("INSERT INTO logs VALUES(" + std::to_string(id) + ", " + action + ", " + value + ");");
+	SqlitePersiBny persi("/var/eclairage/bdd.db");
+	persi.executerSql("INSERT INTO logs VALUES(" + std::to_string(id) + ", \"" + action + "\", \"" + value + "\");");
 
 }
 

@@ -1,119 +1,102 @@
 format 216
 
 classinstance 128003 class_ref 144003 // SUP
-  name ""   xyz 117 4 2005 life_line_z 2000
+  name ""   xyz 109 4 2005 life_line_z 2000
 classinstance 128131 class_ref 144131 // UcGerer
-  name ""   xyz 247 5 2005 life_line_z 2000
-classinstance 128259 class_ref 151043 // UcCommander
-  name ""   xyz 498 6 2005 life_line_z 2000
-classinstance 128387 class_ref 135811 // Eclairage
-  name ""   xyz 388 218 2005 life_line_z 2000
+  name ""   xyz 350 4 2005 life_line_z 2000
+classinstance 128259 class_ref 136195 // PersiBny
+  name ""   xyz 490 4 2005 life_line_z 2000
+classinstance 128387 class_ref 135939 // Controleur
+  name "eclairage"   xyz 584 152 2005 life_line_z 2000
 durationcanvas 128515 classinstance_ref 128003 // :SUP
-  xyzwh 136 119 2010 11 40
+  xyzwh 128 98 2010 11 40
 end
 durationcanvas 128643 classinstance_ref 128131 // :UcGerer
-  xyzwh 277 119 2010 11 25
+  xyzwh 380 98 2010 11 25
 end
 durationcanvas 128899 classinstance_ref 128131 // :UcGerer
-  xyzwh 277 178 2010 11 40
+  xyzwh 380 154 2010 11 40
 end
-durationcanvas 129155 classinstance_ref 128131 // :UcGerer
-  xyzwh 277 245 2010 11 40
+durationcanvas 129027 classinstance_ref 128259 // :PersiBny
+  xyzwh 522 154 2010 11 25
 end
 durationcanvas 129283 classinstance_ref 128003 // :SUP
-  xyzwh 136 245 2010 11 25
+  xyzwh 128 261 2010 11 40
 end
-durationcanvas 129539 classinstance_ref 128003 // :SUP
-  xyzwh 136 334 2010 11 40
+durationcanvas 129411 classinstance_ref 128131 // :UcGerer
+  xyzwh 380 261 2010 11 25
 end
 durationcanvas 129667 classinstance_ref 128131 // :UcGerer
-  xyzwh 277 334 2010 11 25
+  xyzwh 380 318 2010 11 40
 end
-durationcanvas 130307 classinstance_ref 128131 // :UcGerer
-  xyzwh 277 384 2010 11 40
+durationcanvas 129795 classinstance_ref 128387 // eclairage:Controleur
+  xyzwh 650 318 2010 11 25
 end
-durationcanvas 130435 classinstance_ref 128387 // :Eclairage
-  xyzwh 421 384 2010 11 25
+durationcanvas 130051 classinstance_ref 128387 // eclairage:Controleur
+  xyzwh 650 397 2010 11 40
 end
-durationcanvas 130691 classinstance_ref 128003 // :SUP
-  xyzwh 136 473 2010 11 40
+durationcanvas 130179 classinstance_ref 128259 // :PersiBny
+  xyzwh 522 397 2010 11 25
+end
+durationcanvas 130435 classinstance_ref 128003 // :SUP
+  xyzwh 128 451 2010 11 40
+end
+durationcanvas 130563 classinstance_ref 128131 // :UcGerer
+  xyzwh 380 451 2010 11 25
 end
 durationcanvas 130819 classinstance_ref 128131 // :UcGerer
-  xyzwh 277 473 2010 11 25
+  xyzwh 380 535 2010 11 40
 end
-durationcanvas 131075 classinstance_ref 128131 // :UcGerer
-  xyzwh 277 525 2010 11 40
-end
-durationcanvas 131203 classinstance_ref 128259 // :UcCommander
-  xyzwh 550 525 2010 11 25
-end
-durationcanvas 131459 classinstance_ref 128259 // :UcCommander
-  xyzwh 550 623 2010 11 40
-end
-durationcanvas 131587 classinstance_ref 128387 // :Eclairage
-  xyzwh 421 623 2010 11 25
-end
-durationcanvas 131843 classinstance_ref 128387 // :Eclairage
-  xyzwh 421 449 2010 11 40
-end
-durationcanvas 132099 classinstance_ref 128387 // :Eclairage
-  xyzwh 421 683 2010 11 40
+durationcanvas 130947 classinstance_ref 128259 // :PersiBny
+  xyzwh 522 535 2010 11 25
 end
 msg 128771 asynchronous
   from durationcanvas_ref 128515
   to durationcanvas_ref 128643
-  yz 119 2015 msg operation_ref 149123 // "ajouterEclairage(in eclairage : Ent, in bd : sqlite3) : void"
+  yz 98 2015 msg operation_ref 149123 // "ajouterEclairage(in eclairage : Ent, in bd : sqlite3) : void"
   show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
-  label_xy 158 101
-reflexivemsg 129027 asynchronous
-  to durationcanvas_ref 128899
-  yz 179 2015 msg operation_ref 149123 // "ajouterEclairage(in eclairage : Ent, in bd : sqlite3) : void"
+  args "eclairage, bdd"
+  label_xy 158 80
+msg 129155 asynchronous
+  from durationcanvas_ref 128899
+  to durationcanvas_ref 129027
+  yz 154 2015 msg operation_ref 138755 // "set(in ent : Eclairage::Ent) : void"
   show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
-  label_xy 289 156
-msg 129411 asynchronous
-  from durationcanvas_ref 129155
-  to durationcanvas_ref 129283
-  yz 245 2015 explicitmsg "Confirmation"
+  args "eclairage"
+  label_xy 412 136
+msg 129539 asynchronous
+  from durationcanvas_ref 129283
+  to durationcanvas_ref 129411
+  yz 261 2015 msg operation_ref 148995 // "modifierConfiguration(in eclairage : Ent) : void"
   show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
-  label_xy 170 227
-msg 129795 asynchronous
-  from durationcanvas_ref 129539
-  to durationcanvas_ref 129667
-  yz 334 2015 explicitmsg "configurer"
+  args "eclairage"
+  label_xy 155 243
+msg 129923 asynchronous
+  from durationcanvas_ref 129667
+  to durationcanvas_ref 129795
+  yz 318 2015 msg operation_ref 138115 // "set(in ent : Eclairage::Ent) : void"
   show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
-  label_xy 179 316
-msg 130563 asynchronous
-  from durationcanvas_ref 130307
-  to durationcanvas_ref 130435
-  yz 384 2015 explicitmsg "setConf()"
+  args "eclairage"
+  label_xy 476 300
+msg 130307 asynchronous
+  from durationcanvas_ref 130051
+  to durationcanvas_ref 130179
+  yz 397 2015 msg operation_ref 138755 // "set(in ent : Eclairage::Ent) : void"
   show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
-  label_xy 329 366
-msg 130947 asynchronous
-  from durationcanvas_ref 130691
-  to durationcanvas_ref 130819
-  yz 473 2015 explicitmsg "allumer()"
+  args "eclairage"
+  label_xy 547 379
+msg 130691 asynchronous
+  from durationcanvas_ref 130435
+  to durationcanvas_ref 130563
+  yz 451 2015 msg operation_ref 149251 // "supprimerEclairage(in eclairage : Ent) : void"
   show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
-  label_xy 183 455
-msg 131331 asynchronous
-  from durationcanvas_ref 131075
-  to durationcanvas_ref 131203
-  yz 525 2015 explicitmsg "allumer()"
+  args "eclairage"
+  label_xy 161 433
+msg 131075 asynchronous
+  from durationcanvas_ref 130819
+  to durationcanvas_ref 130947
+  yz 535 2015 msg operation_ref 138755 // "set(in ent : Eclairage::Ent) : void"
   show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
-  label_xy 390 507
-msg 131715 asynchronous
-  from durationcanvas_ref 131459
-  to durationcanvas_ref 131587
-  yz 623 2015 explicitmsg "allumer()"
-  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
-  label_xy 462 605
-reflexivemsg 131971 asynchronous
-  to durationcanvas_ref 131843
-  yz 450 2015 explicitmsg "setConf()"
-  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
-  label_xy 433 431
-reflexivemsg 132227 asynchronous
-  to durationcanvas_ref 132099
-  yz 684 2015 explicitmsg "setAllumer()"
-  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
-  label_xy 433 665
+  args "eclairage"
+  label_xy 412 517
 end

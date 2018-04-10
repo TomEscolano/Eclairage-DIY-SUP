@@ -8,6 +8,7 @@
 
 #include <EclairageUnicolore.h>
 #include <string.h>
+#include <iostream>
 
 //****************** CONTROLEUR *****************
 void EclairageUnicolore::Controleur::setCouleur( Couleur couleur)
@@ -38,11 +39,14 @@ Couleur EclairageUnicolore::Ent::getCouleur()
 int main(int argc, char const *argv[])
 {
 
-	EclairageUnicolore::Controleur controleur;
+	EclairageUnicolore eclairage;
+
+	eclairage.controleur.setCouleur(Rouge);
+	std::cout << eclairage.controleur.getCouleur() << std::endl;
 
 	return 0;
 }
 
-//g++ -o EclairageUnicolore EclairageUnicolore.cpp -I . -lsqlite3 -D _UT_UNICOLORE_ -std=c++11 -w
+//g++ -o EclairageUnicolore EclairageUnicolore.cpp SqlitePersiBny.cpp Utility.cpp Eclairage.cpp -I . -lsqlite3 -D _UT_UNICOLORE_ -std=c++11 -w && clear && ./EclairageUnicolore && rm EclairageUnicolore
 
 #endif
