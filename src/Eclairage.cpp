@@ -39,8 +39,8 @@ void Eclairage::Controleur::allumer(bool etat)
 	this->ent.setAllume(etat);
 }
 
-void Eclairage::Controleur::getIHMJardin() {
-	std::cout << "hehe" << std::endl;
+void Eclairage::Controleur::getIHMJardin(){
+
 }
 
 void Eclairage::Controleur::setID(const unsigned int & id)
@@ -95,24 +95,6 @@ unsigned int Eclairage::Controleur::getConsommation()
 
 void Eclairage::Controleur::getIHMFormulaire() {
 }
-
-/*void Eclairage::Controleur::set( Eclairage::Ent & ent)
-{
-	this->ent.setID(ent.getID());
-	this->ent.setAllume(ent.getAllume());
-	this->ent.setActive(ent.getActive());
-	this->ent.setNom(ent.getNom());
-	this->ent.setConsommation(ent.getConsommation());
-}
-
-void Eclairage::Controleur::get(Eclairage::Ent & ent)
-{
-	ent.setID(this->ent.getID());
-	ent.setAllume(this->ent.getAllume());
-	ent.setActive(this->ent.getActive());
-	ent.setNom(this->ent.getNom());
-	ent.setConsommation(this->ent.getConsommation());
-}*/
 
 //*************** ENTITY ****************
 void Eclairage::Ent::setID(const unsigned int & id)
@@ -179,7 +161,7 @@ unsigned int Eclairage::Ent::getConsommation()
 //*************** PERSIBNY ****************
 void Eclairage::PersiBny::set(Eclairage::Ent & ent)
 {
-	this->executerSql("INSERT INTO eclairages(id,allume,active,nom, consommation) VALUES(" + std::to_string(ent.getID()) + ", " + std::to_string(ent.getAllume()) + ", " + std::to_string(ent.getActive()) + ", \"" + ent.getNom() + "\", " + std::to_string(ent.getConsommation()) + " );");
+	this->executerSql("INSERT INTO eclairages(id,allume,active, nom, consommation) VALUES(" + std::to_string(ent.getID()) + ", " + std::to_string(ent.getAllume()) + ", " + std::to_string(ent.getActive()) + ", \"" + ent.getNom() + "\", " + std::to_string(ent.getConsommation()) + " );");
 }
 
 void Eclairage::PersiBny::get(Eclairage::Ent & ent)

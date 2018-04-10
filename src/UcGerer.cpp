@@ -27,7 +27,7 @@ void UcGerer::desactiverEclairage(Eclairage::Ent & eclairage)
 void UcGerer::supprimerEclairage( Eclairage::Ent & eclairage, const sqlite3 & bd)
 {
 	SqlitePersiBny persi(DB);
-	std::string requete = "DELETE FROM eclairages WHERE id = " + std::to_string(eclairage.getID()) + ";";
+	std::string requete = "DELETE FROM eclairages WHERE id = " + std::to_string(eclairage.getID()) + "; DELETE FROM multicolores WHERE id = " + std::to_string(eclairage.getID()) + "; DELETE FROM unicolores WHERE id = " + std::to_string(eclairage.getID()) + ";";
 	persi.executerSql(requete);
 }
 
@@ -36,19 +36,30 @@ void UcGerer::activerEclairage(Eclairage::Ent & eclairage)
 	eclairage.setActive(true);
 }
 
-void UcGerer::ajouterEclairage(Eclairage::Ent & eclairage, const sqlite3 & bd)
+void UcGerer::ajouterEclairageMulticolore(EclairageMulticolore::Ent & ent, const sqlite3 & bd)
+{
+
+	SqlitePersiBny persi(DB);
+
+	persi.executerSql("INSERT INTO eclairages (nom, allume, active, consommation) VALUES (" + ent.getNom() + ", " + std::to_string(ent.getAllume()) + ", " + std::to_string(ent.getActive()) + ", " + std::to_string(ent.getConsommation()) + ");");
+
+	persi.executerSql("INSERT INTO multicolores(id,adresseBluetooth,adresseIP,versionFirmware, couleur) VALUES(" + std::to_string(ent.getID()) + ", \"" + ent.getAdresseMac() + "\", \"" + ent.getAdresseIP() + "\", " + std::to_string(ent.getVersionFirmware()) + ", \"" + ent.getCouleur() + "\");");
+
+}
+
+void UcGerer::ajouterEclairageUnicolore(EclairageUnicolore::Ent & ent, const sqlite3 & bd)
 {
 	SqlitePersiBny persi(DB);
 
-	std::string requete = "INSERT INTO eclairages (nom, allume, active, consommation) VALUES (" + eclairage.getNom() + ", " + std::to_string(eclairage.getAllume()) + ", " + std::to_string(eclairage.getActive()) + ", " + std::to_string(eclairage.getConsommation()) + ");";
+	persi.executerSql("INSERT INTO eclairages (nom, allume, active, consommation) VALUES (" + ent.getNom() + ", " + std::to_string(ent.getAllume()) + ", " + std::to_string(ent.getActive()) + ", " + std::to_string(ent.getConsommation()) + ");");
 
-	persi.executerSql(requete);
+	persi.executerSql("INSERT INTO unicolores(id,couleur) VALUES(" + std::to_string(ent.getID()) + ", \"" + std::to_string(ent.getCouleur()) + "\");");
 }
 
-void UcGerer::recevoirEclairage() {
+void UcGerer::recevoirEclairage(){
 }
 
-void UcGerer::modifierConfiguration( Eclairage::Controleur & eclairage)
+void UcGerer::modifierConfiguration(Eclairage::Controleur & eclairage)
 {
     SqlitePersiBny persi(DB);
 	
