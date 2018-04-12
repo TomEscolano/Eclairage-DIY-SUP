@@ -91,8 +91,12 @@ int SqlitePersiBny::getDernierId() {
 
 int SqlitePersiBny::getDernierId(std::string table) throw (SqlitePersiBnyException) {
 	SqlitePersiBny::Resultat resultat;
-	this->executerSql("select seq from sqlite_sequence where name=\"" + table+"\"",resultat);
-	return std::stoi(resultat.at(0).at(0).second);
+	this->executerSql("select id from " + table + " order by id desc limit 1;",resultat);
+	try{
+		return std::stoi(resultat.at(0).at(0).second);
+	}catch(const std::out_of_range &e){
+		return 0;
+	}
 }
 
 std::string SqlitePersiBny::resultatToString(

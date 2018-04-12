@@ -93,7 +93,7 @@ class EclairageMulticolore : public Eclairage {
 
 		PersiBny persiBny;
 
-		Controleur():Eclairage::Controleur(), ent(), persiBny(){};
+		Controleur():Eclairage::Controleur(), ent(), persiBny(){this->ent.setID(this->persiBny.getDernierId("multicolores")+1);};
 		
 		void recevoir();
 

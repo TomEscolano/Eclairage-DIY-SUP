@@ -68,7 +68,7 @@ class EclairageUnicolore : public Eclairage {
 
 				PersiBny persiBny;
 
-				Controleur():Eclairage::Controleur(), ent(), persiBny(){};
+				Controleur():Eclairage::Controleur(), ent(), persiBny(){this->ent.setID(this->persiBny.getDernierId("unicolores")+1);};
 
 				void setCouleur(Couleur couleur);
 

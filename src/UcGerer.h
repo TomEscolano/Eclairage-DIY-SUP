@@ -26,13 +26,13 @@ class UcGerer {
 
     void desactiverEclairage(Eclairage::Ent & eclairage);
 
-    void supprimerEclairage(Eclairage::Ent & eclairage, const sqlite3 & bd);
+    void supprimerEclairage(Eclairage::Ent & eclairage);
 
     void activerEclairage(Eclairage::Ent & eclairage);
 
-    void ajouterEclairageUnicolore(EclairageUnicolore::Ent & ent, const sqlite3 & bd);
+    void ajouterEclairageUnicolore(EclairageUnicolore::Ent & ent);
 
-    void ajouterEclairageMulticolore(EclairageMulticolore::Ent & ent, const sqlite3 & bd);
+    void ajouterEclairageMulticolore(EclairageMulticolore::Ent & ent);
 
     void recevoirEclairage();
 

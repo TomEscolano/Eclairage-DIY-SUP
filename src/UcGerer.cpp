@@ -24,7 +24,7 @@ void UcGerer::desactiverEclairage(Eclairage::Ent & eclairage)
 	eclairage.setActive(false);
 }
 
-void UcGerer::supprimerEclairage( Eclairage::Ent & eclairage, const sqlite3 & bd)
+void UcGerer::supprimerEclairage( Eclairage::Ent & eclairage)
 {
 	SqlitePersiBny persi(DB);
 	std::string requete = "DELETE FROM eclairages WHERE id = " + std::to_string(eclairage.getID()) + "; DELETE FROM multicolores WHERE id = " + std::to_string(eclairage.getID()) + "; DELETE FROM unicolores WHERE id = " + std::to_string(eclairage.getID()) + ";";
@@ -36,7 +36,7 @@ void UcGerer::activerEclairage(Eclairage::Ent & eclairage)
 	eclairage.setActive(true);
 }
 
-void UcGerer::ajouterEclairageMulticolore(EclairageMulticolore::Ent & ent, const sqlite3 & bd)
+void UcGerer::ajouterEclairageMulticolore(EclairageMulticolore::Ent & ent)
 {
 
 	SqlitePersiBny persi(DB);
@@ -47,7 +47,7 @@ void UcGerer::ajouterEclairageMulticolore(EclairageMulticolore::Ent & ent, const
 
 }
 
-void UcGerer::ajouterEclairageUnicolore(EclairageUnicolore::Ent & ent, const sqlite3 & bd)
+void UcGerer::ajouterEclairageUnicolore(EclairageUnicolore::Ent & ent)
 {
 	SqlitePersiBny persi(DB);
 
@@ -125,6 +125,10 @@ int main(int argc, char const *argv[])
 {
 	UcGerer ucGerer;
 
+	EclairageMulticolore tmp;
+
+	tmp.controleur.setID(9);
+	
 	return 0;
 }
 

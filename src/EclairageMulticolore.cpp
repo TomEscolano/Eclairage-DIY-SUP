@@ -262,7 +262,7 @@ int main(int argc, char const *argv[])
 
 	EclairageMulticolore eclairageMulticolore;
 
-	eclairageMulticolore.controleur.setID(1);
+	/*eclairageMulticolore.controleur.setID(1);
 	eclairageMulticolore.controleur.setNom("Eclairage1");
 	eclairageMulticolore.controleur.setConsommation(40);
 	eclairageMulticolore.controleur.setAllume(false);
@@ -275,17 +275,17 @@ int main(int argc, char const *argv[])
 	eclairageMulticolore.controleur.setAdresseIP("127.0.0.1");
 
 	eclairageMulticolore.controleur.persiBny.set(eclairageMulticolore.controleur.ent);
-	eclairageMulticolore.controleur.persiBny.get(eclairageMulticolore.controleur.ent);
+	eclairageMulticolore.controleur.persiBny.get(eclairageMulticolore.controleur.ent);*/
 
 	std::cout << "ID : " << eclairageMulticolore.controleur.getID() << std::endl;
-	std::cout << "Allume : " << eclairageMulticolore.controleur.getAllume() << std::endl;
+	/*std::cout << "Allume : " << eclairageMulticolore.controleur.getAllume() << std::endl;
 	std::cout << "Active : " << eclairageMulticolore.controleur.getActive() << std::endl;
 	std::cout << "Conso : " << eclairageMulticolore.controleur.getConsommation() << "mah" << std::endl;
 	std::cout << "Couleur : " << eclairageMulticolore.controleur.getCouleur() << std::endl;
 	std::cout << "Adresse MAC : " << eclairageMulticolore.controleur.getAdresseMac() << std::endl;
 	std::cout << "Niveau de batterie: " << eclairageMulticolore.controleur.getNiveauBatterie() << "%" <<std::endl;
 	std::cout << "Version du firmware : " << eclairageMulticolore.controleur.getVersionFirmware() << std::endl;
-	std::cout << "AdresseIP : " << eclairageMulticolore.controleur.getAdresseIP() << std::endl;
+	std::cout << "AdresseIP : " << eclairageMulticolore.controleur.getAdresseIP() << std::endl;*/
 	
 	return 0;
 }
