@@ -13,8 +13,9 @@
 #include <UcCommander.h>
 #include <SqlitePersiBny.h>
 #include <vector>
+#include <iostream>
 
-#define DB "eclairagediy.db"
+#define DB "/var/eclairage/bdd.db"
 
 void UcGerer::emettreConfiguration(const Eclairage::Ent & eclairage) {
 }
@@ -41,7 +42,7 @@ void UcGerer::ajouterEclairageMulticolore(EclairageMulticolore::Ent & ent)
 
 	SqlitePersiBny persi(DB);
 
-	persi.executerSql("INSERT INTO eclairages (nom, allume, active, consommation) VALUES (" + ent.getNom() + ", " + std::to_string(ent.getAllume()) + ", " + std::to_string(ent.getActive()) + ", " + std::to_string(ent.getConsommation()) + ");");
+	persi.executerSql("INSERT INTO eclairages (nom, allume, active, consommation) VALUES (\"" + ent.getNom() + "\", " + std::to_string(ent.getAllume()) + ", " + std::to_string(ent.getActive()) + ", " + std::to_string(ent.getConsommation()) + ");");
 
 	persi.executerSql("INSERT INTO multicolores(id,adresseBluetooth,adresseIP,versionFirmware, couleur) VALUES(" + std::to_string(ent.getID()) + ", \"" + ent.getAdresseMac() + "\", \"" + ent.getAdresseIP() + "\", " + std::to_string(ent.getVersionFirmware()) + ", \"" + ent.getCouleur() + "\");");
 
@@ -51,7 +52,7 @@ void UcGerer::ajouterEclairageUnicolore(EclairageUnicolore::Ent & ent)
 {
 	SqlitePersiBny persi(DB);
 
-	persi.executerSql("INSERT INTO eclairages (nom, allume, active, consommation) VALUES (" + ent.getNom() + ", " + std::to_string(ent.getAllume()) + ", " + std::to_string(ent.getActive()) + ", " + std::to_string(ent.getConsommation()) + ");");
+	persi.executerSql("INSERT INTO eclairages (nom, allume, active, consommation) VALUES (\"" + ent.getNom() + "\", " + std::to_string(ent.getAllume()) + ", " + std::to_string(ent.getActive()) + ", " + std::to_string(ent.getConsommation()) + ");");
 
 	persi.executerSql("INSERT INTO unicolores(id,couleur) VALUES(" + std::to_string(ent.getID()) + ", \"" + std::to_string(ent.getCouleur()) + "\");");
 }
@@ -59,20 +60,45 @@ void UcGerer::ajouterEclairageUnicolore(EclairageUnicolore::Ent & ent)
 void UcGerer::recevoirEclairage(){
 }
 
-void UcGerer::modifierConfiguration(Eclairage::Controleur & eclairage)
+void UcGerer::modifierConfigurationUnicolore(EclairageUnicolore::Controleur & eclairage)
 {
-    /*SqlitePersiBny persi(DB);
-	
-	std::string requete = "UPDATE eclairages SET nom = " + eclairage.getNom() + "allume = " + std::to_string(eclairage.getAllume()) + "active = " + std::to_string(eclairage.getActive()) + "consommation =" + std::to_string(eclairage.getConsommation()) + " WHERE id = " + std::to_string(eclairage.getID()) + ";";
+    SqlitePersiBny::Resultat resultat;
+    std::string requete;
 
-	persi.executerSql(requete);*/
+
+    this->persi.executerSql("SELECT * FROM unicolores WHERE id = " + std::to_string(eclairage.getID()) + ";", resultat);
+    if(resultat.size() == 0)
+    {
+		this->ajouterEclairageUnicolore(eclairage.ent);
+    }
+    else
+    {
+    	this->persi.executerSql("UPDATE eclairages SET nom = \"" + eclairage.getNom() + "\" allume = " + std::to_string(eclairage.getAllume()) + " active = " + std::to_string(eclairage.getActive()) + " consommation = " + std::to_string(eclairage.getConsommation()) + " WHERE id = " + std::to_string(eclairage.getID()) + ";");
+    }
+}
+
+void UcGerer::modifierConfigurationMulticolore(EclairageMulticolore::Controleur & eclairage)
+{
+    SqlitePersiBny persi(DB);
+    SqlitePersiBny::Resultat resultat;
+    std::string requete;
+
+    persi.executerSql("SELECT * FROM multicolores WHERE id = " + std::to_string(eclairage.getID()) + ";", resultat);
+    if(resultat.size() == 0)
+    {
+		this->ajouterEclairageMulticolore(eclairage.ent);
+    }
+    else
+    {
+    	persi.executerSql("UPDATE eclairages SET nom = " + eclairage.getNom() + " allume = " + std::to_string(eclairage.getAllume()) + " active = " + std::to_string(eclairage.getActive()) + " consommation =" + std::to_string(eclairage.getConsommation()) + " WHERE id = " + std::to_string(eclairage.getID()) + ";");
+	}
 }
 
 std::vector<EclairageMulticolore> UcGerer::extraireEclairagesMulticolores()
 {
 	SqlitePersiBny persi(DB);
 	SqlitePersiBny::Resultat resultat;
-	persi.executerSql("SELECT * FROM eclairagesMulticolore;", resultat);
+	persi.executerSql("SELECT * FROM multicolores;", resultat);
 
 	std::vector<EclairageMulticolore> eclairages;
 	for(int i = 0; i < resultat.size(); i++)
@@ -92,7 +118,7 @@ std::vector<EclairageUnicolore> UcGerer::extraireEclairagesUnicolores()
 {
 	SqlitePersiBny persi(DB);
 	SqlitePersiBny::Resultat resultat;
-	persi.executerSql("SELECT * FROM eclairagesUnicolore;", resultat);
+	persi.executerSql("SELECT * FROM unicolores;", resultat);
 
 	std::vector<EclairageUnicolore> eclairages;
 	for(int i = 0; i < resultat.size(); i++)
@@ -125,10 +151,6 @@ int main(int argc, char const *argv[])
 {
 	UcGerer ucGerer;
 
-	EclairageMulticolore tmp;
-
-	tmp.controleur.setID(9);
-	
 	return 0;
 }
 

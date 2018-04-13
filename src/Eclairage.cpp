@@ -100,35 +100,35 @@ void Eclairage::Controleur::getIHMFormulaire() {
 void Eclairage::Ent::setID(const unsigned int & id)
 {
 	this->id = id;
-	Utility::log_action(this->getID(), "ID", std::to_string(id));
+	//Utility::log_action(this->getID(), "ID", std::to_string(id));
 
 }
 
 void Eclairage::Ent::setAllume(bool etat)
 {
 	this->allume = etat;
-	Utility::log_action(this->getID(), "Allumer", etat ? "true":"false");
+	//Utility::log_action(this->getID(), "Allumer", etat ? "true":"false");
 
 }
 
 void Eclairage::Ent::setActive(bool etat)
 {
 	this->active = etat;
-	Utility::log_action(this->getID(), "Activer", etat ? "true":"false");
+	//Utility::log_action(this->getID(), "Activer", etat ? "true":"false");
 
 }
 
 void Eclairage::Ent::setNom(const std::string & nom)
 {
 	this->nom = nom;
-	Utility::log_action(this->getID(), "Nom", nom);
+	//Utility::log_action(this->getID(), "Nom", nom);
 
 }
 
 void Eclairage::Ent::setConsommation(const unsigned int & conso)
 {
 	this->consommation = conso;
-	Utility::log_action(this->getID(), "Consommation", std::to_string(conso));
+	//Utility::log_action(this->getID(), "Consommation", std::to_string(conso));
 
 }
 
@@ -161,7 +161,7 @@ unsigned int Eclairage::Ent::getConsommation()
 //*************** PERSIBNY ****************
 void Eclairage::PersiBny::set(Eclairage::Ent & ent)
 {
-	this->executerSql("UPDATE eclairages SET allume = " + std::to_string(ent.getAllume()) + ", active = " + std::to_string(ent.getActive()) + ", nom = " + ent.getNom() + ", consommation = " + std::to_string(ent.getConsommation()) + " WHERE id = " + std::to_string(ent.getID()) + ";");
+	this->executerSql("UPDATE eclairages SET allume = " + std::to_string(ent.getAllume()) + ", active = " + std::to_string(ent.getActive()) + ", nom = \"" + ent.getNom() + "\", consommation = " + std::to_string(ent.getConsommation()) + " WHERE id = " + std::to_string(ent.getID()) + ";");
 }
 
 void Eclairage::PersiBny::get(Eclairage::Ent & ent)

@@ -19,31 +19,6 @@ void EclairageMulticolore::Controleur::recevoir() {
 void EclairageMulticolore::Controleur::envoyer() {
 }
 
-void EclairageMulticolore::Controleur::setCouleur(const std::string & couleur)
-{
-	this->ent.setCouleur(couleur);
-}
-
-void EclairageMulticolore::Controleur::setAdresseMac(const std::string & adresseMac)
-{
-	this->ent.setAdresseMac(adresseMac);
-}
-
-void EclairageMulticolore::Controleur::setNiveauBatterie(const unsigned int & niveauBatterie)
-{
-	this->ent.setNiveauBatterie(niveauBatterie);
-}
-
-void EclairageMulticolore::Controleur::setVersionFirmware(float version)
-{
-	this->ent.setVersionFirmware(version);
-}
-
-void EclairageMulticolore::Controleur::setAdresseIP(const std::string & adresseIP)
-{
-	this->ent.setAdresseIP(adresseIP);
-}
-
 unsigned int EclairageMulticolore::Controleur::getID()
 {
 	return this->ent.getID();
@@ -94,6 +69,36 @@ std::string EclairageMulticolore::Controleur::getAdresseIP()
 	return this->ent.getAdresseIP();
 }
 
+void EclairageMulticolore::Controleur::setCouleur(const std::string & couleur)
+{
+	this->ent.setCouleur(couleur);
+	//Utility::log_action(this->ent.Eclairage::Ent::getID(), "Couleur", couleur);
+}
+
+void EclairageMulticolore::Controleur::setAdresseMac(const std::string & adresseMac)
+{
+	this->ent.setAdresseMac(adresseMac);
+	//Utility::log_action(this->ent.Eclairage::Ent::getID(), "AdresseMAC", adresseMac);
+}
+
+void EclairageMulticolore::Controleur::setNiveauBatterie(const unsigned int & niveauBatterie)
+{
+	this->ent.setNiveauBatterie(niveauBatterie);
+	//Utility::log_action(this->ent.Eclairage::Ent::getID(), "NiveauBatterie", std::to_string(niveauBatterie));
+}
+
+void EclairageMulticolore::Controleur::setVersionFirmware(float version)
+{
+	this->ent.setVersionFirmware(version);
+	//Utility::log_action(this->ent.Eclairage::Ent::getID(), "VersionFirmware", std::to_string(version));
+}
+
+void EclairageMulticolore::Controleur::setAdresseIP(const std::string & adresseIP)
+{
+	this->ent.setAdresseIP(adresseIP);
+	//Utility::log_action(this->ent.Eclairage::Ent::getID(), "AdresseIP", adresseIP);
+}
+
 //Surcharge des méthodes de la classe mère
 void EclairageMulticolore::Controleur::setID(unsigned int id)
 {
@@ -103,18 +108,24 @@ void EclairageMulticolore::Controleur::setID(unsigned int id)
 void EclairageMulticolore::Controleur::setAllume(bool etat)
 {
 	this->ent.setAllume(etat);
+	//Utility::log_action(this->ent.Eclairage::Ent::getID(), "Allume", etat == true ? "true" : "false");
 }
 void EclairageMulticolore::Controleur::setActive(bool etat)
 {
 	this->ent.setActive(etat);
+	//Utility::log_action(this->ent.Eclairage::Ent::getID(), "Active", etat == true ? "true" : "false");
+
 }
 void EclairageMulticolore::Controleur::setNom(std::string nom)
 {
 	this->ent.setNom(nom);
+	//Utility::log_action(this->ent.Eclairage::Ent::getID(), "Nom", nom);
+
 }
 void EclairageMulticolore::Controleur::setConsommation(unsigned int conso)
 {
 	this->ent.setConsommation(conso);
+	//Utility::log_action(this->ent.Eclairage::Ent::getID(), "Conso", std::to_string(conso));
 }
 
 //******************** ENT **********************
@@ -126,55 +137,47 @@ void EclairageMulticolore::Ent::setID(unsigned int id)
 void EclairageMulticolore::Ent::setAllume(bool etat)
 {
 	this->Eclairage::Ent::setAllume(etat);
-	Utility::log_action(this->Eclairage::Ent::getID(), "Allume", etat == true ? "true" : "false");
+	
 }
 
 void EclairageMulticolore::Ent::setActive(bool etat)
 {
 	this->Eclairage::Ent::setActive(etat);
-	Utility::log_action(this->Eclairage::Ent::getID(), "Active", etat == true ? "true" : "false");
 }
 
 void EclairageMulticolore::Ent::setNom(std::string nom)
 {
 	this->Eclairage::Ent::setNom(nom);
-	Utility::log_action(this->Eclairage::Ent::getID(), "Nom", nom);
 }
 
 void EclairageMulticolore::Ent::setConsommation(unsigned int conso)
 {
 	this->Eclairage::Ent::setConsommation(conso);
-	Utility::log_action(this->Eclairage::Ent::getID(), "Conso", std::to_string(conso));
 }
 
 void EclairageMulticolore::Ent::setCouleur(const std::string & couleur)
 {
 	this->couleur = couleur;
-	Utility::log_action(this->Eclairage::Ent::getID(), "Couleur", couleur);
 }
 
 void EclairageMulticolore::Ent::setAdresseMac(const std::string & adresseMac)
 {
 	this->adresseMac = adresseMac;
-	Utility::log_action(this->Eclairage::Ent::getID(), "AdresseMAC", adresseMac);
 }
 
 void EclairageMulticolore::Ent::setNiveauBatterie(const unsigned int & niveauBatterie)
 {
 	this->niveauBatterie = niveauBatterie;
-	Utility::log_action(this->Eclairage::Ent::getID(), "NiveauBatterie", std::to_string(niveauBatterie));
 }
 
 void EclairageMulticolore::Ent::setVersionFirmware(float version)
 {
 	this->versionFirmware = version;
-	Utility::log_action(this->Eclairage::Ent::getID(), "VersionFirmware", std::to_string(version));
 }
 
 void EclairageMulticolore::Ent::setAdresseIP(const std::string & adresseIP)
 {
 	this->adresseIP = adresseIP;
-	Utility::log_action(this->Eclairage::Ent::getID(), "AdresseIP", adresseIP);
 }
 
 unsigned int EclairageMulticolore::Ent::getID()
@@ -262,7 +265,7 @@ int main(int argc, char const *argv[])
 
 	EclairageMulticolore eclairageMulticolore;
 
-	/*eclairageMulticolore.controleur.setID(1);
+	eclairageMulticolore.controleur.setID(1);
 	eclairageMulticolore.controleur.setNom("Eclairage1");
 	eclairageMulticolore.controleur.setConsommation(40);
 	eclairageMulticolore.controleur.setAllume(false);
@@ -275,17 +278,17 @@ int main(int argc, char const *argv[])
 	eclairageMulticolore.controleur.setAdresseIP("127.0.0.1");
 
 	eclairageMulticolore.controleur.persiBny.set(eclairageMulticolore.controleur.ent);
-	eclairageMulticolore.controleur.persiBny.get(eclairageMulticolore.controleur.ent);*/
+	eclairageMulticolore.controleur.persiBny.get(eclairageMulticolore.controleur.ent);
 
 	std::cout << "ID : " << eclairageMulticolore.controleur.getID() << std::endl;
-	/*std::cout << "Allume : " << eclairageMulticolore.controleur.getAllume() << std::endl;
+	std::cout << "Allume : " << eclairageMulticolore.controleur.getAllume() << std::endl;
 	std::cout << "Active : " << eclairageMulticolore.controleur.getActive() << std::endl;
 	std::cout << "Conso : " << eclairageMulticolore.controleur.getConsommation() << "mah" << std::endl;
 	std::cout << "Couleur : " << eclairageMulticolore.controleur.getCouleur() << std::endl;
 	std::cout << "Adresse MAC : " << eclairageMulticolore.controleur.getAdresseMac() << std::endl;
 	std::cout << "Niveau de batterie: " << eclairageMulticolore.controleur.getNiveauBatterie() << "%" <<std::endl;
 	std::cout << "Version du firmware : " << eclairageMulticolore.controleur.getVersionFirmware() << std::endl;
-	std::cout << "AdresseIP : " << eclairageMulticolore.controleur.getAdresseIP() << std::endl;*/
+	std::cout << "AdresseIP : " << eclairageMulticolore.controleur.getAdresseIP() << std::endl;
 	
 	return 0;
 }

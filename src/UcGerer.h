@@ -20,6 +20,13 @@ class Eclairage;
 class UcCommander;
 
 class UcGerer {
+
+    class PersiBny : public SqlitePersiBny {
+      public:
+
+        PersiBny(): SqlitePersiBny("/var/eclairage/bdd.db"){};
+    };
+
   public:
 
     void emettreConfiguration(const Eclairage::Ent & eclairage);
@@ -36,7 +43,9 @@ class UcGerer {
 
     void recevoirEclairage();
 
-    void modifierConfiguration(Eclairage::Controleur & eclairage);
+    void modifierConfigurationUnicolore(EclairageUnicolore::Controleur & eclairage);
+
+    void modifierConfigurationMulticolore(EclairageMulticolore::Controleur & eclairage);
 
     std::vector<EclairageMulticolore> extraireEclairagesMulticolores();
     
@@ -54,6 +63,8 @@ class UcGerer {
     UcMettreAJour ucMettreAJour;
 
     UcCommander ucCommander;
+
+    PersiBny persi;
 
 };
 #endif

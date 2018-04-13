@@ -24,7 +24,7 @@ class UcImporter {
 
 
   public:
-    void ajouter(const Eclairage::Ent & eclairage, const UcGerer & ucGerer);
+    void ajouter(Eclairage::Ent & eclairage, UcGerer & ucGerer);
 
 
 };

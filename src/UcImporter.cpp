@@ -27,37 +27,59 @@ void UcImporter::doIt(std::string fichierCSV, const UcGerer & ucGerer)
 	in.read_header(io::ignore_extra_column, "type", "id", "nom", "consommation","allume", "active", "couleur", "adresseMac", "niveauBatterie", "versionFirmware", "adresseIP");
 	
 	//Proprietes
-	std::string type;
-	int id;
-	std::string nom;
-	std::string couleur;
-	std::string allume;
-	std::string active;
-	std::string adresseMac;
-	int niveauBatterie;
-	int consommation;
+	std::string type, nom, couleur, allume, active, adresseMac, adresseIP;
+	int id, niveauBatterie, consommation;
 	float versionFirmware;
-	std::string adresseIP;
 
 	while(in.read_row(type, id, nom, consommation, allume, active, couleur, adresseMac, niveauBatterie, versionFirmware, adresseIP))
 	{
 
-		if(type == "Unicolore"){
-				std::string couleur;
+		if(type == "unicolore"){
+
+			std::cout << "ptn dunicolore" << std::endl;
+
+			//Création d'un eclairage temporaire
+			EclairageUnicolore eclairage;
+
+			//Assignation des valeurs d'éclairage générique
+			eclairage.controleur.ent.setID(id);
+			eclairage.controleur.ent.setAllume((allume == "true")? true: false);
+			eclairage.controleur.ent.setActive((active == "true")? true: false);
+			eclairage.controleur.ent.setNom(nom);
+			eclairage.controleur.ent.setConsommation(consommation);
+			
+			//Assignation des valeurs d'éclairage spécifique
+			if(couleur == "Bleu")
+				eclairage.controleur.ent.setCouleur(Bleu);
+			if(couleur == "Rouge")
+				eclairage.controleur.ent.setCouleur(Rouge);
+			if(couleur == "Blanc")
+				eclairage.controleur.ent.setCouleur(Blanc);
+
+			//Creation de l'eclairage ou modification
+			this->ucGerer.modifierConfigurationUnicolore(eclairage.controleur);
+
 		}else{
-		
+					std::cout << "ptn dmulticolore" << std::endl;
+
 			//Creation d'un eclairage temporaire
 			EclairageMulticolore eclairage;
 
 			//Assignation des valeurs d'eclairage générique
-			eclairage.controleur.setID(id);
-			eclairage.controleur.setAllume((allume == "true")? true: false);
-			eclairage.controleur.setActive((active == "true")? true: false);
-			eclairage.controleur.setNom(nom);
-			eclairage.controleur.setConsommation(consommation);
+			eclairage.controleur.ent.setID(id);
+			eclairage.controleur.ent.setAllume((allume == "true")? true: false);
+			eclairage.controleur.ent.setActive((active == "true")? true: false);
+			eclairage.controleur.ent.setNom(nom);
+			eclairage.controleur.ent.setConsommation(consommation);
+
+			//Assignation des valeurs d'éclairage spécifique
+			eclairage.controleur.ent.setAdresseMac(adresseMac);
+			eclairage.controleur.ent.setNiveauBatterie(niveauBatterie);
+			eclairage.controleur.ent.setVersionFirmware(versionFirmware);
+			eclairage.controleur.ent.setAdresseIP(adresseIP);
 			
-			//Creation de l'eclairage
-			this->ucGerer.modifierConfiguration(eclairage);
+			//Creation de l'eclairage ou modification
+			this->ucGerer.modifierConfigurationMulticolore(eclairage.controleur);
 		}
 	}
 }
@@ -65,7 +87,9 @@ void UcImporter::doIt(std::string fichierCSV, const UcGerer & ucGerer)
 void UcImporter::getFile() {
 }
 
-void UcImporter::ajouter(const Eclairage::Ent & eclairage, const UcGerer & ucGerer) {
+void UcImporter::ajouter(Eclairage::Ent & eclairage, UcGerer & ucGerer)
+{
+	ucGerer.activerEclairage(eclairage);
 }
 
 

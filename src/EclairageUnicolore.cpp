@@ -177,8 +177,7 @@ int main(int argc, char const *argv[])
 
 	EclairageUnicolore eclairage;
 
-	
-	/*eclairage.controleur.setID(9);
+	eclairage.controleur.setID(9);
 	eclairage.controleur.setCouleur(Bleu);
 	eclairage.controleur.setNom("Eclairage1");
 	eclairage.controleur.setConsommation(40);
@@ -186,7 +185,7 @@ int main(int argc, char const *argv[])
 	eclairage.controleur.setActive(true);
 
 	eclairage.controleur.persiBny.set(eclairage.controleur.ent);
-	eclairage.controleur.persiBny.get(eclairage.controleur.ent);*/
+	eclairage.controleur.persiBny.get(eclairage.controleur.ent);
 
 	std::cout << "Couleur : " << eclairage.controleur.getID() << std::endl;
 
