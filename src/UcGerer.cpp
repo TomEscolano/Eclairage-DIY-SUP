@@ -44,7 +44,7 @@ void UcGerer::ajouterEclairageMulticolore(EclairageMulticolore::Ent & ent)
 
 	persi.executerSql("INSERT INTO eclairages (nom, allume, active, consommation) VALUES (\"" + ent.getNom() + "\", " + std::to_string(ent.getAllume()) + ", " + std::to_string(ent.getActive()) + ", " + std::to_string(ent.getConsommation()) + ");");
 
-	persi.executerSql("INSERT INTO multicolores(id,adresseBluetooth,adresseIP,versionFirmware, couleur) VALUES(" + std::to_string(ent.getID()) + ", \"" + ent.getAdresseMac() + "\", \"" + ent.getAdresseIP() + "\", " + std::to_string(ent.getVersionFirmware()) + ", \"" + ent.getCouleur() + "\");");
+	persi.executerSql("INSERT INTO multicolores(id,adresseBluetooth,adresseIP,versionFirmware, couleur, niveauBatterie) VALUES(" + std::to_string(ent.getID()) + ", \"" + ent.getAdresseMac() + "\", \"" + ent.getAdresseIP() + "\", " + std::to_string(ent.getVersionFirmware()) + ", \"" + ent.getCouleur() + "\", " + std::to_string(ent.getNiveauBatterie()) + ");");
 
 }
 
@@ -97,18 +97,29 @@ void UcGerer::modifierConfigurationMulticolore(EclairageMulticolore::Controleur 
 std::vector<EclairageMulticolore> UcGerer::extraireEclairagesMulticolores()
 {
 	SqlitePersiBny persi(DB);
-	SqlitePersiBny::Resultat resultat;
+	SqlitePersiBny::Resultat resultat, subRes;
 	persi.executerSql("SELECT * FROM multicolores;", resultat);
 
 	std::vector<EclairageMulticolore> eclairages;
 	for(int i = 0; i < resultat.size(); i++)
 	{
 		EclairageMulticolore tmp;
-		tmp.controleur.setID(atoi(resultat.at(i).at(0).second.c_str()));
-		tmp.controleur.setAdresseMac(resultat.at(i).at(1).second);
-		tmp.controleur.setAdresseIP(resultat.at(i).at(2).second);
-		tmp.controleur.setVersionFirmware(atof(resultat.at(i).at(3).second.c_str()));
-		tmp.controleur.setCouleur(resultat.at(i).at(4).second);
+		
+		//Propriétés spécifiques
+		tmp.controleur.ent.setID(atoi(resultat.at(i).at(0).second.c_str()));
+		tmp.controleur.ent.setAdresseMac(resultat.at(i).at(1).second.c_str());
+		tmp.controleur.ent.setAdresseIP(resultat.at(i).at(2).second.c_str());
+		tmp.controleur.ent.setNiveauBatterie(atoi(resultat.at(i).at(3).second.c_str()));
+		tmp.controleur.ent.setVersionFirmware(atof(resultat.at(i).at(4).second.c_str()));
+		tmp.controleur.ent.setCouleur(resultat.at(i).at(5).second);
+
+		//Propriétés génériques
+		persi.executerSql("SELECT * FROM eclairages WHERE id = " + std::to_string(tmp.controleur.getID()) + ";", subRes);
+		tmp.controleur.ent.setAllume(subRes.at(i).at(1).second.c_str());
+		tmp.controleur.ent.setActive(subRes.at(i).at(2).second.c_str());
+		tmp.controleur.ent.setNom(subRes.at(i).at(3).second.c_str());
+		tmp.controleur.ent.setConsommation(atoi(subRes.at(i).at(4).second.c_str()));
+
 		eclairages.push_back(tmp);
 	}
 	return eclairages;
@@ -117,14 +128,16 @@ std::vector<EclairageMulticolore> UcGerer::extraireEclairagesMulticolores()
 std::vector<EclairageUnicolore> UcGerer::extraireEclairagesUnicolores()
 {
 	SqlitePersiBny persi(DB);
-	SqlitePersiBny::Resultat resultat;
+	SqlitePersiBny::Resultat resultat, subRes;
 	persi.executerSql("SELECT * FROM unicolores;", resultat);
 
 	std::vector<EclairageUnicolore> eclairages;
 	for(int i = 0; i < resultat.size(); i++)
 	{
 		EclairageUnicolore tmp;
-		tmp.controleur.setID(atoi(resultat.at(i).at(0).second.c_str()));
+
+		//Propriétés spécifiques
+		tmp.controleur.ent.setID(atoi(resultat.at(i).at(0).second.c_str()));
 		Couleur couleur;
 		if(resultat.at(i).at(1).second == "Bleu")
 			couleur = Bleu;
@@ -132,7 +145,15 @@ std::vector<EclairageUnicolore> UcGerer::extraireEclairagesUnicolores()
 			couleur = Rouge;
 		if(resultat.at(i).at(1).second == "Blanc")
 			couleur = Blanc;
-		tmp.controleur.setCouleur(couleur);
+		tmp.controleur.ent.setCouleur(couleur);
+
+		//Propriétés génériques
+		persi.executerSql("SELECT * FROM eclairages WHERE id = " + std::to_string(tmp.controleur.getID()) + ";", subRes);
+		tmp.controleur.ent.setAllume(subRes.at(i).at(1).second.c_str());
+		tmp.controleur.ent.setActive(subRes.at(i).at(2).second.c_str());
+		tmp.controleur.ent.setNom(subRes.at(i).at(3).second.c_str());
+		tmp.controleur.ent.setConsommation(atoi(subRes.at(i).at(4).second.c_str()));
+
 		eclairages.push_back(tmp);
 	}
 	return eclairages;

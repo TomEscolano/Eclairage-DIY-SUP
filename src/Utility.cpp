@@ -31,7 +31,7 @@ std::string Utility::remplacer(std::string nomFichier, std::vector<std::pair<std
 void Utility::log_action(unsigned int id, std::string action, std::string value)
 {
 	SqlitePersiBny persi("/var/eclairage/bdd.db");
-	persi.executerSql("INSERT INTO logs VALUES(" + std::to_string(id) + ", \"" + action + "\", \"" + value + "\");");
+	//persi.executerSql("INSERT INTO logs VALUES(" + std::to_string(id) + ", \"" + action + "\", \"" + value + "\");");
 
 }
 

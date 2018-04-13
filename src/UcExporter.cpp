@@ -29,14 +29,14 @@ void UcExporter::doIt()
 	for(int i = 0; i < eclairagesUnicolore.size(); i++)
 	{
 		//Insérer dans le fichier
-		fichier << "unicolore" << "," << eclairagesUnicolore.at(i).controleur.getID() << "," << eclairagesUnicolore.at(i).controleur.getNom() << "," << eclairagesUnicolore.at(i).controleur.getConsommation() << "," << eclairagesUnicolore.at(i).controleur.getAllume() << eclairagesUnicolore.at(i).controleur.getActive() << eclairagesUnicolore.at(i).controleur.getCouleur() << ",\"\",\"\",\"\",\"\"" << std::endl;
+		fichier << "unicolore" << "," << eclairagesUnicolore.at(i).controleur.getID() << "," << eclairagesUnicolore.at(i).controleur.getNom() << "," << eclairagesUnicolore.at(i).controleur.getConsommation() << "," << eclairagesUnicolore.at(i).controleur.getAllume() << "," << eclairagesUnicolore.at(i).controleur.getActive() << ","<< eclairagesUnicolore.at(i).controleur.getCouleur() << ",\"\",\"\",\"\",\"\"" << std::endl;
 	}
 
 	// Pour chaque eclairage multicolore
 	for(int i = 0; i < eclairagesMulticolore.size(); i++)
 	{
 		//Insérer dans le fichier
-		fichier << "multicolore" << "," << eclairagesMulticolore.at(i).controleur.getID() << "," << eclairagesMulticolore.at(i).controleur.getNom() << "," << eclairagesMulticolore.at(i).controleur.getConsommation() << "," << eclairagesMulticolore.at(i).controleur.getAllume() << eclairagesMulticolore.at(i).controleur.getActive() << eclairagesMulticolore.at(i).controleur.getCouleur() << "," << eclairagesMulticolore.at(i).controleur.getAdresseMac() << "," << eclairagesMulticolore.at(i).controleur.getNiveauBatterie() << "," << eclairagesMulticolore.at(i).controleur.getVersionFirmware() << "," << eclairagesMulticolore.at(i).controleur.getAdresseIP() << std::endl;
+		fichier << "multicolore" << "," << eclairagesMulticolore.at(i).controleur.getID() << "," << eclairagesMulticolore.at(i).controleur.getNom() << "," << eclairagesMulticolore.at(i).controleur.getConsommation() << "," << eclairagesMulticolore.at(i).controleur.getAllume() << "," << eclairagesMulticolore.at(i).controleur.getActive() << "," << eclairagesMulticolore.at(i).controleur.getCouleur() << "," << eclairagesMulticolore.at(i).controleur.getAdresseMac() << "," << eclairagesMulticolore.at(i).controleur.getNiveauBatterie() << "," << eclairagesMulticolore.at(i).controleur.getVersionFirmware() << "," << eclairagesMulticolore.at(i).controleur.getAdresseIP() << std::endl;
 	}
 
 	//Faire télécharger le fichier (balise html)
@@ -49,6 +49,9 @@ void UcExporter::doIt()
 int main(int argc, char const *argv[])
 {
 	UcExporter ucExporter;
+
+	ucExporter.doIt();
+
 	return 0;
 }
 

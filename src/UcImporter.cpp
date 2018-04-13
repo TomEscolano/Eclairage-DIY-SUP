@@ -36,7 +36,7 @@ void UcImporter::doIt(std::string fichierCSV, const UcGerer & ucGerer)
 
 		if(type == "unicolore"){
 
-			std::cout << "ptn dunicolore" << std::endl;
+			std::cout << "ptn dunicolore : " << niveauBatterie << std::endl;
 
 			//Création d'un eclairage temporaire
 			EclairageUnicolore eclairage;
@@ -60,7 +60,7 @@ void UcImporter::doIt(std::string fichierCSV, const UcGerer & ucGerer)
 			this->ucGerer.modifierConfigurationUnicolore(eclairage.controleur);
 
 		}else{
-					std::cout << "ptn dmulticolore" << std::endl;
+					std::cout << "ptn dmulticolore : " << niveauBatterie << std::endl;
 
 			//Creation d'un eclairage temporaire
 			EclairageMulticolore eclairage;
@@ -77,6 +77,7 @@ void UcImporter::doIt(std::string fichierCSV, const UcGerer & ucGerer)
 			eclairage.controleur.ent.setNiveauBatterie(niveauBatterie);
 			eclairage.controleur.ent.setVersionFirmware(versionFirmware);
 			eclairage.controleur.ent.setAdresseIP(adresseIP);
+			eclairage.controleur.ent.setCouleur(couleur);
 			
 			//Creation de l'eclairage ou modification
 			this->ucGerer.modifierConfigurationMulticolore(eclairage.controleur);

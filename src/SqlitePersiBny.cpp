@@ -18,8 +18,9 @@ SqlitePersiBny::~SqlitePersiBny() throw (SqlitePersiBnyException) {
 	if (this->db != NULL)
 		rc = sqlite3_close(db);
 	if (rc != SQLITE_OK)
-		throw SqlitePersiBnyException("sqlite3_close",
-				sqlite3_errcode(this->db));
+		rc = sqlite3_close(db);
+		//throw SqlitePersiBnyException("sqlite3_close",
+				//sqlite3_errcode(this->db));
 }
 
 int SqlitePersiBny::executerSql(std::string requete,
