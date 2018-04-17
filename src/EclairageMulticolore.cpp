@@ -69,34 +69,45 @@ std::string EclairageMulticolore::Controleur::getAdresseIP()
 	return this->ent.getAdresseIP();
 }
 
+int EclairageMulticolore::Controleur::getLuminosite()
+{
+	return this->ent.getLuminosite();
+}
+
 void EclairageMulticolore::Controleur::setCouleur(const std::string & couleur)
 {
 	this->ent.setCouleur(couleur);
-	//Utility::log_action(this->ent.Eclairage::Ent::getID(), "Couleur", couleur);
+	Utility::log_action(this->ent.Eclairage::Ent::getID(), "Couleur", couleur);
 }
 
 void EclairageMulticolore::Controleur::setAdresseMac(const std::string & adresseMac)
 {
 	this->ent.setAdresseMac(adresseMac);
-	//Utility::log_action(this->ent.Eclairage::Ent::getID(), "AdresseMAC", adresseMac);
+	Utility::log_action(this->ent.Eclairage::Ent::getID(), "AdresseMAC", adresseMac);
 }
 
 void EclairageMulticolore::Controleur::setNiveauBatterie(const unsigned int & niveauBatterie)
 {
 	this->ent.setNiveauBatterie(niveauBatterie);
-	//Utility::log_action(this->ent.Eclairage::Ent::getID(), "NiveauBatterie", std::to_string(niveauBatterie));
+	Utility::log_action(this->ent.Eclairage::Ent::getID(), "NiveauBatterie", std::to_string(niveauBatterie));
 }
 
 void EclairageMulticolore::Controleur::setVersionFirmware(float version)
 {
 	this->ent.setVersionFirmware(version);
-	//Utility::log_action(this->ent.Eclairage::Ent::getID(), "VersionFirmware", std::to_string(version));
+	Utility::log_action(this->ent.Eclairage::Ent::getID(), "VersionFirmware", std::to_string(version));
 }
 
 void EclairageMulticolore::Controleur::setAdresseIP(const std::string & adresseIP)
 {
 	this->ent.setAdresseIP(adresseIP);
-	//Utility::log_action(this->ent.Eclairage::Ent::getID(), "AdresseIP", adresseIP);
+	Utility::log_action(this->ent.Eclairage::Ent::getID(), "AdresseIP", adresseIP);
+}
+
+void EclairageMulticolore::Controleur::setLuminosite(int luminosite)
+{
+	this->ent.setLuminosite(luminosite);
+	Utility::log_action(this->ent.Eclairage::Ent::getID(), "Luminosite", std::to_string(luminosite));
 }
 
 //Surcharge des méthodes de la classe mère
@@ -108,24 +119,20 @@ void EclairageMulticolore::Controleur::setID(unsigned int id)
 void EclairageMulticolore::Controleur::setAllume(bool etat)
 {
 	this->ent.setAllume(etat);
-	//Utility::log_action(this->ent.Eclairage::Ent::getID(), "Allume", etat == true ? "true" : "false");
 }
 void EclairageMulticolore::Controleur::setActive(bool etat)
 {
 	this->ent.setActive(etat);
-	//Utility::log_action(this->ent.Eclairage::Ent::getID(), "Active", etat == true ? "true" : "false");
 
 }
 void EclairageMulticolore::Controleur::setNom(std::string nom)
 {
 	this->ent.setNom(nom);
-	//Utility::log_action(this->ent.Eclairage::Ent::getID(), "Nom", nom);
 
 }
 void EclairageMulticolore::Controleur::setConsommation(unsigned int conso)
 {
 	this->ent.setConsommation(conso);
-	//Utility::log_action(this->ent.Eclairage::Ent::getID(), "Conso", std::to_string(conso));
 }
 
 //******************** ENT **********************
@@ -180,6 +187,11 @@ void EclairageMulticolore::Ent::setAdresseIP(const std::string & adresseIP)
 	this->adresseIP = adresseIP;
 }
 
+void EclairageMulticolore::Ent::setLuminosite(int luminosite)
+{
+	this->luminosite = luminosite;
+}
+
 unsigned int EclairageMulticolore::Ent::getID()
 {
 	return this->Eclairage::Ent::getID();
@@ -230,6 +242,11 @@ std::string EclairageMulticolore::Ent::getAdresseIP()
 	return this->adresseIP;
 }
 
+int EclairageMulticolore::Ent::getLuminosite()
+{
+	return this->luminosite;
+}
+
 //********************* PERSI ********************
 void EclairageMulticolore::PersiBny::set(EclairageMulticolore::Ent & ent)
 {
@@ -241,7 +258,7 @@ void EclairageMulticolore::PersiBny::set(EclairageMulticolore::Ent & ent)
 	usleep(1000);
 
 	//Màj dans la table multicolores les propriétés
-	this->executerSql("UPDATE eclairages SET adresseBluetooth = " + ent.getAdresseMac() + ", adresseIP = \"" + ent.getAdresseIP() + "\", versionFirmware = " + std::to_string(ent.getVersionFirmware()) + ", couleur = \"" + ent.getCouleur() + "\" WHERE id = " + std::to_string(ent.getID()) + ";");
+	this->executerSql("UPDATE multicolores SET adresseBluetooth = \"" + ent.getAdresseMac() + "\", adresseIP = \"" + ent.getAdresseIP() + "\", versionFirmware = " + std::to_string(ent.getVersionFirmware()) + ", couleur = \"" + ent.getCouleur() + "\" WHERE id = " + std::to_string(ent.getID()) + ";");
 }
 
 void EclairageMulticolore::PersiBny::get(Ent & ent)
@@ -278,7 +295,7 @@ int main(int argc, char const *argv[])
 	eclairageMulticolore.controleur.setAdresseIP("127.0.0.1");
 
 	eclairageMulticolore.controleur.persiBny.set(eclairageMulticolore.controleur.ent);
-	eclairageMulticolore.controleur.persiBny.get(eclairageMulticolore.controleur.ent);
+	//eclairageMulticolore.controleur.persiBny.get(eclairageMulticolore.controleur.ent);
 
 	std::cout << "ID : " << eclairageMulticolore.controleur.getID() << std::endl;
 	std::cout << "Allume : " << eclairageMulticolore.controleur.getAllume() << std::endl;

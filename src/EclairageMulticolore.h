@@ -32,8 +32,10 @@ class EclairageMulticolore : public Eclairage {
 
 		std::string adresseIP;
 
+		int luminosite;
+
 		public:
-			Ent():Eclairage::Ent(),couleur("undefined"), adresseMac("undefined"), niveauBatterie(0), versionFirmware(0.0F), socket(-1), adresseIP("undefined"){};
+			Ent():Eclairage::Ent(),couleur("undefined"), adresseMac("undefined"), niveauBatterie(0), versionFirmware(0.0F), socket(-1), adresseIP("undefined"), luminosite(0){};
 
 			void setCouleur(const std::string & couleur);
 
@@ -54,6 +56,8 @@ class EclairageMulticolore : public Eclairage {
 			void setNom(std::string nom);
 
 			void setConsommation(unsigned int conso);
+
+			void setLuminosite(int luminosite);
 		
 			unsigned int getID();
 
@@ -74,6 +78,8 @@ class EclairageMulticolore : public Eclairage {
 			float getVersionFirmware();
 
 			std::string getAdresseIP();
+
+			int getLuminosite();
 
 
 	};
@@ -117,6 +123,8 @@ class EclairageMulticolore : public Eclairage {
 
 		void setNom(std::string nom);
 
+		void setLuminosite(int luminosite);
+
 		unsigned int getID();
 
 		bool getAllume();
@@ -138,6 +146,8 @@ class EclairageMulticolore : public Eclairage {
 		float getVersionFirmware();
 
 		std::string getAdresseIP();
+
+		int getLuminosite();
 
 	  private:
 		IHMFormulaire ihmAjouter;

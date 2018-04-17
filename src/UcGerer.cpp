@@ -42,9 +42,9 @@ void UcGerer::ajouterEclairageMulticolore(EclairageMulticolore::Ent & ent)
 
 	SqlitePersiBny persi(DB);
 
-	persi.executerSql("INSERT INTO eclairages (nom, allume, active, consommation) VALUES (\"" + ent.getNom() + "\", " + std::to_string(ent.getAllume()) + ", " + std::to_string(ent.getActive()) + ", " + std::to_string(ent.getConsommation()) + ");");
+	persi.executerSql("INSERT INTO eclairages (id, nom, allume, active, consommation) VALUES (" + std::to_string(ent.getID()) + ",\"" + ent.getNom() + "\", " + std::to_string(ent.getAllume()) + ", " + std::to_string(ent.getActive()) + ", " + std::to_string(ent.getConsommation()) + ");");
 
-	persi.executerSql("INSERT INTO multicolores(id,adresseBluetooth,adresseIP,versionFirmware, couleur, niveauBatterie) VALUES(" + std::to_string(ent.getID()) + ", \"" + ent.getAdresseMac() + "\", \"" + ent.getAdresseIP() + "\", " + std::to_string(ent.getVersionFirmware()) + ", \"" + ent.getCouleur() + "\", " + std::to_string(ent.getNiveauBatterie()) + ");");
+	persi.executerSql("INSERT INTO multicolores(id,adresseBluetooth,adresseIP,versionFirmware, couleur, luminosite, niveauBatterie) VALUES(" + std::to_string(ent.getID()) + ", \"" + ent.getAdresseMac() + "\", \"" + ent.getAdresseIP() + "\", " + std::to_string(ent.getVersionFirmware()) + ", \"" + ent.getCouleur() + "\", " + std::to_string(ent.getLuminosite()) + ", " + std::to_string(ent.getNiveauBatterie()) + ");");
 
 }
 
@@ -52,7 +52,7 @@ void UcGerer::ajouterEclairageUnicolore(EclairageUnicolore::Ent & ent)
 {
 	SqlitePersiBny persi(DB);
 
-	persi.executerSql("INSERT INTO eclairages (nom, allume, active, consommation) VALUES (\"" + ent.getNom() + "\", " + std::to_string(ent.getAllume()) + ", " + std::to_string(ent.getActive()) + ", " + std::to_string(ent.getConsommation()) + ");");
+	persi.executerSql("INSERT INTO eclairages (id, nom, allume, active, consommation) VALUES (" + std::to_string(ent.getID()) + ",\"" + ent.getNom() + "\", " + std::to_string(ent.getAllume()) + ", " + std::to_string(ent.getActive()) + ", " + std::to_string(ent.getConsommation()) + ");");
 
 	persi.executerSql("INSERT INTO unicolores(id,couleur) VALUES(" + std::to_string(ent.getID()) + ", \"" + std::to_string(ent.getCouleur()) + "\");");
 }
@@ -109,9 +109,9 @@ std::vector<EclairageMulticolore> UcGerer::extraireEclairagesMulticolores()
 		tmp.controleur.ent.setID(atoi(resultat.at(i).at(0).second.c_str()));
 		tmp.controleur.ent.setAdresseMac(resultat.at(i).at(1).second.c_str());
 		tmp.controleur.ent.setAdresseIP(resultat.at(i).at(2).second.c_str());
-		tmp.controleur.ent.setNiveauBatterie(atoi(resultat.at(i).at(3).second.c_str()));
-		tmp.controleur.ent.setVersionFirmware(atof(resultat.at(i).at(4).second.c_str()));
-		tmp.controleur.ent.setCouleur(resultat.at(i).at(5).second);
+		tmp.controleur.ent.setVersionFirmware(atof(resultat.at(i).at(3).second.c_str()));
+		tmp.controleur.ent.setCouleur(resultat.at(i).at(4).second);
+		tmp.controleur.ent.setNiveauBatterie(atoi(resultat.at(i).at(5).second.c_str()));
 
 		//Propriétés génériques
 		persi.executerSql("SELECT * FROM eclairages WHERE id = " + std::to_string(tmp.controleur.getID()) + ";", subRes);
@@ -165,12 +165,57 @@ void UcGerer::recevoirInfo(const Eclairage::Ent & eclairage) {
 void UcGerer::visualiserInfo(const Eclairage::Ent & eclairage) {
 }
 
+void UcGerer::afficherEclairages(std::vector<EclairageMulticolore> eclairagesMulticolores, std::vector<EclairageUnicolore> eclairagesUnicolores)
+{
+	for(int i = 0; i < eclairagesMulticolores.size(); i++)
+	{
+		std::cout << "<img src='/eclairage.svg' onclick='toggleMenu(\"menu-box" + std::to_string(eclairagesMulticolores.at(i).controleur.getID()) + "\")'/><ul id='menu-box" + std::to_string(eclairagesMulticolores.at(i).controleur.getID()) + "' style='display: none'>";
+
+		if(eclairagesMulticolores.at(i).controleur.getActive())
+			std::cout << "<li><a href='UcGerer.cgi?id= " + std::to_string(eclairagesMulticolores.at(i).controleur.getID()) + "&action=desactiver'>Desactiver</a></li>" << std::endl;
+		else
+			std::cout << "<li><a href='UcGerer.cgi?id= " + std::to_string(eclairagesMulticolores.at(i).controleur.getID()) + "&action=activer'>Activer</a></li>" << std::endl;
+
+		if(eclairagesMulticolores.at(i).controleur.getAllume())
+			std::cout << "<li><a href='UcGerer.cgi?id= " + std::to_string(eclairagesMulticolores.at(i).controleur.getID()) + "&action=eteindre'>Eteindre</a></li>" << std::endl;
+		else
+			std::cout << "<li><a href='UcGerer.cgi?id= " + std::to_string(eclairagesMulticolores.at(i).controleur.getID()) + "&action=allumer'>Allumer</a></li>" << std::endl;
+		
+		std::cout << "<li><a href='UcGerer.cgi?id= " + std::to_string(eclairagesMulticolores.at(i).controleur.getID()) + "&action=parametrer'>Parametrer</a></li>" << std::endl;
+		std::cout << "</ul>" << std::endl;
+	}
+
+	for(int i = 0; i < eclairagesUnicolores.size(); i++)
+	{
+		std::cout << "<img src='eclairagesUnicolores.png' onclick='toggleMenu(\"menu-box " + std::to_string(eclairagesUnicolores.at(i).controleur.getID()) + "\")'/><ul id='menu-box' style='display: none'>";
+
+		if(eclairagesUnicolores.at(i).controleur.getActive())
+			std::cout << "<li><a href='UcGerer.cgi?id= " + std::to_string(eclairagesUnicolores.at(i).controleur.getID()) + "&action=desactiver'>Desactiver</a></li>" << std::endl;
+		else
+			std::cout << "<li><a href='UcGerer.cgi?id= " + std::to_string(eclairagesUnicolores.at(i).controleur.getID()) + "&action=activer'>Activer</a></li>" << std::endl;
+
+		if(eclairagesUnicolores.at(i).controleur.getAllume())
+			std::cout << "<li><a href='UcGerer.cgi?id= " + std::to_string(eclairagesUnicolores.at(i).controleur.getID()) + "&action=eteindre'>Eteindre</a></li>" << std::endl;
+		else
+			std::cout << "<li><a href='UcGerer.cgi?id= " + std::to_string(eclairagesUnicolores.at(i).controleur.getID()) + "&action=allumer'>Allumer</a></li>" << std::endl;
+		
+		std::cout << "<li><a href='UcGerer.cgi?id= " + std::to_string(eclairagesUnicolores.at(i).controleur.getID()) + "&action=parametrer'>Parametrer</a></li>" << std::endl;
+		std::cout << "</ul>" << std::endl;
+	}
+
+}
+
+
 
 #ifdef _UT_UCGERER_
 
 int main(int argc, char const *argv[])
 {
 	UcGerer ucGerer;
+	EclairageMulticolore tmp;
+	tmp.controleur.ent.setID(9);
+
+	ucGerer.ajouterEclairageMulticolore(tmp.controleur.ent);
 
 	return 0;
 }

@@ -46,26 +46,33 @@ void Eclairage::Controleur::getIHMJardin(){
 void Eclairage::Controleur::setID(const unsigned int & id)
 {
 	this->ent.setID(id);
+	Utility::log_action(this->getID(), "ID", std::to_string(id));
 }
 
 void Eclairage::Controleur::setAllume(bool etat)
 {
 	this->ent.setAllume(etat);
+	Utility::log_action(this->getID(), "Allumer", etat ? "true":"false");
+
 }
 
 void Eclairage::Controleur::setActive(bool etat)
 {
 	this->ent.setActive(etat);
+	Utility::log_action(this->getID(), "Activer", etat ? "true":"false");
 }
 
 void Eclairage::Controleur::setNom(const std::string & nom)
 {
 	this->ent.setNom(nom);
+	Utility::log_action(this->getID(), "Nom", nom);
+
 }
 
 void Eclairage::Controleur::setConsommation(const unsigned int & conso)
 {
 	this->ent.setConsommation(conso);
+	Utility::log_action(this->getID(), "Consommation", std::to_string(conso));
 }
 
 unsigned int Eclairage::Controleur::getID()
@@ -100,36 +107,28 @@ void Eclairage::Controleur::getIHMFormulaire() {
 void Eclairage::Ent::setID(const unsigned int & id)
 {
 	this->id = id;
-	//Utility::log_action(this->getID(), "ID", std::to_string(id));
 
 }
 
 void Eclairage::Ent::setAllume(bool etat)
 {
 	this->allume = etat;
-	//Utility::log_action(this->getID(), "Allumer", etat ? "true":"false");
-
 }
 
 void Eclairage::Ent::setActive(bool etat)
 {
 	this->active = etat;
-	//Utility::log_action(this->getID(), "Activer", etat ? "true":"false");
-
 }
 
 void Eclairage::Ent::setNom(const std::string & nom)
 {
 	this->nom = nom;
-	//Utility::log_action(this->getID(), "Nom", nom);
 
 }
 
 void Eclairage::Ent::setConsommation(const unsigned int & conso)
 {
 	this->consommation = conso;
-	//Utility::log_action(this->getID(), "Consommation", std::to_string(conso));
-
 }
 
 unsigned int Eclairage::Ent::getID()
@@ -190,9 +189,9 @@ int main(int argc, char const *argv[])
 
 	Eclairage eclairage;
 
-	eclairage.controleur.setID(9);
+	/*eclairage.controleur.setID(9);
 	eclairage.controleur.persiBny.set(eclairage.controleur.ent);
-	eclairage.controleur.persiBny.get(eclairage.controleur.ent);
+	eclairage.controleur.persiBny.get(eclairage.controleur.ent);*/
 
 	return 0;
 }

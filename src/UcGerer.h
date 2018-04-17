@@ -8,6 +8,7 @@
 #ifndef _UCGERER_H
 #define _UCGERER_H
 
+#include <vector>
 #include <Eclairage.h>
 #include <EclairageUnicolore.h>
 #include <EclairageMulticolore.h>
@@ -54,6 +55,8 @@ class UcGerer {
     void recevoirInfo(const Eclairage::Ent & eclairage);
 
     void visualiserInfo(const Eclairage::Ent & eclairage);
+
+    void afficherEclairages(std::vector<EclairageMulticolore> eclairagesMulticolores, std::vector<EclairageUnicolore> eclairagesUnicolores);
 
 
   private:

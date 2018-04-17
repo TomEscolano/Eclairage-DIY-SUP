@@ -115,7 +115,7 @@ unsigned int EclairageUnicolore::Ent::getID()
 }
 
 bool EclairageUnicolore::Ent::getAllume()
-{
+{//g++ -o SUP SUP.cpp SqlitePersiBny.cpp FichierTextePersiBny.cpp -lsqlite3 -I . -D _UT_SUP_ -std=c++11 -w
 	return this->Eclairage::Ent::getAllume();
 }
 
