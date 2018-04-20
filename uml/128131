@@ -1,7 +1,7 @@
-format 216
+format 218
 "analyse" // analyse
-  revision 7
-  modified_by 3 "tom"
+  revision 9
+  modified_by 2 "tom"
   // class settings
   
   classdiagramsettings member_max_width 0 end
@@ -103,7 +103,6 @@ ${inlines}
 	  
 	  
 	end
-
       end
 
       class 135939 "Controleur"
@@ -324,6 +323,42 @@ ${inlines}
 	  MysqlColumn
 	end
 
+	attribute 128258 "couleur"
+	  private type class_ref 136835 // Couleur
+	  cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	  java_decl ""
+	  php_decl ""
+	  python_decl ""
+	  idl_decl ""
+	  mysql_decl ""
+	  MysqlColumn
+	end
+
+	attribute 128002 "x"
+	  private explicit_type "int"
+	  cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	  java_decl ""
+	  php_decl ""
+	  python_decl ""
+	  idl_decl ""
+	  mysql_decl ""
+	  MysqlColumn
+	end
+
+	attribute 128130 "y"
+	  private explicit_type "int"
+	  cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	  java_decl ""
+	  php_decl ""
+	  python_decl ""
+	  idl_decl ""
+	  mysql_decl ""
+	  MysqlColumn
+	end
+
 	operation 139011 "setID"
 	  public explicit_return_type "void"
 	  nparams 1
@@ -399,6 +434,36 @@ ${inlines}
 	  
 	end
 
+	operation 128002 "setX"
+	  public explicit_return_type "void"
+	  nparams 1
+	    param in name "x" explicit_type "valeur"
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 128130 "setY"
+	  public explicit_return_type "void"
+	  nparams 1
+	    param in name "y" explicit_type "int"
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
 	operation 139651 "getID"
 	  public explicit_return_type "unsigned int"
 	  nparams 0
@@ -457,6 +522,63 @@ ${inlines}
 
 	operation 140163 "getConsommation"
 	  public explicit_return_type "unsigned int"
+	  nparams 0
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 128258 "getX"
+	  public explicit_return_type "int"
+	  nparams 0
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 128386 "getY"
+	  public explicit_return_type "int"
+	  nparams 0
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 141571 "setCouleur"
+	  public explicit_return_type "void"
+	  nparams 1
+	    param in name "couleur" explicit_type "std::string"
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 141699 "getCouleur"
+	  public explicit_return_type "std::string"
 	  nparams 0
 	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -547,14 +669,6 @@ ${inlines}
 	relation_ref 143747 // <aggregation>
       end
 
-      classrelation 145923 // cycle (<directional composition>)
-	relation 144131 *-->
-	  a role_name "cycle" multiplicity "1" private
-	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	    classrelation_ref 145923 // cycle (<directional composition>)
-	  b parent class_ref 151171 // Cycle
-      end
     end
 
     class 136707 "EclairageUnicolore"
@@ -599,8 +713,20 @@ ${inlines}
 	explicit_switch_type ""
 	mysql_decl ""
 	
-	attribute 137219 "couleur"
-	  private explicit_type "Couleur"
+	classrelation 137987 // <composition>
+	  relation_ref 136835 // <composition>
+	end
+
+	classrelation 134914 // <generalisation>
+	  relation 134914 ---|>
+	    a public
+	      cpp default "${type}"
+	      classrelation_ref 134914 // <generalisation>
+	    b parent class_ref 136067 // Ent
+	end
+
+	attribute 128386 "numeroPrise"
+	  private explicit_type "int"
 	  cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	  java_decl ""
@@ -611,8 +737,33 @@ ${inlines}
 	  MysqlColumn
 	end
 
-	classrelation 137987 // <composition>
-	  relation_ref 136835 // <composition>
+	operation 128898 "setNumeroPrise"
+	  public explicit_return_type "void"
+	  nparams 1
+	    param in name "num" explicit_type "int"
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 129026 "getNumeroPrise"
+	  public explicit_return_type "int"
+	  nparams 0
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
 	end
       end
 
@@ -641,33 +792,34 @@ ${inlines}
 	      classrelation_ref 137987 // <composition>
 	end
 
-	operation 141571 "setCouleur"
-	  public explicit_return_type "void"
-	  nparams 1
-	    param in name "couleur" explicit_type "std::string"
-	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
-"
-	  cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	  
-	  
-	  
-	  
+	classrelation 134786 // <generalisation>
+	  relation 134786 ---|>
+	    a public
+	      cpp default "${type}"
+	      classrelation_ref 134786 // <generalisation>
+	    b parent class_ref 135939 // Controleur
 	end
+      end
 
-	operation 141699 "getCouleur"
-	  public explicit_return_type "std::string"
-	  nparams 0
-	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+      class 135170 "PersiBny"
+	visibility package 
+	cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
 "
-	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	  
-	  
-	  
-	  
+	java_decl ""
+	php_decl ""
+	python_2_2 python_decl ""
+	idl_decl ""
+	explicit_switch_type ""
+	mysql_decl ""
+	
+	classrelation 135426 // <generalisation>
+	  relation 135426 ---|>
+	    a public
+	      cpp default "${type}"
+	      classrelation_ref 135426 // <generalisation>
+	    b parent class_ref 136195 // PersiBny
 	end
       end
     end
@@ -761,7 +913,7 @@ ${inlines}
 	explicit_switch_type ""
 	mysql_decl ""
 	
-	attribute 137987 "couleur"
+	attribute 137347 "adresseIP"
 	  private explicit_type "std::string"
 	  cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
 "
@@ -773,7 +925,7 @@ ${inlines}
 	  MysqlColumn
 	end
 
-	attribute 137859 "adresseMACBluetooth"
+	attribute 137859 "adresseMac"
 	  private explicit_type "std::string"
 	  cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
 "
@@ -809,92 +961,10 @@ ${inlines}
 	  MysqlColumn
 	end
 
-	attribute 137475 "socket"
-	  private explicit_type "int"
-	  cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	  java_decl ""
-	  php_decl ""
-	  python_decl ""
-	  idl_decl ""
-	  mysql_decl ""
-	  MysqlColumn
-	end
-
-	attribute 137347 "adresseIP"
-	  private explicit_type "std::string"
-	  cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	  java_decl ""
-	  php_decl ""
-	  python_decl ""
-	  idl_decl ""
-	  mysql_decl ""
-	  MysqlColumn
-	end
-
-	classrelation 137475 // <composition>
-	  relation_ref 136579 // <composition>
-	end
-      end
-
-      class 137219 "Controleur"
-	visibility package 
-	cpp_decl "${comment}${template}class ${name}${inherit} {
-${members}};
-${inlines}
-"
-	java_decl ""
-	php_decl ""
-	python_2_2 python_decl ""
-	idl_decl ""
-	explicit_switch_type ""
-	mysql_decl ""
-	
-	classrelation 137347 // ent (<composition>)
-	  relation 136579 *---
-	    a role_name "ent" multiplicity "1" private
-	      cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	      classrelation_ref 137347 // ent (<composition>)
-	    b role_name "controleur" multiplicity "1" private
-	      cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	      classrelation_ref 137475 // <composition>
-	end
-
-	operation 140291 "recevoir"
-	  public explicit_return_type "void"
-	  nparams 0
-	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	  
-	  
-	  
-	  
-	end
-
-	operation 140419 "envoyer"
-	  public explicit_return_type "void"
-	  nparams 0
-	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	  
-	  
-	  
-	  
-	end
-
-	operation 140547 "setCouleur"
+	operation 141059 "setAdresseIP"
 	  public explicit_return_type "void"
 	  nparams 1
-	    param in name "couleur" explicit_type "std::string"
+	    param in name "adresseIP" explicit_type "std::string"
 	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "
 	  cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
@@ -951,22 +1021,7 @@ ${inlines}
 	  
 	end
 
-	operation 141059 "setAdresseIP"
-	  public explicit_return_type "void"
-	  nparams 1
-	    param in name "adresseIP" explicit_type "std::string"
-	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
-"
-	  cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	  
-	  
-	  
-	  
-	end
-
-	operation 141187 "getCouleur"
+	operation 128514 "getAdresseIP"
 	  public explicit_return_type "std::string"
 	  nparams 0
 	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
@@ -1008,6 +1063,115 @@ ${inlines}
 	  
 	end
 
+	operation 128770 "getVersionFirmware"
+	  public explicit_return_type "float"
+	  nparams 0
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	classrelation 137475 // <composition>
+	  relation_ref 136579 // <composition>
+	end
+
+	classrelation 135042 // <generalisation>
+	  relation 135042 ---|>
+	    a public
+	      cpp default "${type}"
+	      classrelation_ref 135042 // <generalisation>
+	    b parent class_ref 136067 // Ent
+	end
+      end
+
+      class 137219 "Controleur"
+	visibility package 
+	cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+	java_decl ""
+	php_decl ""
+	python_2_2 python_decl ""
+	idl_decl ""
+	explicit_switch_type ""
+	mysql_decl ""
+	
+	classrelation 137347 // ent (<composition>)
+	  relation 136579 *---
+	    a role_name "ent" multiplicity "1" private
+	      cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	      classrelation_ref 137347 // ent (<composition>)
+	    b role_name "controleur" multiplicity "1" private
+	      cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	      classrelation_ref 137475 // <composition>
+	end
+
+	operation 140291 "recevoir"
+	  public explicit_return_type "void"
+	  nparams 0
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 140419 "envoyer"
+	  public explicit_return_type "void"
+	  nparams 0
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	classrelation 134658 // <generalisation>
+	  relation 134658 ---|>
+	    a public
+	      cpp default "${type}"
+	      classrelation_ref 134658 // <generalisation>
+	    b parent class_ref 135939 // Controleur
+	end
+      end
+
+      class 135042 "PersiBny"
+	visibility package 
+	cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+	java_decl ""
+	php_decl ""
+	python_2_2 python_decl ""
+	idl_decl ""
+	explicit_switch_type ""
+	mysql_decl ""
+	
+	classrelation 135170 // <generalisation>
+	  relation 135170 ---|>
+	    a public
+	      cpp default "${type}"
+	      classrelation_ref 135170 // <generalisation>
+	    b parent class_ref 136195 // PersiBny
+	end
       end
     end
 
@@ -1272,6 +1436,28 @@ ${inlines}
 	    classrelation_ref 145795 // ucCommander (<directional composition>)
 	  b parent class_ref 151043 // UcCommander
       end
+
+      class 135682 "PersiBny"
+	visibility package 
+	cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+	java_decl ""
+	php_decl ""
+	python_2_2 python_decl ""
+	idl_decl ""
+	explicit_switch_type ""
+	mysql_decl ""
+	
+	classrelation 135554 // <generalisation>
+	  relation 135554 ---|>
+	    a public
+	      cpp default "${type}"
+	      classrelation_ref 135554 // <generalisation>
+	    b parent class_ref 136195 // PersiBny
+	end
+      end
     end
 
     class 150659 "UcImporter"
@@ -1450,176 +1636,6 @@ ${inlines}
       end
     end
 
-    class 151171 "Cycle"
-      visibility package 
-      cpp_decl "${comment}${template}class ${name}${inherit} {
-${members}};
-${inlines}
-"
-      java_decl ""
-      php_decl ""
-      python_2_2 python_decl ""
-      idl_decl ""
-      explicit_switch_type ""
-      mysql_decl ""
-      
-      class 151299 "Ent"
-	visibility package 
-	cpp_decl "${comment}${template}class ${name}${inherit} {
-${members}};
-${inlines}
-"
-	java_decl ""
-	php_decl ""
-	python_2_2 python_decl ""
-	idl_decl ""
-	explicit_switch_type ""
-	mysql_decl ""
-	
-	attribute 145027 "heureDebut"
-	  private explicit_type "std::string"
-	  cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	  java_decl ""
-	  php_decl ""
-	  python_decl ""
-	  idl_decl ""
-	  mysql_decl ""
-	  MysqlColumn
-	end
-
-	attribute 145155 "heureFin"
-	  private explicit_type "std::string"
-	  cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	  java_decl ""
-	  php_decl ""
-	  python_decl ""
-	  idl_decl ""
-	  mysql_decl ""
-	  MysqlColumn
-	end
-
-	attribute 145283 "jours"
-	  private explicit_type "std::array<bool>"
-	  cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	  java_decl ""
-	  php_decl ""
-	  python_decl ""
-	  idl_decl ""
-	  mysql_decl ""
-	  MysqlColumn
-	end
-
-	attribute 145411 "actif"
-	  private explicit_type "bool"
-	  cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	  java_decl ""
-	  php_decl ""
-	  python_decl ""
-	  idl_decl ""
-	  mysql_decl ""
-	  MysqlColumn
-	end
-      end
-
-      class 151427 "Controleur"
-	visibility package 
-	cpp_decl "${comment}${template}class ${name}${inherit} {
-${members}};
-${inlines}
-"
-	java_decl ""
-	php_decl ""
-	python_2_2 python_decl ""
-	idl_decl ""
-	explicit_switch_type ""
-	mysql_decl ""
-	
-	operation 157443 "activer"
-	  public explicit_return_type "void"
-	  nparams 1
-	    param in name "actif" explicit_type "bool"
-	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
-"
-	  cpp_def "${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	  
-	  
-	  
-	  
-	end
-
-	operation 157571 "setHoraires"
-	  public explicit_return_type "void"
-	  nparams 2
-	    param in name "heureDebut" explicit_type "std::string"
-	    param in name "heureFin" explicit_type "std::string"
-	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
-"
-	  cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	  
-	  
-	  
-	  
-	end
-
-	operation 157699 "setJours"
-	  public explicit_return_type "void"
-	  nparams 1
-	    param in name "jours" explicit_type "std:array<bool>"
-	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
-"
-	  cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	  
-	  
-	  
-	  
-	end
-
-	operation 157827 "getHoraires"
-	  public explicit_return_type "void"
-	  nparams 2
-	    param out name "heureDebut" explicit_type "std::string"
-	    param in name "heureFin" explicit_type "std::string"
-	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
-"
-	  cpp_def "${inline}${type} ${class}::${name}${(}${t0} & ${p0}, const ${t1} & ${p1}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	  
-	  
-	  
-	  
-	end
-
-	operation 157955 "getJours"
-	  public explicit_return_type "std::array<bool>"
-	  nparams 0
-	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	  
-	  
-	  
-	  
-	end
-      end
-    end
-
-    sequencediagram 141059 "dsq"
-      sequencediagramsettings end
-      overlapping_bars size A4
-    end
   end
 
   deploymentview 128515 "vc"
@@ -2108,7 +2124,6 @@ ${namespace_end}
 #endif
 #endif"
       associated_elems
-	class_ref 151171 // Cycle
       end
     end
   end

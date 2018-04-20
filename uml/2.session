@@ -1,8 +1,41 @@
-window_sizes 1879 1028 440 1433 841 128
+window_sizes 1920 1056 441 1473 1001 0
 cleanlooks_style
+diagrams
+  activitydiagram_ref 128002 // UcExporter
+    120 110 105 A0 24 0
+  activitydiagram_ref 128130 // UcImporter
+    120 110 105 A0 43 0
+  active  classdiagram_ref 134786 // dcc
+    1473 1001 74 A0 540 0
+end
 show_stereotypes
-selected 
-  package_ref 129 // uml
+selected operation_ref 129026 // getNumeroPrise
 open
+  
+  package_ref 128003 // domaine
+  attribute_ref 128258 // couleur
+  attribute_ref 128002 // x
+  attribute_ref 128130 // y
+  operation_ref 128002 // setX
+  operation_ref 128130 // setY
+  operation_ref 140163 // getConsommation
+  operation_ref 141571 // setCouleur
+  class_ref 137347 // Ent
+  classrelation_ref 134786 // <generalisation>
+  class_ref 135170 // PersiBny
+  attribute_ref 137347 // adresseIP
+  attribute_ref 137859 // adresseMac
+  attribute_ref 137603 // versionFirmware
+  operation_ref 141059 // setAdresseIP
+  operation_ref 140675 // setAdresseMac
+  operation_ref 140803 // setNiveauBatterie
+  operation_ref 140931 // setVersionFirmware
+  operation_ref 128514 // getAdresseIP
+  operation_ref 141315 // getAdresseMac
+  operation_ref 141443 // getNiveauBatterie
+  operation_ref 128770 // getVersionFirmware
+  class_ref 150659 // UcImporter
+  class_ref 150787 // UcExporter
+  classview_ref 128002 // vc
 end
 end

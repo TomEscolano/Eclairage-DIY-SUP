@@ -14,15 +14,13 @@
 
 void UcExporter::doIt()
 {
-	//Créer fichier CSV avec header
+	//Création du fichier CSV (avec header)
 	std::ofstream fichier;
 	fichier.open("eclairages_export.csv");
 	fichier << "type, id, nom, consommation, allume, active, couleur, adresseMac, niveauBatterie, versionFirmware, adresseIP" << std::endl;
 
-	// Extraire la liste des eclairages unicolores
+	// Extraction de la liste des eclairages
 	std::vector<EclairageUnicolore> eclairagesUnicolore = this->ucgerer.extraireEclairagesUnicolores();
-
-	// Extraires la liste des eclairages multicolores
 	std::vector<EclairageMulticolore> eclairagesMulticolore = this->ucgerer.extraireEclairagesMulticolores();
 
 	// Pour chaque eclairage unicolore

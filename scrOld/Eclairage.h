@@ -35,9 +35,13 @@ class Eclairage {
 
 		unsigned int consommation;
 
+		int x;
+
+		int y;
+
 
 	  public:
-	  	Ent():id(0),allume(false), active(false),nom("undefined"), consommation(0){}
+	  	Ent():id(0),allume(false), active(false),nom("undefined"), consommation(0), x(0), y(0){}
 
 		void setID(const unsigned int & id);
 
@@ -49,6 +53,10 @@ class Eclairage {
 
 		void setConsommation(const unsigned int & conso);
 
+		void setX(int valeur);
+
+		void setY(int valeur);
+
 		unsigned int getID();
 
 		bool getAllume();
@@ -58,6 +66,11 @@ class Eclairage {
 		std::string getNom();
 
 		unsigned int getConsommation();
+
+		int getX();
+		
+		int getY();
+
 
 	};
 
@@ -116,6 +129,10 @@ class Eclairage {
 
 			void setConsommation(const unsigned int & conso);
 
+			void setX(int valeur);
+			
+			void setY(int valeur);
+
 			unsigned int getID();
 
 			bool getAllume();
@@ -125,6 +142,10 @@ class Eclairage {
 			std::string getNom();
 
 			unsigned int getConsommation();
+
+			int getX();
+			
+			int getY();
 
 	};
 	

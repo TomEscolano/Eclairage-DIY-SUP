@@ -1,0 +1,80 @@
+format 218
+
+subject 128002 "Eclairage DIY SUP"
+  xyzwh 232.46 190.564 2000 474 539
+classcanvas 128130 class_ref 128002 // Propriétaire
+  simpleclassdiagramsettings end
+  xyz 123.463 526.132 2000
+end
+usecasecanvas 128258 usecase_ref 128002 // gerer
+  xyzwh 419.73 443.57 3005 64 32 label_xy 434 449
+end
+usecasecanvas 128386 usecase_ref 128130 // commander
+  xyzwh 511.34 342.57 3005 95 35 label_xy 522 349
+end
+usecasecanvas 128514 usecase_ref 128258 // visualiserInfo
+  xyzwh 313.49 345.03 3005 102 33 label_xy 321 351
+end
+usecasecanvas 128642 usecase_ref 128386 // importerCSV
+  xyzwh 401.5 569.4 3005 103 33 label_xy 410 573
+end
+usecasecanvas 128770 usecase_ref 128514 // exporterCSV
+  xyzwh 399.5 641.11 3005 103 33 label_xy 409 646
+end
+classcanvas 128898 class_ref 128130 // BDD
+  simpleclassdiagramsettings class_drawing_mode entity end
+  xyz 589.525 605.175 2005
+end
+classcanvas 129026 class_ref 128258 // SCE
+  simpleclassdiagramsettings class_drawing_mode class end
+  xyz 727.137 429.374 2000
+end
+classcanvas 129410 class_ref 128386 // SCE_RF
+  simpleclassdiagramsettings class_drawing_mode class end
+  xyz 867.976 506.849 2000
+end
+classcanvas 129538 class_ref 128514 // SCE_IR
+  simpleclassdiagramsettings class_drawing_mode class end
+  xyz 865.952 382.276 2000
+end
+note 130946 "Ajouter/Supprimer/Modifier configuration eclairages"
+  xyzwh 496.35 492 2005 188 58
+note 131202 "Allumer/Eteindre les eclairages"
+  xyzwh 481.7 256.75 2005 155 58
+note 131586 "Niveau de batterie/Conso./Etat"
+  xyzwh 283.85 257.9 2005 152 59
+line 129666 ----
+  from ref 128130 z 3006 to ref 128258
+line 129794 ----
+  from ref 128258 z 3006 to ref 129026
+line 129922 ----
+  from ref 128130 z 3006 to ref 128642
+line 130050 ----
+  from ref 128130 z 3006 to ref 128770
+line 130178 ---- decenter_begin 913
+  from ref 128642 z 3006 to ref 128898
+line 130306 ----
+  from ref 128770 z 3006 to ref 128898
+simplerelationcanvas 130434 simplerelation_ref 128002
+  from ref 128258 z 3006 stereotype "<<include>>" xyz 362 412 3000 to ref 128514
+end
+simplerelationcanvas 130562 simplerelation_ref 128130
+  from ref 128386 z 3006 stereotype "<<extend>>" xyz 460 410 3000 to ref 128258
+end
+relationcanvas 130690 relation_ref 128002 // <generalisation>
+  from ref 129538 z 2001 to ref 129026
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 130818 relation_ref 128130 // <generalisation>
+  from ref 129410 z 2001 to ref 129026
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+line 131330 -_-_
+  from ref 131202 z 3006 to ref 128386
+line 131458 -_-_
+  from ref 128258 z 3006 to ref 130946
+line 131714 -_-_
+  from ref 131586 z 3006 to ref 128514
+end

@@ -75,6 +75,16 @@ void Eclairage::Controleur::setConsommation(const unsigned int & conso)
 	Utility::log_action(this->getID(), "Consommation", std::to_string(conso));
 }
 
+void Eclairage::Controleur::setX(int valeur)
+{
+	this->ent.setX(valeur);
+}
+
+void Eclairage::Controleur::setY(int valeur)
+{
+	this->ent.setY(valeur);
+}
+
 unsigned int Eclairage::Controleur::getID()
 {
 	return this->ent.getID();
@@ -98,6 +108,16 @@ std::string Eclairage::Controleur::getNom()
 unsigned int Eclairage::Controleur::getConsommation()
 {
 	return this->ent.getConsommation();
+}
+
+int Eclairage::Controleur::getX()
+{
+	return this->ent.getX();
+}
+
+int Eclairage::Controleur::getY()
+{
+	return this->ent.getY();
 }
 
 void Eclairage::Controleur::getIHMFormulaire() {
@@ -131,6 +151,16 @@ void Eclairage::Ent::setConsommation(const unsigned int & conso)
 	this->consommation = conso;
 }
 
+void Eclairage::Ent::setX(int valeur)
+{
+	this->x = valeur;
+}
+
+void Eclairage::Ent::setY(int valeur)
+{
+	this->y = valeur;
+}
+
 unsigned int Eclairage::Ent::getID()
 {
 	return this->id;
@@ -154,6 +184,16 @@ std::string Eclairage::Ent::getNom()
 unsigned int Eclairage::Ent::getConsommation()
 {
 	return this->consommation;
+}
+
+int Eclairage::Ent::getX()
+{
+	return this->x;
+}
+
+int Eclairage::Ent::getY()
+{
+	return this->y;
 }
 
 

@@ -42,7 +42,7 @@ void UcGerer::ajouterEclairageMulticolore(EclairageMulticolore::Ent & ent)
 
 	SqlitePersiBny persi(DB);
 
-	persi.executerSql("INSERT INTO eclairages (id, nom, allume, active, consommation) VALUES (" + std::to_string(ent.getID()) + ",\"" + ent.getNom() + "\", " + std::to_string(ent.getAllume()) + ", " + std::to_string(ent.getActive()) + ", " + std::to_string(ent.getConsommation()) + ");");
+	persi.executerSql("INSERT INTO eclairages (id, nom, allume, active, consommation, x, y) VALUES (" + std::to_string(ent.getID()) + ",\"" + ent.getNom() + "\", " + std::to_string(ent.getAllume()) + ", " + std::to_string(ent.getActive()) + ", " + std::to_string(ent.getConsommation()) + ", " + std::to_string(ent.getX()) + ", " + std::to_string(ent.getY()) + ");");
 
 	persi.executerSql("INSERT INTO multicolores(id,adresseBluetooth,adresseIP,versionFirmware, couleur, luminosite, niveauBatterie) VALUES(" + std::to_string(ent.getID()) + ", \"" + ent.getAdresseMac() + "\", \"" + ent.getAdresseIP() + "\", " + std::to_string(ent.getVersionFirmware()) + ", \"" + ent.getCouleur() + "\", " + std::to_string(ent.getLuminosite()) + ", " + std::to_string(ent.getNiveauBatterie()) + ");");
 
@@ -52,7 +52,7 @@ void UcGerer::ajouterEclairageUnicolore(EclairageUnicolore::Ent & ent)
 {
 	SqlitePersiBny persi(DB);
 
-	persi.executerSql("INSERT INTO eclairages (id, nom, allume, active, consommation) VALUES (" + std::to_string(ent.getID()) + ",\"" + ent.getNom() + "\", " + std::to_string(ent.getAllume()) + ", " + std::to_string(ent.getActive()) + ", " + std::to_string(ent.getConsommation()) + ");");
+	persi.executerSql("INSERT INTO eclairages (id, nom, allume, active, consommation, x, y) VALUES (" + std::to_string(ent.getID()) + ",\"" + ent.getNom() + "\", " + std::to_string(ent.getAllume()) + ", " + std::to_string(ent.getActive()) + ", " + std::to_string(ent.getConsommation()) + ", " + std::to_string(ent.getX()) + ", " + std::to_string(ent.getY()) + ");");
 
 	persi.executerSql("INSERT INTO unicolores(id,couleur) VALUES(" + std::to_string(ent.getID()) + ", \"" + std::to_string(ent.getCouleur()) + "\");");
 }
@@ -73,7 +73,7 @@ void UcGerer::modifierConfigurationUnicolore(EclairageUnicolore::Controleur & ec
     }
     else
     {
-    	this->persi.executerSql("UPDATE eclairages SET nom = \"" + eclairage.getNom() + "\" allume = " + std::to_string(eclairage.getAllume()) + " active = " + std::to_string(eclairage.getActive()) + " consommation = " + std::to_string(eclairage.getConsommation()) + " WHERE id = " + std::to_string(eclairage.getID()) + ";");
+    	this->persi.executerSql("UPDATE eclairages SET nom = \"" + eclairage.getNom() + "\" allume = " + std::to_string(eclairage.getAllume()) + " active = " + std::to_string(eclairage.getActive()) + " consommation = " + std::to_string(eclairage.getConsommation()) + " x = " + std::to_string(eclairage.getX()) + " y = " + std::to_string(eclairage.getY()) + " WHERE id = " + std::to_string(eclairage.getID()) + ";");
     }
 }
 
@@ -90,7 +90,7 @@ void UcGerer::modifierConfigurationMulticolore(EclairageMulticolore::Controleur 
     }
     else
     {
-    	persi.executerSql("UPDATE eclairages SET nom = " + eclairage.getNom() + " allume = " + std::to_string(eclairage.getAllume()) + " active = " + std::to_string(eclairage.getActive()) + " consommation =" + std::to_string(eclairage.getConsommation()) + " WHERE id = " + std::to_string(eclairage.getID()) + ";");
+    	persi.executerSql("UPDATE eclairages SET nom = " + eclairage.getNom() + " allume = " + std::to_string(eclairage.getAllume()) + " active = " + std::to_string(eclairage.getActive()) + " consommation =" + std::to_string(eclairage.getConsommation()) + " x = " + std::to_string(eclairage.getX()) + " y = " + std::to_string(eclairage.getY()) + " WHERE id = " + std::to_string(eclairage.getID()) + ";");
 	}
 }
 
@@ -172,16 +172,16 @@ void UcGerer::afficherEclairages(std::vector<EclairageMulticolore> eclairagesMul
 		std::cout << "<img src='/eclairage.svg' onclick='toggleMenu(\"menu-box" + std::to_string(eclairagesMulticolores.at(i).controleur.getID()) + "\")'/><ul id='menu-box" + std::to_string(eclairagesMulticolores.at(i).controleur.getID()) + "' style='display: none'>";
 
 		if(eclairagesMulticolores.at(i).controleur.getActive())
-			std::cout << "<li><a href='UcGerer.cgi?id= " + std::to_string(eclairagesMulticolores.at(i).controleur.getID()) + "&action=desactiver'>Desactiver</a></li>" << std::endl;
+			std::cout << "<li><a href='UcGerer.cgi?id=" + std::to_string(eclairagesMulticolores.at(i).controleur.getID()) + "&action=desactiver'>Desactiver</a></li>" << std::endl;
 		else
-			std::cout << "<li><a href='UcGerer.cgi?id= " + std::to_string(eclairagesMulticolores.at(i).controleur.getID()) + "&action=activer'>Activer</a></li>" << std::endl;
+			std::cout << "<li><a href='UcGerer.cgi?id=" + std::to_string(eclairagesMulticolores.at(i).controleur.getID()) + "&action=activer'>Activer</a></li>" << std::endl;
 
 		if(eclairagesMulticolores.at(i).controleur.getAllume())
-			std::cout << "<li><a href='UcGerer.cgi?id= " + std::to_string(eclairagesMulticolores.at(i).controleur.getID()) + "&action=eteindre'>Eteindre</a></li>" << std::endl;
+			std::cout << "<li><a href='UcGerer.cgi?id=" + std::to_string(eclairagesMulticolores.at(i).controleur.getID()) + "&action=eteindre'>Eteindre</a></li>" << std::endl;
 		else
-			std::cout << "<li><a href='UcGerer.cgi?id= " + std::to_string(eclairagesMulticolores.at(i).controleur.getID()) + "&action=allumer'>Allumer</a></li>" << std::endl;
+			std::cout << "<li><a href='UcGerer.cgi?id=" + std::to_string(eclairagesMulticolores.at(i).controleur.getID()) + "&action=allumer'>Allumer</a></li>" << std::endl;
 		
-		std::cout << "<li><a href='UcGerer.cgi?id= " + std::to_string(eclairagesMulticolores.at(i).controleur.getID()) + "&action=parametrer'>Parametrer</a></li>" << std::endl;
+		std::cout << "<li><a href='UcGerer.cgi?id=" + std::to_string(eclairagesMulticolores.at(i).controleur.getID()) + "&action=parametrer'>Parametrer</a></li>" << std::endl;
 		std::cout << "</ul>" << std::endl;
 	}
 
@@ -190,16 +190,16 @@ void UcGerer::afficherEclairages(std::vector<EclairageMulticolore> eclairagesMul
 		std::cout << "<img src='eclairagesUnicolores.png' onclick='toggleMenu(\"menu-box " + std::to_string(eclairagesUnicolores.at(i).controleur.getID()) + "\")'/><ul id='menu-box' style='display: none'>";
 
 		if(eclairagesUnicolores.at(i).controleur.getActive())
-			std::cout << "<li><a href='UcGerer.cgi?id= " + std::to_string(eclairagesUnicolores.at(i).controleur.getID()) + "&action=desactiver'>Desactiver</a></li>" << std::endl;
+			std::cout << "<li><a href='UcGerer.cgi?id=" + std::to_string(eclairagesUnicolores.at(i).controleur.getID()) + "&action=desactiver'>Desactiver</a></li>" << std::endl;
 		else
-			std::cout << "<li><a href='UcGerer.cgi?id= " + std::to_string(eclairagesUnicolores.at(i).controleur.getID()) + "&action=activer'>Activer</a></li>" << std::endl;
+			std::cout << "<li><a href='UcGerer.cgi?id=" + std::to_string(eclairagesUnicolores.at(i).controleur.getID()) + "&action=activer'>Activer</a></li>" << std::endl;
 
 		if(eclairagesUnicolores.at(i).controleur.getAllume())
-			std::cout << "<li><a href='UcGerer.cgi?id= " + std::to_string(eclairagesUnicolores.at(i).controleur.getID()) + "&action=eteindre'>Eteindre</a></li>" << std::endl;
+			std::cout << "<li><a href='UcGerer.cgi?id=" + std::to_string(eclairagesUnicolores.at(i).controleur.getID()) + "&action=eteindre'>Eteindre</a></li>" << std::endl;
 		else
-			std::cout << "<li><a href='UcGerer.cgi?id= " + std::to_string(eclairagesUnicolores.at(i).controleur.getID()) + "&action=allumer'>Allumer</a></li>" << std::endl;
+			std::cout << "<li><a href='UcGerer.cgi?id=" + std::to_string(eclairagesUnicolores.at(i).controleur.getID()) + "&action=allumer'>Allumer</a></li>" << std::endl;
 		
-		std::cout << "<li><a href='UcGerer.cgi?id= " + std::to_string(eclairagesUnicolores.at(i).controleur.getID()) + "&action=parametrer'>Parametrer</a></li>" << std::endl;
+		std::cout << "<li><a href='UcGerer.cgi?id=" + std::to_string(eclairagesUnicolores.at(i).controleur.getID()) + "&action=parametrer'>Parametrer</a></li>" << std::endl;
 		std::cout << "</ul>" << std::endl;
 	}
 
@@ -212,15 +212,15 @@ void UcGerer::afficherEclairages(std::vector<EclairageMulticolore> eclairagesMul
 int main(int argc, char const *argv[])
 {
 	UcGerer ucGerer;
-	EclairageMulticolore tmp;
-	tmp.controleur.ent.setID(9);
+	
+	std::cout << cgicc::HTTPHTMLHeader() << std::endl;
 
-	ucGerer.ajouterEclairageMulticolore(tmp.controleur.ent);
+
 
 	return 0;
 }
 
-//g++ -o UcGerer Eclairage.cpp UcGerer.cpp Utility.cpp SqlitePersiBny.cpp EclairageUnicolore.cpp EclairageMulticolore.cpp UcCommander.cpp -I . -lsqlite3 -D _UT_UCGERER_ -std=c++11 -w
+//g++ -o UcGerer.cgi Eclairage.cpp UcGerer.cpp Utility.cpp SqlitePersiBny.cpp EclairageUnicolore.cpp EclairageMulticolore.cpp UcCommander.cpp -I . -lsqlite3 -D _UT_UCGERER_ -std=c++11 -w
 
 
 #endif

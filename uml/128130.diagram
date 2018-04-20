@@ -1,0 +1,99 @@
+format 218
+
+fragment 128002 "Utilisateur"
+  xyzwh 77.2858 80.2508 2000 244 801
+end
+fragment 128130 "Système"
+  xyzwh 331.744 79.0577 0 236 805
+end
+fragment 128258 "BDD"
+  xyzwh 577.344 81.0577 0 207 802
+end
+activitynodecanvas 128386 activitynode_ref 128386 // initial_node
+  xyz 194.9 137.903 2005
+end
+activitynodecanvas 128514 activitynode_ref 128514 // activity_final
+  xyz 422.096 818.86 2005
+end
+activityactioncanvas 128770 activityaction_ref 128898 // activity action Appui sur le bouton "importer"
+  
+  show_opaque_action_definition default
+  xyzwh 155.706 313.61 2005 101 77
+end
+activityactioncanvas 128898 activityaction_ref 129026 // activity action Demande de saisie d'un fichier de configuration
+  
+  show_opaque_action_definition default
+  xyzwh 402.796 305.417 2000 123 97
+end
+activityactioncanvas 129026 activityaction_ref 129154 // activity action Saisie d'un fichier de configuration
+  
+  show_opaque_action_definition default
+  xyzwh 145.127 444.671 2005 133 83
+end
+activityactioncanvas 129666 activityaction_ref 129282 // activity action Démarrage du programme
+  
+  show_opaque_action_definition default
+  xyzwh 143.9 193.196 2011 121 77
+end
+activityactioncanvas 130178 activityaction_ref 129538 // activity action Lecture d'une ligne du fichier de configuration
+  
+  show_opaque_action_definition default
+  xyzwh 378.596 533.595 2000 113 93
+end
+activitynodecanvas 130306 activitynode_ref 128770 // decision
+  xyz 422.596 691.043 2000
+end
+activityactioncanvas 130818 activityaction_ref 129666 // activity action Insertion de l'eclairage dans la base de données
+  
+  show_opaque_action_definition default
+  xyzwh 610.888 534.192 2000 109 89
+end
+flowcanvas 129282 flow_ref 129410 // <flow>
+  
+  from ref 128770 z 2006 to ref 128898
+   write_horizontally default
+end
+flowcanvas 129410 flow_ref 129538 // <flow>
+  
+  from ref 128898 z 2006 to point 458.585 484.075
+  line 129538 z 2006 to ref 129026
+   write_horizontally default
+end
+flowcanvas 129794 flow_ref 129666 // <flow>
+  
+  from ref 128386 z 2012 to ref 129666
+   write_horizontally default
+end
+flowcanvas 129922 flow_ref 129794 // <flow>
+  
+  from ref 129666 z 2012 to ref 128770
+   write_horizontally default
+end
+flowcanvas 130434 flow_ref 130690 // <flow>
+  
+  from ref 129026 z 2006 to point 206.917 578.095
+  line 130562 z 2006 to ref 130178
+   write_horizontally default
+end
+flowcanvas 130946 flow_ref 130946 // <flow>
+  
+  from ref 130178 z 2001 to ref 130818
+   write_horizontally default
+end
+flowcanvas 131074 flow_ref 131074 // 
+  
+  from ref 130818 z 2001 to point 659.275 707.543
+  line 131458 z 2001 to ref 130306
+   write_horizontally default
+end
+flowcanvas 131202 flow_ref 131202 // Lecture non terminée
+  
+  from ref 130306 z 2001 label "Lecture non terminée" xyz 364 647.5 3000 to ref 130178
+   write_horizontally default
+end
+flowcanvas 131330 flow_ref 131330 // Lecture terminée
+  
+  from ref 130306 z 2006 label "Lecture terminée" xyz 385 760 3000 to ref 128514
+   write_horizontally default
+end
+end
