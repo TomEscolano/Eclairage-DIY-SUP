@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Eclairage DIY SUP:  Fichier source de src/ClientTcpComBny.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Eclairage DIY SUP
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('ClientTcpComBny_8h_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">ClientTcpComBny.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="ClientTcpComBny_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef _CLIENTTCPCOMBNY_H</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define _CLIENTTCPCOMBNY_H</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;cstdarg&gt;</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="TcpIpComBnyException_8h.html">TcpIpComBnyException.h</a>&gt;</span></div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">class </span><a class="code" href="classTcpComBny.html">TcpComBny</a>;</div><div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="classClientTcpComBny.html">    9</a></span>&#160;<span class="keyword">class </span><a class="code" href="classClientTcpComBny.html">ClientTcpComBny</a> {</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;  <span class="keyword">public</span>:</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="classClientTcpComBny.html#a4e87071b400a5129f642a5a3721d420f">ClientTcpComBny</a>();</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="classClientTcpComBny.html#ade30f75875dc873e2dc522228a7e5c68">~ClientTcpComBny</a>();</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classClientTcpComBny.html#ac105b046c2e544b1a433f99d83d7447a">connecter</a>(std::string ip, <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span> port) <span class="keywordflow">throw</span>(<a class="code" href="classTcpIpComBnyException.html">TcpIpComBnyException</a>);</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classClientTcpComBny.html#ad32e6a288aeff3d243d88c60afe967c3">recevoir</a>(<span class="keywordtype">char</span>*  buffer, std::size_t  size, std::size_t &amp; count) <span class="keywordflow">throw</span>(<a class="code" href="classTcpIpComBnyException.html">TcpIpComBnyException</a>);</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classClientTcpComBny.html#a0745845f86951740b6839812410608e8">fscanf</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* format, ...);</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classClientTcpComBny.html#acf5ac7ad2c6815e6797a95f50906172f">envoyer</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>*  buffer,  std::size_t  size) <span class="keywordflow">throw</span>(<a class="code" href="classTcpIpComBnyException.html">TcpIpComBnyException</a>);</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classClientTcpComBny.html#a3f2db7ecde5bf993a96bae8f4107e1c8">fprintf</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* format, ...);</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classClientTcpComBny.html#aec1398f686da1f83884fd98924cc0725">deconnecter</a>(<span class="keywordtype">void</span>);</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  <span class="keyword">private</span>:</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="classTcpComBny.html">TcpComBny</a>* tcpComBny;</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;};</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#endif</span></div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div><div class="ttc" id="classClientTcpComBny_html"><div class="ttname"><a href="classClientTcpComBny.html">ClientTcpComBny</a></div><div class="ttdef"><b>Definition:</b> ClientTcpComBny.h:9</div></div>
+<div class="ttc" id="classClientTcpComBny_html_a4e87071b400a5129f642a5a3721d420f"><div class="ttname"><a href="classClientTcpComBny.html#a4e87071b400a5129f642a5a3721d420f">ClientTcpComBny::ClientTcpComBny</a></div><div class="ttdeci">ClientTcpComBny()</div><div class="ttdef"><b>Definition:</b> ClientTcpComBny.cpp:13</div></div>
+<div class="ttc" id="classClientTcpComBny_html_a3f2db7ecde5bf993a96bae8f4107e1c8"><div class="ttname"><a href="classClientTcpComBny.html#a3f2db7ecde5bf993a96bae8f4107e1c8">ClientTcpComBny::fprintf</a></div><div class="ttdeci">void fprintf(const char *format,...)</div><div class="ttdef"><b>Definition:</b> ClientTcpComBny.cpp:54</div></div>
+<div class="ttc" id="classTcpIpComBnyException_html"><div class="ttname"><a href="classTcpIpComBnyException.html">TcpIpComBnyException</a></div><div class="ttdef"><b>Definition:</b> TcpIpComBnyException.h:6</div></div>
+<div class="ttc" id="classTcpComBny_html"><div class="ttname"><a href="classTcpComBny.html">TcpComBny</a></div><div class="ttdef"><b>Definition:</b> TcpComBny.h:8</div></div>
+<div class="ttc" id="classClientTcpComBny_html_ac105b046c2e544b1a433f99d83d7447a"><div class="ttname"><a href="classClientTcpComBny.html#ac105b046c2e544b1a433f99d83d7447a">ClientTcpComBny::connecter</a></div><div class="ttdeci">void connecter(std::string ip, unsigned short int port)</div><div class="ttdef"><b>Definition:</b> ClientTcpComBny.cpp:18</div></div>
+<div class="ttc" id="classClientTcpComBny_html_a0745845f86951740b6839812410608e8"><div class="ttname"><a href="classClientTcpComBny.html#a0745845f86951740b6839812410608e8">ClientTcpComBny::fscanf</a></div><div class="ttdeci">void fscanf(const char *format,...)</div><div class="ttdef"><b>Definition:</b> ClientTcpComBny.cpp:47</div></div>
+<div class="ttc" id="classClientTcpComBny_html_ad32e6a288aeff3d243d88c60afe967c3"><div class="ttname"><a href="classClientTcpComBny.html#ad32e6a288aeff3d243d88c60afe967c3">ClientTcpComBny::recevoir</a></div><div class="ttdeci">void recevoir(char *buffer, std::size_t size, std::size_t &amp;count)</div><div class="ttdef"><b>Definition:</b> ClientTcpComBny.cpp:39</div></div>
+<div class="ttc" id="classClientTcpComBny_html_acf5ac7ad2c6815e6797a95f50906172f"><div class="ttname"><a href="classClientTcpComBny.html#acf5ac7ad2c6815e6797a95f50906172f">ClientTcpComBny::envoyer</a></div><div class="ttdeci">void envoyer(const char *buffer, std::size_t size)</div><div class="ttdef"><b>Definition:</b> ClientTcpComBny.cpp:43</div></div>
+<div class="ttc" id="classClientTcpComBny_html_aec1398f686da1f83884fd98924cc0725"><div class="ttname"><a href="classClientTcpComBny.html#aec1398f686da1f83884fd98924cc0725">ClientTcpComBny::deconnecter</a></div><div class="ttdeci">void deconnecter(void)</div><div class="ttdef"><b>Definition:</b> ClientTcpComBny.cpp:33</div></div>
+<div class="ttc" id="classClientTcpComBny_html_ade30f75875dc873e2dc522228a7e5c68"><div class="ttname"><a href="classClientTcpComBny.html#ade30f75875dc873e2dc522228a7e5c68">ClientTcpComBny::~ClientTcpComBny</a></div><div class="ttdeci">~ClientTcpComBny()</div><div class="ttdef"><b>Definition:</b> ClientTcpComBny.cpp:15</div></div>
+<div class="ttc" id="TcpIpComBnyException_8h_html"><div class="ttname"><a href="TcpIpComBnyException_8h.html">TcpIpComBnyException.h</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="ClientTcpComBny_8h.html">ClientTcpComBny.h</a></li>
+    <li class="footer">Généré par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
+  </ul>
+</div>
+</body>
+</html>

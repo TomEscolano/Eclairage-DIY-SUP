@@ -1,6 +1,6 @@
 format 218
 "analyse" // analyse
-  revision 9
+  revision 14
   modified_by 2 "tom"
   // class settings
   
@@ -42,7 +42,7 @@ format 218
     
     activitydiagramsettings
      end
-    associated_deployment_view deploymentview_ref 128515 // vc
+    associated_deployment_view deploymentview_ref 134530 // vc
     classdiagram 134531 "dca"
       classdiagramsettings member_max_width 0 end
       size A0
@@ -61,6 +61,13 @@ ${inlines}
       explicit_switch_type ""
       mysql_decl ""
       
+      comment "Classe mère représentant un éclairage générique comportant:
+- Une IHM Formulaire (Forumaire de création d'éclairage)
+- Une IHM Jardin (Icone de l'eclairage dans l'IHM de supervision)
+- Un controleur
+- Une entité
+- Une persistance
+"
       class 136451 "IHMFormulaire"
 	visibility package 
 	cpp_decl "${comment}${template}class ${name}${inherit} {
@@ -74,6 +81,7 @@ ${inlines}
 	explicit_switch_type ""
 	mysql_decl ""
 	
+	comment "IHM présentant au propriétaire un forulaire de création d'éclairage."
 	operation 138499 "set"
 	  public explicit_return_type "void"
 	  nparams 1
@@ -87,6 +95,7 @@ ${inlines}
 	  
 	  
 	  
+	  comment "Méthde permettant d'afficher le formulaire de création d'éclairage"
 	end
 
 	operation 138627 "get"
@@ -102,6 +111,7 @@ ${inlines}
 	  
 	  
 	  
+	  comment "Méthode permettant de récupérer les données entrées par l'utilisateur lors de la création d'éclairage."
 	end
       end
 
@@ -118,6 +128,7 @@ ${inlines}
 	explicit_switch_type ""
 	mysql_decl ""
 	
+	comment "Controleur de la classe eclairage."
 	classrelation 136323 // persiBny (<directional composition>)
 	  relation 135683 *-->
 	    a role_name "persiBny" multiplicity "1" private
@@ -161,6 +172,7 @@ ${inlines}
 	  
 	  
 	  
+	  comment "Méthode permettant d'activer/désactiver l'éclairage en fonction d'un booléen passé en paramètres."
 	end
 
 	operation 137731 "allumer"
@@ -176,6 +188,7 @@ ${inlines}
 	  
 	  
 	  
+	  comment "Méthode permettant d'allumer/éteindre un éclairage grâce à un booléen passé en paramètre."
 	end
 
 	operation 137859 "getIHMJardin"
@@ -190,6 +203,7 @@ ${inlines}
 	  
 	  
 	  
+	  comment "Méthode permettant de récupérer l'état de l'IHMJardin (Icone représentant l'éclairage dans l'IHM de supervision)"
 	end
 
 	operation 137987 "getIHMFormulaire"
@@ -204,6 +218,7 @@ ${inlines}
 	  
 	  
 	  
+	  comment "Méthode permettant de récupérer les informations entrées par le propriétaire lors de la création de l'éclairage."
 	end
 
 	operation 138115 "set"
@@ -219,6 +234,7 @@ ${inlines}
 	  
 	  
 	  
+	  comment "Méthode permettant de modifier intégralement la configuration de l'éclairage en lui passant une entité en paramètres."
 	end
 
 	operation 138243 "get"
@@ -234,6 +250,7 @@ ${inlines}
 	  
 	  
 	  
+	  comment "Méthode permettant de récupérer l'entité de l'éclairage."
 	end
 
 	classrelation 159107 // ihmFormulaire (<directional composition>)
@@ -419,6 +436,21 @@ ${inlines}
 	  
 	end
 
+	operation 141571 "setCouleur"
+	  public explicit_return_type "void"
+	  nparams 1
+	    param in name "couleur" type class_ref 136835 // Couleur
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
 	operation 139523 "setConsommation"
 	  public explicit_return_type "void"
 	  nparams 1
@@ -520,6 +552,20 @@ ${inlines}
 	  
 	end
 
+	operation 141699 "getCouleur"
+	  public return_type class_ref 136835 // Couleur
+	  nparams 0
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
 	operation 140163 "getConsommation"
 	  public explicit_return_type "unsigned int"
 	  nparams 0
@@ -561,35 +607,6 @@ ${inlines}
 	  
 	  
 	end
-
-	operation 141571 "setCouleur"
-	  public explicit_return_type "void"
-	  nparams 1
-	    param in name "couleur" explicit_type "std::string"
-	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
-"
-	  cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	  
-	  
-	  
-	  
-	end
-
-	operation 141699 "getCouleur"
-	  public explicit_return_type "std::string"
-	  nparams 0
-	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	  
-	  
-	  
-	  
-	end
       end
 
       class 136195 "PersiBny"
@@ -618,6 +635,7 @@ ${inlines}
 	  
 	  
 	  
+	  comment "Méthode permettant de modifier la configuration de l'éclairage dans la persistance."
 	end
 
 	operation 138883 "get"
@@ -633,6 +651,7 @@ ${inlines}
 	  
 	  
 	  
+	  comment "Méthode permettant de récupérer l'entité de l'éclairage depuis la persistance."
 	end
       end
 
@@ -662,13 +681,13 @@ ${inlines}
 	  
 	  
 	  
+	  comment "Méthode permettant de mettre à jour l'icone représentant l'éclairage dans l'IHM de supervision."
 	end
       end
 
       classrelation 145411 // <aggregation>
 	relation_ref 143747 // <aggregation>
       end
-
     end
 
     class 136707 "EclairageUnicolore"
@@ -750,6 +769,7 @@ ${inlines}
 	  
 	  
 	  
+	  comment "Méthode permettant de modifier le numero de la prise associé à l'éclairage."
 	end
 
 	operation 129026 "getNumeroPrise"
@@ -764,6 +784,7 @@ ${inlines}
 	  
 	  
 	  
+	  comment "Méthode permettant de récupérer le numéro de la prise associé à l'éclairage."
 	end
       end
 
@@ -1127,6 +1148,7 @@ ${inlines}
 	  
 	  
 	  
+	  comment "Méthode permettant de recevoir une configuration d'éclairage via le réseau."
 	end
 
 	operation 140419 "envoyer"
@@ -1141,6 +1163,7 @@ ${inlines}
 	  
 	  
 	  
+	  comment "Méthode permettant d'envoyer une configuration d'eclairage via le réseau."
 	end
 
 	classrelation 134658 // <generalisation>
@@ -1188,6 +1211,45 @@ ${inlines}
       explicit_switch_type ""
       mysql_decl ""
       
+      operation 148867 "visualiserInfo"
+	public explicit_return_type "void"
+	nparams 1
+	  param in name "eclairage" explicit_type "Ent"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "Méthode permettant d'afficher les informations d'un éclairage :
+- ID
+- Etat (allumé/activé)
+- Consommation
+- Luminosité
+- Batterie"
+      end
+
+      operation 148739 "extraireEclairages"
+	public explicit_return_type "void"
+	nparams 3
+	  param in name "bdd" explicit_type "sqlite3"
+	  param out name "eclairagesUnicolores" explicit_type "std::vector<EclairageUnicolore>"
+	  param out name "eclairagesMulticolores" explicit_type "std::vector<EclairageMulticolore>"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}, ${t1} & ${p1}${v1}, ${t2} & ${p2}${v2}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}, ${t1} & ${p1}, ${t2} & ${p2}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "Méthode permettant d'extraire la liste des eclairages unicolores et multicolores."
+      end
+
       operation 148355 "suivreConsoElectricite"
 	public explicit_return_type "void"
 	nparams 0
@@ -1200,10 +1262,11 @@ ${inlines}
 	
 	
 	
+	comment "Méthode permettant de suivre la consommation électrique d'un éclairage."
       end
 
-      operation 148227 "main"
-	public explicit_return_type "int"
+      operation 148227 "doIt"
+	public explicit_return_type "void"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -1242,6 +1305,51 @@ ${inlines}
 	    classrelation_ref 152579 // ucGerer (<directional composition>)
 	  b parent class_ref 144131 // UcGerer
       end
+
+      classrelation 142082 // ucModifier (<directional composition>)
+	relation 142082 *-->
+	  a role_name "ucModifier" multiplicity "0..1" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value};
+"
+	    classrelation_ref 142082 // ucModifier (<directional composition>)
+	  b parent class_ref 135554 // UcModifier
+      end
+
+      classrelation 142210 // ucAjouter (<directional composition>)
+	relation 142210 *-->
+	  a role_name "ucAjouter" multiplicity "0..1" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value};
+"
+	    classrelation_ref 142210 // ucAjouter (<directional composition>)
+	  b parent class_ref 135298 // UcAjouter
+      end
+
+      classrelation 142338 // ucSupprimer (<directional composition>)
+	relation 142338 *-->
+	  a role_name "ucSupprimer" multiplicity "0..1" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value};
+"
+	    classrelation_ref 142338 // ucSupprimer (<directional composition>)
+	  b parent class_ref 135426 // UcSupprimer
+      end
+
+      classrelation 143234 // ucCommander (<directional composition>)
+	relation 143234 *-->
+	  a role_name "ucCommander" multiplicity "1" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 143234 // ucCommander (<directional composition>)
+	  b parent class_ref 151043 // UcCommander
+      end
+
+      classrelation 143362 // ucMettreAJour (<directional composition>)
+	relation 143362 *-->
+	  a role_name "ucMettreAJour" multiplicity "1" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 143362 // ucMettreAJour (<directional composition>)
+	  b parent class_ref 150915 // UcMettreAJour
+      end
     end
 
     class 144131 "UcGerer"
@@ -1257,154 +1365,21 @@ ${inlines}
       explicit_switch_type ""
       mysql_decl ""
       
-      operation 148483 "emettreConfiguration"
-	public explicit_return_type "void"
-	nparams 1
-	  param in name "eclairage" explicit_type "Ent"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-      end
-
-      operation 149507 "desactiverEclairage"
-	public explicit_return_type "void"
-	nparams 1
-	  param in name "eclairage" explicit_type "Ent"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-      end
-
-      operation 149251 "supprimerEclairage"
-	public explicit_return_type "void"
-	nparams 1
-	  param in name "eclairage" explicit_type "Ent"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-      end
-
-      operation 149379 "activerEclairage"
-	public explicit_return_type "void"
-	nparams 1
-	  param in name "eclairage" explicit_type "Ent"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-      end
-
-      operation 149123 "ajouterEclairage"
+      operation 149379 "doIt"
 	public explicit_return_type "void"
 	nparams 2
 	  param in name "eclairage" explicit_type "Ent"
-	  param in name "bd" explicit_type "sqlite3"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+	  param in name "etat" explicit_type "bool"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}, ${t1} ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}${)}${const}${volatile}${throw}${staticnl}{
+	cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
 "
 	
 	
 	
 	
-      end
-
-      operation 149635 "recevoirEclairage"
-	public explicit_return_type "void"
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-      end
-
-      operation 148995 "modifierConfiguration"
-	public explicit_return_type "void"
-	nparams 1
-	  param in name "eclairage" explicit_type "Ent"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-      end
-
-      operation 148739 "extraireEclairage"
-	public explicit_return_type "void"
-	nparams 1
-	  param in name "bd" explicit_type "sqlite3"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-      end
-
-      operation 148611 "recevoirInfo"
-	public explicit_return_type "void"
-	nparams 1
-	  param in name "eclairage" explicit_type "Ent"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-      end
-
-      operation 148867 "visualiserInfo"
-	public explicit_return_type "void"
-	nparams 1
-	  param in name "eclairage" explicit_type "Ent"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
+	comment "Méthode permettant d'activer/desactiver un éclairage passé en paramètre."
       end
 
       classrelation 145283 // eclairages (<aggregation>)
@@ -1419,44 +1394,13 @@ ${inlines}
 	    classrelation_ref 145411 // <aggregation>
       end
 
-      classrelation 145539 // ucMettreAJour (<directional composition>)
-	relation 143875 *-->
-	  a role_name "ucMettreAJour" multiplicity "1" private
+      classrelation 143106 // persiBny (<directional composition>)
+	relation 143106 *-->
+	  a role_name "persiBny" multiplicity "1" private
 	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
 "
-	    classrelation_ref 145539 // ucMettreAJour (<directional composition>)
-	  b parent class_ref 150915 // UcMettreAJour
-      end
-
-      classrelation 145795 // ucCommander (<directional composition>)
-	relation 144003 *-->
-	  a role_name "ucCommander" multiplicity "1" private
-	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	    classrelation_ref 145795 // ucCommander (<directional composition>)
-	  b parent class_ref 151043 // UcCommander
-      end
-
-      class 135682 "PersiBny"
-	visibility package 
-	cpp_decl "${comment}${template}class ${name}${inherit} {
-${members}};
-${inlines}
-"
-	java_decl ""
-	php_decl ""
-	python_2_2 python_decl ""
-	idl_decl ""
-	explicit_switch_type ""
-	mysql_decl ""
-	
-	classrelation 135554 // <generalisation>
-	  relation 135554 ---|>
-	    a public
-	      cpp default "${type}"
-	      classrelation_ref 135554 // <generalisation>
-	    b parent class_ref 136195 // PersiBny
-	end
+	    classrelation_ref 143106 // persiBny (<directional composition>)
+	  b parent class_ref 142210 // SqlitePersiBny
       end
     end
 
@@ -1487,6 +1431,7 @@ ${inlines}
 	
 	
 	
+	comment "Méthode permettant d'importer dans la base de données les configurations d'éclairages depuis un fichier au format CSV."
       end
 
       operation 156419 "getFile"
@@ -1503,20 +1448,13 @@ ${inlines}
 	
       end
 
-      operation 156547 "ajouter"
-	public explicit_return_type "void"
-	nparams 2
-	  param in name "eclairage" explicit_type "Ent"
-	  param in name "ucGerer" type class_ref 144131 // UcGerer
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+      classrelation 143490 // ucAjouter (<directional composition>)
+	relation 143490 *-->
+	  a role_name "ucAjouter" multiplicity "0..1" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value};
 "
-	cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
+	    classrelation_ref 143490 // ucAjouter (<directional composition>)
+	  b parent class_ref 135298 // UcAjouter
       end
     end
 
@@ -1534,7 +1472,7 @@ ${inlines}
       mysql_decl ""
       
       operation 156291 "doIt"
-	public explicit_return_type "FILE"
+	public explicit_return_type "void"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -1545,6 +1483,7 @@ ${inlines}
 	
 	
 	
+	comment "Méthode permettant d'exporter toutes les configurations d'éclairages vers un fichier CSV et de le faire télécharger au propriétaire depuis son navigateur WEB."
       end
     end
 
@@ -1587,6 +1526,7 @@ ${inlines}
 	
 	
 	
+	comment "Méthode permettant de mettre à jour le micrologiciel d'un éclairage multicolore."
       end
     end
 
@@ -1603,7 +1543,7 @@ ${inlines}
       explicit_switch_type ""
       mysql_decl ""
       
-      operation 164483 "allumer"
+      operation 164483 "doIt"
 	public explicit_return_type "void"
 	nparams 2
 	  param in name "eclairage" type class_ref 135811 // Eclairage
@@ -1617,38 +1557,22 @@ ${inlines}
 	
 	
 	
-      end
-
-      operation 164611 "activer"
-	public explicit_return_type "void"
-	nparams 2
-	  param in name "eclairage" type class_ref 135811 // Eclairage
-	  param in name "etat" explicit_type "bool"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}, ${t1} ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
+	comment "Méthode permettant d'allumer/éteindre un éclairage passé en paramètres."
       end
     end
-
   end
 
-  deploymentview 128515 "vc"
+  deploymentview 134530 "vc"
     //deployment diagram settings
     deploymentdiagramsettings
      end
-    artifact 133635 "Eclairage"
+    artifact 134530 "Eclairage"
       stereotype "source"
-      cpp_h "/**
+      cpp_h "/*******************************************************
 * \\file ${name}.h
 * \\author Tom ESCOLANO
 
-\\brief Projet : Eclairage DIY - SUP
+* \\brief Projet : Eclairage DIY - SUP
 *******************************************************/
 
 #ifndef ${NAMESPACE}_${NAME}_H
@@ -1662,7 +1586,7 @@ ${definition}
 ${namespace_end}
 #endif
 "
-      cpp_src "/**
+      cpp_src "/******************************************************
 * \\file ${name}.cpp
 * \\author Tom ESCOLANO
 
@@ -1675,22 +1599,25 @@ ${namespace_start}
 ${members}
 ${namespace_end}
 
-#ifndef NDEBUG
-
+#ifdef _UT_${name}_
+int main()
+{
+	return 0;
+}
 #endif
-#endif"
+"
       associated_elems
 	class_ref 135811 // Eclairage
       end
     end
 
-    artifact 133763 "EclairageUnicolore"
+    artifact 134658 "EclairageUnicolore"
       stereotype "source"
-      cpp_h "/**
+      cpp_h "/*******************************************************
 * \\file ${name}.h
 * \\author Tom ESCOLANO
 
-\\brief Projet : Eclairage DIY - SUP
+* \\brief Projet : Eclairage DIY - SUP
 *******************************************************/
 
 #ifndef ${NAMESPACE}_${NAME}_H
@@ -1704,7 +1631,7 @@ ${definition}
 ${namespace_end}
 #endif
 "
-      cpp_src "/**
+      cpp_src "/******************************************************
 * \\file ${name}.cpp
 * \\author Tom ESCOLANO
 
@@ -1717,22 +1644,25 @@ ${namespace_start}
 ${members}
 ${namespace_end}
 
-#ifndef NDEBUG
-
+#ifdef _UT_${name}_
+int main()
+{
+	return 0;
+}
 #endif
-#endif"
+"
       associated_elems
 	class_ref 136707 // EclairageUnicolore
       end
     end
 
-    artifact 133891 "Couleur"
+    artifact 134786 "Couleur"
       stereotype "source"
-      cpp_h "/**
+      cpp_h "/*******************************************************
 * \\file ${name}.h
 * \\author Tom ESCOLANO
 
-\\brief Projet : Eclairage DIY - SUP
+* \\brief Projet : Eclairage DIY - SUP
 *******************************************************/
 
 #ifndef ${NAMESPACE}_${NAME}_H
@@ -1746,7 +1676,7 @@ ${definition}
 ${namespace_end}
 #endif
 "
-      cpp_src "/**
+      cpp_src "/******************************************************
 * \\file ${name}.cpp
 * \\author Tom ESCOLANO
 
@@ -1759,10 +1689,13 @@ ${namespace_start}
 ${members}
 ${namespace_end}
 
-#ifndef NDEBUG
-
+#ifdef _UT_${name}_
+int main()
+{
+	return 0;
+}
 #endif
-#endif"
+"
       java_src "${comment}
 ${package}
 ${imports}
@@ -1792,13 +1725,13 @@ ${module_end}
       end
     end
 
-    artifact 134019 "EclairageMulticolore"
+    artifact 134914 "EclairageMulticolore"
       stereotype "source"
-      cpp_h "/**
+      cpp_h "/*******************************************************
 * \\file ${name}.h
 * \\author Tom ESCOLANO
 
-\\brief Projet : Eclairage DIY - SUP
+* \\brief Projet : Eclairage DIY - SUP
 *******************************************************/
 
 #ifndef ${NAMESPACE}_${NAME}_H
@@ -1812,7 +1745,7 @@ ${definition}
 ${namespace_end}
 #endif
 "
-      cpp_src "/**
+      cpp_src "/******************************************************
 * \\file ${name}.cpp
 * \\author Tom ESCOLANO
 
@@ -1825,22 +1758,25 @@ ${namespace_start}
 ${members}
 ${namespace_end}
 
-#ifndef NDEBUG
-
+#ifdef _UT_${name}_
+int main()
+{
+	return 0;
+}
 #endif
-#endif"
+"
       associated_elems
 	class_ref 136963 // EclairageMulticolore
       end
     end
 
-    artifact 134147 "SUP"
+    artifact 135042 "SUP"
       stereotype "source"
-      cpp_h "/**
+      cpp_h "/*******************************************************
 * \\file ${name}.h
 * \\author Tom ESCOLANO
 
-\\brief Projet : Eclairage DIY - SUP
+* \\brief Projet : Eclairage DIY - SUP
 *******************************************************/
 
 #ifndef ${NAMESPACE}_${NAME}_H
@@ -1854,7 +1790,7 @@ ${definition}
 ${namespace_end}
 #endif
 "
-      cpp_src "/**
+      cpp_src "/******************************************************
 * \\file ${name}.cpp
 * \\author Tom ESCOLANO
 
@@ -1867,22 +1803,25 @@ ${namespace_start}
 ${members}
 ${namespace_end}
 
-#ifndef NDEBUG
-
+#ifdef _UT_${name}_
+int main()
+{
+	return 0;
+}
 #endif
-#endif"
+"
       associated_elems
 	class_ref 144003 // SUP
       end
     end
 
-    artifact 134275 "UcGerer"
+    artifact 135170 "UcGerer"
       stereotype "source"
-      cpp_h "/**
+      cpp_h "/*******************************************************
 * \\file ${name}.h
 * \\author Tom ESCOLANO
 
-\\brief Projet : Eclairage DIY - SUP
+* \\brief Projet : Eclairage DIY - SUP
 *******************************************************/
 
 #ifndef ${NAMESPACE}_${NAME}_H
@@ -1896,7 +1835,7 @@ ${definition}
 ${namespace_end}
 #endif
 "
-      cpp_src "/**
+      cpp_src "/******************************************************
 * \\file ${name}.cpp
 * \\author Tom ESCOLANO
 
@@ -1909,22 +1848,25 @@ ${namespace_start}
 ${members}
 ${namespace_end}
 
-#ifndef NDEBUG
-
+#ifdef _UT_${name}_
+int main()
+{
+	return 0;
+}
 #endif
-#endif"
+"
       associated_elems
 	class_ref 144131 // UcGerer
       end
     end
 
-    artifact 134403 "UcImporter"
+    artifact 135298 "UcImporter"
       stereotype "source"
-      cpp_h "/**
+      cpp_h "/*******************************************************
 * \\file ${name}.h
 * \\author Tom ESCOLANO
 
-\\brief Projet : Eclairage DIY - SUP
+* \\brief Projet : Eclairage DIY - SUP
 *******************************************************/
 
 #ifndef ${NAMESPACE}_${NAME}_H
@@ -1938,7 +1880,7 @@ ${definition}
 ${namespace_end}
 #endif
 "
-      cpp_src "/**
+      cpp_src "/******************************************************
 * \\file ${name}.cpp
 * \\author Tom ESCOLANO
 
@@ -1951,22 +1893,25 @@ ${namespace_start}
 ${members}
 ${namespace_end}
 
-#ifndef NDEBUG
-
+#ifdef _UT_${name}_
+int main()
+{
+	return 0;
+}
 #endif
-#endif"
+"
       associated_elems
 	class_ref 150659 // UcImporter
       end
     end
 
-    artifact 134531 "UcExporter"
+    artifact 135426 "UcExporter"
       stereotype "source"
-      cpp_h "/**
+      cpp_h "/*******************************************************
 * \\file ${name}.h
 * \\author Tom ESCOLANO
 
-\\brief Projet : Eclairage DIY - SUP
+* \\brief Projet : Eclairage DIY - SUP
 *******************************************************/
 
 #ifndef ${NAMESPACE}_${NAME}_H
@@ -1980,7 +1925,7 @@ ${definition}
 ${namespace_end}
 #endif
 "
-      cpp_src "/**
+      cpp_src "/******************************************************
 * \\file ${name}.cpp
 * \\author Tom ESCOLANO
 
@@ -1993,22 +1938,25 @@ ${namespace_start}
 ${members}
 ${namespace_end}
 
-#ifndef NDEBUG
-
+#ifdef _UT_${name}_
+int main()
+{
+	return 0;
+}
 #endif
-#endif"
+"
       associated_elems
 	class_ref 150787 // UcExporter
       end
     end
 
-    artifact 134659 "UcMettreAJour"
+    artifact 135554 "UcMettreAJour"
       stereotype "source"
-      cpp_h "/**
+      cpp_h "/*******************************************************
 * \\file ${name}.h
 * \\author Tom ESCOLANO
 
-\\brief Projet : Eclairage DIY - SUP
+* \\brief Projet : Eclairage DIY - SUP
 *******************************************************/
 
 #ifndef ${NAMESPACE}_${NAME}_H
@@ -2022,7 +1970,7 @@ ${definition}
 ${namespace_end}
 #endif
 "
-      cpp_src "/**
+      cpp_src "/******************************************************
 * \\file ${name}.cpp
 * \\author Tom ESCOLANO
 
@@ -2035,22 +1983,25 @@ ${namespace_start}
 ${members}
 ${namespace_end}
 
-#ifndef NDEBUG
-
+#ifdef _UT_${name}_
+int main()
+{
+	return 0;
+}
 #endif
-#endif"
+"
       associated_elems
 	class_ref 150915 // UcMettreAJour
       end
     end
 
-    artifact 134787 "UcCommander"
+    artifact 135682 "UcCommander"
       stereotype "source"
-      cpp_h "/**
+      cpp_h "/*******************************************************
 * \\file ${name}.h
 * \\author Tom ESCOLANO
 
-\\brief Projet : Eclairage DIY - SUP
+* \\brief Projet : Eclairage DIY - SUP
 *******************************************************/
 
 #ifndef ${NAMESPACE}_${NAME}_H
@@ -2064,7 +2015,7 @@ ${definition}
 ${namespace_end}
 #endif
 "
-      cpp_src "/**
+      cpp_src "/******************************************************
 * \\file ${name}.cpp
 * \\author Tom ESCOLANO
 
@@ -2077,53 +2028,15 @@ ${namespace_start}
 ${members}
 ${namespace_end}
 
-#ifndef NDEBUG
-
+#ifdef _UT_${name}_
+int main()
+{
+	return 0;
+}
 #endif
-#endif"
+"
       associated_elems
 	class_ref 151043 // UcCommander
-      end
-    end
-
-    artifact 134915 "Cycle"
-      stereotype "source"
-      cpp_h "/**
-* \\file ${name}.h
-* \\author Tom ESCOLANO
-
-\\brief Projet : Eclairage DIY - SUP
-*******************************************************/
-
-#ifndef ${NAMESPACE}_${NAME}_H
-#define ${NAMESPACE}_${NAME}_H
-
-${comment}
-${includes}
-${declarations}
-${namespace_start}
-${definition}
-${namespace_end}
-#endif
-"
-      cpp_src "/**
-* \\file ${name}.cpp
-* \\author Tom ESCOLANO
-
-\\brief Projet : Eclairage DIY - SUP
-*******************************************************/
-
-${comment}
-${includes}
-${namespace_start}
-${members}
-${namespace_end}
-
-#ifndef NDEBUG
-
-#endif
-#endif"
-      associated_elems
       end
     end
   end

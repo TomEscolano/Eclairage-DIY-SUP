@@ -1,0 +1,118 @@
+\hypertarget{classClientTcpComBny}{}\section{Référence de la classe Client\+Tcp\+Com\+Bny}
+\label{classClientTcpComBny}\index{Client\+Tcp\+Com\+Bny@{Client\+Tcp\+Com\+Bny}}
+
+
+{\ttfamily \#include $<$Client\+Tcp\+Com\+Bny.\+h$>$}
+
+
+
+Graphe de collaboration de Client\+Tcp\+Com\+Bny\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{classClientTcpComBny__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classClientTcpComBny_a4e87071b400a5129f642a5a3721d420f}{Client\+Tcp\+Com\+Bny} ()
+\item 
+\hyperlink{classClientTcpComBny_ade30f75875dc873e2dc522228a7e5c68}{$\sim$\+Client\+Tcp\+Com\+Bny} ()
+\item 
+void \hyperlink{classClientTcpComBny_ac105b046c2e544b1a433f99d83d7447a}{connecter} (std\+::string ip, unsigned short int port)  throw (\+Tcp\+Ip\+Com\+Bny\+Exception)
+\item 
+void \hyperlink{classClientTcpComBny_ad32e6a288aeff3d243d88c60afe967c3}{recevoir} (char $\ast$buffer, std\+::size\+\_\+t size, std\+::size\+\_\+t \&count)  throw (\+Tcp\+Ip\+Com\+Bny\+Exception)
+\item 
+void \hyperlink{classClientTcpComBny_a0745845f86951740b6839812410608e8}{fscanf} (const char $\ast$format,...)
+\item 
+void \hyperlink{classClientTcpComBny_acf5ac7ad2c6815e6797a95f50906172f}{envoyer} (const char $\ast$buffer, std\+::size\+\_\+t size)  throw (\+Tcp\+Ip\+Com\+Bny\+Exception)
+\item 
+void \hyperlink{classClientTcpComBny_a3f2db7ecde5bf993a96bae8f4107e1c8}{fprintf} (const char $\ast$format,...)
+\item 
+void \hyperlink{classClientTcpComBny_aec1398f686da1f83884fd98924cc0725}{deconnecter} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{classClientTcpComBny_a4e87071b400a5129f642a5a3721d420f}\label{classClientTcpComBny_a4e87071b400a5129f642a5a3721d420f}} 
+\index{Client\+Tcp\+Com\+Bny@{Client\+Tcp\+Com\+Bny}!Client\+Tcp\+Com\+Bny@{Client\+Tcp\+Com\+Bny}}
+\index{Client\+Tcp\+Com\+Bny@{Client\+Tcp\+Com\+Bny}!Client\+Tcp\+Com\+Bny@{Client\+Tcp\+Com\+Bny}}
+\subsubsection{\texorpdfstring{Client\+Tcp\+Com\+Bny()}{ClientTcpComBny()}}
+{\footnotesize\ttfamily Client\+Tcp\+Com\+Bny\+::\+Client\+Tcp\+Com\+Bny (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classClientTcpComBny_ade30f75875dc873e2dc522228a7e5c68}\label{classClientTcpComBny_ade30f75875dc873e2dc522228a7e5c68}} 
+\index{Client\+Tcp\+Com\+Bny@{Client\+Tcp\+Com\+Bny}!````~Client\+Tcp\+Com\+Bny@{$\sim$\+Client\+Tcp\+Com\+Bny}}
+\index{````~Client\+Tcp\+Com\+Bny@{$\sim$\+Client\+Tcp\+Com\+Bny}!Client\+Tcp\+Com\+Bny@{Client\+Tcp\+Com\+Bny}}
+\subsubsection{\texorpdfstring{$\sim$\+Client\+Tcp\+Com\+Bny()}{~ClientTcpComBny()}}
+{\footnotesize\ttfamily Client\+Tcp\+Com\+Bny\+::$\sim$\+Client\+Tcp\+Com\+Bny (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Références deconnecter().
+
+
+
+\subsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classClientTcpComBny_ac105b046c2e544b1a433f99d83d7447a}\label{classClientTcpComBny_ac105b046c2e544b1a433f99d83d7447a}} 
+\index{Client\+Tcp\+Com\+Bny@{Client\+Tcp\+Com\+Bny}!connecter@{connecter}}
+\index{connecter@{connecter}!Client\+Tcp\+Com\+Bny@{Client\+Tcp\+Com\+Bny}}
+\subsubsection{\texorpdfstring{connecter()}{connecter()}}
+{\footnotesize\ttfamily void Client\+Tcp\+Com\+Bny\+::connecter (\begin{DoxyParamCaption}\item[{std\+::string}]{ip,  }\item[{unsigned short int}]{port }\end{DoxyParamCaption}) throw  \hyperlink{classTcpIpComBnyException}{Tcp\+Ip\+Com\+Bny\+Exception}) }
+
+
+
+Références Tcp\+Com\+Bny\+::fermer().
+
+\mbox{\Hypertarget{classClientTcpComBny_aec1398f686da1f83884fd98924cc0725}\label{classClientTcpComBny_aec1398f686da1f83884fd98924cc0725}} 
+\index{Client\+Tcp\+Com\+Bny@{Client\+Tcp\+Com\+Bny}!deconnecter@{deconnecter}}
+\index{deconnecter@{deconnecter}!Client\+Tcp\+Com\+Bny@{Client\+Tcp\+Com\+Bny}}
+\subsubsection{\texorpdfstring{deconnecter()}{deconnecter()}}
+{\footnotesize\ttfamily void Client\+Tcp\+Com\+Bny\+::deconnecter (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classClientTcpComBny_acf5ac7ad2c6815e6797a95f50906172f}\label{classClientTcpComBny_acf5ac7ad2c6815e6797a95f50906172f}} 
+\index{Client\+Tcp\+Com\+Bny@{Client\+Tcp\+Com\+Bny}!envoyer@{envoyer}}
+\index{envoyer@{envoyer}!Client\+Tcp\+Com\+Bny@{Client\+Tcp\+Com\+Bny}}
+\subsubsection{\texorpdfstring{envoyer()}{envoyer()}}
+{\footnotesize\ttfamily void Client\+Tcp\+Com\+Bny\+::envoyer (\begin{DoxyParamCaption}\item[{const char $\ast$}]{buffer,  }\item[{std\+::size\+\_\+t}]{size }\end{DoxyParamCaption}) throw  \hyperlink{classTcpIpComBnyException}{Tcp\+Ip\+Com\+Bny\+Exception}) }
+
+
+
+Références Tcp\+Com\+Bny\+::envoyer().
+
+\mbox{\Hypertarget{classClientTcpComBny_a3f2db7ecde5bf993a96bae8f4107e1c8}\label{classClientTcpComBny_a3f2db7ecde5bf993a96bae8f4107e1c8}} 
+\index{Client\+Tcp\+Com\+Bny@{Client\+Tcp\+Com\+Bny}!fprintf@{fprintf}}
+\index{fprintf@{fprintf}!Client\+Tcp\+Com\+Bny@{Client\+Tcp\+Com\+Bny}}
+\subsubsection{\texorpdfstring{fprintf()}{fprintf()}}
+{\footnotesize\ttfamily void Client\+Tcp\+Com\+Bny\+::fprintf (\begin{DoxyParamCaption}\item[{const char $\ast$}]{format,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Références Tcp\+Com\+Bny\+::fprintf().
+
+\mbox{\Hypertarget{classClientTcpComBny_a0745845f86951740b6839812410608e8}\label{classClientTcpComBny_a0745845f86951740b6839812410608e8}} 
+\index{Client\+Tcp\+Com\+Bny@{Client\+Tcp\+Com\+Bny}!fscanf@{fscanf}}
+\index{fscanf@{fscanf}!Client\+Tcp\+Com\+Bny@{Client\+Tcp\+Com\+Bny}}
+\subsubsection{\texorpdfstring{fscanf()}{fscanf()}}
+{\footnotesize\ttfamily void Client\+Tcp\+Com\+Bny\+::fscanf (\begin{DoxyParamCaption}\item[{const char $\ast$}]{format,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Références Tcp\+Com\+Bny\+::fscanf().
+
+\mbox{\Hypertarget{classClientTcpComBny_ad32e6a288aeff3d243d88c60afe967c3}\label{classClientTcpComBny_ad32e6a288aeff3d243d88c60afe967c3}} 
+\index{Client\+Tcp\+Com\+Bny@{Client\+Tcp\+Com\+Bny}!recevoir@{recevoir}}
+\index{recevoir@{recevoir}!Client\+Tcp\+Com\+Bny@{Client\+Tcp\+Com\+Bny}}
+\subsubsection{\texorpdfstring{recevoir()}{recevoir()}}
+{\footnotesize\ttfamily void Client\+Tcp\+Com\+Bny\+::recevoir (\begin{DoxyParamCaption}\item[{char $\ast$}]{buffer,  }\item[{std\+::size\+\_\+t}]{size,  }\item[{std\+::size\+\_\+t \&}]{count }\end{DoxyParamCaption}) throw  \hyperlink{classTcpIpComBnyException}{Tcp\+Ip\+Com\+Bny\+Exception}) }
+
+
+
+Références Tcp\+Com\+Bny\+::recevoir().
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{ClientTcpComBny_8h}{Client\+Tcp\+Com\+Bny.\+h}\item 
+src/\hyperlink{ClientTcpComBny_8cpp}{Client\+Tcp\+Com\+Bny.\+cpp}\end{DoxyCompactItemize}

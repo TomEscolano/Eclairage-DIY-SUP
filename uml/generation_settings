@@ -52,11 +52,11 @@
   cpp_enum_default_type_forms "${type}" "${type} &" "${type} &" "${type}" // in out inout return
   other_cpp_types_default_type_forms "const ${type} &" "${type} &" "${type} &" "${type}" // in out inout return
 
-  cpp_default_h_content "/**
+  cpp_default_h_content "/*******************************************************
 * \\file ${name}.h
 * \\author Tom ESCOLANO
 
-\\brief Projet : Eclairage DIY - SUP
+* \\brief Projet : Eclairage DIY - SUP
 *******************************************************/
 
 #ifndef ${NAMESPACE}_${NAME}_H
@@ -70,7 +70,7 @@ ${definition}
 ${namespace_end}
 #endif
 "
-  cpp_default_src_content "/**
+  cpp_default_src_content "/******************************************************
 * \\file ${name}.cpp
 * \\author Tom ESCOLANO
 
@@ -83,10 +83,13 @@ ${namespace_start}
 ${members}
 ${namespace_end}
 
-#ifndef NDEBUG
-
+#ifdef _UT_${name}_
+int main()
+{
+	return 0;
+}
 #endif
-#endif"
+"
   cpp_default_class_decl "${comment}${template}class ${name}${inherit} {
 ${members}};
 ${inlines}

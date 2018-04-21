@@ -1,9 +1,8 @@
-format 216
-"umlV3"
-  revision 12
-  modified_by 3 "tom"
-  cpp_root_dir "/home/tom/Documents/Projet/srcBouml/"
-  java_root_dir "/home/tom/Documents/Projet/srcBouml/"
+format 218
+"uml"
+  revision 14
+  modified_by 2 "tom"
+  cpp_root_dir "/home/tom/Documents/Eclairage-DIY-SUP/src/"
 
   class_default_description "\\class ${name}
 \\brief quel est le rôle de la classe
@@ -21,7 +20,7 @@ format 216
   // class settings
   default_attribute_visibility private default_relation_visibility private default_operation_visibility public
   
-  classdiagramsettings draw_all_relations yes hide_attributes no hide_operations no hide_getset_operations no show_members_full_definition yes show_members_visibility yes show_members_stereotype yes show_members_context namespace show_members_multiplicity no show_members_initialization yes show_attribute_modifiers yes member_max_width 127 show_parameter_dir yes show_parameter_name yes package_name_in_tab no class_drawing_mode natural drawing_language uml show_context_mode namespace auto_label_position yes show_relation_modifiers yes show_relation_visibility yes show_infonote no shadow no gradient none show_stereotype_properties yes end
+  classdiagramsettings draw_all_relations yes hide_attributes no hide_operations no hide_getset_operations no hide_ports no show_members_full_definition yes show_members_visibility yes show_members_stereotype yes show_members_context namespace show_members_multiplicity no show_members_initialization yes show_attribute_modifiers yes member_max_width 127 show_parameter_dir yes show_parameter_name yes package_name_in_tab no class_drawing_mode natural drawing_language uml show_context_mode namespace auto_label_position yes show_relation_modifiers yes show_relation_visibility yes show_infonote no shadow no gradient none show_stereotype_properties yes end
   
   usecasediagramsettings package_name_in_tab no show_context_mode no auto_label_position yes draw_all_relations yes class_drawing_mode actor shadow yes gradient none show_stereotype_properties no end
   
@@ -53,6 +52,8 @@ format 216
 
   mark_for_import
   
+  ncouples 1
+  key "html dir" value "/home/tom/Bureau/test/"
   package_ref 128003 // domaine
 
   package_ref 128131 // analyse

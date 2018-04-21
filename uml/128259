@@ -1,6 +1,6 @@
 format 218
 "conception" // conception
-  revision 5
+  revision 10
   modified_by 2 "tom"
   // class settings
   
@@ -438,9 +438,10 @@ ${inlines}
     
     activitydiagramsettings
      end
+    associated_deployment_view deploymentview_ref 134658 // vc
     classdiagram 134786 "dcc"
       classdiagramsettings member_max_width 0 end
-      size A0
+      size E-Landscape
     end
 
     class 135298 "UcAjouter"
@@ -456,6 +457,48 @@ ${inlines}
       explicit_switch_type ""
       mysql_decl ""
       
+      operation 149123 "doIt"
+	public explicit_return_type "void"
+	nparams 2
+	  param in name "eclairage" type class_ref 137347 // Ent
+	  param in name "bd" explicit_type "sqlite3"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "Méthode permettant d'ajouter un éclairage unicolore dans la base de données"
+      end
+
+      operation 135554 "doIt"
+	public explicit_return_type "void"
+	nparams 2
+	  param in name "eclairage" type class_ref 137091 // Ent
+	  param in name "bdd" explicit_type "sqlite3"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "Méthode permettant d'ajouter un éclairage multicolore dans la base de données."
+      end
+
+      classrelation 142722 // persiBny (<directional composition>)
+	relation 142722 *-->
+	  a role_name "persiBny" multiplicity "1" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 142722 // persiBny (<directional composition>)
+	  b parent class_ref 142210 // SqlitePersiBny
+      end
     end
 
     class 135426 "UcSupprimer"
@@ -471,6 +514,30 @@ ${inlines}
       explicit_switch_type ""
       mysql_decl ""
       
+      operation 149251 "doIt"
+	public explicit_return_type "void"
+	nparams 1
+	  param in name "eclairage" explicit_type "Ent"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "Méthode permettant de supprimer un éclairage."
+      end
+
+      classrelation 142978 // persiBny (<directional composition>)
+	relation 142978 *-->
+	  a role_name "persiBny" multiplicity "1" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 142978 // persiBny (<directional composition>)
+	  b parent class_ref 142210 // SqlitePersiBny
+      end
     end
 
     class 135554 "UcModifier"
@@ -486,6 +553,246 @@ ${inlines}
       explicit_switch_type ""
       mysql_decl ""
       
+      operation 148995 "doIt"
+	public explicit_return_type "void"
+	nparams 1
+	  param in name "eclairage" type class_ref 137091 // Ent
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "Méthode permettant de modifier la configuration un éclairage multicolore."
+      end
+
+      operation 135682 "doIt"
+	public explicit_return_type "void"
+	nparams 1
+	  param in name "eclairage" type class_ref 137347 // Ent
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "Méthode permettant de modifier la configuration d'un éclairage unicolore."
+      end
+
+      classrelation 142850 // persiBny (<directional composition>)
+	relation 142850 *-->
+	  a role_name "persiBny" multiplicity "1" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 142850 // persiBny (<directional composition>)
+	  b parent class_ref 142210 // SqlitePersiBny
+      end
+    end
+
+    class 142210 "SqlitePersiBny"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+    end
+  end
+
+  deploymentview 134658 "vc"
+    //deployment diagram settings
+    deploymentdiagramsettings
+     end
+    artifact 135810 "UcAjouter"
+      stereotype "source"
+      cpp_h "/*******************************************************
+* \\file ${name}.h
+* \\author Tom ESCOLANO
+
+* \\brief Projet : Eclairage DIY - SUP
+*******************************************************/
+
+#ifndef ${NAMESPACE}_${NAME}_H
+#define ${NAMESPACE}_${NAME}_H
+
+${comment}
+${includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "/******************************************************
+* \\file ${name}.cpp
+* \\author Tom ESCOLANO
+
+\\brief Projet : Eclairage DIY - SUP
+*******************************************************/
+
+${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}
+
+#ifdef _UT_${name}_
+int main()
+{
+	return 0;
+}
+#endif
+"
+      associated_elems
+	class_ref 135298 // UcAjouter
+      end
+    end
+
+    artifact 135938 "UcSupprimer"
+      stereotype "source"
+      cpp_h "/*******************************************************
+* \\file ${name}.h
+* \\author Tom ESCOLANO
+
+* \\brief Projet : Eclairage DIY - SUP
+*******************************************************/
+
+#ifndef ${NAMESPACE}_${NAME}_H
+#define ${NAMESPACE}_${NAME}_H
+
+${comment}
+${includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "/******************************************************
+* \\file ${name}.cpp
+* \\author Tom ESCOLANO
+
+\\brief Projet : Eclairage DIY - SUP
+*******************************************************/
+
+${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}
+
+#ifdef _UT_${name}_
+int main()
+{
+	return 0;
+}
+#endif
+"
+      associated_elems
+	class_ref 135426 // UcSupprimer
+      end
+    end
+
+    artifact 136066 "UcModifier"
+      stereotype "source"
+      cpp_h "/*******************************************************
+* \\file ${name}.h
+* \\author Tom ESCOLANO
+
+* \\brief Projet : Eclairage DIY - SUP
+*******************************************************/
+
+#ifndef ${NAMESPACE}_${NAME}_H
+#define ${NAMESPACE}_${NAME}_H
+
+${comment}
+${includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "/******************************************************
+* \\file ${name}.cpp
+* \\author Tom ESCOLANO
+
+\\brief Projet : Eclairage DIY - SUP
+*******************************************************/
+
+${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}
+
+#ifdef _UT_${name}_
+int main()
+{
+	return 0;
+}
+#endif
+"
+      associated_elems
+	class_ref 135554 // UcModifier
+      end
+    end
+
+    artifact 136194 "SqlitePersiBny"
+      stereotype "source"
+      cpp_h "/*******************************************************
+* \\file ${name}.h
+* \\author Tom ESCOLANO
+
+* \\brief Projet : Eclairage DIY - SUP
+*******************************************************/
+
+#ifndef ${NAMESPACE}_${NAME}_H
+#define ${NAMESPACE}_${NAME}_H
+
+${comment}
+${includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "/******************************************************
+* \\file ${name}.cpp
+* \\author Tom ESCOLANO
+
+\\brief Projet : Eclairage DIY - SUP
+*******************************************************/
+
+${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}
+
+#ifdef _UT_${name}_
+int main()
+{
+	return 0;
+}
+#endif
+"
+      associated_elems
+	class_ref 142210 // SqlitePersiBny
+      end
     end
   end
 end

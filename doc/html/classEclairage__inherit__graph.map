@@ -1,0 +1,4 @@
+<map id="Eclairage" name="Eclairage">
+<area shape="rect" id="node2" href="$classEclairageMulticolore.html" title="{EclairageMulticolore\n||}" alt="" coords="5,131,144,208"/>
+<area shape="rect" id="node3" href="$classEclairageUnicolore.html" title="{EclairageUnicolore\n||}" alt="" coords="168,131,299,208"/>
+</map>

@@ -1,0 +1,11 @@
+<map id="io::error::with_file_line" name="io::error::with_file_line">
+<area shape="rect" id="node2" href="$structio_1_1error_1_1escaped__string__not__closed.html" title="{io::error::escaped\l_string_not_closed\n||+ format_error_message()\l}" alt="" coords="5,145,177,237"/>
+<area shape="rect" id="node3" href="$structio_1_1error_1_1integer__must__be__positive.html" title="{io::error::integer\l_must_be_positive\n||+ format_error_message()\l}" alt="" coords="201,145,373,237"/>
+<area shape="rect" id="node4" href="$structio_1_1error_1_1integer__overflow.html" title="{io::error::integer\l_overflow\n||+ format_error_message()\l}" alt="" coords="397,145,569,237"/>
+<area shape="rect" id="node5" href="$structio_1_1error_1_1integer__underflow.html" title="{io::error::integer\l_underflow\n||+ format_error_message()\l}" alt="" coords="593,145,765,237"/>
+<area shape="rect" id="node6" href="$structio_1_1error_1_1invalid__single__character.html" title="{io::error::invalid\l_single_character\n||+ format_error_message()\l}" alt="" coords="789,145,961,237"/>
+<area shape="rect" id="node7" href="$structio_1_1error_1_1line__length__limit__exceeded.html" title="{io::error::line_length\l_limit_exceeded\n||+ format_error_message()\l}" alt="" coords="985,145,1157,237"/>
+<area shape="rect" id="node8" href="$structio_1_1error_1_1no__digit.html" title="{io::error::no_digit\n||+ format_error_message()\l}" alt="" coords="1181,153,1353,230"/>
+<area shape="rect" id="node9" href="$structio_1_1error_1_1too__few__columns.html" title="{io::error::too_few\l_columns\n||+ format_error_message()\l}" alt="" coords="1377,145,1549,237"/>
+<area shape="rect" id="node10" href="$structio_1_1error_1_1too__many__columns.html" title="{io::error::too_many\l_columns\n||+ format_error_message()\l}" alt="" coords="1573,145,1745,237"/>
+</map>

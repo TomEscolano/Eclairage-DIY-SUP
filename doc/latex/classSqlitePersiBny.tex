@@ -1,0 +1,127 @@
+\hypertarget{classSqlitePersiBny}{}\section{Référence de la classe Sqlite\+Persi\+Bny}
+\label{classSqlitePersiBny}\index{Sqlite\+Persi\+Bny@{Sqlite\+Persi\+Bny}}
+
+
+{\ttfamily \#include $<$Sqlite\+Persi\+Bny.\+h$>$}
+
+
+
+Graphe de collaboration de Sqlite\+Persi\+Bny\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=182pt]{classSqlitePersiBny__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Types publics}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::pair$<$ std\+::string, std\+::string $>$ \hyperlink{classSqlitePersiBny_af3de7ea7bd4146b4ce0a00ceae01befd}{Champs}
+\item 
+typedef std\+::vector$<$ \hyperlink{classSqlitePersiBny_af3de7ea7bd4146b4ce0a00ceae01befd}{Champs} $>$ \hyperlink{classSqlitePersiBny_a32400b54d9a08cae7d60d985a5d48892}{Ligne}
+\item 
+typedef std\+::vector$<$ \hyperlink{classSqlitePersiBny_a32400b54d9a08cae7d60d985a5d48892}{Ligne} $>$ \hyperlink{classSqlitePersiBny_a04bdd1bacd9241210ea44ec2c072f79b}{Resultat}
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classSqlitePersiBny_af4ff22e110cfc9ad07460e2aedb9d884}{Sqlite\+Persi\+Bny} (const char $\ast$fichier\+Bdd)  throw (\+Sqlite\+Persi\+Bny\+Exception)
+\item 
+virtual \hyperlink{classSqlitePersiBny_a20a424146469e8d6ca9347c660d1027c}{$\sim$\+Sqlite\+Persi\+Bny} ()  throw (\+Sqlite\+Persi\+Bny\+Exception)
+\item 
+void \hyperlink{classSqlitePersiBny_aa018371d06ba831126a6c4fdc77b741f}{executer\+Sql} (std\+::string requete)  throw (\+Sqlite\+Persi\+Bny\+Exception)
+\item 
+int \hyperlink{classSqlitePersiBny_aaca09292fb3eb5e7bbf176c86964ff73}{executer\+Sql} (std\+::string requete, \hyperlink{classSqlitePersiBny_a04bdd1bacd9241210ea44ec2c072f79b}{Sqlite\+Persi\+Bny\+::\+Resultat} \&resultat)  throw (\+Sqlite\+Persi\+Bny\+Exception)
+\item 
+int \hyperlink{classSqlitePersiBny_a44284ce3b32df4a0f2c0f053323cc4b9}{get\+Dernier\+Id} ()
+\item 
+int \hyperlink{classSqlitePersiBny_a3f6a2b7a50d826cc030ac60aadf54d8f}{get\+Dernier\+Id} (std\+::string table)  throw (\+Sqlite\+Persi\+Bny\+Exception)
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres publiques statiques}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::string \hyperlink{classSqlitePersiBny_a6c80449c682a18e9e9ce0a860f05088d}{resultat\+To\+String} (\hyperlink{classSqlitePersiBny_a04bdd1bacd9241210ea44ec2c072f79b}{Sqlite\+Persi\+Bny\+::\+Resultat} \&resultat)
+\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des définitions de type membres}
+\mbox{\Hypertarget{classSqlitePersiBny_af3de7ea7bd4146b4ce0a00ceae01befd}\label{classSqlitePersiBny_af3de7ea7bd4146b4ce0a00ceae01befd}} 
+\index{Sqlite\+Persi\+Bny@{Sqlite\+Persi\+Bny}!Champs@{Champs}}
+\index{Champs@{Champs}!Sqlite\+Persi\+Bny@{Sqlite\+Persi\+Bny}}
+\subsubsection{\texorpdfstring{Champs}{Champs}}
+{\footnotesize\ttfamily typedef std\+::pair$<$ std\+::string, std\+::string$>$ \hyperlink{classSqlitePersiBny_af3de7ea7bd4146b4ce0a00ceae01befd}{Sqlite\+Persi\+Bny\+::\+Champs}}
+
+\mbox{\Hypertarget{classSqlitePersiBny_a32400b54d9a08cae7d60d985a5d48892}\label{classSqlitePersiBny_a32400b54d9a08cae7d60d985a5d48892}} 
+\index{Sqlite\+Persi\+Bny@{Sqlite\+Persi\+Bny}!Ligne@{Ligne}}
+\index{Ligne@{Ligne}!Sqlite\+Persi\+Bny@{Sqlite\+Persi\+Bny}}
+\subsubsection{\texorpdfstring{Ligne}{Ligne}}
+{\footnotesize\ttfamily typedef std\+::vector$<$\hyperlink{classSqlitePersiBny_af3de7ea7bd4146b4ce0a00ceae01befd}{Champs}$>$ \hyperlink{classSqlitePersiBny_a32400b54d9a08cae7d60d985a5d48892}{Sqlite\+Persi\+Bny\+::\+Ligne}}
+
+\mbox{\Hypertarget{classSqlitePersiBny_a04bdd1bacd9241210ea44ec2c072f79b}\label{classSqlitePersiBny_a04bdd1bacd9241210ea44ec2c072f79b}} 
+\index{Sqlite\+Persi\+Bny@{Sqlite\+Persi\+Bny}!Resultat@{Resultat}}
+\index{Resultat@{Resultat}!Sqlite\+Persi\+Bny@{Sqlite\+Persi\+Bny}}
+\subsubsection{\texorpdfstring{Resultat}{Resultat}}
+{\footnotesize\ttfamily typedef std\+::vector$<$\hyperlink{classSqlitePersiBny_a32400b54d9a08cae7d60d985a5d48892}{Ligne}$>$ \hyperlink{classSqlitePersiBny_a04bdd1bacd9241210ea44ec2c072f79b}{Sqlite\+Persi\+Bny\+::\+Resultat}}
+
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{classSqlitePersiBny_af4ff22e110cfc9ad07460e2aedb9d884}\label{classSqlitePersiBny_af4ff22e110cfc9ad07460e2aedb9d884}} 
+\index{Sqlite\+Persi\+Bny@{Sqlite\+Persi\+Bny}!Sqlite\+Persi\+Bny@{Sqlite\+Persi\+Bny}}
+\index{Sqlite\+Persi\+Bny@{Sqlite\+Persi\+Bny}!Sqlite\+Persi\+Bny@{Sqlite\+Persi\+Bny}}
+\subsubsection{\texorpdfstring{Sqlite\+Persi\+Bny()}{SqlitePersiBny()}}
+{\footnotesize\ttfamily Sqlite\+Persi\+Bny\+::\+Sqlite\+Persi\+Bny (\begin{DoxyParamCaption}\item[{const char $\ast$}]{fichier\+Bdd }\end{DoxyParamCaption}) throw  \hyperlink{classSqlitePersiBnyException}{Sqlite\+Persi\+Bny\+Exception}) }
+
+\mbox{\Hypertarget{classSqlitePersiBny_a20a424146469e8d6ca9347c660d1027c}\label{classSqlitePersiBny_a20a424146469e8d6ca9347c660d1027c}} 
+\index{Sqlite\+Persi\+Bny@{Sqlite\+Persi\+Bny}!````~Sqlite\+Persi\+Bny@{$\sim$\+Sqlite\+Persi\+Bny}}
+\index{````~Sqlite\+Persi\+Bny@{$\sim$\+Sqlite\+Persi\+Bny}!Sqlite\+Persi\+Bny@{Sqlite\+Persi\+Bny}}
+\subsubsection{\texorpdfstring{$\sim$\+Sqlite\+Persi\+Bny()}{~SqlitePersiBny()}}
+{\footnotesize\ttfamily Sqlite\+Persi\+Bny\+::$\sim$\+Sqlite\+Persi\+Bny (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throw  \hyperlink{classSqlitePersiBnyException}{Sqlite\+Persi\+Bny\+Exception}) \hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\subsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classSqlitePersiBny_aa018371d06ba831126a6c4fdc77b741f}\label{classSqlitePersiBny_aa018371d06ba831126a6c4fdc77b741f}} 
+\index{Sqlite\+Persi\+Bny@{Sqlite\+Persi\+Bny}!executer\+Sql@{executer\+Sql}}
+\index{executer\+Sql@{executer\+Sql}!Sqlite\+Persi\+Bny@{Sqlite\+Persi\+Bny}}
+\subsubsection{\texorpdfstring{executer\+Sql()}{executerSql()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Sqlite\+Persi\+Bny\+::executer\+Sql (\begin{DoxyParamCaption}\item[{std\+::string}]{requete }\end{DoxyParamCaption}) throw  \hyperlink{classSqlitePersiBnyException}{Sqlite\+Persi\+Bny\+Exception}) }
+
+\mbox{\Hypertarget{classSqlitePersiBny_aaca09292fb3eb5e7bbf176c86964ff73}\label{classSqlitePersiBny_aaca09292fb3eb5e7bbf176c86964ff73}} 
+\index{Sqlite\+Persi\+Bny@{Sqlite\+Persi\+Bny}!executer\+Sql@{executer\+Sql}}
+\index{executer\+Sql@{executer\+Sql}!Sqlite\+Persi\+Bny@{Sqlite\+Persi\+Bny}}
+\subsubsection{\texorpdfstring{executer\+Sql()}{executerSql()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily int Sqlite\+Persi\+Bny\+::executer\+Sql (\begin{DoxyParamCaption}\item[{std\+::string}]{requete,  }\item[{\hyperlink{classSqlitePersiBny_a04bdd1bacd9241210ea44ec2c072f79b}{Sqlite\+Persi\+Bny\+::\+Resultat} \&}]{resultat }\end{DoxyParamCaption}) throw  \hyperlink{classSqlitePersiBnyException}{Sqlite\+Persi\+Bny\+Exception}) }
+
+\mbox{\Hypertarget{classSqlitePersiBny_a44284ce3b32df4a0f2c0f053323cc4b9}\label{classSqlitePersiBny_a44284ce3b32df4a0f2c0f053323cc4b9}} 
+\index{Sqlite\+Persi\+Bny@{Sqlite\+Persi\+Bny}!get\+Dernier\+Id@{get\+Dernier\+Id}}
+\index{get\+Dernier\+Id@{get\+Dernier\+Id}!Sqlite\+Persi\+Bny@{Sqlite\+Persi\+Bny}}
+\subsubsection{\texorpdfstring{get\+Dernier\+Id()}{getDernierId()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily int Sqlite\+Persi\+Bny\+::get\+Dernier\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classSqlitePersiBny_a3f6a2b7a50d826cc030ac60aadf54d8f}\label{classSqlitePersiBny_a3f6a2b7a50d826cc030ac60aadf54d8f}} 
+\index{Sqlite\+Persi\+Bny@{Sqlite\+Persi\+Bny}!get\+Dernier\+Id@{get\+Dernier\+Id}}
+\index{get\+Dernier\+Id@{get\+Dernier\+Id}!Sqlite\+Persi\+Bny@{Sqlite\+Persi\+Bny}}
+\subsubsection{\texorpdfstring{get\+Dernier\+Id()}{getDernierId()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily int Sqlite\+Persi\+Bny\+::get\+Dernier\+Id (\begin{DoxyParamCaption}\item[{std\+::string}]{table }\end{DoxyParamCaption}) throw  \hyperlink{classSqlitePersiBnyException}{Sqlite\+Persi\+Bny\+Exception}) }
+
+
+
+Références executer\+Sql().
+
+\mbox{\Hypertarget{classSqlitePersiBny_a6c80449c682a18e9e9ce0a860f05088d}\label{classSqlitePersiBny_a6c80449c682a18e9e9ce0a860f05088d}} 
+\index{Sqlite\+Persi\+Bny@{Sqlite\+Persi\+Bny}!resultat\+To\+String@{resultat\+To\+String}}
+\index{resultat\+To\+String@{resultat\+To\+String}!Sqlite\+Persi\+Bny@{Sqlite\+Persi\+Bny}}
+\subsubsection{\texorpdfstring{resultat\+To\+String()}{resultatToString()}}
+{\footnotesize\ttfamily std\+::string Sqlite\+Persi\+Bny\+::resultat\+To\+String (\begin{DoxyParamCaption}\item[{\hyperlink{classSqlitePersiBny_a04bdd1bacd9241210ea44ec2c072f79b}{Sqlite\+Persi\+Bny\+::\+Resultat} \&}]{resultat }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Références executer\+Sql(), get\+Dernier\+Id(), et Sqlite\+Persi\+Bny().
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{SqlitePersiBny_8h}{Sqlite\+Persi\+Bny.\+h}\item 
+src/\hyperlink{SqlitePersiBny_8cpp}{Sqlite\+Persi\+Bny.\+cpp}\end{DoxyCompactItemize}

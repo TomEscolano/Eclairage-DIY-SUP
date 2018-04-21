@@ -1,0 +1,25 @@
+<map id="Graphe hiérarchique des classes" name="Graphe hiérarchique des classes">
+<area shape="rect" id="node1" title="STL class. " alt="" coords="5,493,109,519"/>
+<area shape="rect" id="node2" href="$structio_1_1error_1_1base.html" title="io::error::base" alt="" coords="199,442,302,469"/>
+<area shape="rect" id="node17" href="$classSqlitePersiBnyException.html" title="SqlitePersiBnyException" alt="" coords="167,493,334,519"/>
+<area shape="rect" id="node18" href="$classTcpIpComBnyException.html" title="TcpIpComBnyException" alt="" coords="169,543,333,570"/>
+<area shape="rect" id="node3" href="$structio_1_1error_1_1can__not__open__file.html" title="io::error::can_not\l_open_file" alt="" coords="415,5,535,47"/>
+<area shape="rect" id="node4" href="$structio_1_1error_1_1duplicated__column__in__header.html" title="io::error::duplicated\l_column_in_header" alt="" coords="407,188,542,229"/>
+<area shape="rect" id="node5" href="$structio_1_1error_1_1escaped__string__not__closed.html" title="io::error::escaped\l_string_not_closed" alt="" coords="409,319,540,360"/>
+<area shape="rect" id="node6" href="$structio_1_1error_1_1extra__column__in__header.html" title="io::error::extra_column\l_in_header" alt="" coords="399,253,551,295"/>
+<area shape="rect" id="node7" href="$structio_1_1error_1_1header__missing.html" title="io::error::header_missing" alt="" coords="392,71,557,98"/>
+<area shape="rect" id="node8" href="$structio_1_1error_1_1integer__must__be__positive.html" title="io::error::integer\l_must_be_positive" alt="" coords="409,828,540,869"/>
+<area shape="rect" id="node9" href="$structio_1_1error_1_1integer__overflow.html" title="io::error::integer\l_overflow" alt="" coords="418,580,531,621"/>
+<area shape="rect" id="node10" href="$structio_1_1error_1_1integer__underflow.html" title="io::error::integer\l_underflow" alt="" coords="418,645,531,687"/>
+<area shape="rect" id="node11" href="$structio_1_1error_1_1invalid__single__character.html" title="io::error::invalid\l_single_character" alt="" coords="413,711,537,752"/>
+<area shape="rect" id="node12" href="$structio_1_1error_1_1line__length__limit__exceeded.html" title="io::error::line_length\l_limit_exceeded" alt="" coords="407,384,543,425"/>
+<area shape="rect" id="node13" href="$structio_1_1error_1_1missing__column__in__header.html" title="io::error::missing\l_column_in_header" alt="" coords="407,123,542,164"/>
+<area shape="rect" id="node14" href="$structio_1_1error_1_1no__digit.html" title="io::error::no_digit" alt="" coords="415,777,534,803"/>
+<area shape="rect" id="node15" href="$structio_1_1error_1_1too__few__columns.html" title="io::error::too_few\l_columns" alt="" coords="415,449,535,491"/>
+<area shape="rect" id="node16" href="$structio_1_1error_1_1too__many__columns.html" title="io::error::too_many\l_columns" alt="" coords="409,515,540,556"/>
+<area shape="rect" id="node19" href="$structio_1_1error_1_1with__column__content.html" title="io::error::with_column\l_content" alt="" coords="177,711,324,752"/>
+<area shape="rect" id="node20" href="$structio_1_1error_1_1with__column__name.html" title="io::error::with_column_name" alt="" coords="157,594,344,621"/>
+<area shape="rect" id="node21" href="$structio_1_1error_1_1with__errno.html" title="io::error::with_errno" alt="" coords="183,13,318,39"/>
+<area shape="rect" id="node22" href="$structio_1_1error_1_1with__file__line.html" title="io::error::with_file_line" alt="" coords="176,645,325,671"/>
+<area shape="rect" id="node23" href="$structio_1_1error_1_1with__file__name.html" title="io::error::with_file_name" alt="" coords="170,391,331,418"/>
+</map>

@@ -1,3 +1,0 @@
-type, id, nom, consommation, allume, active, couleur, adresseMac, niveauBatterie, versionFirmware, adresseIP
-unicolore, 1, testUni, 0, true, true, Bleu, , 0, 0, null
-multicolore, 2, testMulti, 0, true, true, rouge, FF:FF:FF:FF, 100, 1.0, 127.0.0.1
