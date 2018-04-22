@@ -9,6 +9,7 @@
 #include "UcImporter.h"
 #include "UcGerer.h"
 #include "UcAjouter.h"
+#include "SqlitePersiBny.h"
 
 void UcImporter::doIt(const FILE & fichierCSV, const UcGerer & ucGerer) {
 }

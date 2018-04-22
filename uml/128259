@@ -1,6 +1,6 @@
 format 218
 "conception" // conception
-  revision 10
+  revision 11
   modified_by 2 "tom"
   // class settings
   
@@ -438,7 +438,7 @@ ${inlines}
     
     activitydiagramsettings
      end
-    associated_deployment_view deploymentview_ref 134658 // vc
+    associated_deployment_view deploymentview_ref 141186 // vc
     classdiagram 134786 "dcc"
       classdiagramsettings member_max_width 0 end
       size E-Landscape
@@ -609,13 +609,28 @@ ${inlines}
       mysql_decl ""
       
     end
+
+    class 148738 "ClientTCPComBny"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+    end
   end
 
-  deploymentview 134658 "vc"
+  deploymentview 141186 "vc"
     //deployment diagram settings
     deploymentdiagramsettings
      end
-    artifact 135810 "UcAjouter"
+    artifact 142722 "UcAjouter"
       stereotype "source"
       cpp_h "/*******************************************************
 * \\file ${name}.h
@@ -660,7 +675,7 @@ int main()
       end
     end
 
-    artifact 135938 "UcSupprimer"
+    artifact 142850 "UcSupprimer"
       stereotype "source"
       cpp_h "/*******************************************************
 * \\file ${name}.h
@@ -705,7 +720,7 @@ int main()
       end
     end
 
-    artifact 136066 "UcModifier"
+    artifact 142978 "UcModifier"
       stereotype "source"
       cpp_h "/*******************************************************
 * \\file ${name}.h
@@ -750,7 +765,7 @@ int main()
       end
     end
 
-    artifact 136194 "SqlitePersiBny"
+    artifact 143106 "SqlitePersiBny"
       stereotype "source"
       cpp_h "/*******************************************************
 * \\file ${name}.h
@@ -792,6 +807,51 @@ int main()
 "
       associated_elems
 	class_ref 142210 // SqlitePersiBny
+      end
+    end
+
+    artifact 143234 "ClientTCPComBny"
+      stereotype "source"
+      cpp_h "/*******************************************************
+* \\file ${name}.h
+* \\author Tom ESCOLANO
+
+* \\brief Projet : Eclairage DIY - SUP
+*******************************************************/
+
+#ifndef ${NAMESPACE}_${NAME}_H
+#define ${NAMESPACE}_${NAME}_H
+
+${comment}
+${includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "/******************************************************
+* \\file ${name}.cpp
+* \\author Tom ESCOLANO
+
+\\brief Projet : Eclairage DIY - SUP
+*******************************************************/
+
+${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}
+
+#ifdef _UT_${name}_
+int main()
+{
+	return 0;
+}
+#endif
+"
+      associated_elems
+	class_ref 148738 // ClientTCPComBny
       end
     end
   end

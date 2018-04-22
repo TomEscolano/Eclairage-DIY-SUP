@@ -11,6 +11,7 @@
 
 class UcGerer;
 class UcAjouter;
+class SqlitePersiBny;
 
 class UcImporter {
   public:
@@ -24,6 +25,8 @@ class UcImporter {
     void getFile();
 
     <UcAjouter> ucAjouter;
+
+    <SqlitePersiBny> persiBny;
 
 };
 #endif

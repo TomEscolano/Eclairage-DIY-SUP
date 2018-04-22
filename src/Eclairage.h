@@ -11,9 +11,8 @@
 
 #include <string>
 
-#include "Couleur.h"
-
-class UcGerer;
+#include <Couleur.h>
+#include <SqlitePersiBny.h>
 
 /**
  * Classe mère représentant un éclairage générique comportant:
@@ -25,154 +24,159 @@ class UcGerer;
  */
 class Eclairage {
   public:
-    /**
-     * IHM présentant au propriétaire un forulaire de création d'éclairage.
-     */
-    class IHMFormulaire {
-      public:
-        /**
-         * Méthde permettant d'afficher le formulaire de création d'éclairage
-         */
-        void set(const Ent & ent);
+	
+	class Ent {
+	  private:
 
-        /**
-         * Méthode permettant de récupérer les données entrées par l'utilisateur lors de la création d'éclairage.
-         */
-        void get(Ent & ent);
+		unsigned int id;
 
-    };
-    
-    /**
-     * Controleur de la classe eclairage.
-     */
-    class Controleur {
-      private:
-        PersiBny persiBny;
+		bool allume;
 
-        Ent ent;
+		bool active;
 
-        IHMJardin ihmJardin;
+		std::string nom;
+
+		unsigned int consommation;
+
+		Couleur couleur;
+
+		int x;
+
+		int y;
 
 
-      public:
-        /**
-         * Méthode permettant d'activer/désactiver l'éclairage en fonction d'un booléen passé en paramètres.
-         */
-        void activer(bool etat);
+	  public:
+	
+		virtual void setID(const unsigned int & id);
+	
+		virtual void setAllume(bool etat);
+	
+		virtual void setActive(bool etat);
+	
+		virtual void setNom(const std::string & nom);
+	
+		virtual void setCouleur(Couleur couleur);
+	
+		virtual void setConsommation(const unsigned int & conso);
+	
+		virtual void setX(int x);
+	
+		virtual void setY(int y);
+	
+		virtual unsigned int getID();
+	
+		virtual bool getAllume();
+	
+		virtual bool getActive();
+	
+		virtual std::string getNom();
+	
+		virtual Couleur getCouleur();
+	
+		virtual unsigned int getConsommation();
+	
+		virtual int getX();
+	
+		virtual int getY();
 
-        /**
-         * Méthode permettant d'allumer/éteindre un éclairage grâce à un booléen passé en paramètre.
-         */
-        void allumer(bool etat);
+	};
 
-        /**
-         * Méthode permettant de récupérer l'état de l'IHMJardin (Icone représentant l'éclairage dans l'IHM de supervision)
-         */
-        void getIHMJardin();
+	/**
+	 * IHM présentant au propriétaire un forulaire de création d'éclairage.
+	 */
+	class IHMFormulaire {
+	  public:
+		/**
+		 * Méthde permettant d'afficher le formulaire de création d'éclairage
+		 */
+		void set(const Eclairage::Ent & ent);
 
-        /**
-         * Méthode permettant de récupérer les informations entrées par le propriétaire lors de la création de l'éclairage.
-         */
-        void getIHMFormulaire();
+		/**
+		 * Méthode permettant de récupérer les données entrées par l'utilisateur lors de la création d'éclairage.
+		 */
+		void get(Eclairage::Ent & ent);
 
-        /**
-         * Méthode permettant de modifier intégralement la configuration de l'éclairage en lui passant une entité en paramètres.
-         */
-        void set(const Ent & ent);
+	};
 
-        /**
-         * Méthode permettant de récupérer l'entité de l'éclairage.
-         */
-        void get(Ent & ent);
+	class PersiBny : public SqlitePersiBny{
+	  public:
+	  	/**
+		 * Constructeur de la persistance lui indiquant le fichier de base de donnée.
+	  	 **/
+
+	  	PersiBny(): SqlitePersiBny("/var/eclairage/bdd.db"){};
+
+		/**
+		 * Méthode permettant de modifier la configuration de l'éclairage dans la persistance.
+		 */
+		void set(const Eclairage::Ent & ent);
+
+		/**
+		 * Méthode permettant de récupérer l'entité de l'éclairage depuis la persistance.
+		 */
+		void get(Eclairage::Ent & ent);
+
+	};
+	
+	class IHMJardin {
+	  public:
+		/**
+		 * Méthode permettant de mettre à jour l'icone représentant l'éclairage dans l'IHM de supervision.
+		 */
+		void set(const Eclairage::Ent & ent);
+
+	};
+	
+	/**
+	 * Controleur de la classe eclairage.
+	 */
+	class Controleur {
+	  private:
+		PersiBny persiBny;
+
+		Ent ent;
+
+		IHMJardin ihmJardin;
 
 
-      private:
-        IHMFormulaire ihmFormulaire;
+	  public:
+		/**
+		 * Méthode permettant d'activer/désactiver l'éclairage en fonction d'un booléen passé en paramètres.
+		 */
+		void activer(bool etat);
 
-    };
-    
-    class Ent {
-      private:
-        Controleur controleur;
+		/**
+		 * Méthode permettant d'allumer/éteindre un éclairage grâce à un booléen passé en paramètre.
+		 */
+		void allumer(bool etat);
 
-        unsigned int id;
+		/**
+		 * Méthode permettant de récupérer l'état de l'IHMJardin (Icone représentant l'éclairage dans l'IHM de supervision)
+		 */
+		void getIHMJardin();
 
-        bool allume;
+		/**
+		 * Méthode permettant de récupérer les informations entrées par le propriétaire lors de la création de l'éclairage.
+		 */
+		void getIHMFormulaire();
 
-        bool active;
+		/**
+		 * Méthode permettant de modifier intégralement la configuration de l'éclairage en lui passant une entité en paramètres.
+		 */
+		void set(const Eclairage::Ent & ent);
 
-        std::string nom;
-
-        unsigned int consommation;
-
-        Couleur couleur;
-
-        int x;
-
-        int y;
+		/**
+		 * Méthode permettant de récupérer l'entité de l'éclairage.
+		 */
+		void get(Eclairage::Ent & ent);
 
 
-      public:
-        void setID(const unsigned int & id);
+	  private:
+		IHMFormulaire ihmFormulaire;
 
-        void setAllume(bool etat);
-
-        void setActive(bool etat);
-
-        void setNom(const std::string & nom);
-
-        void setCouleur(Couleur couleur);
-
-        void setConsommation(const unsigned int & conso);
-
-        void setX(const valeur & x);
-
-        void setY(int y);
-
-        unsigned int getID();
-
-        bool getAllume();
-
-        bool getActive();
-
-        std::string getNom();
-
-        Couleur getCouleur();
-
-        unsigned int getConsommation();
-
-        int getX();
-
-        int getY();
-
-    };
-    
-    class PersiBny {
-      public:
-        /**
-         * Méthode permettant de modifier la configuration de l'éclairage dans la persistance.
-         */
-        void set(const Ent & ent);
-
-        /**
-         * Méthode permettant de récupérer l'entité de l'éclairage depuis la persistance.
-         */
-        void get(Ent & ent);
-
-    };
-    
-    class IHMJardin {
-      public:
-        /**
-         * Méthode permettant de mettre à jour l'icone représentant l'éclairage dans l'IHM de supervision.
-         */
-        void set(const Ent & ent);
-
-    };
-    
-
-  private:
-    UcGerer * ucGerer;
+	};
+	
+	Controleur controleur;
 
 };
 #endif

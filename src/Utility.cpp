@@ -1,8 +1,8 @@
-/**
+/*******************************************************
 * \file Utility.cpp
 * \author Tom ESCOLANO
 
-\brief Projet : Eclairage DIY - SUP
+* \brief Projet : Eclairage DIY - SUP
 *******************************************************/
 
 #include <regex>

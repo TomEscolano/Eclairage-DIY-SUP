@@ -9,6 +9,8 @@
 #define _UCCOMMANDER_H
 
 
+#include "SqlitePersiBny.h"
+
 class Eclairage;
 
 class UcCommander {
@@ -17,6 +19,10 @@ class UcCommander {
      * Méthode permettant d'allumer/éteindre un éclairage passé en paramètres.
      */
     void doIt(const Eclairage & eclairage, bool etat);
+
+
+  private:
+    SqlitePersiBny persiBny;
 
 };
 #endif

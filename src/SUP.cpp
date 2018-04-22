@@ -9,9 +9,7 @@
 #include "SUP.h"
 #include "EclairageUnicolore.h"
 #include "EclairageMulticolore.h"
-#include "UcModifier.h"
-#include "UcAjouter.h"
-#include "UcSupprimer.h"
+#include "Eclairage.h"
 
 void SUP::visualiserInfo(const Ent & eclairage) {
 }

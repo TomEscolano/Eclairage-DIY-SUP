@@ -11,6 +11,7 @@
 
 #include <string>
 
+#include "ClientTcpComBny.h"
 
 class UcMettreAJour {
   private:
@@ -22,6 +23,10 @@ class UcMettreAJour {
      * Méthode permettant de mettre à jour le micrologiciel d'un éclairage multicolore.
      */
     void doIt(const std::string & adresseIP, const unsigned int & port);
+
+
+  private:
+    ClientTCPComBny clientTcp;
 
 };
 #endif

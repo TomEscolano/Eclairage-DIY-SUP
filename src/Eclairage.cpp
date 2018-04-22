@@ -7,7 +7,6 @@
 
 
 #include "Eclairage.h"
-#include "UcGerer.h"
 
 void Eclairage::IHMFormulaire::set(const Eclairage::Ent & ent) {
 }
@@ -51,7 +50,7 @@ void Eclairage::Ent::setCouleur(Couleur couleur) {
 void Eclairage::Ent::setConsommation(const unsigned int & conso) {
 }
 
-void Eclairage::Ent::setX(const valeur & x) {
+void Eclairage::Ent::setX(int x) {
 }
 
 void Eclairage::Ent::setY(int y) {
@@ -94,6 +93,10 @@ void Eclairage::IHMJardin::set(const Eclairage::Ent & ent) {
 #ifdef _UT_Eclairage_
 int main()
 {
+	Eclairage eclairage;
+
 	return 0;
 }
 #endif
+
+//g++ -o Eclairage Eclairage.cpp SqlitePersiBny.cpp -lsqlite3 -I . -D _UT_Eclairage_

@@ -9,8 +9,6 @@
 #define _UCMODIFIER_H
 
 
-#include "EclairageMulticolore.h"
-#include "EclairageUnicolore.h"
 #include "SqlitePersiBny.h"
 
 class UcModifier {

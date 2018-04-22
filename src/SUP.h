@@ -11,17 +11,10 @@
 
 #include <vector>
 
-#include "UcExporter.h"
-#include "UcImporter.h"
-#include "UcGerer.h"
-#include "UcCommander.h"
-#include "UcMettreAJour.h"
 
 class EclairageUnicolore;
 class EclairageMulticolore;
-class UcModifier;
-class UcAjouter;
-class UcSupprimer;
+class Eclairage;
 
 class SUP {
   public:
@@ -49,21 +42,7 @@ class SUP {
 
 
   private:
-    UcExporter ucExporter;
-
-    UcImporter ucImporter;
-
-    UcGerer ucGerer;
-
-    <UcModifier> ucModifier;
-
-    <UcAjouter> ucAjouter;
-
-    <UcSupprimer> ucSupprimer;
-
-    UcCommander ucCommander;
-
-    UcMettreAJour ucMettreAJour;
+    <Eclairage *> eclairages;
 
 };
 #endif

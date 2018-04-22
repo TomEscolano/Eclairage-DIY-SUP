@@ -1,6 +1,6 @@
 format 218
 "analyse" // analyse
-  revision 14
+  revision 15
   modified_by 2 "tom"
   // class settings
   
@@ -42,7 +42,7 @@ format 218
     
     activitydiagramsettings
      end
-    associated_deployment_view deploymentview_ref 134530 // vc
+    associated_deployment_view deploymentview_ref 141314 // vc
     classdiagram 134531 "dca"
       classdiagramsettings member_max_width 0 end
       size A0
@@ -684,10 +684,6 @@ ${inlines}
 	  comment "Méthode permettant de mettre à jour l'icone représentant l'éclairage dans l'IHM de supervision."
 	end
       end
-
-      classrelation 145411 // <aggregation>
-	relation_ref 143747 // <aggregation>
-      end
     end
 
     class 136707 "EclairageUnicolore"
@@ -1279,76 +1275,13 @@ ${inlines}
 	
       end
 
-      classrelation 144515 // ucExporter (<directional composition>)
-	relation 143363 *-->
-	  a role_name "ucExporter" multiplicity "1" private
-	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+      classrelation 150018 // eclairages (<directional aggregation>)
+	relation 150018 o-->
+	  a role_name "eclairages" multiplicity "*" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type} *> ${name}${value};
 "
-	    classrelation_ref 144515 // ucExporter (<directional composition>)
-	  b parent class_ref 150787 // UcExporter
-      end
-
-      classrelation 144771 // ucImporter (<directional composition>)
-	relation 143491 *-->
-	  a role_name "ucImporter" multiplicity "1" private
-	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	    classrelation_ref 144771 // ucImporter (<directional composition>)
-	  b parent class_ref 150659 // UcImporter
-      end
-
-      classrelation 152579 // ucGerer (<directional composition>)
-	relation 150659 *-->
-	  a role_name "ucGerer" multiplicity "1" private
-	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	    classrelation_ref 152579 // ucGerer (<directional composition>)
-	  b parent class_ref 144131 // UcGerer
-      end
-
-      classrelation 142082 // ucModifier (<directional composition>)
-	relation 142082 *-->
-	  a role_name "ucModifier" multiplicity "0..1" private
-	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value};
-"
-	    classrelation_ref 142082 // ucModifier (<directional composition>)
-	  b parent class_ref 135554 // UcModifier
-      end
-
-      classrelation 142210 // ucAjouter (<directional composition>)
-	relation 142210 *-->
-	  a role_name "ucAjouter" multiplicity "0..1" private
-	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value};
-"
-	    classrelation_ref 142210 // ucAjouter (<directional composition>)
-	  b parent class_ref 135298 // UcAjouter
-      end
-
-      classrelation 142338 // ucSupprimer (<directional composition>)
-	relation 142338 *-->
-	  a role_name "ucSupprimer" multiplicity "0..1" private
-	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value};
-"
-	    classrelation_ref 142338 // ucSupprimer (<directional composition>)
-	  b parent class_ref 135426 // UcSupprimer
-      end
-
-      classrelation 143234 // ucCommander (<directional composition>)
-	relation 143234 *-->
-	  a role_name "ucCommander" multiplicity "1" private
-	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	    classrelation_ref 143234 // ucCommander (<directional composition>)
-	  b parent class_ref 151043 // UcCommander
-      end
-
-      classrelation 143362 // ucMettreAJour (<directional composition>)
-	relation 143362 *-->
-	  a role_name "ucMettreAJour" multiplicity "1" private
-	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	    classrelation_ref 143362 // ucMettreAJour (<directional composition>)
-	  b parent class_ref 150915 // UcMettreAJour
+	    classrelation_ref 150018 // eclairages (<directional aggregation>)
+	  b parent class_ref 135811 // Eclairage
       end
     end
 
@@ -1382,16 +1315,13 @@ ${inlines}
 	comment "Méthode permettant d'activer/desactiver un éclairage passé en paramètre."
       end
 
-      classrelation 145283 // eclairages (<aggregation>)
-	relation 143747 o---
+      classrelation 145283 // eclairages (<directional aggregation>)
+	relation 143747 o-->
 	  a role_name "eclairages" multiplicity "*" private
 	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type} *> ${name}${value};
 "
-	    classrelation_ref 145283 // eclairages (<aggregation>)
-	  b role_name "ucGerer" multiplicity "1" private
-	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
-"
-	    classrelation_ref 145411 // <aggregation>
+	    classrelation_ref 145283 // eclairages (<directional aggregation>)
+	  b multiplicity "1" parent class_ref 135811 // Eclairage
       end
 
       classrelation 143106 // persiBny (<directional composition>)
@@ -1456,6 +1386,15 @@ ${inlines}
 	    classrelation_ref 143490 // ucAjouter (<directional composition>)
 	  b parent class_ref 135298 // UcAjouter
       end
+
+      classrelation 150402 // persiBny (<directional composition>)
+	relation 150402 *-->
+	  a role_name "persiBny" multiplicity "*" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value};
+"
+	    classrelation_ref 150402 // persiBny (<directional composition>)
+	  b parent class_ref 142210 // SqlitePersiBny
+      end
     end
 
     class 150787 "UcExporter"
@@ -1484,6 +1423,15 @@ ${inlines}
 	
 	
 	comment "Méthode permettant d'exporter toutes les configurations d'éclairages vers un fichier CSV et de le faire télécharger au propriétaire depuis son navigateur WEB."
+      end
+
+      classrelation 150274 // persiBny (<directional composition>)
+	relation 150274 *-->
+	  a role_name "persiBny" multiplicity "1" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 150274 // persiBny (<directional composition>)
+	  b parent class_ref 142210 // SqlitePersiBny
       end
     end
 
@@ -1528,6 +1476,15 @@ ${inlines}
 	
 	comment "Méthode permettant de mettre à jour le micrologiciel d'un éclairage multicolore."
       end
+
+      classrelation 150786 // clientTcp (<directional composition>)
+	relation 150786 *-->
+	  a role_name "clientTcp" multiplicity "1" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 150786 // clientTcp (<directional composition>)
+	  b parent class_ref 148738 // ClientTCPComBny
+      end
     end
 
     class 151043 "UcCommander"
@@ -1559,14 +1516,23 @@ ${inlines}
 	
 	comment "Méthode permettant d'allumer/éteindre un éclairage passé en paramètres."
       end
+
+      classrelation 150530 // persiBny (<directional composition>)
+	relation 150530 *-->
+	  a role_name "persiBny" multiplicity "1" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 150530 // persiBny (<directional composition>)
+	  b parent class_ref 142210 // SqlitePersiBny
+      end
     end
   end
 
-  deploymentview 134530 "vc"
+  deploymentview 141314 "vc"
     //deployment diagram settings
     deploymentdiagramsettings
      end
-    artifact 134530 "Eclairage"
+    artifact 143362 "Eclairage"
       stereotype "source"
       cpp_h "/*******************************************************
 * \\file ${name}.h
@@ -1611,7 +1577,7 @@ int main()
       end
     end
 
-    artifact 134658 "EclairageUnicolore"
+    artifact 143490 "EclairageUnicolore"
       stereotype "source"
       cpp_h "/*******************************************************
 * \\file ${name}.h
@@ -1656,7 +1622,7 @@ int main()
       end
     end
 
-    artifact 134786 "Couleur"
+    artifact 143618 "Couleur"
       stereotype "source"
       cpp_h "/*******************************************************
 * \\file ${name}.h
@@ -1725,7 +1691,7 @@ ${module_end}
       end
     end
 
-    artifact 134914 "EclairageMulticolore"
+    artifact 143746 "EclairageMulticolore"
       stereotype "source"
       cpp_h "/*******************************************************
 * \\file ${name}.h
@@ -1770,7 +1736,7 @@ int main()
       end
     end
 
-    artifact 135042 "SUP"
+    artifact 143874 "SUP"
       stereotype "source"
       cpp_h "/*******************************************************
 * \\file ${name}.h
@@ -1815,7 +1781,7 @@ int main()
       end
     end
 
-    artifact 135170 "UcGerer"
+    artifact 144002 "UcGerer"
       stereotype "source"
       cpp_h "/*******************************************************
 * \\file ${name}.h
@@ -1860,7 +1826,7 @@ int main()
       end
     end
 
-    artifact 135298 "UcImporter"
+    artifact 144130 "UcImporter"
       stereotype "source"
       cpp_h "/*******************************************************
 * \\file ${name}.h
@@ -1905,7 +1871,7 @@ int main()
       end
     end
 
-    artifact 135426 "UcExporter"
+    artifact 144258 "UcExporter"
       stereotype "source"
       cpp_h "/*******************************************************
 * \\file ${name}.h
@@ -1950,7 +1916,7 @@ int main()
       end
     end
 
-    artifact 135554 "UcMettreAJour"
+    artifact 144386 "UcMettreAJour"
       stereotype "source"
       cpp_h "/*******************************************************
 * \\file ${name}.h
@@ -1995,7 +1961,7 @@ int main()
       end
     end
 
-    artifact 135682 "UcCommander"
+    artifact 144514 "UcCommander"
       stereotype "source"
       cpp_h "/*******************************************************
 * \\file ${name}.h

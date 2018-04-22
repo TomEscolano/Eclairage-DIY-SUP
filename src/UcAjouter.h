@@ -9,8 +9,6 @@
 #define _UCAJOUTER_H
 
 
-#include "EclairageUnicolore.h"
-#include "EclairageMulticolore.h"
 #include "SqlitePersiBny.h"
 
 class UcAjouter {
