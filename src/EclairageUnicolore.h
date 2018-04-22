@@ -14,14 +14,13 @@
 
 class EclairageUnicolore : public Eclairage {
   public:
+
     class Ent : public Eclairage::Ent {
       private:
-        Controleur controleur;
-
         int numeroPrise;
 
-
       public:
+        Ent():Eclairage::Ent(), numeroPrise(-1){};
         /**
          * Méthode permettant de modifier le numero de la prise associé à l'éclairage.
          */
@@ -34,13 +33,24 @@ class EclairageUnicolore : public Eclairage {
 
     };
     
-    class Controleur : public Eclairage::Controleur {
-      private:
-        Ent ent;
-
-    };
+    
     
     class PersiBny : public Eclairage::PersiBny {
+    public:
+
+      PersiBny():Eclairage::PersiBny(){};
+
+    };
+
+    class Controleur : public Eclairage::Controleur {
+      private:
+        Controleur():Eclairage::Controleur(), ent(), persiBny(){};
+
+        EclairageUnicolore::Ent ent;
+
+        EclairageUnicolore::PersiBny persiBny;
+
+
     };
     
 };

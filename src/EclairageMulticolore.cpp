@@ -20,6 +20,9 @@ void EclairageMulticolore::Ent::setNiveauBatterie(const unsigned int & niveauBat
 void EclairageMulticolore::Ent::setVersionFirmware(float version) {
 }
 
+void EclairageMulticolore::Ent::setLuminosite(int luminosite) {
+}
+
 std::string EclairageMulticolore::Ent::getAdresseIP() {
 }
 
@@ -30,6 +33,9 @@ unsigned int EclairageMulticolore::Ent::getNiveauBatterie() {
 }
 
 float EclairageMulticolore::Ent::getVersionFirmware() {
+}
+
+int EclairageMulticolore::Ent::getLuminosite() {
 }
 
 void EclairageMulticolore::Controleur::recevoir() {

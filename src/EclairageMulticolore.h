@@ -15,6 +15,8 @@
 
 class EclairageMulticolore : public Eclairage {
   public:
+    EclairageMulticolore():Eclairage(),controleur(){};
+
     class Ent : public Eclairage::Ent {
       private:
         std::string adresseIP;
@@ -25,8 +27,12 @@ class EclairageMulticolore : public Eclairage {
 
         float versionFirmware;
 
+        int luminosite;
+
 
       public:
+        Ent():Eclairage::Ent(),adresseIP("undefined"), adresseMac("undefined"), niveauBatterie(0), versionFirmware(0.0F), luminosite(0){};
+
         void setAdresseIP(const std::string & adresseIP);
 
         void setAdresseMac(const std::string & adresseMac);
@@ -34,6 +40,8 @@ class EclairageMulticolore : public Eclairage {
         void setNiveauBatterie(const unsigned int & niveauBatterie);
 
         void setVersionFirmware(float version);
+
+        void setLuminosite(int luminosite);
 
         std::string getAdresseIP();
 
@@ -43,9 +51,7 @@ class EclairageMulticolore : public Eclairage {
 
         float getVersionFirmware();
 
-
-      private:
-        Controleur controleur;
+        int getLuminosite();
 
     };
     
@@ -53,8 +59,12 @@ class EclairageMulticolore : public Eclairage {
       private:
         Ent ent;
 
+        PersiBny persiBny;
 
       public:
+        Controleur():Eclairage::Controleur(), ent(), persiBny(){};
+
+
         /**
          * Méthode permettant de recevoir une configuration d'éclairage via le réseau.
          */
@@ -68,7 +78,11 @@ class EclairageMulticolore : public Eclairage {
     };
     
     class PersiBny : public Eclairage::PersiBny {
+    public:
+      PersiBny():Eclairage::PersiBny(){};
+
     };
-    
+
+    Controleur controleur;
 };
 #endif

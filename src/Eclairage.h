@@ -25,6 +25,8 @@
 class Eclairage {
   public:
 	
+	Eclairage():controleur(){};
+
 	class Ent {
 	  private:
 
@@ -46,6 +48,9 @@ class Eclairage {
 
 
 	  public:
+
+	  	Ent():id(0), allume(false), active(false), nom("undefined"), consommation(0), couleur(Bleu), x(0), y(0){}
+
 	
 		virtual void setID(const unsigned int & id);
 	
@@ -140,6 +145,9 @@ class Eclairage {
 
 
 	  public:
+
+	  	Controleur():ent(),persiBny(){};
+
 		/**
 		 * Méthode permettant d'activer/désactiver l'éclairage en fonction d'un booléen passé en paramètres.
 		 */
