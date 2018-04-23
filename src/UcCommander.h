@@ -18,11 +18,7 @@ class UcCommander {
     /**
      * Méthode permettant d'allumer/éteindre un éclairage passé en paramètres.
      */
-    void doIt(const Eclairage & eclairage, bool etat);
-
-
-  private:
-    SqlitePersiBny persiBny;
+    void doIt(Eclairage & eclairage, bool etat);
 
 };
 #endif

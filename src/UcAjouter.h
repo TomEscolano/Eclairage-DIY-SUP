@@ -8,24 +8,23 @@
 #ifndef _UCAJOUTER_H
 #define _UCAJOUTER_H
 
+#include <SqlitePersiBny.h>
+#include <EclairageUnicolore.h>
+#include <EclairageMulticolore.h>
 
-#include "SqlitePersiBny.h"
+
 
 class UcAjouter {
   public:
     /**
      * Méthode permettant d'ajouter un éclairage unicolore dans la base de données
      */
-    void doIt(const EclairageUnicolore::Ent & eclairage, const sqlite3 & bd);
+    void doIt(EclairageUnicolore::Ent & ent);
 
     /**
      * Méthode permettant d'ajouter un éclairage multicolore dans la base de données.
      */
-    void doIt(const EclairageMulticolore::Ent & eclairage, const sqlite3 & bdd);
-
-
-  private:
-    SqlitePersiBny persiBny;
+    void doIt(EclairageMulticolore::Ent & ent);
 
 };
 #endif

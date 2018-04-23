@@ -70,7 +70,7 @@ void SqlitePersiBny::executerSql(std::string requete)
 
 std::cout << requete << std::endl;
 
-	char *zErrMsg = 0;
+	/*char *zErrMsg = 0;
 
 	sqlite3_busy_timeout(this->db, 1000); // Attente de 1sec si la bdd est occupée
 	int rc;
@@ -85,7 +85,7 @@ std::cout << requete << std::endl;
 		throw SqlitePersiBnyException("sqlite3_exec",
 				sqlite3_errcode(this->db));
 	}
-	sqlite3_exec(this->db, "END TRANSACTION", 0, 0, 0);
+	sqlite3_exec(this->db, "END TRANSACTION", 0, 0, 0);*/
 }
 
 int SqlitePersiBny::getDernierId() {

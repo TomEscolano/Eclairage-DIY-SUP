@@ -12,8 +12,19 @@
 #include "Eclairage.h"
 #include <string>
 
-
+/**
+ * Classe fille (de eclairage) représentant un éclairage multicolore comportant:
+ * - Un controleur
+ * - Une entité comportant:
+ *    - l'adresse IP de l'eclairage
+ *    - son adresse MAC bluetooth
+ *    - le niveau de sa batterie
+ *    - sa version de firmware
+ *    - le taux de luminosité actuel
+ * - Une persistance (polymorphée)
+ */
 class EclairageMulticolore : public Eclairage {
+
   public:
     EclairageMulticolore():Eclairage(),controleur(){};
 
@@ -55,15 +66,23 @@ class EclairageMulticolore : public Eclairage {
 
     };
     
+    class PersiBny : public Eclairage::PersiBny {
+     public:
+      PersiBny():Eclairage::PersiBny(){};
+
+      void set(Ent & ent);
+
+      void get(Ent & ent);
+
+    };
+
     class Controleur : public Eclairage::Controleur {
-      private:
+      public:
         Ent ent;
 
         PersiBny persiBny;
 
-      public:
         Controleur():Eclairage::Controleur(), ent(), persiBny(){};
-
 
         /**
          * Méthode permettant de recevoir une configuration d'éclairage via le réseau.
@@ -74,12 +93,6 @@ class EclairageMulticolore : public Eclairage {
          * Méthode permettant d'envoyer une configuration d'eclairage via le réseau.
          */
         void envoyer();
-
-    };
-    
-    class PersiBny : public Eclairage::PersiBny {
-    public:
-      PersiBny():Eclairage::PersiBny(){};
 
     };
 

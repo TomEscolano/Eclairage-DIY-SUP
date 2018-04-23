@@ -114,12 +114,12 @@ class Eclairage {
 		/**
 		 * Méthode permettant de modifier la configuration de l'éclairage dans la persistance.
 		 */
-		void set(const Eclairage::Ent & ent);
+		void set(Ent & ent);
 
 		/**
 		 * Méthode permettant de récupérer l'entité de l'éclairage depuis la persistance.
 		 */
-		void get(Eclairage::Ent & ent);
+		void get(Ent & ent);
 
 	};
 	
@@ -136,15 +136,12 @@ class Eclairage {
 	 * Controleur de la classe eclairage.
 	 */
 	class Controleur {
-	  private:
+	  public:
 		PersiBny persiBny;
 
 		Ent ent;
 
 		IHMJardin ihmJardin;
-
-
-	  public:
 
 	  	Controleur():ent(),persiBny(){};
 

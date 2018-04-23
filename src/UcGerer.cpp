@@ -9,7 +9,8 @@
 #include "UcGerer.h"
 #include "Eclairage.h"
 
-void UcGerer::doIt(const Ent & eclairage, bool etat) {
+void UcGerer::doIt(const Ent & eclairage, bool etat)
+{
 }
 
 

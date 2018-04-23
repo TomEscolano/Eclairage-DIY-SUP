@@ -12,9 +12,15 @@
 #include "Eclairage.h"
 #include "Couleur.h"
 
+/**
+ * Classe fille (de eclairage) représentant un éclairage unicolore comportant:
+ * - Un controleur
+ * - Une entité comportant:
+ *    - le numéro de prise associé à l'éclairage
+ * - Une persistance (polymorphée)
+ */
 class EclairageUnicolore : public Eclairage {
   public:
-
     class Ent : public Eclairage::Ent {
       private:
         int numeroPrise;
@@ -33,25 +39,28 @@ class EclairageUnicolore : public Eclairage {
 
     };
     
-    
-    
     class PersiBny : public Eclairage::PersiBny {
     public:
-
       PersiBny():Eclairage::PersiBny(){};
+
+      void set(Ent & ent);
+
+      void get(Ent & ent);
 
     };
 
     class Controleur : public Eclairage::Controleur {
-      private:
+      public:
         Controleur():Eclairage::Controleur(), ent(), persiBny(){};
 
-        EclairageUnicolore::Ent ent;
+        Ent ent;
 
-        EclairageUnicolore::PersiBny persiBny;
+        PersiBny persiBny;
 
 
     };
+
+    Controleur controleur;
     
 };
 #endif

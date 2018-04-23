@@ -1,6 +1,6 @@
 format 218
 "analyse" // analyse
-  revision 15
+  revision 16
   modified_by 2 "tom"
   // class settings
   
@@ -968,6 +968,18 @@ ${inlines}
 
 	attribute 137603 "versionFirmware"
 	  private explicit_type "float"
+	  cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	  java_decl ""
+	  php_decl ""
+	  python_decl ""
+	  idl_decl ""
+	  mysql_decl ""
+	  MysqlColumn
+	end
+
+	attribute 134914 "luminosite"
+	  private explicit_type ""
 	  cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	  java_decl ""
