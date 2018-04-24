@@ -10,17 +10,14 @@
 
 
 #include "SqlitePersiBny.h"
+#include "Eclairage.h"
 
 class UcSupprimer {
   public:
     /**
      * Méthode permettant de supprimer un éclairage.
      */
-    void doIt(const Ent & eclairage);
-
-
-  private:
-    SqlitePersiBny persiBny;
+    void doIt(Eclairage::Ent eclairage);
 
 };
 #endif

@@ -10,22 +10,21 @@
 
 
 #include "SqlitePersiBny.h"
+#include <Eclairage.h>
+#include <EclairageMulticolore.h>
+#include <EclairageUnicolore.h>
 
 class UcModifier {
   public:
     /**
      * Méthode permettant de modifier la configuration un éclairage multicolore.
      */
-    void doIt(const EclairageMulticolore::Ent & eclairage);
+    void doIt(EclairageMulticolore::Ent eclairage);
 
     /**
      * Méthode permettant de modifier la configuration d'un éclairage unicolore.
      */
-    void doIt(const EclairageUnicolore::Ent & eclairage);
-
-
-  private:
-    SqlitePersiBny persiBny;
+    void doIt(EclairageUnicolore::Ent eclairage);
 
 };
 #endif

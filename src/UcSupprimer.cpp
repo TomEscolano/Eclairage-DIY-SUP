@@ -8,13 +8,22 @@
 
 #include "UcSupprimer.h"
 
-void UcSupprimer::doIt(const Ent & eclairage) {
+#define DB "/var/eclairage/bdd.db"
+
+void UcSupprimer::doIt(Eclairage::Ent eclairage)
+{
+	SqlitePersiBny persi(DB);
+	persi.executerSql("DELETE FROM eclairages WHERE id = " + std::to_string(eclairage.getID()) + "; DELETE FROM multicolores WHERE id = " + std::to_string(eclairage.getID()) + "; DELETE FROM unicolores WHERE id = " + std::to_string(eclairage.getID()) + ";");
 }
 
 
 #ifdef _UT_UcSupprimer_
 int main()
 {
+	UcSupprimer ucSupprimer;
+	
 	return 0;
 }
 #endif
+
+//g++ -o UcSupprimer Eclairage.cpp UcSupprimer.cpp SqlitePersiBny.cpp -I . -lsqlite3 -D _UT_UcSupprimer_
