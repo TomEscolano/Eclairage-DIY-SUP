@@ -14,28 +14,25 @@ using namespace cgicc;
 
 void UcImporter::doIt(UcModifier & ucModifier)
 {
-	// Create a new Cgicc object containing all the CGI data
+	// Création d'un nouvel objet Cgicc contenant toutes les données du CGI
     Cgicc cgi;
 
-    // Output the HTTP headers for an HTML document, and the HTML 4.0 DTD info
+    // Headers HTTP
     std::cout << HTTPHTMLHeader() << HTMLDoctype(HTMLDoctype::eStrict) << std::endl;
     std::cout << html().set("lang", "fr").set("dir", "ltr") << std::endl;
 
-    // Set up the page's header and title.
-    // I will put in lfs to ease reading of the produced HTML. 
+    // Head & title 
     std::cout << head() << std::endl;
-
     std::cout << title() << "Importer Configuration" << title() << std::endl;
-
     std::cout << head() << std::endl;
     
-    // Start the HTML body
+    // Début du body
     std::cout << body() << std::endl;
 
-    // Get a pointer to the environment
+    // Récupère un pointeur vers l'environnement
     const CgiEnvironment& env = cgi.getEnvironment();
     
-    // Process the uploaded file
+    // Process du fichier
     const_file_iterator file;
     file = cgi.getFile("userfile");
                                 
@@ -86,9 +83,8 @@ void UcImporter::doIt(UcModifier & ucModifier)
 				//Creation de l'eclairage ou modification
 				ucModifier.doIt(eclairage.controleur.ent);
 			}
-
-			
 		}
+
 		else if(contenu.find("id,allume,active,nom,consommation,x,y,adresseMac,adresseIP,versionFirmware,couleur,luminosite,niveauBatterie") != std::string::npos)
 		{
 	
@@ -134,22 +130,24 @@ void UcImporter::doIt(UcModifier & ucModifier)
 			}
 			
 		}
-		else{
+		else
+		{
+			// Erreur
 			std::cout << ":(";
 		}
 
-
-
+		// Suppression du fichier et confirmation
 		remove(file->getFilename().c_str());
+		std::cout << "<p>Importation terminée !</p>" << std::endl;
 
     }
 
-    // Print out the form to do it again
+    // Affichage de la form pour recommencer
     std::cout << br() << std::endl;
     this->getFile(cgi);
     std::cout << hr().set("class", "half") << std::endl;
 
-    // End of document
+    // Fin du document
     std::cout << cgicc::div() << std::endl;
     std::cout << body() << html() << std::endl;
 }

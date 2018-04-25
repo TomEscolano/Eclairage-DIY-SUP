@@ -10,21 +10,19 @@
 
 
 #include "SqlitePersiBny.h"
+#include "Eclairage.h"
 
 class Eclairage;
 
 class UcGerer {
+  private:
+  	const char * DB = "/var/eclairage/bdd.db";
+
   public:
     /**
      * Méthode permettant d'activer/desactiver un éclairage passé en paramètre.
      */
-    void doIt(const Ent & eclairage, bool etat);
-
-
-  private:
-    <Eclairage *> eclairages;
-
-    SqlitePersiBny persiBny;
+    void doIt(Eclairage::Ent & eclairage, bool etat);
 
 };
 #endif

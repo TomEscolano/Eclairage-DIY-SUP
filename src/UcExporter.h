@@ -20,6 +20,5 @@ class UcExporter {
      */
     void doIt();
 
-
 };
 #endif

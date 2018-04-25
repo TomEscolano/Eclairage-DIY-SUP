@@ -42,6 +42,9 @@ class UcImporter {
 
 
   private:
+    /**
+     * Méthode permettant de récupérer le fichier à importer dans le système
+     */
     void getFile(const Cgicc& cgi);
 
     UcAjouter ucAjouter;

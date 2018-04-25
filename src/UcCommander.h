@@ -14,6 +14,9 @@
 class Eclairage;
 
 class UcCommander {
+private:
+	const char * DB = "/var/eclairage/bdd.db";
+
   public:
     /**
      * Méthode permettant d'allumer/éteindre un éclairage passé en paramètres.

@@ -8,11 +8,9 @@
 
 #include "UcSupprimer.h"
 
-#define DB "/var/eclairage/bdd.db"
-
 void UcSupprimer::doIt(Eclairage::Ent eclairage)
 {
-	SqlitePersiBny persi(DB);
+	SqlitePersiBny persi(this->DB);
 	persi.executerSql("DELETE FROM eclairages WHERE id = " + std::to_string(eclairage.getID()) + "; DELETE FROM multicolores WHERE id = " + std::to_string(eclairage.getID()) + "; DELETE FROM unicolores WHERE id = " + std::to_string(eclairage.getID()) + ";");
 }
 

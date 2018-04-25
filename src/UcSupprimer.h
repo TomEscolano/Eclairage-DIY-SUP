@@ -13,6 +13,9 @@
 #include "Eclairage.h"
 
 class UcSupprimer {
+  private:
+	const char * DB = "/var/eclairage/bdd.db";
+
   public:
     /**
      * Méthode permettant de supprimer un éclairage.

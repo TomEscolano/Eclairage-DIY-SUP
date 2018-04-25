@@ -50,7 +50,6 @@ class Eclairage {
 	  public:
 
 	  	Ent():id(0), allume(false), active(false), nom("undefined"), consommation(0), couleur(Bleu), x(0), y(0){}
-
 	
 		virtual void setID(const unsigned int & id);
 	
@@ -143,6 +142,9 @@ class Eclairage {
 
 		IHMJardin ihmJardin;
 
+		/**
+		 * Constructeur du controleur de l'eclairage. Instancie l'entité et la persistance.
+		 */
 	  	Controleur():ent(),persiBny(){};
 
 		/**
@@ -181,6 +183,9 @@ class Eclairage {
 
 	};
 	
+	/**
+	 * L'éclairage n'a qu'un controleur, accessible en public, qui controle l'eclairage dans sa totalité.
+	 */
 	Controleur controleur;
 
 };

@@ -15,6 +15,9 @@
 
 
 class UcAjouter {
+  private:
+	const char * DB = "/var/eclairage/bdd.db";
+	
   public:
     /**
      * Méthode permettant d'ajouter un éclairage unicolore dans la base de données

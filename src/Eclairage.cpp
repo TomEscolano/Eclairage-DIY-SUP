@@ -123,8 +123,8 @@ void Eclairage::PersiBny::get(Ent & ent)
 	SqlitePersiBny::Resultat resultat;
 	this->executerSql("SELECT * FROM eclairages WHERE id = " + std::to_string(ent.getID()) + ";", resultat);
 
-	ent.setAllume(resultat.at(0).at(1).second == "1" ? true : false);
-	ent.setActive(resultat.at(0).at(2).second == "1" ? true : false);
+	ent.setAllume(atoi(resultat.at(0).at(1).second.c_str()));
+	ent.setActive(atoi(resultat.at(0).at(2).second.c_str()));
 	ent.setNom(resultat.at(0).at(3).second);
 	ent.setConsommation((unsigned int)atoi(resultat.at(0).at(4).second.c_str()));
 	ent.setX(atoi(resultat.at(0).at(5).second.c_str()));

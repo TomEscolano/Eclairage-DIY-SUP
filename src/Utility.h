@@ -9,8 +9,6 @@
 #ifndef _UTILITY_H
 #define _UTILITY_H
 
-#include <jsoncpp/json/json.h>
-
 class Utility
 {
 	public : 

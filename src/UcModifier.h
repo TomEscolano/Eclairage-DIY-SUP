@@ -13,6 +13,7 @@
 #include <Eclairage.h>
 #include <EclairageMulticolore.h>
 #include <EclairageUnicolore.h>
+#include <UcAjouter.h>
 
 class UcModifier {
   public:
@@ -25,6 +26,9 @@ class UcModifier {
      * Méthode permettant de modifier la configuration d'un éclairage unicolore.
      */
     void doIt(EclairageUnicolore::Ent eclairage);
+
+private:
+	UcAjouter ucAjouter;
 
 };
 #endif
