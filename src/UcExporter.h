@@ -8,8 +8,10 @@
 #ifndef _UCEXPORTER_H
 #define _UCEXPORTER_H
 
-
-#include "SqlitePersiBny.h"
+#include "cgicc/CgiDefs.h"
+#include "cgicc/Cgicc.h"
+#include "cgicc/HTTPHTMLHeader.h"
+#include "cgicc/HTMLClasses.h"
 
 class UcExporter {
   public:
@@ -18,9 +20,6 @@ class UcExporter {
      */
     void doIt();
 
-
-  private:
-    SqlitePersiBny persiBny;
 
 };
 #endif

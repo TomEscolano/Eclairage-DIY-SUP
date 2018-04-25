@@ -7,10 +7,12 @@
 
 
 #include "UcImporter.h"
+#include <cstdio>
+
 
 using namespace cgicc;
 
-void UcImporter::doIt(const UcModifier & ucModifier)
+void UcImporter::doIt(UcModifier & ucModifier)
 {
 	// Create a new Cgicc object containing all the CGI data
     Cgicc cgi;
@@ -39,69 +41,106 @@ void UcImporter::doIt(const UcModifier & ucModifier)
                                 
     if(file != cgi.getFiles().end()) {
 
+    	//Ecriture des données dans le fichier
 		std::ofstream fichier;
 		fichier.open(file->getFilename());
 		file->writeToStream(fichier);
+		fichier.close();
 
-		io::CSVReader<17> in(file->getFilename());
+		//Lecture du fichier
+        std::ifstream ifs(file->getFilename());
+  		std::string contenu( (std::istreambuf_iterator<char>(ifs)),
+                       (std::istreambuf_iterator<char>()));
 
-		in.read_header(io::ignore_extra_column, "id","allume","active","nom","consommation","x","y","id","adresseMac","adresseIP","versionFirmware","couleur","luminosite","niveauBatterie","id","couleur","numeroPrise");
-		
-		//Proprietes
-		std::string nom, couleur, allume, active, adresseMac, adresseIP;
-		int id, niveauBatterie, consommation, x, y, couleur, luminosite, numeroPrise;
-		float versionFirmware;
-
-		while(in.read_row(id,allume,active,nom,consommation,x,y,id,adresseMac,adresseIP,versionFirmware,couleur,luminosite,niveauBatterie,id,couleur,numeroPrise))
+		if(contenu.find("id,allume,active,nom,consommation,x,y,couleur,numeroPrise") != std::string::npos)
 		{
+			//Unicolore
+			//Initialisation du lecteur CSV
+			io::CSVReader<9> in(file->getFilename());
+			in.read_header(io::ignore_extra_column, "id","allume","active","nom","consommation","x","y","couleur","numeroPrise");
 
-			if(type == "unicolore"){
+			//Propriétés
+			std::string nom;
+			int id, consommation, x, y, numeroPrise, couleur, allume, active;
 
-				//Création d'un eclairage temporaire
+			while(in.read_row(id,allume,active,nom,consommation,x,y,couleur,numeroPrise))
+			{
+				//Création d'un eclairage unicolore temporaire
 				EclairageUnicolore eclairage;
 
 				//Assignation des valeurs d'éclairage générique
 				eclairage.controleur.ent.setID(id);
-				eclairage.controleur.ent.setAllume((allume == "true")? true: false);
-				eclairage.controleur.ent.setActive((active == "true")? true: false);
+				eclairage.controleur.ent.setAllume(allume);
+				eclairage.controleur.ent.setActive(active);
 				eclairage.controleur.ent.setNom(nom);
 				eclairage.controleur.ent.setConsommation(consommation);
 				
 				//Assignation des valeurs d'éclairage spécifique
-				if(couleur == "Bleu")
+				if(couleur == 0)
 					eclairage.controleur.ent.setCouleur(Bleu);
-				if(couleur == "Rouge")
+				if(couleur == 1)
 					eclairage.controleur.ent.setCouleur(Rouge);
-				if(couleur == "Blanc")
+				if(couleur == 2)
 					eclairage.controleur.ent.setCouleur(Blanc);
 
 				//Creation de l'eclairage ou modification
-				this->ucGerer.modifierConfigurationUnicolore(eclairage.controleur);
+				ucModifier.doIt(eclairage.controleur.ent);
+			}
 
-			}else{
+			
+		}
+		else if(contenu.find("id,allume,active,nom,consommation,x,y,adresseMac,adresseIP,versionFirmware,couleur,luminosite,niveauBatterie") != std::string::npos)
+		{
+	
+			//Multicolore
+			//Initialisation du lecteur CSV
+			io::CSVReader<13> in(file->getFilename());
+			in.read_header(io::ignore_extra_column, "id","allume","active","nom","consommation","x","y","adresseMac","adresseIP","versionFirmware","couleur","luminosite","niveauBatterie");
 
-				//Creation d'un eclairage temporaire
+			//Propriétés
+			std::string nom, adresseMac, adresseIP;
+			int id, consommation, x, y, numeroPrise, couleur, allume, active, luminosite, niveauBatterie;
+			float versionFirmware;
+
+			while(in.read_row(id,allume,active,nom,consommation,x,y,adresseMac,adresseIP,versionFirmware,couleur,luminosite,niveauBatterie))
+			{
+				//Creation d'un eclairage multicolore temporaire
 				EclairageMulticolore eclairage;
 
 				//Assignation des valeurs d'eclairage générique
 				eclairage.controleur.ent.setID(id);
-				eclairage.controleur.ent.setAllume((allume == "true")? true: false);
-				eclairage.controleur.ent.setActive((active == "true")? true: false);
+				eclairage.controleur.ent.setAllume(allume);
+				eclairage.controleur.ent.setActive(active);
 				eclairage.controleur.ent.setNom(nom);
 				eclairage.controleur.ent.setConsommation(consommation);
+				eclairage.controleur.ent.setX(x);
+				eclairage.controleur.ent.setY(y);
 
 				//Assignation des valeurs d'éclairage spécifique
 				eclairage.controleur.ent.setAdresseMac(adresseMac);
-				eclairage.controleur.ent.setNiveauBatterie(niveauBatterie);
-				eclairage.controleur.ent.setVersionFirmware(versionFirmware);
 				eclairage.controleur.ent.setAdresseIP(adresseIP);
-				eclairage.controleur.ent.setCouleur(couleur);
-				
+				eclairage.controleur.ent.setVersionFirmware(versionFirmware);
+				if(couleur == 0)
+					eclairage.controleur.ent.setCouleur(Bleu);
+				if(couleur == 1)
+					eclairage.controleur.ent.setCouleur(Rouge);
+				if(couleur == 2)
+					eclairage.controleur.ent.setCouleur(Blanc);
+				eclairage.controleur.ent.setLuminosite(luminosite);
+				eclairage.controleur.ent.setNiveauBatterie(niveauBatterie);
+
 				//Creation de l'eclairage ou modification
-				this->ucGerer.modifierConfigurationMulticolore(eclairage.controleur);
+				ucModifier.doIt(eclairage.controleur.ent);
 			}
+			
+		}
+		else{
+			std::cout << ":(";
 		}
 
+
+
+		remove(file->getFilename().c_str());
 
     }
 
@@ -145,4 +184,4 @@ int main()
 }
 #endif
 
-//g++ -o UcImporter UcImporter.cpp UcAjouter.cpp UcModifier.cpp SqlitePersiBny.cpp Eclairage.cpp EclairageMulticolore.cpp EclairageUnicolore.cpp -lcgicc -lsqlite3 -I . -D _UT_UcImporter_
+//g++ -o /usr/lib/cgi-bin/UcImporter.cgi UcImporter.cpp UcAjouter.cpp UcModifier.cpp SqlitePersiBny.cpp Eclairage.cpp EclairageMulticolore.cpp EclairageUnicolore.cpp -lcgicc -lsqlite3 -I . -D _UT_UcImporter_ -pthread

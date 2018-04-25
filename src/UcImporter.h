@@ -38,7 +38,7 @@ class UcImporter {
     /**
      * Méthode permettant d'importer dans la base de données les configurations d'éclairages depuis un fichier au format CSV.
      */
-    void doIt(const UcModifier & ucModifier);
+    void doIt(UcModifier & ucModifier);
 
 
   private:
