@@ -28,6 +28,7 @@ class UcModifier {
     void doIt(EclairageUnicolore::Ent eclairage);
 
 private:
+    const char * DB = "/var/eclairage/bdd.db";
 	UcAjouter ucAjouter;
 
 };

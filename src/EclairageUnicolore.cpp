@@ -40,14 +40,7 @@ void EclairageUnicolore::PersiBny::get(Ent & ent)
 	SqlitePersiBny::Resultat resultat;
 	this->executerSql("SELECT * FROM unicolores WHERE id = " + std::to_string(ent.getID()) + ";", resultat);
 
-	if(resultat.at(0).at(1).second == "0")
-		ent.setCouleur(Bleu);
-	if(resultat.at(0).at(1).second == "1")
-		ent.setCouleur(Rouge);
-	if(resultat.at(0).at(1).second == "2")
-		ent.setCouleur(Blanc);
-
-	ent.setNumeroPrise(atoi(resultat.at(0).at(2).second.c_str()));
+	ent.setNumeroPrise(atoi(resultat.at(0).at(1).second.c_str()));
 }
 
 #ifdef _UT_EclairageUnicolore_

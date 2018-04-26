@@ -89,14 +89,8 @@ void EclairageMulticolore::PersiBny::get(Ent & ent)
 	ent.setAdresseMac(resultat.at(0).at(1).second);
 	ent.setAdresseIP(resultat.at(0).at(2).second);
 	ent.setVersionFirmware((unsigned int) atoi(resultat.at(0).at(3).second.c_str()));
-	if(resultat.at(0).at(3).second == "0")
-		ent.setCouleur(Bleu);
-	if(resultat.at(0).at(3).second == "1")
-		ent.setCouleur(Rouge);
-	if(resultat.at(0).at(3).second == "2")
-		ent.setCouleur(Blanc);
-	ent.setLuminosite(atoi(resultat.at(0).at(5).second.c_str()));
-	ent.setNiveauBatterie(atoi(resultat.at(0).at(6).second.c_str()));
+	ent.setLuminosite(atoi(resultat.at(0).at(4).second.c_str()));
+	ent.setNiveauBatterie(atoi(resultat.at(0).at(5).second.c_str()));
 }
 
 #ifdef _UT_EclairageMulticolore_

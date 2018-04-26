@@ -8,16 +8,20 @@
 
 #include "Eclairage.h"
 
-void Eclairage::IHMFormulaire::set(const Eclairage::Ent & ent) {
+void Eclairage::IHMFormulaire::set(const Eclairage::Ent & ent){
 }
 
 void Eclairage::IHMFormulaire::get(Eclairage::Ent & ent) {
 }
 
-void Eclairage::Controleur::activer(bool etat) {
+void Eclairage::Controleur::activer(bool etat)
+{
+	this->ent.setActive(etat);
 }
 
-void Eclairage::Controleur::allumer(bool etat) {
+void Eclairage::Controleur::allumer(bool etat)
+{
+	this->ent.setAllume(etat);
 }
 
 void Eclairage::Controleur::getIHMJardin() {
@@ -127,8 +131,15 @@ void Eclairage::PersiBny::get(Ent & ent)
 	ent.setActive(atoi(resultat.at(0).at(2).second.c_str()));
 	ent.setNom(resultat.at(0).at(3).second);
 	ent.setConsommation((unsigned int)atoi(resultat.at(0).at(4).second.c_str()));
-	ent.setX(atoi(resultat.at(0).at(5).second.c_str()));
-	ent.setY(atoi(resultat.at(0).at(6).second.c_str()));
+	if(resultat.at(0).at(5).second == "Bleu")
+			ent.setCouleur(Bleu);
+		if(resultat.at(0).at(5).second == "Rouge")
+			ent.setCouleur(Rouge);
+		if(resultat.at(0).at(5).second == "Blanc")
+			ent.setCouleur(Blanc);
+
+	ent.setX(atoi(resultat.at(0).at(6).second.c_str()));
+	ent.setY(atoi(resultat.at(0).at(7).second.c_str()));
 }
 
 void Eclairage::IHMJardin::set(const Eclairage::Ent & ent) {

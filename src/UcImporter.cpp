@@ -49,12 +49,12 @@ void UcImporter::doIt(UcModifier & ucModifier)
   		std::string contenu( (std::istreambuf_iterator<char>(ifs)),
                        (std::istreambuf_iterator<char>()));
 
-		if(contenu.find("id,allume,active,nom,consommation,x,y,couleur,numeroPrise") != std::string::npos)
+		if(contenu.find("id,allume,active,nom,consommation,couleur, x,y,numeroPrise") != std::string::npos)
 		{
 			//Unicolore
 			//Initialisation du lecteur CSV
 			io::CSVReader<9> in(file->getFilename());
-			in.read_header(io::ignore_extra_column, "id","allume","active","nom","consommation","x","y","couleur","numeroPrise");
+			in.read_header(io::ignore_extra_column, "id","allume","active","nom","consommation", "couleur","x","y","couleur","numeroPrise");
 
 			//Propriétés
 			std::string nom;
@@ -85,13 +85,13 @@ void UcImporter::doIt(UcModifier & ucModifier)
 			}
 		}
 
-		else if(contenu.find("id,allume,active,nom,consommation,x,y,adresseMac,adresseIP,versionFirmware,couleur,luminosite,niveauBatterie") != std::string::npos)
+		else if(contenu.find("id,allume,active,nom,consommation,couleur,x,y,adresseMac,adresseIP,versionFirmware,luminosite,niveauBatterie") != std::string::npos)
 		{
 	
 			//Multicolore
 			//Initialisation du lecteur CSV
 			io::CSVReader<13> in(file->getFilename());
-			in.read_header(io::ignore_extra_column, "id","allume","active","nom","consommation","x","y","adresseMac","adresseIP","versionFirmware","couleur","luminosite","niveauBatterie");
+			in.read_header(io::ignore_extra_column, "id","allume","active","nom","consommation","couleur", "x","y","adresseMac","adresseIP","versionFirmware","luminosite","niveauBatterie");
 
 			//Propriétés
 			std::string nom, adresseMac, adresseIP;

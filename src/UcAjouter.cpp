@@ -10,13 +10,13 @@
 void UcAjouter::doIt(EclairageUnicolore::Ent & ent)
 {
 	SqlitePersiBny persiBny(this->DB);
-	persiBny.executerSql("INSERT INTO eclairages (id, nom, allume, active, consommation, x, y) VALUES (" + std::to_string(ent.getID()) + ",\"" + ent.getNom() + "\", " + std::to_string(ent.getAllume()) + ", " + std::to_string(ent.getActive()) + ", " + std::to_string(ent.getConsommation()) + ", " + std::to_string(ent.getX()) + ", " + std::to_string(ent.getY()) + "); INSERT INTO unicolores(id,couleur,numeroPrise) VALUES(" + std::to_string(ent.getID()) + ", \"" + std::to_string(ent.getCouleur()) + "\", " + std::to_string(ent.getNumeroPrise()) + ");");
+	persiBny.executerSql("INSERT INTO eclairages (id, nom, allume, active, consommation, couleur, x, y) VALUES (" + std::to_string(ent.getID()) + ",\"" + ent.getNom() + "\", " + std::to_string(ent.getAllume()) + ", " + std::to_string(ent.getActive()) + ", " + std::to_string(ent.getConsommation()) + ", " + std::to_string(ent.getCouleur) + ", " + std::to_string(ent.getX()) + ", " + std::to_string(ent.getY()) + "); INSERT INTO unicolores(id,couleur,numeroPrise) VALUES(" + std::to_string(ent.getID()) + ", \"" + std::to_string(ent.getCouleur()) + "\", " + std::to_string(ent.getNumeroPrise()) + ");");
 }
 
 void UcAjouter::doIt(EclairageMulticolore::Ent & ent)
 {
 	SqlitePersiBny persiBny(this->DB);
-	persiBny.executerSql("INSERT INTO eclairages (id, nom, allume, active, consommation, x, y) VALUES (" + std::to_string(ent.getID()) + ",\"" + ent.getNom() + "\", " + std::to_string(ent.getAllume()) + ", " + std::to_string(ent.getActive()) + ", " + std::to_string(ent.getConsommation()) + ", " + std::to_string(ent.getX()) + ", " + std::to_string(ent.getY()) + "); INSERT INTO multicolores(id, adresseMac, adresseIP, versionFirmware, couleur, luminosite, niveauBatterie) VALUES(" + std::to_string(ent.getID()) + ", \"" + ent.getAdresseMac() + "\", \"" + ent.getAdresseIP() + "\", " + std::to_string(ent.getVersionFirmware()) + ", \"" + std::to_string(ent.getCouleur()) + "\", " + std::to_string(ent.getLuminosite()) + ", " + std::to_string(ent.getNiveauBatterie()) + ");"); 
+	persiBny.executerSql("INSERT INTO eclairages (id, nom, allume, active, consommation, couleur, x, y) VALUES (" + std::to_string(ent.getID()) + ",\"" + ent.getNom() + "\", " + std::to_string(ent.getAllume()) + ", " + std::to_string(ent.getActive()) + ", " + std::to_string(ent.getConsommation()) + ", " + std::to_string(ent.getCouleur) + ", " + std::to_string(ent.getX()) + ", " + std::to_string(ent.getY()) + "); INSERT INTO multicolores(id, adresseMac, adresseIP, versionFirmware, couleur, luminosite, niveauBatterie) VALUES(" + std::to_string(ent.getID()) + ", \"" + ent.getAdresseMac() + "\", \"" + ent.getAdresseIP() + "\", " + std::to_string(ent.getVersionFirmware()) + ", \"" + std::to_string(ent.getCouleur()) + "\", " + std::to_string(ent.getLuminosite()) + ", " + std::to_string(ent.getNiveauBatterie()) + ");"); 
 }
 
 
