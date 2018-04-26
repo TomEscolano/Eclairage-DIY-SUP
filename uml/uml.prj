@@ -1,6 +1,6 @@
 format 218
 "uml"
-  revision 14
+  revision 15
   modified_by 2 "tom"
   cpp_root_dir "/home/tom/Documents/Eclairage-DIY-SUP/src/"
 
@@ -59,4 +59,6 @@ format 218
   package_ref 128131 // analyse
 
   package_ref 128259 // conception
+
+  package_ref 128002 // conception-reversed
 end

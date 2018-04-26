@@ -1,17 +1,5 @@
-/******************************************************
-* \file UcImporter.cpp
-* \author Tom ESCOLANO
-
-\brief Projet : Eclairage DIY - SUP
-*******************************************************/
-
-
-#include <UcImporter.h>
-
-using namespace cgicc;
-
-void UcImporter::doIt(UcModifier & ucModifier)
-{
+class UcImporter
+!!!168066.cpp!!!	doIt(inout ucModifier : UcModifier) : void
 	// Création d'un nouvel objet Cgicc contenant toutes les données du CGI
     Cgicc cgi;
 
@@ -148,10 +136,7 @@ void UcImporter::doIt(UcModifier & ucModifier)
     // Fin du document
     std::cout << cgicc::div() << std::endl;
     std::cout << body() << html() << std::endl;
-}
-
-void UcImporter::getFile(const Cgicc & cgi)
-{
+!!!168194.cpp!!!	getFile(in cgi : Cgicc) : void
 std::cout << "<form method=\"post\" action=\"" 
        << cgi.getEnvironment().getScriptName() 
        << "\" enctype=\"multipart/form-data\">" << std::endl;
@@ -168,16 +153,3 @@ std::cout << "<form method=\"post\" action=\""
   std::cout << "<div class=\"center\"><p>"
        << "<input type=\"submit\" name=\"submit\" value=\"Envoyer le fichier\" />"
        << "</p></div></form>" << std::endl;
-}
-
-
-#ifdef _UT_UcImporter_
-int main()
-{
-	UcImporter ucImporter;
-	ucImporter.doIt(ucImporter.ucModifier);
-	return 0;
-}
-#endif
-
-//g++ -o /usr/lib/cgi-bin/UcImporter.cgi UcImporter.cpp UcAjouter.cpp UcModifier.cpp SqlitePersiBny.cpp Eclairage.cpp EclairageMulticolore.cpp EclairageUnicolore.cpp -lcgicc -lsqlite3 -I . -D _UT_UcImporter_ -pthread

@@ -1,0 +1,21 @@
+class PersiBny
+!!!158210.cpp!!!	set(inout ent : Eclairage::Ent) : void
+	this->executerSql("UPDATE eclairages SET allume = " + std::to_string(ent.getAllume()) + ", active = " + std::to_string(ent.getActive()) + ", nom = \"" + ent.getNom() + "\", consommation = " + std::to_string(ent.getConsommation()) + " WHERE id = " + std::to_string(ent.getID()) + ";");
+
+!!!158338.cpp!!!	get(inout ent : Eclairage::Ent) : void
+	SqlitePersiBny::Resultat resultat;
+	this->executerSql("SELECT * FROM eclairages WHERE id = " + std::to_string(ent.getID()) + ";", resultat);
+
+	ent.setAllume(atoi(resultat.at(0).at(1).second.c_str()));
+	ent.setActive(atoi(resultat.at(0).at(2).second.c_str()));
+	ent.setNom(resultat.at(0).at(3).second);
+	ent.setConsommation((unsigned int)atoi(resultat.at(0).at(4).second.c_str()));
+	if(resultat.at(0).at(5).second == "Bleu")
+			ent.setCouleur(Bleu);
+		if(resultat.at(0).at(5).second == "Rouge")
+			ent.setCouleur(Rouge);
+		if(resultat.at(0).at(5).second == "Blanc")
+			ent.setCouleur(Blanc);
+
+	ent.setX(atoi(resultat.at(0).at(6).second.c_str()));
+	ent.setY(atoi(resultat.at(0).at(7).second.c_str()));

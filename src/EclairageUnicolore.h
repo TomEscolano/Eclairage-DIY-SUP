@@ -9,8 +9,7 @@
 #define _ECLAIRAGEUNICOLORE_H
 
 
-#include "Eclairage.h"
-#include "Couleur.h"
+#include <Eclairage.h>
 
 /**
  * Classe fille (de eclairage) représentant un éclairage unicolore comportant:

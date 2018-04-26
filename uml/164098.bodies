@@ -1,0 +1,5 @@
+class UcCommander
+!!!167682.cpp!!!	doIt(inout eclairage : Eclairage, in etat : bool) : void
+	eclairage.controleur.ent.setAllume(etat);
+	SqlitePersiBny persiBny(this->DB);
+	persiBny.executerSql("UPDATE  eclairages SET allume = " + std::to_string(etat) + " WHERE id = " + std::to_string(eclairage.controleur.ent.getID()) + ";");

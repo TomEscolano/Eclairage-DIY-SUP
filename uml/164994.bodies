@@ -1,0 +1,13 @@
+class Utility
+!!!168834.cpp!!!	remplacer(in nomFichier : string, inout conversion : std::vector<std::pair<std::string, std::string> >) : string
+		FichierTextePersiBny fichier(nomFichier);
+		std::string html = fichier.getContenu();
+		for(auto p:conversion)
+		{
+			std::regex_replace (std::back_inserter(html), html.begin(), html.end(),std::regex (p.first),p.second);
+		}
+		return html;
+!!!168962.cpp!!!	log_action(in id : uint, in action : string, in value : string) : void
+	SqlitePersiBny persi("/var/eclairage/bdd.db");
+	persi.executerSql("INSERT INTO logs VALUES(" + std::to_string(id) + ", \"" + action + "\", \"" + value + "\");");
+

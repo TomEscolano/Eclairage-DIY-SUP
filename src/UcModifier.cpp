@@ -6,7 +6,7 @@
 *******************************************************/
 
 
-#include "UcModifier.h"
+#include <UcModifier.h>
 
 void UcModifier::doIt(EclairageMulticolore::Ent eclairage)
 {
@@ -20,7 +20,7 @@ void UcModifier::doIt(EclairageMulticolore::Ent eclairage)
 
    		persi.executerSql("UPDATE eclairages SET nom = \"" + eclairage.getNom() + "\" allume = " + std::to_string(eclairage.getAllume()) + " active = " + std::to_string(eclairage.getActive()) + " consommation = " + std::to_string(eclairage.getConsommation()) + " couleur = " + std::to_string(eclairage.getCouleur()) + " x = " + std::to_string(eclairage.getX()) + " y = " + std::to_string(eclairage.getY()) + " WHERE id = " + std::to_string(eclairage.getID()) + ";");
 	
-   		persi.executerSql("UPDATE multicolores SET id = " + std::to_string(eclairage.getID())+ " adresseMac = " + eclairage.getAdresseMac()+ " adresseIP = " + eclairage.getAdresseIP()+ " versionFirmware = " + std::to_string(eclairage.getVersionFirmware())+ " couleur = " + std::to_string(eclairage.getCouleur())+ " luminosite = " + std::to_string(eclairage.getLuminosite())+ " niveauBatterie = " + std::to_string(eclairage.getNiveauBatterie())+ " WHERE id = " + std::to_string(eclairage.getID())+ ";");
+   		persi.executerSql("UPDATE multicolores SET id = " + std::to_string(eclairage.getID())+ " adresseMac = " + eclairage.getAdresseMac()+ " adresseIP = " + eclairage.getAdresseIP()+ " versionFirmware = " + std::to_string(eclairage.getVersionFirmware()) + " luminosite = " + std::to_string(eclairage.getLuminosite())+ " niveauBatterie = " + std::to_string(eclairage.getNiveauBatterie())+ " WHERE id = " + std::to_string(eclairage.getID())+ ";");
 	}
 	catch(...)
 	{

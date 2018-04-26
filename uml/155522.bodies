@@ -1,0 +1,43 @@
+class TcpComBny
+!!!165890.cpp!!!	TcpComBny(in socketDesc : int)
+  if(this->socketDesc < 0) throw TcpIpComBnyException("no established connection");
+  this->socketDescFile=fdopen(this->socketDesc,"a+");
+  if(this->socketDescFile == nullptr) throw TcpIpComBnyException("no established connection");
+!!!166018.cpp!!!	~TcpComBny()
+  this->fermer();
+!!!166146.cpp!!!	recevoir(inout buffer : char, in size : std::size_t, inout count : std::size_t) : void
+  if (this->socketDesc == -1) throw TcpIpComBnyException("socket does not exist");
+  count = recv(this->socketDesc , buffer , size , MSG_WAITALL);
+  if (count == -1) throw TcpIpComBnyException("recv");
+!!!166274.cpp!!!	fscanf(in format : char) : void
+	va_list args;
+	va_start( args, format );
+	this->fscanf(format, args);
+	va_end( args );
+!!!166402.cpp!!!	fscanf(in format : char, in args : va_list) : void
+	if (this->socketDescFile == nullptr) throw TcpIpComBnyException("socket does not exist");
+	::vfscanf(this->socketDescFile, format, args);
+!!!166530.cpp!!!	envoyer(in buffer : char, in size : std::size_t) : void
+  if (this->socketDesc == -1) throw TcpIpComBnyException("socket does not exist");
+  int ctrl;
+  ctrl = send(this->socketDesc , buffer , size , 0);
+  if(ctrl != size) throw TcpIpComBnyException("send");
+!!!166658.cpp!!!	fprintf(in format : char) : void
+	va_list args;
+	va_start(args, format );
+	this->fprintf(format, args);
+	va_end( args );
+!!!166786.cpp!!!	fprintf(in format : char, in args : va_list) : void
+	if (this->socketDescFile == nullptr) throw TcpIpComBnyException("socket does not exist");
+	::vfprintf(this->socketDescFile, format, args);
+!!!166914.cpp!!!	fermer() : void
+  if(this->socketDescFile != nullptr) {
+	  fclose(this->socketDescFile);
+	  this->socketDescFile=nullptr;
+	  this->socketDesc = -1;
+  }
+  if(this->socketDesc != -1) {
+    close(this->socketDesc);
+    this->socketDesc = -1;
+	this->socketDescFile=nullptr;
+  }

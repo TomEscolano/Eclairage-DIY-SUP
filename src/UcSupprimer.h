@@ -9,8 +9,8 @@
 #define _UCSUPPRIMER_H
 
 
-#include "SqlitePersiBny.h"
-#include "Eclairage.h"
+#include <SqlitePersiBny.h>
+#include <Eclairage.h>
 
 class UcSupprimer {
   private:

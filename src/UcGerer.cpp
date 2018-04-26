@@ -6,8 +6,7 @@
 *******************************************************/
 
 
-#include "UcGerer.h"
-#include <iostream>
+#include <UcGerer.h>
 
 void UcGerer::doIt(Eclairage::Ent & eclairage, bool etat)
 {

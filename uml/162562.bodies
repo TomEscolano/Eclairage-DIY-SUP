@@ -1,0 +1,19 @@
+class PersiBny
+!!!162306.cpp!!!	set(inout ent : EclairageUnicolore::Ent) : void
+	//Insère dans la table eclairages les propriétés
+	//Utilisation du set de la classe mère
+	this->Eclairage::PersiBny::set(ent);
+
+	//Délai de traitement
+	usleep(100);
+
+	//Insère dans la table unicolores les propriétés
+	this->executerSql("UPDATE unicolores SET couleur = " + std::to_string(ent.getCouleur()) + ", numeroPrise = " + std::to_string(ent.getNumeroPrise()) + " WHERE id = " + std::to_string(ent.getID()) + ";");
+!!!162434.cpp!!!	get(inout ent : EclairageUnicolore::Ent) : void
+	//On update l'ent grâce à la classe mère
+	this->Eclairage::PersiBny::get(ent);
+
+	SqlitePersiBny::Resultat resultat;
+	this->executerSql("SELECT * FROM unicolores WHERE id = " + std::to_string(ent.getID()) + ";", resultat);
+
+	ent.setNumeroPrise(atoi(resultat.at(0).at(1).second.c_str()));

@@ -1,0 +1,4 @@
+class UcSupprimer
+!!!168706.cpp!!!	doIt(in eclairage : Eclairage::Ent) : void
+	SqlitePersiBny persi(this->DB);
+	persi.executerSql("DELETE FROM eclairages WHERE id = " + std::to_string(eclairage.getID()) + "; DELETE FROM multicolores WHERE id = " + std::to_string(eclairage.getID()) + "; DELETE FROM unicolores WHERE id = " + std::to_string(eclairage.getID()) + ";");

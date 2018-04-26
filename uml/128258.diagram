@@ -1,25 +1,25 @@
 format 218
 
 subject 128002 "Eclairage DIY SUP"
-  xyzwh 232.46 190.564 2000 474 539
+  xyzwh 232.46 190.564 2000 637 535
 classcanvas 128130 class_ref 128002 // Propriétaire
   simpleclassdiagramsettings end
   xyz 123.463 526.132 2000
 end
-usecasecanvas 128258 usecase_ref 128002 // gerer
-  xyzwh 419.73 443.57 3005 64 32 label_xy 434 449
+usecasecanvas 128258 usecase_ref 128002 // superviser
+  xyzwh 419 443 3005 64 32 label_xy 417 449
 end
 usecasecanvas 128386 usecase_ref 128130 // commander
-  xyzwh 511.34 342.57 3005 95 35 label_xy 522 349
+  xyzwh 482 342 3005 95 35 label_xy 493 349
 end
 usecasecanvas 128514 usecase_ref 128258 // visualiserInfo
-  xyzwh 313.49 345.03 3005 102 33 label_xy 321 351
+  xyzwh 313 345 3005 102 33 label_xy 321 351
 end
 usecasecanvas 128642 usecase_ref 128386 // importerCSV
-  xyzwh 401.5 569.4 3005 103 33 label_xy 410 573
+  xyzwh 401 569 3005 103 33 label_xy 410 573
 end
 usecasecanvas 128770 usecase_ref 128514 // exporterCSV
-  xyzwh 399.5 641.11 3005 103 33 label_xy 409 646
+  xyzwh 399 641 3005 103 33 label_xy 409 646
 end
 classcanvas 128898 class_ref 128130 // BDD
   simpleclassdiagramsettings class_drawing_mode entity end
@@ -27,26 +27,36 @@ classcanvas 128898 class_ref 128130 // BDD
 end
 classcanvas 129026 class_ref 128258 // SCE
   simpleclassdiagramsettings class_drawing_mode class end
-  xyz 727.137 429.374 2000
+  xyz 898.137 432.374 2000
 end
 classcanvas 129410 class_ref 128386 // SCE_RF
   simpleclassdiagramsettings class_drawing_mode class end
-  xyz 867.976 506.849 2000
+  xyz 1038.98 509.849 2000
 end
 classcanvas 129538 class_ref 128514 // SCE_IR
   simpleclassdiagramsettings class_drawing_mode class end
-  xyz 865.952 382.276 2000
+  xyz 1036.95 385.276 2000
 end
 note 130946 "Ajouter/Supprimer/Modifier configuration eclairages"
-  xyzwh 496.35 492 2005 188 58
+  xyzwh 377.35 492 2005 188 58
 note 131202 "Allumer/Eteindre les eclairages"
-  xyzwh 481.7 256.75 2005 155 58
+  xyzwh 455.7 258.75 2005 155 58
 note 131586 "Niveau de batterie/Conso./Etat"
   xyzwh 283.85 257.9 2005 152 59
+usecasecanvas 131970 usecase_ref 135042 // ajouter
+  xyzwh 602 346 3011 64 32 label_xy 612 353
+end
+usecasecanvas 132098 usecase_ref 135170 // supprimer
+  xyzwh 783 348 3005 73 37 label_xy 787 355
+end
+usecasecanvas 132226 usecase_ref 135298 // modifier
+  xyzwh 694 347 3005 64 32 label_xy 700 352
+end
 line 129666 ----
   from ref 128130 z 3006 to ref 128258
 line 129794 ----
-  from ref 128258 z 3006 to ref 129026
+  from ref 128258 z 3006 to point 475 459
+  line 131842 z 3006 to ref 129026
 line 129922 ----
   from ref 128130 z 3006 to ref 128642
 line 130050 ----
@@ -59,7 +69,7 @@ simplerelationcanvas 130434 simplerelation_ref 128002
   from ref 128258 z 3006 stereotype "<<include>>" xyz 362 412 3000 to ref 128514
 end
 simplerelationcanvas 130562 simplerelation_ref 128130
-  from ref 128386 z 3006 stereotype "<<extend>>" xyz 460 410 3000 to ref 128258
+  from ref 128386 z 3006 stereotype "<<extend>>" xyz 447.5 410 3000 to ref 128258
 end
 relationcanvas 130690 relation_ref 128002 // <generalisation>
   from ref 129538 z 2001 to ref 129026
@@ -70,6 +80,15 @@ relationcanvas 130818 relation_ref 128130 // <generalisation>
   from ref 129410 z 2001 to ref 129026
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
+end
+simplerelationcanvas 132354 simplerelation_ref 134658
+  from ref 131970 z 3012 stereotype "<<extend>>" xyz 498 409 3000 to ref 128258
+end
+simplerelationcanvas 132482 simplerelation_ref 134786
+  from ref 132226 z 3006 stereotype "<<extend>>" xyz 548 408 3000 to ref 128258
+end
+simplerelationcanvas 132610 simplerelation_ref 134914
+  from ref 132098 z 3006 stereotype "<<extend>>" xyz 593 411 3000 to ref 128258
 end
 line 131330 -_-_
   from ref 131202 z 3006 to ref 128386

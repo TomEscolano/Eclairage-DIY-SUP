@@ -10,11 +10,11 @@
 
 
 #include <vector>
+#include <Eclairage.h>
+#include <SqlitePersiBny.h>
 #include <EclairageUnicolore.h>
 #include <EclairageMulticolore.h>
 #include <FichierTextePersiBny.h>
-#include <Eclairage.h>
-#include <SqlitePersiBny.h>
 #include <cgicc/CgiDefs.h>
 #include <cgicc/Cgicc.h>
 #include <cgicc/HTTPHTMLHeader.h>
@@ -62,6 +62,8 @@ class SUP {
      * Méthode permettant de suivre la consommation électrique d'un éclairage.
      */
     void suivreConsoElectricite();
+
+    void afficherEclairages(std::vector<EclairageUnicolore> & eclairagesUnicolores, std::vector<EclairageMulticolore> & eclairagesMulticolores);
 
   public:
     void doIt();

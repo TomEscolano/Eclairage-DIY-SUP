@@ -10,7 +10,7 @@
 
 
 #include <string>
-
+#include <unistd.h>
 #include <Couleur.h>
 #include <SqlitePersiBny.h>
 

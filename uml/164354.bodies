@@ -1,0 +1,5 @@
+class UcGerer
+!!!167938.cpp!!!	doIt(inout eclairage : Eclairage::Ent, in etat : bool) : void
+	eclairage.setActive(etat);
+	SqlitePersiBny persiBny(this->DB);
+	persiBny.executerSql("UPDATE eclairage SET active = " + std::to_string(etat)  + " WHERE id = " + std::to_string(eclairage.getID()) + ";");

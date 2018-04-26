@@ -1,0 +1,33 @@
+class Ent
+!!!155778.cpp!!!	setID(in id : uint) : void
+	this->id = id;
+!!!155906.cpp!!!	setAllume(in etat : bool) : void
+	this->allume = etat;
+!!!156034.cpp!!!	setActive(in etat : bool) : void
+	this->active = etat;
+!!!156162.cpp!!!	setNom(in nom : string) : void
+	this->nom = nom;
+!!!156290.cpp!!!	setCouleur(in couleur : Couleur) : void
+	this->couleur = couleur;
+!!!156418.cpp!!!	setConsommation(in conso : uint) : void
+	this->consommation = conso;
+!!!156546.cpp!!!	setX(in x : int) : void
+	this->x = x;
+!!!156674.cpp!!!	setY(in y : int) : void
+	this->y = y;
+!!!156802.cpp!!!	getID() : uint
+	return this->id;
+!!!156930.cpp!!!	getAllume() : bool
+	return this->allume;
+!!!157058.cpp!!!	getActive() : bool
+	return this->active;
+!!!157186.cpp!!!	getNom() : string
+	return this->nom;
+!!!157314.cpp!!!	getCouleur() : Couleur
+	return this->couleur;
+!!!157442.cpp!!!	getConsommation() : uint
+	return this->consommation;
+!!!157570.cpp!!!	getX() : int
+	return this->x;
+!!!157698.cpp!!!	getY() : int
+	return this->y;

@@ -1,40 +1,5 @@
-/******************************************************
-* \file SUP.cpp
-* \author Tom ESCOLANO
-
-\brief Projet : Eclairage DIY - SUP
-*******************************************************/
-
-
-#include "SUP.h"
-
-void SUP::visualiserInfo(EclairageUnicolore::Ent eclairage)
-{
-	/**
-	 * Variables contenant:
-	 * 	- Resultat de la requete SQL
-	 *  - Vecteur de pairs mettant en relation les chaps à remplacer et les informations de l'eclairage
-	 *  - Nom du fichier HTML qui v acceuillir les infos de l'eclairage
-	 */
-	SqlitePersiBny::Resultat resultat;
-	std::vector<std::pair<std::string, std::string>> infos;
-	std::string html = "html/infoPanel.html";
-
-	// Requete SQL selectionnant le nom, l'etat et la consommation de l'eclairage
-	this->persiBny.executerSql("SELECT nom,allume,active,consommation FROM eclairages e INNER JOIN unicolores u ON u.id = e.id; WHERE e.id = " + std::to_string(eclairage.getID()) + ";", resultat);
-
-	// Insertion des données dans le vecteur
-	infos.at(0) = std::make_pair("_nom", resultat.at(0).at(0).second);
-	infos.at(1) = std::make_pair("_allume", resultat.at(0).at(1).second);
-	infos.at(2) = std::make_pair("_active", resultat.at(0).at(2).second);
-	infos.at(3) = std::make_pair("_consommation", resultat.at(0).at(3).second);
-
-	// Remplacement des données dans le fichier HTML
-	std::cout << Utility::remplacer(html, infos);
-}
-
-void SUP::visualiserInfo(EclairageMulticolore::Ent eclairage)
-{
+class SUP
+!!!165122.cpp!!!	visualiserInfo(in eclairage : EclairageUnicolore::Ent) : void
 	/**
 	 * Variables contenant:
 	 * 	- Resultat de la requete SQL
@@ -58,10 +23,29 @@ void SUP::visualiserInfo(EclairageMulticolore::Ent eclairage)
 	// Remplacement des données dans le fichier HTML
 	std::cout << Utility::remplacer(html, infos);
 
-}
+!!!165250.cpp!!!	visualiserInfo(in eclairage : EclairageMulticolore::Ent) : void
+	/**
+	 * Variables contenant:
+	 * 	- Resultat de la requete SQL
+	 *  - Vecteur de pairs mettant en relation les chaps à remplacer et les informations de l'eclairage
+	 *  - Nom du fichier HTML qui v acceuillir les infos de l'eclairage
+	 */
+	SqlitePersiBny::Resultat resultat;
+	std::vector<std::pair<std::string, std::string>> infos;
+	std::string html = "html/infoPanel.html";
 
-void SUP::extraireEclairages(std::vector<EclairageUnicolore> & eclairagesUnicolores, std::vector<EclairageMulticolore> & eclairagesMulticolores)
-{
+	// Requete SQL selectionnant le nom, l'etat et la consommation de l'eclairage
+	this->persiBny.executerSql("SELECT nom,allume,active,consommation FROM eclairages e INNER JOIN unicolores u ON u.id = e.id; WHERE e.id = " + std::to_string(eclairage.getID()) + ";", resultat);
+
+	// Insertion des données dans le vecteur
+	infos.at(0) = std::make_pair("_nom", resultat.at(0).at(0).second);
+	infos.at(1) = std::make_pair("_allume", resultat.at(0).at(1).second);
+	infos.at(2) = std::make_pair("_active", resultat.at(0).at(2).second);
+	infos.at(3) = std::make_pair("_consommation", resultat.at(0).at(3).second);
+
+	// Remplacement des données dans le fichier HTML
+	std::cout << Utility::remplacer(html, infos);
+!!!165378.cpp!!!	extraireEclairages(inout eclairagesUnicolores : std::vector<EclairageUnicolore>, inout eclairagesMulticolores : std::vector<EclairageMulticolore>) : void
 	// Unicolore
 	SqlitePersiBny::Resultat resultat, subRes;
 	this->persiBny.executerSql("SELECT * FROM unicolores;", resultat);
@@ -119,13 +103,7 @@ void SUP::extraireEclairages(std::vector<EclairageUnicolore> & eclairagesUnicolo
 		eclairagesMulticolores.push_back(tmp);
 	}
 
-}
-
-void SUP::suivreConsoElectricite() {
-}
-
-void SUP::afficherEclairages(std::vector<EclairageUnicolore> & eclairagesUnicolores, std::vector<EclairageMulticolore> & eclairagesMulticolores)
-{
+!!!165634.cpp!!!	afficherEclairages(inout eclairagesUnicolores : std::vector<EclairageUnicolore>, inout eclairagesMulticolores : std::vector<EclairageMulticolore>) : void
 	for(int i = 0; i < eclairagesMulticolores.size(); i++)
 	{
 		std::cout << "<img src='/eclairage.svg' onclick='toggleMenu(\"menu-box" + std::to_string(eclairagesMulticolores.at(i).controleur.ent.getID()) + "\")'/><ul id='menu-box" + std::to_string(eclairagesMulticolores.at(i).controleur.ent.getID()) + "' style='display: none'>";
@@ -161,10 +139,7 @@ void SUP::afficherEclairages(std::vector<EclairageUnicolore> & eclairagesUnicolo
 		std::cout << "<li><a href='UcGerer.cgi?id=" + std::to_string(eclairagesUnicolores.at(i).controleur.ent.getID()) + "&action=parametrer'>Parametrer</a></li>" << std::endl;
 		std::cout << "</ul>" << std::endl;
 	}
-}
-
-void SUP::doIt()
-{
+!!!165762.cpp!!!	doIt() : void
 	std::string html;
 
 	std::cout << cgicc::HTTPHTMLHeader() << std::endl;
@@ -194,17 +169,3 @@ void SUP::doIt()
 	{
 		std::cout << "Erreur dans la lecture de l'index";
 	}
-}
-
-
-#ifdef _UT_SUP_
-int main()
-{
-	SUP sup;
-	sup.doIt();
-
-	return 0;
-}
-#endif
-
-//g++ -o /usr/lib/cgi-bin/index.cgi SUP.cpp Eclairage.cpp EclairageUnicolore.cpp EclairageMulticolore.cpp SqlitePersiBny.cpp Utility.cpp -I . -lsqlite3 -pthread -lcgicc -D _UT_SUP_

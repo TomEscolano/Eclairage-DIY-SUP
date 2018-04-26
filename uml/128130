@@ -1,0 +1,2979 @@
+format 218
+"src" // conception-reversed::src
+  revision 1
+  modified_by 2 "tom"
+  // class settings
+  
+  classdiagramsettings member_max_width 0 end
+  
+  usecasediagramsettings end
+  
+  sequencediagramsettings end
+  
+  collaborationdiagramsettings end
+  
+  objectdiagramsettings end
+  
+  componentdiagramsettings
+   end
+  
+  deploymentdiagramsettings
+   end
+  
+  statediagramsettings
+   end
+  
+  activitydiagramsettings
+   end
+  
+  classview 134530 "src"
+    
+    classdiagramsettings member_max_width 0 end
+    
+    collaborationdiagramsettings end
+    
+    objectdiagramsettings end
+    
+    sequencediagramsettings end
+    
+    statediagramsettings
+     end
+    
+    
+    activitydiagramsettings
+     end
+    class 155266 "ClientTcpComBny"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      operation 142210 "ClientTcpComBny"
+	preserve_cpp_body_indent public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${class}::${name}${(}${)}: tcpComBny(NULL) ${throw}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 142338 "~ClientTcpComBny"
+	preserve_cpp_body_indent public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${class}::${name}${(}${)}${volatile}${throw} {
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 142466 "connecter"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 2
+	  param in name "ip" explicit_type "string"
+	  param in name "port" explicit_type "unsigned short int"
+	nexceptions 1
+	  exception class_ref 155394 // TcpIpComBnyException
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}, ${t1} ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 142594 "recevoir"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 3
+	  param inout name "buffer" explicit_type "char"
+	  param in name "size" explicit_type "std::size_t"
+	  param inout name "count" explicit_type "std::size_t"
+	nexceptions 1
+	  exception class_ref 155394 // TcpIpComBnyException
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} * ${p0}${v0}, ${t1} ${p1}${v1}, ${t2} & ${p2}${v2}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 142722 "fscanf"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 1
+	  param in name "format" explicit_type "char"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} * ${p0}${v0}, ...${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 142850 "envoyer"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 2
+	  param in name "buffer" explicit_type "char"
+	  param in name "size" explicit_type "std::size_t"
+	nexceptions 1
+	  exception class_ref 155394 // TcpIpComBnyException
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} * ${p0}${v0}, ${t1} ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 142978 "fprintf"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 1
+	  param in name "format" explicit_type "char"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} * ${p0}${v0}, ...${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 143106 "deconnecter"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 1
+	  param in name "" explicit_type "void"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      classrelation 157314 // tcpComBny (<unidirectional association>)
+	relation 157314 --->
+	  a role_name "tcpComBny" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 157314 // tcpComBny (<unidirectional association>)
+	  b parent class_ref 155522 // TcpComBny
+      end
+    end
+
+    class 155394 "TcpIpComBnyException"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 168578 // <generalisation>
+	relation 168578 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 168578 // <generalisation>
+	  b parent class_ref 163586 // typedef3
+      end
+
+      attribute 148098 "message"
+	private explicit_type "string"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      operation 167042 "TcpIpComBnyException"
+	cpp_inline public explicit_return_type ""
+	nparams 1
+	  param in name "description" explicit_type "string"
+	cpp_decl "    ${comment}${inline}${name}${(}const ${t0} ${p0}${v0}${)}${volatile}${throw}${abstract} : std::exception(){
+      this->message=\"TcpIpComBnyException\\n\\t\"+description+\"\\n\";
+    };
+"
+	
+	
+	
+	
+      end
+
+      operation 167170 "what"
+	const cpp_inline public explicit_return_type "char"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}const ${type} * ${name}${(}${)}${const}${volatile}${throw}${abstract} {
+      return this->message.c_str();
+    };
+"
+	
+	
+	
+	
+      end
+
+      operation 167298 "~TcpIpComBnyException"
+	cpp_virtual cpp_inline public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw}${abstract} {};
+"
+	
+	
+	
+	
+      end
+    end
+
+    class 155522 "TcpComBny"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      operation 165890 "TcpComBny"
+	preserve_cpp_body_indent public explicit_return_type ""
+	nparams 1
+	  param in name "socketDesc" explicit_type "int"
+	nexceptions 1
+	  exception class_ref 155394 // TcpIpComBnyException
+	cpp_decl "    ${comment}${inline}${name}${(}const ${t0} ${p0}${v0}${)}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${class}::${name}${(}const ${t0} ${p0}${)}: socketDesc(socketDesc) ${throw}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 166018 "~TcpComBny"
+	preserve_cpp_body_indent public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${class}::${name}${(}${)}${volatile}${throw} {
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 166146 "recevoir"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 3
+	  param inout name "buffer" explicit_type "char"
+	  param in name "size" explicit_type "std::size_t"
+	  param inout name "count" explicit_type "std::size_t"
+	nexceptions 1
+	  exception class_ref 155394 // TcpIpComBnyException
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} * ${p0}${v0}, ${t1} ${p1}${v1}, ${t2} & ${p2}${v2}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 166274 "fscanf"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 1
+	  param in name "format" explicit_type "char"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} * ${p0}${v0}, ...${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 166402 "fscanf"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 2
+	  param in name "format" explicit_type "char"
+	  param in name "args" explicit_type "va_list"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} * ${p0}${v0}, ${t1} ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 166530 "envoyer"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 2
+	  param in name "buffer" explicit_type "char"
+	  param in name "size" explicit_type "std::size_t"
+	nexceptions 1
+	  exception class_ref 155394 // TcpIpComBnyException
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} * ${p0}${v0}, ${t1} ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 166658 "fprintf"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 1
+	  param in name "format" explicit_type "char"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} * ${p0}${v0}, ...${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 166786 "fprintf"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 2
+	  param in name "format" explicit_type "char"
+	  param in name "args" explicit_type "va_list"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} * ${p0}${v0}, ${t1} ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 166914 "fermer"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      attribute 147842 "socketDesc"
+	private explicit_type "int"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 147970 "socketDescFile"
+	private explicit_type "FILE"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+    end
+
+    class 155650 "Couleur"
+      visibility package stereotype "enum"
+      cpp_decl "${comment}enum ${name} {
+${items}};
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      attribute 141442 "Bleu"
+	public type class_ref 155650 // Couleur
+	cpp_decl "  ${name}${value},${comment}"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 141570 "Blanc"
+	public type class_ref 155650 // Couleur
+	cpp_decl "  ${name}${value},${comment}"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 141698 "Rouge"
+	public type class_ref 155650 // Couleur
+	cpp_decl "  ${name}${value},${comment}"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+    end
+
+    class 160898 "Eclairage"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      comment "Classe mère représentant un éclairage générique comportant:
+- Une IHM Formulaire (Forumaire de création d'éclairage)
+- Une IHM Jardin (Icone de l'eclairage dans l'IHM de supervision)
+- Un controleur
+- Une entité
+- Une persistance
+"
+      operation 155522 "Eclairage"
+	cpp_inline public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw}${abstract} :controleur(){};
+"
+	
+	
+	
+	
+      end
+
+      class 161026 "Ent"
+	visibility package 
+	cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+	java_decl ""
+	php_decl ""
+	python_2_2 python_decl ""
+	idl_decl ""
+	explicit_switch_type ""
+	mysql_decl ""
+	
+	attribute 145538 "id"
+	  private explicit_type "uint"
+	  cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	  java_decl ""
+	  php_decl ""
+	  python_decl ""
+	  idl_decl ""
+	  mysql_decl ""
+	  MysqlColumn
+	end
+
+	attribute 145666 "allume"
+	  private explicit_type "bool"
+	  cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	  java_decl ""
+	  php_decl ""
+	  python_decl ""
+	  idl_decl ""
+	  mysql_decl ""
+	  MysqlColumn
+	end
+
+	attribute 145794 "active"
+	  private explicit_type "bool"
+	  cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	  java_decl ""
+	  php_decl ""
+	  python_decl ""
+	  idl_decl ""
+	  mysql_decl ""
+	  MysqlColumn
+	end
+
+	attribute 145922 "nom"
+	  private explicit_type "string"
+	  cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	  java_decl ""
+	  php_decl ""
+	  python_decl ""
+	  idl_decl ""
+	  mysql_decl ""
+	  MysqlColumn
+	end
+
+	attribute 146050 "consommation"
+	  private explicit_type "uint"
+	  cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	  java_decl ""
+	  php_decl ""
+	  python_decl ""
+	  idl_decl ""
+	  mysql_decl ""
+	  MysqlColumn
+	end
+
+	classrelation 165122 // couleur (<directional composition>)
+	  relation 165122 *-->
+	    a role_name "couleur" private
+	      cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	      classrelation_ref 165122 // couleur (<directional composition>)
+	    b parent class_ref 155650 // Couleur
+	end
+
+	attribute 146178 "x"
+	  private explicit_type "int"
+	  cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	  java_decl ""
+	  php_decl ""
+	  python_decl ""
+	  idl_decl ""
+	  mysql_decl ""
+	  MysqlColumn
+	end
+
+	attribute 146306 "y"
+	  private explicit_type "int"
+	  cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	  java_decl ""
+	  php_decl ""
+	  python_decl ""
+	  idl_decl ""
+	  mysql_decl ""
+	  MysqlColumn
+	end
+
+	operation 155650 "Ent"
+	  cpp_inline public explicit_return_type ""
+	  nparams 0
+	  cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw}${abstract} :id(0), allume(false), active(false), nom(\"undefined\"), consommation(0), couleur(Bleu), x(0), y(0){};
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 155778 "setID"
+	  preserve_cpp_body_indent cpp_virtual public explicit_return_type "void"
+	  nparams 1
+	    param in name "id" explicit_type "uint"
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 155906 "setAllume"
+	  preserve_cpp_body_indent cpp_virtual public explicit_return_type "void"
+	  nparams 1
+	    param in name "etat" explicit_type "bool"
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 156034 "setActive"
+	  preserve_cpp_body_indent cpp_virtual public explicit_return_type "void"
+	  nparams 1
+	    param in name "etat" explicit_type "bool"
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 156162 "setNom"
+	  preserve_cpp_body_indent cpp_virtual public explicit_return_type "void"
+	  nparams 1
+	    param in name "nom" explicit_type "string"
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 156290 "setCouleur"
+	  preserve_cpp_body_indent cpp_virtual public explicit_return_type "void"
+	  nparams 1
+	    param in name "couleur" type class_ref 155650 // Couleur
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 156418 "setConsommation"
+	  preserve_cpp_body_indent cpp_virtual public explicit_return_type "void"
+	  nparams 1
+	    param in name "conso" explicit_type "uint"
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 156546 "setX"
+	  preserve_cpp_body_indent cpp_virtual public explicit_return_type "void"
+	  nparams 1
+	    param in name "x" explicit_type "int"
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 156674 "setY"
+	  preserve_cpp_body_indent cpp_virtual public explicit_return_type "void"
+	  nparams 1
+	    param in name "y" explicit_type "int"
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 156802 "getID"
+	  preserve_cpp_body_indent cpp_virtual public explicit_return_type "uint"
+	  nparams 0
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 156930 "getAllume"
+	  preserve_cpp_body_indent cpp_virtual public explicit_return_type "bool"
+	  nparams 0
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 157058 "getActive"
+	  preserve_cpp_body_indent cpp_virtual public explicit_return_type "bool"
+	  nparams 0
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 157186 "getNom"
+	  preserve_cpp_body_indent cpp_virtual public explicit_return_type "string"
+	  nparams 0
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 157314 "getCouleur"
+	  preserve_cpp_body_indent cpp_virtual public return_type class_ref 155650 // Couleur
+	  nparams 0
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 157442 "getConsommation"
+	  preserve_cpp_body_indent cpp_virtual public explicit_return_type "uint"
+	  nparams 0
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 157570 "getX"
+	  preserve_cpp_body_indent cpp_virtual public explicit_return_type "int"
+	  nparams 0
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 157698 "getY"
+	  preserve_cpp_body_indent cpp_virtual public explicit_return_type "int"
+	  nparams 0
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+      end
+
+      class 161154 "IHMFormulaire"
+	visibility package 
+	cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+	java_decl ""
+	php_decl ""
+	python_2_2 python_decl ""
+	idl_decl ""
+	explicit_switch_type ""
+	mysql_decl ""
+	
+	operation 157826 "set"
+	  preserve_cpp_body_indent public explicit_return_type "void"
+	  nparams 1
+	    param in name "ent" type class_ref 161026 // Ent
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	  comment "Méthde permettant d'afficher le formulaire de création d'éclairage
+"
+	end
+
+	operation 157954 "get"
+	  preserve_cpp_body_indent public explicit_return_type "void"
+	  nparams 1
+	    param inout name "ent" type class_ref 161026 // Ent
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	  comment "Méthode permettant de récupérer les données entrées par l'utilisateur lors de la création d'éclairage.
+"
+	end
+      end
+
+      class 161282 "PersiBny"
+	visibility package 
+	cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+	java_decl ""
+	php_decl ""
+	python_2_2 python_decl ""
+	idl_decl ""
+	explicit_switch_type ""
+	mysql_decl ""
+	
+	classrelation 165250 // <generalisation>
+	  relation 165250 ---|>
+	    a public
+	      cpp default "${type}"
+	      classrelation_ref 165250 // <generalisation>
+	    b parent class_ref 161410 // SqlitePersiBny
+	end
+
+	operation 158082 "PersiBny"
+	  cpp_inline public explicit_return_type ""
+	  nparams 0
+	  cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw}${abstract} : SqlitePersiBny(\"/var/eclairage/bdd.db\"){};
+"
+	  
+	  
+	  
+	  
+	  comment "Constructeur de la persistance lui indiquant le fichier de base de donnée.
+"
+	end
+
+	operation 158210 "set"
+	  preserve_cpp_body_indent public explicit_return_type "void"
+	  nparams 1
+	    param inout name "ent" type class_ref 161026 // Ent
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	  comment "Méthode permettant de modifier la configuration de l'éclairage dans la persistance.
+"
+	end
+
+	operation 158338 "get"
+	  preserve_cpp_body_indent public explicit_return_type "void"
+	  nparams 1
+	    param inout name "ent" type class_ref 161026 // Ent
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	  comment "Méthode permettant de récupérer l'entité de l'éclairage depuis la persistance.
+"
+	end
+      end
+
+      class 161538 "IHMJardin"
+	visibility package 
+	cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+	java_decl ""
+	php_decl ""
+	python_2_2 python_decl ""
+	idl_decl ""
+	explicit_switch_type ""
+	mysql_decl ""
+	
+	operation 158466 "set"
+	  preserve_cpp_body_indent public explicit_return_type "void"
+	  nparams 1
+	    param in name "ent" type class_ref 161026 // Ent
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	  comment "Méthode permettant de mettre à jour l'icone représentant l'éclairage dans l'IHM de supervision.
+"
+	end
+      end
+
+      class 161666 "Controleur"
+	visibility package 
+	cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+	java_decl ""
+	php_decl ""
+	python_2_2 python_decl ""
+	idl_decl ""
+	explicit_switch_type ""
+	mysql_decl ""
+	
+	classrelation 165378 // persiBny (<directional composition>)
+	  relation 165378 *-->
+	    a role_name "persiBny" public
+	      cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	      classrelation_ref 165378 // persiBny (<directional composition>)
+	    b parent class_ref 161282 // PersiBny
+	end
+
+	classrelation 165506 // ent (<directional composition>)
+	  relation 165506 *-->
+	    a role_name "ent" public
+	      cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	      classrelation_ref 165506 // ent (<directional composition>)
+	    b parent class_ref 161026 // Ent
+	end
+
+	classrelation 165634 // ihmJardin (<directional composition>)
+	  relation 165634 *-->
+	    a role_name "ihmJardin" public
+	      cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	      classrelation_ref 165634 // ihmJardin (<directional composition>)
+	    b parent class_ref 161538 // IHMJardin
+	end
+
+	operation 158594 "Controleur"
+	  cpp_inline public explicit_return_type ""
+	  nparams 0
+	  cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw}${abstract} :ent(),persiBny(){};
+"
+	  
+	  
+	  
+	  
+	  comment "Constructeur du controleur de l'eclairage. Instancie l'entité et la persistance.
+"
+	end
+
+	operation 158722 "activer"
+	  preserve_cpp_body_indent public explicit_return_type "void"
+	  nparams 1
+	    param in name "etat" explicit_type "bool"
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	  comment "Méthode permettant d'activer/désactiver l'éclairage en fonction d'un booléen passé en paramètres.
+"
+	end
+
+	operation 158850 "allumer"
+	  preserve_cpp_body_indent public explicit_return_type "void"
+	  nparams 1
+	    param in name "etat" explicit_type "bool"
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	  comment "Méthode permettant d'allumer/éteindre un éclairage grâce à un booléen passé en paramètre.
+"
+	end
+
+	operation 158978 "getIHMJardin"
+	  preserve_cpp_body_indent public explicit_return_type "void"
+	  nparams 0
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	  comment "Méthode permettant de récupérer l'état de l'IHMJardin (Icone représentant l'éclairage dans l'IHM de supervision)
+"
+	end
+
+	operation 159106 "getIHMFormulaire"
+	  preserve_cpp_body_indent public explicit_return_type "void"
+	  nparams 0
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	  comment "Méthode permettant de récupérer les informations entrées par le propriétaire lors de la création de l'éclairage.
+"
+	end
+
+	operation 159234 "set"
+	  preserve_cpp_body_indent public explicit_return_type "void"
+	  nparams 1
+	    param in name "ent" type class_ref 161026 // Ent
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	  comment "Méthode permettant de modifier intégralement la configuration de l'éclairage en lui passant une entité en paramètres.
+"
+	end
+
+	operation 159362 "get"
+	  preserve_cpp_body_indent public explicit_return_type "void"
+	  nparams 1
+	    param inout name "ent" type class_ref 161026 // Ent
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	  comment "Méthode permettant de récupérer l'entité de l'éclairage.
+"
+	end
+
+	classrelation 165762 // ihmFormulaire (<directional composition>)
+	  relation 165762 *-->
+	    a role_name "ihmFormulaire" private
+	      cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	      classrelation_ref 165762 // ihmFormulaire (<directional composition>)
+	    b parent class_ref 161154 // IHMFormulaire
+	end
+      end
+
+      classrelation 165890 // controleur (<directional composition>)
+	relation 165890 *-->
+	  a role_name "controleur" public
+	    comment "L'éclairage n'a qu'un controleur, accessible en public, qui controle l'eclairage dans sa totalité.
+
+"
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 165890 // controleur (<directional composition>)
+	  b parent class_ref 161666 // Controleur
+      end
+    end
+
+    class 161410 "SqlitePersiBny"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      comment "http://www.cplusplus.com/reference/string/ pour conversion de string vers C types primitifs
+std::stoi
+std::stof
+std::stod
+"
+      class 163074 "Champs"
+	visibility package stereotype "typedef" explicit_base_type "std::pair< std::string, std::string>"
+	cpp_decl "${comment}typedef ${type} ${name};
+"
+	java_decl ""
+	php_decl ""
+	python_2_2 python_decl ""
+	idl_decl ""
+	explicit_switch_type ""
+	mysql_decl ""
+	
+      end
+
+      class 163202 "Ligne"
+	visibility package stereotype "typedef" base_type class_ref 163074 // Champs
+	cpp_decl "${comment}typedef std::vector<${type}> ${name};
+"
+	java_decl ""
+	php_decl ""
+	python_2_2 python_decl ""
+	idl_decl ""
+	explicit_switch_type ""
+	mysql_decl ""
+	
+	classrelation 167938 // <dependency>
+	  relation 167938 -_->
+	    a public
+	      cpp default "#include in source"
+	      classrelation_ref 167938 // <dependency>
+	    b parent class_ref 163074 // Champs
+	end
+      end
+
+      class 163330 "Resultat"
+	visibility package stereotype "typedef" base_type class_ref 163202 // Ligne
+	cpp_decl "${comment}typedef std::vector<${type}> ${name};
+"
+	java_decl ""
+	php_decl ""
+	python_2_2 python_decl ""
+	idl_decl ""
+	explicit_switch_type ""
+	mysql_decl ""
+	
+	classrelation 168066 // <dependency>
+	  relation 168066 -_->
+	    a public
+	      cpp default "#include in source"
+	      classrelation_ref 168066 // <dependency>
+	    b parent class_ref 163202 // Ligne
+	end
+      end
+
+      attribute 147458 "db"
+	private explicit_type "sqlite3"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment " Resultat
+|-------------------------------------------|
+|   nom 1  |   nom 2  |  nom 3   |   nom 4  |<-|
+|-------------------------------------------| Champs
+Ligne >| valeur 1 | valeur 2 | valeur 3 | valeur 4 |<-|
+|-------------------------------------------|
+|                                           |  <- Ligne 1
+|-------------------------------------------|
+|                                           |  <- Ligne 2
+
+"
+      end
+
+      operation 163714 "SqlitePersiBny"
+	preserve_cpp_body_indent public explicit_return_type ""
+	nparams 1
+	  param in name "fichierBdd" explicit_type "char"
+	nexceptions 1
+	  exception class_ref 163458 // SqlitePersiBnyException
+	cpp_decl "    ${comment}${inline}${name}${(}const ${t0} * ${p0}${v0}${)}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${class}::${name}${(}const ${t0} * ${p0}${)} :
+		db(NULL) ${throw}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 163842 "~SqlitePersiBny"
+	preserve_cpp_body_indent cpp_virtual public explicit_return_type ""
+	nparams 0
+	nexceptions 1
+	  exception class_ref 163458 // SqlitePersiBnyException
+	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${class}::${name}${(}${)}${volatile}${throw} {
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 163970 "executerSql"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 1
+	  param in name "requete" explicit_type "string"
+	nexceptions 1
+	  exception class_ref 163458 // SqlitePersiBnyException
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 164098 "executerSql"
+	preserve_cpp_body_indent public explicit_return_type "int"
+	nparams 2
+	  param in name "requete" explicit_type "string"
+	  param inout name "resultat" type class_ref 163330 // Resultat
+	nexceptions 1
+	  exception class_ref 163458 // SqlitePersiBnyException
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}, ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 164226 "getDernierId"
+	preserve_cpp_body_indent public explicit_return_type "int"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 164354 "getDernierId"
+	preserve_cpp_body_indent public explicit_return_type "int"
+	nparams 1
+	  param in name "table" explicit_type "string"
+	nexceptions 1
+	  exception class_ref 163458 // SqlitePersiBnyException
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 164482 "resultatToString"
+	class_operation preserve_cpp_body_indent public explicit_return_type "string"
+	nparams 1
+	  param inout name "resultat" type class_ref 163330 // Resultat
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "il faut une pk avec autoincrement"
+      end
+    end
+
+    class 161794 "EclairageMulticolore"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      comment "Classe fille (de eclairage) représentant un éclairage multicolore comportant:
+- Un controleur
+- Une entité comportant:
+   - l'adresse IP de l'eclairage
+   - son adresse MAC bluetooth
+   - le niveau de sa batterie
+   - sa version de firmware
+   - le taux de luminosité actuel
+- Une persistance (polymorphée)
+"
+      classrelation 166018 // <generalisation>
+	relation 166018 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 166018 // <generalisation>
+	  b parent class_ref 160898 // Eclairage
+      end
+
+      operation 159490 "EclairageMulticolore"
+	cpp_inline public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw}${abstract} :Eclairage(),controleur(){};
+"
+	
+	
+	
+	
+      end
+
+      class 161922 "Ent"
+	visibility package 
+	cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+	java_decl ""
+	php_decl ""
+	python_2_2 python_decl ""
+	idl_decl ""
+	explicit_switch_type ""
+	mysql_decl ""
+	
+	classrelation 166146 // <generalisation>
+	  relation 166146 ---|>
+	    a public
+	      cpp default "${type}"
+	      classrelation_ref 166146 // <generalisation>
+	    b parent class_ref 161026 // Ent
+	end
+
+	attribute 146434 "adresseIP"
+	  private explicit_type "string"
+	  cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	  java_decl ""
+	  php_decl ""
+	  python_decl ""
+	  idl_decl ""
+	  mysql_decl ""
+	  MysqlColumn
+	end
+
+	attribute 146562 "adresseMac"
+	  private explicit_type "string"
+	  cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	  java_decl ""
+	  php_decl ""
+	  python_decl ""
+	  idl_decl ""
+	  mysql_decl ""
+	  MysqlColumn
+	end
+
+	attribute 146690 "niveauBatterie"
+	  private explicit_type "uint"
+	  cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	  java_decl ""
+	  php_decl ""
+	  python_decl ""
+	  idl_decl ""
+	  mysql_decl ""
+	  MysqlColumn
+	end
+
+	attribute 146818 "versionFirmware"
+	  private explicit_type "float"
+	  cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	  java_decl ""
+	  php_decl ""
+	  python_decl ""
+	  idl_decl ""
+	  mysql_decl ""
+	  MysqlColumn
+	end
+
+	attribute 146946 "luminosite"
+	  private explicit_type "int"
+	  cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	  java_decl ""
+	  php_decl ""
+	  python_decl ""
+	  idl_decl ""
+	  mysql_decl ""
+	  MysqlColumn
+	end
+
+	operation 159618 "Ent"
+	  cpp_inline public explicit_return_type ""
+	  nparams 0
+	  cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw}${abstract} :Eclairage::Ent(),adresseIP(\"undefined\"), adresseMac(\"undefined\"), niveauBatterie(0), versionFirmware(0.0F), luminosite(0){};
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 159746 "setAdresseIP"
+	  preserve_cpp_body_indent public explicit_return_type "void"
+	  nparams 1
+	    param in name "adresseIP" explicit_type "string"
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 159874 "setAdresseMac"
+	  preserve_cpp_body_indent public explicit_return_type "void"
+	  nparams 1
+	    param in name "adresseMac" explicit_type "string"
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 160002 "setNiveauBatterie"
+	  preserve_cpp_body_indent public explicit_return_type "void"
+	  nparams 1
+	    param in name "niveauBatterie" explicit_type "uint"
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 160130 "setVersionFirmware"
+	  preserve_cpp_body_indent public explicit_return_type "void"
+	  nparams 1
+	    param in name "version" explicit_type "float"
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 160258 "setLuminosite"
+	  preserve_cpp_body_indent public explicit_return_type "void"
+	  nparams 1
+	    param in name "luminosite" explicit_type "int"
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 160386 "getAdresseIP"
+	  preserve_cpp_body_indent public explicit_return_type "string"
+	  nparams 0
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 160514 "getAdresseMac"
+	  preserve_cpp_body_indent public explicit_return_type "string"
+	  nparams 0
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 160642 "getNiveauBatterie"
+	  preserve_cpp_body_indent public explicit_return_type "uint"
+	  nparams 0
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 160770 "getVersionFirmware"
+	  preserve_cpp_body_indent public explicit_return_type "float"
+	  nparams 0
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 160898 "getLuminosite"
+	  preserve_cpp_body_indent public explicit_return_type "int"
+	  nparams 0
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+      end
+
+      class 162050 "PersiBny"
+	visibility package 
+	cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+	java_decl ""
+	php_decl ""
+	python_2_2 python_decl ""
+	idl_decl ""
+	explicit_switch_type ""
+	mysql_decl ""
+	
+	classrelation 166274 // <generalisation>
+	  relation 166274 ---|>
+	    a public
+	      cpp default "${type}"
+	      classrelation_ref 166274 // <generalisation>
+	    b parent class_ref 161282 // PersiBny
+	end
+
+	operation 161026 "PersiBny"
+	  cpp_inline public explicit_return_type ""
+	  nparams 0
+	  cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw}${abstract} :Eclairage::PersiBny(){};
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 161154 "set"
+	  preserve_cpp_body_indent public explicit_return_type "void"
+	  nparams 1
+	    param inout name "ent" type class_ref 161922 // Ent
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 161282 "get"
+	  preserve_cpp_body_indent public explicit_return_type "void"
+	  nparams 1
+	    param inout name "ent" type class_ref 161922 // Ent
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+      end
+
+      class 162178 "Controleur"
+	visibility package 
+	cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+	java_decl ""
+	php_decl ""
+	python_2_2 python_decl ""
+	idl_decl ""
+	explicit_switch_type ""
+	mysql_decl ""
+	
+	classrelation 166402 // <generalisation>
+	  relation 166402 ---|>
+	    a public
+	      cpp default "${type}"
+	      classrelation_ref 166402 // <generalisation>
+	    b parent class_ref 161666 // Controleur
+	end
+
+	classrelation 166530 // ent (<directional composition>)
+	  relation 166530 *-->
+	    a role_name "ent" public
+	      cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	      classrelation_ref 166530 // ent (<directional composition>)
+	    b parent class_ref 161922 // Ent
+	end
+
+	classrelation 166658 // persiBny (<directional composition>)
+	  relation 166658 *-->
+	    a role_name "persiBny" public
+	      cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	      classrelation_ref 166658 // persiBny (<directional composition>)
+	    b parent class_ref 162050 // PersiBny
+	end
+
+	operation 161410 "Controleur"
+	  cpp_inline public explicit_return_type ""
+	  nparams 0
+	  cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw}${abstract} :Eclairage::Controleur(), ent(), persiBny(){};
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 161538 "recevoir"
+	  preserve_cpp_body_indent public explicit_return_type "void"
+	  nparams 0
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	  comment "Méthode permettant de recevoir une configuration d'éclairage via le réseau.
+"
+	end
+
+	operation 161666 "envoyer"
+	  preserve_cpp_body_indent public explicit_return_type "void"
+	  nparams 0
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	  comment "Méthode permettant d'envoyer une configuration d'eclairage via le réseau.
+"
+	end
+      end
+
+      classrelation 166786 // controleur (<directional composition>)
+	relation 166786 *-->
+	  a role_name "controleur" public
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 166786 // controleur (<directional composition>)
+	  b parent class_ref 162178 // Controleur
+      end
+    end
+
+    class 162306 "EclairageUnicolore"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      comment "Classe fille (de eclairage) représentant un éclairage unicolore comportant:
+- Un controleur
+- Une entité comportant:
+   - le numéro de prise associé à l'éclairage
+- Une persistance (polymorphée)
+"
+      classrelation 166914 // <generalisation>
+	relation 166914 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 166914 // <generalisation>
+	  b parent class_ref 160898 // Eclairage
+      end
+
+      class 162434 "Ent"
+	visibility package 
+	cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+	java_decl ""
+	php_decl ""
+	python_2_2 python_decl ""
+	idl_decl ""
+	explicit_switch_type ""
+	mysql_decl ""
+	
+	classrelation 167042 // <generalisation>
+	  relation 167042 ---|>
+	    a public
+	      cpp default "${type}"
+	      classrelation_ref 167042 // <generalisation>
+	    b parent class_ref 161026 // Ent
+	end
+
+	attribute 147074 "numeroPrise"
+	  private explicit_type "int"
+	  cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	  java_decl ""
+	  php_decl ""
+	  python_decl ""
+	  idl_decl ""
+	  mysql_decl ""
+	  MysqlColumn
+	end
+
+	operation 161794 "Ent"
+	  cpp_inline public explicit_return_type ""
+	  nparams 0
+	  cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw}${abstract} :Eclairage::Ent(), numeroPrise(-1){};
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 161922 "setNumeroPrise"
+	  preserve_cpp_body_indent public explicit_return_type "void"
+	  nparams 1
+	    param in name "num" explicit_type "int"
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	  comment "Méthode permettant de modifier le numero de la prise associé à l'éclairage.
+"
+	end
+
+	operation 162050 "getNumeroPrise"
+	  preserve_cpp_body_indent public explicit_return_type "int"
+	  nparams 0
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	  comment "Méthode permettant de récupérer le numéro de la prise associé à l'éclairage.
+"
+	end
+      end
+
+      class 162562 "PersiBny"
+	visibility package 
+	cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+	java_decl ""
+	php_decl ""
+	python_2_2 python_decl ""
+	idl_decl ""
+	explicit_switch_type ""
+	mysql_decl ""
+	
+	classrelation 167170 // <generalisation>
+	  relation 167170 ---|>
+	    a public
+	      cpp default "${type}"
+	      classrelation_ref 167170 // <generalisation>
+	    b parent class_ref 161282 // PersiBny
+	end
+
+	operation 162178 "PersiBny"
+	  cpp_inline public explicit_return_type ""
+	  nparams 0
+	  cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw}${abstract} :Eclairage::PersiBny(){};
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 162306 "set"
+	  preserve_cpp_body_indent public explicit_return_type "void"
+	  nparams 1
+	    param inout name "ent" type class_ref 162434 // Ent
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+
+	operation 162434 "get"
+	  preserve_cpp_body_indent public explicit_return_type "void"
+	  nparams 1
+	    param inout name "ent" type class_ref 162434 // Ent
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	end
+      end
+
+      class 162690 "Controleur"
+	visibility package 
+	cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+	java_decl ""
+	php_decl ""
+	python_2_2 python_decl ""
+	idl_decl ""
+	explicit_switch_type ""
+	mysql_decl ""
+	
+	classrelation 167298 // <generalisation>
+	  relation 167298 ---|>
+	    a public
+	      cpp default "${type}"
+	      classrelation_ref 167298 // <generalisation>
+	    b parent class_ref 161666 // Controleur
+	end
+
+	operation 162562 "Controleur"
+	  cpp_inline public explicit_return_type ""
+	  nparams 0
+	  cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw}${abstract} :Eclairage::Controleur(), ent(), persiBny(){};
+"
+	  
+	  
+	  
+	  
+	end
+
+	classrelation 167426 // ent (<directional composition>)
+	  relation 167426 *-->
+	    a role_name "ent" public
+	      cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	      classrelation_ref 167426 // ent (<directional composition>)
+	    b parent class_ref 162434 // Ent
+	end
+
+	classrelation 167554 // persiBny (<directional composition>)
+	  relation 167554 *-->
+	    a role_name "persiBny" public
+	      cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	      classrelation_ref 167554 // persiBny (<directional composition>)
+	    b parent class_ref 162562 // PersiBny
+	end
+      end
+
+      classrelation 167682 // controleur (<directional composition>)
+	relation 167682 *-->
+	  a role_name "controleur" public
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 167682 // controleur (<directional composition>)
+	  b parent class_ref 162690 // Controleur
+      end
+    end
+
+    class 162818 "FichierTextePersiBny"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 167810 // <generalisation>
+	relation 167810 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 167810 // <generalisation>
+	  b parent class_ref 162946 // typedef2
+      end
+
+      attribute 147202 "nomFichier"
+	private explicit_type "string"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 147330 "contenu"
+	private explicit_type "string"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      operation 162690 "FichierTextePersiBny"
+	cpp_inline public explicit_return_type ""
+	nparams 1
+	  param in name "nomFichier" explicit_type "char"
+	cpp_decl "    ${comment}${inline}${name}${(}const ${t0} * ${p0}${v0}${)}${volatile}${throw}${abstract} : 
+			std::fstream(nomFichier),nomFichier(nomFichier) { };
+"
+	
+	
+	
+	
+      end
+
+      operation 162818 "FichierTextePersiBny"
+	cpp_inline public explicit_return_type ""
+	nparams 1
+	  param in name "nomFichier" explicit_type "string"
+	cpp_decl "    ${comment}${inline}${name}${(}const ${t0} ${p0}${v0}${)}${volatile}${throw}${abstract} : 
+			std::fstream(nomFichier.c_str()),nomFichier(nomFichier) { };
+"
+	
+	
+	
+	
+      end
+
+      operation 162946 "FichierTextePersiBny"
+	cpp_inline public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw}${abstract} : std::fstream(){};
+"
+	
+	
+	
+	
+      end
+
+      operation 163074 "~FichierTextePersiBny"
+	cpp_inline public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw}${abstract} {this->close();};
+"
+	
+	
+	
+	
+      end
+
+      operation 163202 "operator <<"
+	stereotype "template"
+	cpp_inline public return_type class_ref 162818 // FichierTextePersiBny
+	nparams 1
+	  param in name "data" explicit_type "T"
+	cpp_decl "    ${comment}template<typename T>
+  ${friend}${static}${inline}${virtual}${type} & ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+			*(std::fstream*)this << data << ' ';
+			return *this;
+		};
+"
+	
+	
+	
+	
+	comment "void open(const char* fileName){std::fstream::open(fileName);}"
+      end
+
+      operation 163330 "operator >>"
+	stereotype "template"
+	cpp_inline public return_type class_ref 162818 // FichierTextePersiBny
+	nparams 1
+	  param inout name "data" explicit_type "T"
+	cpp_decl "    ${comment}template<typename T>
+  ${friend}${static}${inline}${virtual}${type} & ${name}${(}${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract} { 
+			*(std::fstream*)this >> data ; 
+			return *this; 
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 163458 "getNomFichier"
+	const cpp_inline public explicit_return_type "string"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract} { 
+			return this-> nomFichier;
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 163586 "getContenu"
+	cpp_inline public explicit_return_type "string"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract} {
+			std::stringstream buffer;
+			buffer << this->rdbuf();
+			return buffer.str(); 
+		};
+"
+	
+	
+	
+	
+      end
+    end
+
+    class 162946 "typedef2"
+      visibility package stereotype "typedef" explicit_base_type "std::fstream"
+      cpp_decl "${comment}typedef ${type} ${name};
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+    end
+
+    class 163458 "SqlitePersiBnyException"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 168194 // <generalisation>
+	relation 168194 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 168194 // <generalisation>
+	  b parent class_ref 163586 // typedef3
+      end
+
+      attribute 147586 "code"
+	private explicit_type "int"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 147714 "message"
+	private explicit_type "string"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      operation 164610 "SqlitePersiBnyException"
+	cpp_inline public explicit_return_type ""
+	nparams 2
+	  param in name "description" explicit_type "string"
+	  param in name "code" explicit_type "int"
+	cpp_decl "    ${comment}${inline}${name}${(}const ${t0} ${p0}${v0}, ${t1} ${p1}${v1}${)}${volatile}${throw}${abstract} : std::exception(){
+      this->message=\"SqlitePersiBnyException\\n\\t\"+description+\" : \"+sqlite3_errstr(code);
+    };
+"
+	
+	
+	
+	
+      end
+
+      operation 164738 "what"
+	const cpp_inline public explicit_return_type "char"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}const ${type} * ${name}${(}${)}${const}${volatile}${throw}${abstract} {
+      return this->message.c_str();
+    };
+"
+	
+	
+	
+	
+      end
+
+      operation 164866 "~SqlitePersiBnyException"
+	cpp_virtual cpp_inline public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw}${abstract} {};
+"
+	
+	
+	
+	
+      end
+    end
+
+    class 163586 "typedef3"
+      visibility package stereotype "typedef" explicit_base_type "std::exception"
+      cpp_decl "${comment}typedef ${type} ${name};
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+    end
+
+    class 163714 "SUP"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      class 163842 "PersiBny"
+	visibility package 
+	cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+	java_decl ""
+	php_decl ""
+	python_2_2 python_decl ""
+	idl_decl ""
+	explicit_switch_type ""
+	mysql_decl ""
+	
+	classrelation 168322 // <generalisation>
+	  relation 168322 ---|>
+	    a public
+	      cpp default "${type}"
+	      classrelation_ref 168322 // <generalisation>
+	    b parent class_ref 161410 // SqlitePersiBny
+	end
+
+	operation 164994 "PersiBny"
+	  cpp_inline public explicit_return_type ""
+	  nparams 0
+	  cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw}${abstract} : SqlitePersiBny(\"/var/eclairage/bdd.db\"){};
+"
+	  
+	  
+	  
+	  
+	  comment "Constructeur de la persistance lui indiquant le fichier de base de donnée.
+"
+	end
+      end
+
+      classrelation 168450 // persiBny (<directional composition>)
+	relation 168450 *-->
+	  a role_name "persiBny" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 168450 // persiBny (<directional composition>)
+	  b parent class_ref 163842 // PersiBny
+      end
+
+      operation 165122 "visualiserInfo"
+	preserve_cpp_body_indent private explicit_return_type "void"
+	nparams 1
+	  param in name "eclairage" type class_ref 162434 // Ent
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "Méthode permettant d'afficher les informations d'un éclairage Unicolore :
+- Nom
+- Etat (allumé/activé)
+- Consommation
+"
+      end
+
+      operation 165250 "visualiserInfo"
+	preserve_cpp_body_indent private explicit_return_type "void"
+	nparams 1
+	  param in name "eclairage" type class_ref 161922 // Ent
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "Méthode permettant d'afficher les informations d'un éclairage Multicolore :
+- Nom
+- Etat (allumé/activé)
+- Consommation
+- Luminosité
+- Batterie
+"
+      end
+
+      operation 165378 "extraireEclairages"
+	preserve_cpp_body_indent private explicit_return_type "void"
+	nparams 2
+	  param inout name "eclairagesUnicolores" explicit_type "std::vector<EclairageUnicolore>"
+	  param inout name "eclairagesMulticolores" explicit_type "std::vector<EclairageMulticolore>"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}${v0}, ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "Méthode permettant d'extraire la liste des eclairages unicolores et multicolores.
+"
+      end
+
+      operation 165506 "suivreConsoElectricite"
+	preserve_cpp_body_indent private explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "Méthode permettant de suivre la consommation électrique d'un éclairage.
+"
+      end
+
+      operation 165634 "afficherEclairages"
+	preserve_cpp_body_indent private explicit_return_type "void"
+	nparams 2
+	  param inout name "eclairagesUnicolores" explicit_type "std::vector<EclairageUnicolore>"
+	  param inout name "eclairagesMulticolores" explicit_type "std::vector<EclairageMulticolore>"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}${v0}, ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 165762 "doIt"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+    end
+
+    class 163970 "UcAjouter"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      attribute 148226 "DB"
+	const_attribute private explicit_type "char"
+	init_value "=  \"/var/eclairage/bdd.db\""
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${h_value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      operation 167426 "doIt"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 1
+	  param inout name "ent" type class_ref 162434 // Ent
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "Méthode permettant d'ajouter un éclairage unicolore dans la base de données
+"
+      end
+
+      operation 167554 "doIt"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 1
+	  param inout name "ent" type class_ref 161922 // Ent
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "Méthode permettant d'ajouter un éclairage multicolore dans la base de données.
+"
+      end
+    end
+
+    class 164098 "UcCommander"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      attribute 148354 "DB"
+	const_attribute private explicit_type "char"
+	init_value "=  \"/var/eclairage/bdd.db\""
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${h_value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      operation 167682 "doIt"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 2
+	  param inout name "eclairage" type class_ref 160898 // Eclairage
+	  param in name "etat" explicit_type "bool"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}${v0}, ${t1} ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "Méthode permettant d'allumer/éteindre un éclairage passé en paramètres.
+"
+      end
+    end
+
+    class 164226 "UcExporter"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      operation 167810 "doIt"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "Méthode permettant d'exporter toutes les configurations d'éclairages vers un fichier CSV et de le faire télécharger au propriétaire depuis son navigateur WEB.
+"
+      end
+    end
+
+    class 164354 "UcGerer"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      attribute 148482 "DB"
+	const_attribute private explicit_type "char"
+	init_value "=  \"/var/eclairage/bdd.db\""
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${h_value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      operation 167938 "doIt"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 2
+	  param inout name "eclairage" type class_ref 161026 // Ent
+	  param in name "etat" explicit_type "bool"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}${v0}, ${t1} ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "Méthode permettant d'activer/desactiver un éclairage passé en paramètre.
+"
+      end
+    end
+
+    class 164482 "UcImporter"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      operation 168066 "doIt"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 1
+	  param inout name "ucModifier" type class_ref 164610 // UcModifier
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "Méthode permettant d'importer dans la base de données les configurations d'éclairages depuis un fichier au format CSV.
+"
+      end
+
+      operation 168194 "getFile"
+	preserve_cpp_body_indent private explicit_return_type "void"
+	nparams 1
+	  param in name "cgi" explicit_type "Cgicc"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "Méthode permettant de récupérer le fichier à importer dans le système
+"
+      end
+
+      classrelation 168706 // ucAjouter (<directional composition>)
+	relation 168706 *-->
+	  a role_name "ucAjouter" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 168706 // ucAjouter (<directional composition>)
+	  b parent class_ref 163970 // UcAjouter
+      end
+
+      classrelation 168834 // ucModifier (<directional composition>)
+	relation 168834 *-->
+	  a role_name "ucModifier" public
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 168834 // ucModifier (<directional composition>)
+	  b parent class_ref 164610 // UcModifier
+      end
+    end
+
+    class 164610 "UcModifier"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      operation 168450 "doIt"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 1
+	  param in name "eclairage" type class_ref 161922 // Ent
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "Méthode permettant de modifier la configuration un éclairage multicolore.
+"
+      end
+
+      operation 168578 "doIt"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 1
+	  param in name "eclairage" type class_ref 162434 // Ent
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "Méthode permettant de modifier la configuration d'un éclairage unicolore.
+"
+      end
+
+      attribute 148866 "DB"
+	const_attribute private explicit_type "char"
+	init_value "=  \"/var/eclairage/bdd.db\""
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${h_value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      classrelation 168962 // ucAjouter (<directional composition>)
+	relation 168962 *-->
+	  a role_name "ucAjouter" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 168962 // ucAjouter (<directional composition>)
+	  b parent class_ref 163970 // UcAjouter
+      end
+    end
+
+    class 164738 "UcMettreAJour"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      attribute 148610 "firmware"
+	private explicit_type "FILE"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      operation 168322 "doIt"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 2
+	  param in name "adresseIP" explicit_type "string"
+	  param in name "port" explicit_type "uint"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "Méthode permettant de mettre à jour le micrologiciel d'un éclairage multicolore.
+"
+      end
+
+      attribute 148738 "clientTcp"
+	private explicit_type "ClientTCPComBny"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+    end
+
+    class 164866 "UcSupprimer"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      attribute 148994 "DB"
+	const_attribute private explicit_type "char"
+	init_value "=  \"/var/eclairage/bdd.db\""
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${h_value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      operation 168706 "doIt"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 1
+	  param in name "eclairage" type class_ref 161026 // Ent
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "Méthode permettant de supprimer un éclairage.
+"
+      end
+    end
+
+    class 164994 "Utility"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      operation 168834 "remplacer"
+	class_operation preserve_cpp_body_indent public explicit_return_type "string"
+	nparams 2
+	  param in name "nomFichier" explicit_type "string"
+	  param inout name "conversion" explicit_type "std::vector<std::pair<std::string, std::string> >"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}, ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 168962 "log_action"
+	class_operation preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 3
+	  param in name "id" explicit_type "uint"
+	  param in name "action" explicit_type "string"
+	  param in name "value" explicit_type "string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}, ${t1} ${p1}${v1}, ${t2} ${p2}${v2}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+    end
+
+    classdiagram 141442 "vc"
+      classdiagramsettings member_max_width 0 end
+      size E-Landscape
+    end
+  end
+
+end

@@ -6,8 +6,7 @@
 *******************************************************/
 
 
-#include "EclairageUnicolore.h"
-#include <unistd.h>
+#include <EclairageUnicolore.h>
 
 void EclairageUnicolore::Ent::setNumeroPrise(int num)
 {

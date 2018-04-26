@@ -9,8 +9,7 @@
 #define _ECLAIRAGEMULTICOLORE_H
 
 
-#include "Eclairage.h"
-#include <string>
+#include <Eclairage.h>
 
 /**
  * Classe fille (de eclairage) représentant un éclairage multicolore comportant:

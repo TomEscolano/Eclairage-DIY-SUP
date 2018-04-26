@@ -6,8 +6,7 @@
 *******************************************************/
 
 
-#include "EclairageMulticolore.h"
-#include <unistd.h> // Pour le usleep
+#include <EclairageMulticolore.h>
 
 void EclairageMulticolore::Ent::setAdresseIP(const std::string & adresseIP)
 {

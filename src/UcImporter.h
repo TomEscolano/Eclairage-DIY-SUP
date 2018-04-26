@@ -8,11 +8,11 @@
 #ifndef _UCIMPORTER_H
 #define _UCIMPORTER_H
 
-#include "UcModifier.h"
-#include "UcAjouter.h"
-#include "SqlitePersiBny.h"
-#include "Eclairage.h"
-#include "csvReader.h"
+#include <UcModifier.h>
+#include <UcAjouter.h>
+#include <SqlitePersiBny.h>
+#include <Eclairage.h>
+#include <csvReader.h>
 //https://github.com/ben-strasser/fast-cpp-csv-parser
 #include <new>
 #include <string>
@@ -20,11 +20,12 @@
 #include <stdexcept>
 #include <iostream>
 #include <fstream>
+#include <cstdio>
 #include <cstdlib>
-#include "cgicc/CgiDefs.h"
-#include "cgicc/Cgicc.h"
-#include "cgicc/HTTPHTMLHeader.h"
-#include "cgicc/HTMLClasses.h"
+#include <cgicc/CgiDefs.h>
+#include <cgicc/Cgicc.h>
+#include <cgicc/HTTPHTMLHeader.h>
+#include <cgicc/HTMLClasses.h>
 
 using namespace cgicc;
 

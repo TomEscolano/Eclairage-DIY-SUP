@@ -1,6 +1,6 @@
 format 218
 "conception" // conception
-  revision 12
+  revision 13
   modified_by 2 "tom"
   // class settings
   
@@ -234,7 +234,7 @@ ${inlines}
       
     end
 
-    usecase 128002 "gerer"
+    usecase 128002 "superviser"
       
       usecasediagramsettings end
       
@@ -278,7 +278,7 @@ ${inlines}
       simplerelation 128130
 	-_->
 	  stereotype "extend"
-	  on usecase_ref 128002 // gerer
+	  on usecase_ref 128002 // superviser
       end
     end
 
@@ -418,6 +418,78 @@ ${inlines}
 	    cpp default "${type}"
 	    classrelation_ref 128002 // <generalisation>
 	  b parent class_ref 128258 // SCE
+      end
+    end
+
+    usecase 135042 "ajouter"
+      
+      usecasediagramsettings end
+      
+      sequencediagramsettings end
+      
+      collaborationdiagramsettings end
+      
+      classdiagramsettings member_max_width 0 end
+      
+      objectdiagramsettings end
+      
+      statediagramsettings
+       end
+      
+      activitydiagramsettings
+       end
+      simplerelation 134658
+	-_->
+	  stereotype "extend"
+	  on usecase_ref 128002 // superviser
+      end
+    end
+
+    usecase 135170 "supprimer"
+      
+      usecasediagramsettings end
+      
+      sequencediagramsettings end
+      
+      collaborationdiagramsettings end
+      
+      classdiagramsettings member_max_width 0 end
+      
+      objectdiagramsettings end
+      
+      statediagramsettings
+       end
+      
+      activitydiagramsettings
+       end
+      simplerelation 134914
+	-_->
+	  stereotype "extend"
+	  on usecase_ref 128002 // superviser
+      end
+    end
+
+    usecase 135298 "modifier"
+      
+      usecasediagramsettings end
+      
+      sequencediagramsettings end
+      
+      collaborationdiagramsettings end
+      
+      classdiagramsettings member_max_width 0 end
+      
+      objectdiagramsettings end
+      
+      statediagramsettings
+       end
+      
+      activitydiagramsettings
+       end
+      simplerelation 134786
+	-_->
+	  stereotype "extend"
+	  on usecase_ref 128002 // superviser
       end
     end
   end
@@ -624,6 +696,7 @@ ${inlines}
       mysql_decl ""
       
     end
+
   end
 
   deploymentview 141186 "vc"

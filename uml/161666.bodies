@@ -1,0 +1,5 @@
+class Controleur
+!!!158722.cpp!!!	activer(in etat : bool) : void
+	this->ent.setActive(etat);
+!!!158850.cpp!!!	allumer(in etat : bool) : void
+	this->ent.setAllume(etat);

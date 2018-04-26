@@ -1,0 +1,21 @@
+class Ent
+!!!159746.cpp!!!	setAdresseIP(in adresseIP : string) : void
+	this->adresseIP = adresseIP;
+!!!159874.cpp!!!	setAdresseMac(in adresseMac : string) : void
+	this->adresseMac = adresseMac;
+!!!160002.cpp!!!	setNiveauBatterie(in niveauBatterie : uint) : void
+	this->niveauBatterie = niveauBatterie;
+!!!160130.cpp!!!	setVersionFirmware(in version : float) : void
+	this->versionFirmware = version;
+!!!160258.cpp!!!	setLuminosite(in luminosite : int) : void
+	this->luminosite = luminosite;
+!!!160386.cpp!!!	getAdresseIP() : string
+	return this->adresseIP;
+!!!160514.cpp!!!	getAdresseMac() : string
+	return this->adresseMac;
+!!!160642.cpp!!!	getNiveauBatterie() : uint
+	return this->niveauBatterie;
+!!!160770.cpp!!!	getVersionFirmware() : float
+	return this->versionFirmware;
+!!!160898.cpp!!!	getLuminosite() : int
+	return this->luminosite;

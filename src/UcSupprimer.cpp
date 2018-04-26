@@ -6,7 +6,7 @@
 *******************************************************/
 
 
-#include "UcSupprimer.h"
+#include <UcSupprimer.h>
 
 void UcSupprimer::doIt(Eclairage::Ent eclairage)
 {

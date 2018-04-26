@@ -15,8 +15,6 @@
 #include <jsoncpp/json/writer.h>
 #include <jsoncpp/json/value.h>
 
-#define DB "/var/eclairage/bdd.db"
-
 std::string Utility::remplacer(std::string nomFichier, std::vector<std::pair<std::string, std::string> >& conversion)
 {
 		FichierTextePersiBny fichier(nomFichier);

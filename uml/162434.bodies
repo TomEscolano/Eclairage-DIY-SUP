@@ -1,0 +1,5 @@
+class Ent
+!!!161922.cpp!!!	setNumeroPrise(in num : int) : void
+	this->numeroPrise = num;
+!!!162050.cpp!!!	getNumeroPrise() : int
+	return this->numeroPrise;
