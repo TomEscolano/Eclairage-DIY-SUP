@@ -11,6 +11,12 @@
 
 #include <SqlitePersiBny.h>
 #include <Eclairage.h>
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cgicc/Cgicc.h>
+#include <cgicc/HTTPHTMLHeader.h>
+#include <cgicc/HTMLClasses.h>
 
 class UcSupprimer {
   private:

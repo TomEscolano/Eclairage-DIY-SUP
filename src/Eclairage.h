@@ -12,7 +12,9 @@
 #include <string>
 #include <unistd.h>
 #include <Couleur.h>
+#include <iostream>
 #include <SqlitePersiBny.h>
+#include <FichierTextePersiBny.h>
 
 /**
  * Classe mère représentant un éclairage générique comportant:
@@ -142,6 +144,8 @@ class Eclairage {
 
 		IHMJardin ihmJardin;
 
+		IHMFormulaire ihmFormulaire;
+
 		/**
 		 * Constructeur du controleur de l'eclairage. Instancie l'entité et la persistance.
 		 */
@@ -176,10 +180,6 @@ class Eclairage {
 		 * Méthode permettant de récupérer l'entité de l'éclairage.
 		 */
 		void get(Eclairage::Ent & ent);
-
-
-	  private:
-		IHMFormulaire ihmFormulaire;
 
 	};
 	

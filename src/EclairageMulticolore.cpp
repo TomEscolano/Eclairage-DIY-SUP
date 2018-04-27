@@ -2,11 +2,21 @@
 * \file EclairageMulticolore.cpp
 * \author Tom ESCOLANO
 
-\brief Projet : Eclairage DIY - SUP
+* \brief Projet : Eclairage DIY - SUP
 *******************************************************/
 
 
 #include <EclairageMulticolore.h>
+
+void EclairageMulticolore::IHMFormulaire::set(EclairageMulticolore::Ent & ent)
+{
+	this->Eclairage::IHMFormulaire::set(ent);
+	FichierTextePersiBny fichier("html/formulaireMulticolore.html");
+	std::cout << fichier.getContenu();
+}
+
+void EclairageMulticolore::IHMFormulaire::get(EclairageMulticolore::Ent & ent) {
+}
 
 void EclairageMulticolore::Ent::setAdresseIP(const std::string & adresseIP)
 {
@@ -100,7 +110,8 @@ int main()
 	EclairageMulticolore eclairage;
 	eclairage.controleur.ent.setID(2);
 	eclairage.controleur.ent.setAdresseMac("FF:FF:FF:FF");
-	eclairage.controleur.persiBny.set(eclairage.controleur.ent);
+	eclairage.controleur.ihmFormulaire.set(eclairage.controleur.ent);
+	//eclairage.controleur.persiBny.set(eclairage.controleur.ent);
 	return 0;
 }
 #endif

@@ -11,7 +11,12 @@
 #include <SqlitePersiBny.h>
 #include <EclairageUnicolore.h>
 #include <EclairageMulticolore.h>
-
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cgicc/Cgicc.h>
+#include <cgicc/HTTPHTMLHeader.h>
+#include <cgicc/HTMLClasses.h>
 
 
 class UcAjouter {

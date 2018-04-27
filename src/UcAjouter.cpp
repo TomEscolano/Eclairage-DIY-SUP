@@ -24,17 +24,18 @@ void UcAjouter::doIt(EclairageMulticolore::Ent & ent)
 int main()
 {
 	UcAjouter ucAjouter;
+    Cgicc cgi;
 
-	EclairageMulticolore tmp;
-	tmp.controleur.ent.setID(9);
-	tmp.controleur.ent.setCouleur(Rouge);
-	tmp.controleur.ent.setConsommation(66);
-	tmp.controleur.ent.setActive(true);
-	tmp.controleur.ent.setAllume(false);
-	tmp.controleur.ent.setVersionFirmware(1.2);
-	tmp.controleur.ent.setAdresseIP("127.0.0.1");
-	tmp.controleur.ent.setAdresseMac("FF:FF:FF:FF");
-	tmp.controleur.ent.setLuminosite(50);
+    // Send HTTP header
+    cout << HTTPHTMLHeader() << endl;
+
+    // Set up the HTML document
+    cout << html() << head(title("Ajouter un eclairage")) << endl;
+    cout << body() << endl;
+
+    // Close the HTML document
+    cout << body() << html();
+
 
 	ucAjouter.doIt(tmp.controleur.ent);
 

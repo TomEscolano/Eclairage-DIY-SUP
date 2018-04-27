@@ -2,13 +2,16 @@
 * \file Eclairage.cpp
 * \author Tom ESCOLANO
 
-\brief Projet : Eclairage DIY - SUP
+* \brief Projet : Eclairage DIY - SUP
 *******************************************************/
 
 
 #include <Eclairage.h>
 
-void Eclairage::IHMFormulaire::set(const Eclairage::Ent & ent){
+void Eclairage::IHMFormulaire::set(const Eclairage::Ent & ent)
+{
+	FichierTextePersiBny fichier("html/formulaire.html");
+	std::cout << fichier.getContenu();
 }
 
 void Eclairage::IHMFormulaire::get(Eclairage::Ent & ent) {
@@ -33,7 +36,21 @@ void Eclairage::Controleur::getIHMFormulaire() {
 void Eclairage::Controleur::set(const Eclairage::Ent & ent) {
 }
 
-void Eclairage::Controleur::get(Eclairage::Ent & ent) {
+void Eclairage::Controleur::get(Eclairage::Ent & ent) 
+{
+	SqlitePersiBny::Resultat resultat;
+	this->persiBny.executerSql("SELECT * FROM eclairages WHERE id = " + std::to_string(ent.getID()) + ";", resultat);
+
+	ent.setAllume(resultat.at(0).at(1).second == "1" ? true : false);
+	ent.setActive(resultat.at(0).at(2).second == "1" ? true : false);
+	ent.setNom(resultat.at(0).at(3).second);
+	ent.setConsommation((unsigned int)atoi(resultat.at(0).at(4).second.c_str()));
+	if(resultat.at(0).at(5).second == "0")
+		ent.setCouleur(Bleu);
+	if(resultat.at(0).at(5).second == "1")
+		ent.setCouleur(Rouge);
+	if(resultat.at(0).at(5).second == "2")
+		ent.setCouleur(Blanc);
 }
 
 void Eclairage::Ent::setID(const unsigned int & id)

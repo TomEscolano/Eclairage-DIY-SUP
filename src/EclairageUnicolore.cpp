@@ -2,11 +2,21 @@
 * \file EclairageUnicolore.cpp
 * \author Tom ESCOLANO
 
-\brief Projet : Eclairage DIY - SUP
+* \brief Projet : Eclairage DIY - SUP
 *******************************************************/
 
 
 #include <EclairageUnicolore.h>
+
+void EclairageUnicolore::IHMFormulaire::set(EclairageUnicolore::Ent & ent)
+{
+	this->Eclairage::IHMFormulaire::set(ent);
+	FichierTextePersiBny fichier("html/formulaireUnicolore.html");
+	std::cout << fichier.getContenu();
+}
+
+void EclairageUnicolore::IHMFormulaire::get(EclairageUnicolore::Ent & ent) {
+}
 
 void EclairageUnicolore::Ent::setNumeroPrise(int num)
 {
@@ -51,7 +61,8 @@ int main()
 	eclairage.controleur.ent.setNumeroPrise(1);
 	eclairage.controleur.ent.setCouleur(Rouge);
 	eclairage.controleur.ent.setID(9);
-	eclairage.controleur.persiBny.set(eclairage.controleur.ent);
+	//eclairage.controleur.persiBny.set(eclairage.controleur.ent);
+	eclairage.controleur.ihmFormulaire.set(eclairage.controleur.ent);
 
 	return 0;
 }

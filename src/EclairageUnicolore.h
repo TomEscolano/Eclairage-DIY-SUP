@@ -19,47 +19,77 @@
  * - Une persistance (polymorphée)
  */
 class EclairageUnicolore : public Eclairage {
-  public:
-    class Ent : public Eclairage::Ent {
-      private:
-        int numeroPrise;
+	public:
+		class Ent : public Eclairage::Ent {
+			private:
+				int numeroPrise;
 
-      public:
-        Ent():Eclairage::Ent(), numeroPrise(-1){};
-        /**
-         * Méthode permettant de modifier le numero de la prise associé à l'éclairage.
-         */
-        void setNumeroPrise(int num);
+			public:
+				Ent():Eclairage::Ent(), numeroPrise(-1){};
+				/**
+				 * Méthode permettant de modifier le numero de la prise associé à l'éclairage.
+				 */
+				void setNumeroPrise(int num);
 
-        /**
-         * Méthode permettant de récupérer le numéro de la prise associé à l'éclairage.
-         */
-        int getNumeroPrise();
+				/**
+				 * Méthode permettant de récupérer le numéro de la prise associé à l'éclairage.
+				 */
+				int getNumeroPrise();
 
-    };
-    
-    class PersiBny : public Eclairage::PersiBny {
-    public:
-      PersiBny():Eclairage::PersiBny(){};
+		};
+		
+		/**
+		 * Classe de persistance de l'éclairage dérivant de la classe mère Eclairage::PersiBny. Permet de set et de get la configuration de l'éclairage dans la base de données.
+		 */
+		class PersiBny : public Eclairage::PersiBny {
+			public:
+				PersiBny():Eclairage::PersiBny(){};
 
-      void set(Ent & ent);
+				/**
+				 * Méthode permettant de set la configuration de l'éclairage dans la base de données.
+				 */
+				void set(Ent & ent);
 
-      void get(Ent & ent);
+				/**
+				 * Méthode permettant de get la configuration de l'éclairage dans la base de données.
+				 */
+				void get(Ent & ent);
 
-    };
+		};
 
-    class Controleur : public Eclairage::Controleur {
-      public:
-        Controleur():Eclairage::Controleur(), ent(), persiBny(){};
+		/**
+		 * IHM présentant au propriétaire un forulaire de création d'éclairage unicolore.
+		 */
+		class IHMFormulaire : public Eclairage::IHMFormulaire {
+			 public:
+			 /**
+				* Méthde permettant d'afficher le formulaire de création d'éclairage unicolore
+				*/
+			 void set(EclairageUnicolore::Ent & ent);
 
-        Ent ent;
+			 /**
+				* Méthode permettant de récupérer les données entrées par l'utilisateur lors de la création d'éclairage unicolore.
+				*/
+			 void get(EclairageUnicolore::Ent & ent);
 
-        PersiBny persiBny;
+		 };
 
+		/**
+		 * Classe controleur contenant une entité, une persistance et une IHMFormulaire de création.
+		 */
+		class Controleur : public Eclairage::Controleur {
+			public:
+				Controleur():Eclairage::Controleur(), ent(), persiBny(){};
 
-    };
+				Ent ent;
 
-    Controleur controleur;
-    
+				PersiBny persiBny;
+
+				IHMFormulaire ihmFormulaire;
+
+		};
+
+		Controleur controleur;
+		
 };
 #endif
