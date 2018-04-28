@@ -48,14 +48,19 @@ class EclairageMulticolore : public Eclairage {
 
 				int luminosite;
 
+				const char * DB = "/var/eclairage/bdd.db";
+
+				SqlitePersiBny::Resultat resultat;
+
+
 			public:
 				Ent():Eclairage::Ent(),adresseIP("undefined"), adresseMac("undefined"), niveauBatterie(0), versionFirmware(0.0F), luminosite(0){};
 
-				void setAdresseIP(const std::string & adresseIP);
+				void setAdresseIP(std::string adresseIP);
 
-				void setAdresseMac(const std::string & adresseMac);
+				void setAdresseMac(std::string adresseMac);
 
-				void setNiveauBatterie(const unsigned int & niveauBatterie);
+				void setNiveauBatterie(unsigned int niveauBatterie);
 
 				void setVersionFirmware(float version);
 
@@ -96,17 +101,25 @@ class EclairageMulticolore : public Eclairage {
 		 * IHM présentant au propriétaire un forulaire de création d'éclairage multicolore.
 		 */
 		class IHMFormulaire : public Eclairage::IHMFormulaire {
-			 public:
-			 /**
-				* Méthde permettant d'afficher le formulaire de création d'éclairage multicolore
-				*/
-			 void set(EclairageMulticolore::Ent & ent);
+			public:
+			/**
+			 * Méthde permettant d'afficher le formulaire de création d'éclairage multicolore
+			 */
+			void set(EclairageMulticolore::Ent & ent);
 
-			 /**
-				* Méthode permettant de récupérer les données entrées par l'utilisateur lors de la création d'éclairage multicolore.
-				*/
-			 void get(EclairageMulticolore::Ent & ent);
+			/**
+			 * Méthode permettant de récupérer les données entrées par l'utilisateur lors de la création d'éclairage multicolore.
+			 */
+			void get(EclairageMulticolore::Ent & ent);
 
+		 };
+
+		 class IHMJardin : public Eclairage::IHMJardin {
+		 	public:
+				/**
+				 * Méthode permettant de mettre à jour l'icone représentant l'éclairage dans l'IHM de supervision.
+				 */
+				void set(EclairageMulticolore::Ent & ent);
 		 };
 
 		/**
@@ -120,6 +133,8 @@ class EclairageMulticolore : public Eclairage {
 
 				IHMFormulaire ihmFormulaire;
 
+				IHMJardin ihmJardin;
+
 				Controleur():Eclairage::Controleur(), ent(), persiBny(){};
 
 				/**
@@ -131,6 +146,11 @@ class EclairageMulticolore : public Eclairage {
 				 * Méthode permettant d'envoyer une configuration d'eclairage via le réseau.
 				 */
 				void envoyer();
+
+				/**
+				 * Méthode permettant d'afficher l'IHM Jardin dans le superviseur.
+				 */
+				void getIHMJardin();
 
 		};
 

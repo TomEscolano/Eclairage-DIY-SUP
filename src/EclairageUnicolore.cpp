@@ -18,13 +18,42 @@ void EclairageUnicolore::IHMFormulaire::set(EclairageUnicolore::Ent & ent)
 void EclairageUnicolore::IHMFormulaire::get(EclairageUnicolore::Ent & ent) {
 }
 
+void EclairageUnicolore::IHMJardin::set(EclairageUnicolore::Ent & ent)
+{
+	std::cout << "<img src='/eclairage.svg' onclick='toggleMenu(\"menu-box" + std::to_string(ent.getID()) + "\")'/><ul id='menu-box" + std::to_string(ent.getID()) + "' style='display: none'>";
+
+	if(ent.getActive())
+		std::cout << "<li><a href='UcGerer.cgi?id=" + std::to_string(ent.getID()) + "&action=desactiver'>Desactiver</a></li>" << std::endl;
+	else
+		std::cout << "<li><a href='UcGerer.cgi?id=" + std::to_string(ent.getID()) + "&action=activer'>Activer</a></li>" << std::endl;
+
+	if(ent.getAllume())
+		std::cout << "<li><a href='UcCommander.cgi?id=" + std::to_string(ent.getID()) + "&action=eteindre'>Eteindre</a></li>" << std::endl;
+	else
+		std::cout << "<li><a href='UcCommander.cgi?id=" + std::to_string(ent.getID()) + "&action=allumer'>Allumer</a></li>" << std::endl;
+	
+	std::cout << "<li><a href='UcModifier.cgi?id=" + std::to_string(ent.getID()) + "&action=parametrer'>Parametrer</a></li>" << std::endl;
+	std::cout << "</ul>" << std::endl;
+}
+
+void EclairageUnicolore::Controleur::getIHMJardin()
+{
+	this->ihmJardin.set(this->ent);
+}
+
 void EclairageUnicolore::Ent::setNumeroPrise(int num)
 {
 	this->numeroPrise = num;
+	SqlitePersiBny persi(this->DB);
+	persi.executerSql("UPDATE unicolores SET numeroPrise = " + std::to_string(numeroPrise) + " WHERE id = " + std::to_string(this->getID()) + ";");
 }
 
 int EclairageUnicolore::Ent::getNumeroPrise()
 {
+	SqlitePersiBny persi(this->DB);
+	SqlitePersiBny::Resultat resultat;
+	persi.executerSql("SELECT numeroPrise FROM unicolores WHERE id = " + std::to_string(this->getID()) + ";", resultat);
+	this->numeroPrise = atoi(resultat.at(0).at(0).second.c_str());
 	return this->numeroPrise;
 }
 

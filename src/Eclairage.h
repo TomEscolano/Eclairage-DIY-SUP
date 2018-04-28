@@ -48,6 +48,7 @@ class Eclairage {
 
 		int y;
 
+		const char * DB = "/var/eclairage/bdd.db";
 
 	  public:
 

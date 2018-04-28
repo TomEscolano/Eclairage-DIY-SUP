@@ -6,7 +6,7 @@
 *******************************************************/
 
 
-#include "SUP.h"
+#include <SUP.h>
 
 void SUP::visualiserInfo(EclairageUnicolore::Ent eclairage)
 {
@@ -64,6 +64,7 @@ void SUP::extraireEclairages(std::vector<EclairageUnicolore> & eclairagesUnicolo
 {
 	// Unicolore
 	SqlitePersiBny::Resultat resultat, subRes;
+
 	this->persiBny.executerSql("SELECT * FROM unicolores;", resultat);
 
 	for(int i = 0; i < resultat.size(); i++)
@@ -72,23 +73,26 @@ void SUP::extraireEclairages(std::vector<EclairageUnicolore> & eclairagesUnicolo
 
 		//Propriétés spécifiques
 		tmp.controleur.ent.setID(atoi(resultat.at(i).at(0).second.c_str()));
-		if(resultat.at(i).at(1).second == "Bleu")
+
+		if(resultat.at(i).at(1).second == "0")
 			tmp.controleur.ent.setCouleur(Bleu);
-		if(resultat.at(i).at(1).second == "Rouge")
+		if(resultat.at(i).at(1).second == "1")
 			tmp.controleur.ent.setCouleur(Rouge);
-		if(resultat.at(i).at(1).second == "Blanc")
+		if(resultat.at(i).at(1).second == "2")
 			tmp.controleur.ent.setCouleur(Blanc);
 
 		//Propriétés génériques
 		this->persiBny.executerSql("SELECT * FROM eclairages WHERE id = " + std::to_string(tmp.controleur.ent.getID()) + ";", subRes);
-		tmp.controleur.ent.setAllume(subRes.at(i).at(1).second.c_str());
-		tmp.controleur.ent.setActive(subRes.at(i).at(2).second.c_str());
-		tmp.controleur.ent.setNom(subRes.at(i).at(3).second.c_str());
-		tmp.controleur.ent.setConsommation(atoi(subRes.at(i).at(4).second.c_str()));
+		tmp.controleur.ent.setAllume(subRes.at(0).at(1).second == "1" ? true : false);
+		tmp.controleur.ent.setActive(subRes.at(0).at(2).second == "1" ? true : false);
+		tmp.controleur.ent.setNom(subRes.at(0).at(3).second.c_str());
+		tmp.controleur.ent.setConsommation(atoi(subRes.at(0).at(4).second.c_str()));
 
 		eclairagesUnicolores.push_back(tmp);
+		subRes.clear();
 	}
 
+	resultat.clear();
 	// Multicolore
 	this->persiBny.executerSql("SELECT * FROM multicolores;", resultat);
 
@@ -97,27 +101,30 @@ void SUP::extraireEclairages(std::vector<EclairageUnicolore> & eclairagesUnicolo
 		EclairageMulticolore tmp;
 		
 		//Propriétés spécifiques
+
 		tmp.controleur.ent.setID(atoi(resultat.at(i).at(0).second.c_str()));
-		tmp.controleur.ent.setAdresseMac(resultat.at(i).at(1).second.c_str());
-		tmp.controleur.ent.setAdresseIP(resultat.at(i).at(2).second.c_str());
+		tmp.controleur.ent.setAdresseMac(resultat.at(i).at(1).second);
+		tmp.controleur.ent.setAdresseIP(resultat.at(i).at(2).second);
 		tmp.controleur.ent.setVersionFirmware(atof(resultat.at(i).at(3).second.c_str()));
-		if(resultat.at(i).at(1).second == "Bleu")
+		if(resultat.at(i).at(4).second == "0")
 			tmp.controleur.ent.setCouleur(Bleu);
-		if(resultat.at(i).at(1).second == "Rouge")
+		if(resultat.at(i).at(4).second == "1")
 			tmp.controleur.ent.setCouleur(Rouge);
-		if(resultat.at(i).at(1).second == "Blanc")
+		if(resultat.at(i).at(4).second == "2")
 			tmp.controleur.ent.setCouleur(Blanc);
 		tmp.controleur.ent.setNiveauBatterie(atoi(resultat.at(i).at(5).second.c_str()));
 
 		//Propriétés génériques
 		this->persiBny.executerSql("SELECT * FROM eclairages WHERE id = " + std::to_string(tmp.controleur.ent.getID()) + ";", subRes);
-		tmp.controleur.ent.setAllume(subRes.at(i).at(1).second.c_str());
-		tmp.controleur.ent.setActive(subRes.at(i).at(2).second.c_str());
-		tmp.controleur.ent.setNom(subRes.at(i).at(3).second.c_str());
-		tmp.controleur.ent.setConsommation(atoi(subRes.at(i).at(4).second.c_str()));
+		tmp.controleur.ent.setAllume(subRes.at(0).at(1).second == "1" ? true : false);
+		tmp.controleur.ent.setActive(subRes.at(0).at(2).second == "1" ? true : false);
+		tmp.controleur.ent.setNom(subRes.at(0).at(3).second);
+		tmp.controleur.ent.setConsommation(atoi(subRes.at(0).at(4).second.c_str()));
 
 		eclairagesMulticolores.push_back(tmp);
+		subRes.clear();
 	}
+	resultat.clear();
 
 }
 
@@ -128,38 +135,12 @@ void SUP::afficherEclairages(std::vector<EclairageUnicolore> & eclairagesUnicolo
 {
 	for(int i = 0; i < eclairagesMulticolores.size(); i++)
 	{
-		std::cout << "<img src='/eclairage.svg' onclick='toggleMenu(\"menu-box" + std::to_string(eclairagesMulticolores.at(i).controleur.ent.getID()) + "\")'/><ul id='menu-box" + std::to_string(eclairagesMulticolores.at(i).controleur.ent.getID()) + "' style='display: none'>";
-
-		if(eclairagesMulticolores.at(i).controleur.ent.getActive())
-			std::cout << "<li><a href='UcGerer.cgi?id=" + std::to_string(eclairagesMulticolores.at(i).controleur.ent.getID()) + "&action=desactiver'>Desactiver</a></li>" << std::endl;
-		else
-			std::cout << "<li><a href='UcGerer.cgi?id=" + std::to_string(eclairagesMulticolores.at(i).controleur.ent.getID()) + "&action=activer'>Activer</a></li>" << std::endl;
-
-		if(eclairagesMulticolores.at(i).controleur.ent.getAllume())
-			std::cout << "<li><a href='UcGerer.cgi?id=" + std::to_string(eclairagesMulticolores.at(i).controleur.ent.getID()) + "&action=eteindre'>Eteindre</a></li>" << std::endl;
-		else
-			std::cout << "<li><a href='UcGerer.cgi?id=" + std::to_string(eclairagesMulticolores.at(i).controleur.ent.getID()) + "&action=allumer'>Allumer</a></li>" << std::endl;
-		
-		std::cout << "<li><a href='UcGerer.cgi?id=" + std::to_string(eclairagesMulticolores.at(i).controleur.ent.getID()) + "&action=parametrer'>Parametrer</a></li>" << std::endl;
-		std::cout << "</ul>" << std::endl;
+		eclairagesMulticolores.at(i).controleur.getIHMJardin();
 	}
 
 	for(int i = 0; i < eclairagesUnicolores.size(); i++)
 	{
-		std::cout << "<img src='eclairagesUnicolores.png' onclick='toggleMenu(\"menu-box " + std::to_string(eclairagesUnicolores.at(i).controleur.ent.getID()) + "\")'/><ul id='menu-box' style='display: none'>";
-
-		if(eclairagesUnicolores.at(i).controleur.ent.getActive())
-			std::cout << "<li><a href='UcGerer.cgi?id=" + std::to_string(eclairagesUnicolores.at(i).controleur.ent.getID()) + "&action=desactiver'>Desactiver</a></li>" << std::endl;
-		else
-			std::cout << "<li><a href='UcGerer.cgi?id=" + std::to_string(eclairagesUnicolores.at(i).controleur.ent.getID()) + "&action=activer'>Activer</a></li>" << std::endl;
-
-		if(eclairagesUnicolores.at(i).controleur.ent.getAllume())
-			std::cout << "<li><a href='UcGerer.cgi?id=" + std::to_string(eclairagesUnicolores.at(i).controleur.ent.getID()) + "&action=eteindre'>Eteindre</a></li>" << std::endl;
-		else
-			std::cout << "<li><a href='UcGerer.cgi?id=" + std::to_string(eclairagesUnicolores.at(i).controleur.ent.getID()) + "&action=allumer'>Allumer</a></li>" << std::endl;
-		
-		std::cout << "<li><a href='UcGerer.cgi?id=" + std::to_string(eclairagesUnicolores.at(i).controleur.ent.getID()) + "&action=parametrer'>Parametrer</a></li>" << std::endl;
-		std::cout << "</ul>" << std::endl;
+		eclairagesUnicolores.at(i).controleur.getIHMJardin();
 	}
 }
 
@@ -169,31 +150,29 @@ void SUP::doIt()
 
 	std::cout << cgicc::HTTPHTMLHeader() << std::endl;
 
-	try
-	{
+	//Recuperation du template de la page
+	FichierTextePersiBny fichier("html/index.html");
 
-		//Recuperation du template de la page
-		FichierTextePersiBny fichier("html/index.html");
+	//Debut de la page HTML
+	std::cout << fichier.getContenu();
 
-		//Debut de la page HTML
-		std::cout << fichier.getContenu();
+	//Extractions des eclairages/infos
+	std::pair<std::string, std::string> infos;
+	std::vector<EclairageMulticolore> eclairagesMulticolores;
+	std::vector<EclairageUnicolore> eclairagesUnicolores;
+	this->extraireEclairages(eclairagesUnicolores, eclairagesMulticolores);
 
-		//Extractions des eclairages/infos
-		std::pair<std::string, std::string> infos;
-		
-		//this->ucGerer.afficherEclairages(this->ucGerer.extraireEclairagesMulticolores(), this->ucGerer.extraireEclairagesUnicolores());
+	//Affichage des éclairages
+	this->afficherEclairages(eclairagesUnicolores, eclairagesMulticolores);
 
-		//Remplacement des données dans le fichier
-		//Utility::Remplacer(html, infos);
+	//Remplacement et affichage des données dans le fichier
+	//Utility::Remplacer(html, infos);
 
-		//Fin de la page HTML
-		std::cout << "</body></html>";
+	//Fin de la page HTML
+	std::cout << "</body></html>";
 
 
-	}catch(std::exception &e)
-	{
-		std::cout << "Erreur dans la lecture de l'index";
-	}
+
 }
 
 

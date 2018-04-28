@@ -26,13 +26,13 @@ SqlitePersiBny::~SqlitePersiBny() throw (SqlitePersiBnyException) {
 int SqlitePersiBny::executerSql(std::string requete,
 		SqlitePersiBny::Resultat& resultat) throw (SqlitePersiBnyException) {
 	sqlite3_stmt *stmt;
-	//std::cout << requete << std::endl;
-	sqlite3_busy_timeout(this->db, 1000); // Attente de 1sec si la bdd est occupée
+	//std::cout << requete << "<br>" << std::endl;
+	sqlite3_busy_timeout(this->db, 2000); // Attente de 2sec si la bdd est occupée
 	int rc;
 	do
 	{
 		rc = sqlite3_prepare_v2(this->db, requete.c_str(), -1, &stmt, NULL); // Reessaye tant ue la BDD est occupée
-		usleep(100);
+		usleep(500);
 	}while(rc == SQLITE_BUSY);
 
 	if (rc != SQLITE_OK) {
@@ -68,16 +68,16 @@ int SqlitePersiBny::executerSql(std::string requete,
 void SqlitePersiBny::executerSql(std::string requete)
 		throw (SqlitePersiBnyException) {
 
-	//std::cout << requete << std::endl;
+	//std::cout << requete << "<br>" << std::endl;
 
 	char *zErrMsg = 0;
 
-	sqlite3_busy_timeout(this->db, 1000); // Attente de 1sec si la bdd est occupée
+	sqlite3_busy_timeout(this->db, 2000); // Attente de 2sec si la bdd est occupée
 	int rc;
 	do
 	{
 		rc = sqlite3_exec(db, requete.c_str(), NULL, NULL, &zErrMsg); // Reessaye tant que la BDD est occupée
-		usleep(100);
+		usleep(500);
 	}while(rc == SQLITE_BUSY );
 
 	if (rc != SQLITE_OK) {

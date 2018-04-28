@@ -24,6 +24,8 @@ class EclairageUnicolore : public Eclairage {
 			private:
 				int numeroPrise;
 
+				const char * DB = "/var/eclairage/bdd.db";
+
 			public:
 				Ent():Eclairage::Ent(), numeroPrise(-1){};
 				/**
@@ -63,15 +65,23 @@ class EclairageUnicolore : public Eclairage {
 		class IHMFormulaire : public Eclairage::IHMFormulaire {
 			 public:
 			 /**
-				* Méthde permettant d'afficher le formulaire de création d'éclairage unicolore
-				*/
+			  * Méthde permettant d'afficher le formulaire de création d'éclairage unicolore
+			  */
 			 void set(EclairageUnicolore::Ent & ent);
 
 			 /**
-				* Méthode permettant de récupérer les données entrées par l'utilisateur lors de la création d'éclairage unicolore.
-				*/
+			  * Méthode permettant de récupérer les données entrées par l'utilisateur lors de la création d'éclairage unicolore.
+			  */
 			 void get(EclairageUnicolore::Ent & ent);
 
+		 };
+		 
+		 class IHMJardin : public Eclairage::IHMJardin {
+		 	public:
+				/**
+				 * Méthode permettant de mettre à jour l'icone représentant l'éclairage dans l'IHM de supervision.
+				 */
+				void set(EclairageUnicolore::Ent & ent);
 		 };
 
 		/**
@@ -86,6 +96,10 @@ class EclairageUnicolore : public Eclairage {
 				PersiBny persiBny;
 
 				IHMFormulaire ihmFormulaire;
+
+				IHMJardin ihmJardin;
+
+				void getIHMJardin();
 
 		};
 
