@@ -10,11 +10,16 @@
 
 
 #include <string>
+#include <vector>
+#include <iostream>
 #include <unistd.h>
 #include <Couleur.h>
-#include <iostream>
+#include <Utility.h>
+#include <cgicc/Cgicc.h>
 #include <SqlitePersiBny.h>
+#include <cgicc/HTMLClasses.h>
 #include <FichierTextePersiBny.h>
+#include <cgicc/HTTPHTMLHeader.h>
 
 /**
  * Classe mère représentant un éclairage générique comportant:
@@ -96,7 +101,7 @@ class Eclairage {
 		/**
 		 * Méthde permettant d'afficher le formulaire de création d'éclairage
 		 */
-		void set(const Eclairage::Ent & ent);
+		void set(Eclairage::Ent & ent, std::string type);
 
 		/**
 		 * Méthode permettant de récupérer les données entrées par l'utilisateur lors de la création d'éclairage.

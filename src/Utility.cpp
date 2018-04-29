@@ -10,10 +10,7 @@
 #include <FichierTextePersiBny.h>
 #include <SqlitePersiBny.h>
 #include <Utility.h>
-#include <jsoncpp/json/json.h>
-#include <jsoncpp/json/reader.h>
-#include <jsoncpp/json/writer.h>
-#include <jsoncpp/json/value.h>
+#include <iostream>
 
 std::string Utility::remplacer(std::string nomFichier, std::vector<std::pair<std::string, std::string> >& conversion)
 {

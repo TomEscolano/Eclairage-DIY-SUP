@@ -10,7 +10,7 @@
 
 void EclairageMulticolore::IHMFormulaire::set(EclairageMulticolore::Ent & ent)
 {
-	this->Eclairage::IHMFormulaire::set(ent);
+	this->Eclairage::IHMFormulaire::set(ent, "multicolore");
 	FichierTextePersiBny fichier("html/formulaireMulticolore.html");
 	std::cout << fichier.getContenu();
 }

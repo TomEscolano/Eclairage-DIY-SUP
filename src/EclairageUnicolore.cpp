@@ -8,11 +8,16 @@
 
 #include <EclairageUnicolore.h>
 
-void EclairageUnicolore::IHMFormulaire::set(EclairageUnicolore::Ent & ent)
+void EclairageUnicolore::IHMFormulaire::set(EclairageUnicolore::Ent & ent, std::string nom, std::string couleur)
 {
-	this->Eclairage::IHMFormulaire::set(ent);
+	// Affichage du formulaire de création d'éclairage unicolore
 	FichierTextePersiBny fichier("html/formulaireUnicolore.html");
-	std::cout << fichier.getContenu();
+	std::string html = fichier.getContenu();
+
+	html.replace(html.find("_nomEclairage"), sizeof("_nomEclairage")-1, nom);
+
+	html.replace(html.find("_couleurEclairage"), sizeof("_couleurEclairage")-1, couleur);
+	std::cout << html;
 }
 
 void EclairageUnicolore::IHMFormulaire::get(EclairageUnicolore::Ent & ent) {

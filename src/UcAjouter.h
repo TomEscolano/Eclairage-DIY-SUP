@@ -8,15 +8,15 @@
 #ifndef _UCAJOUTER_H
 #define _UCAJOUTER_H
 
-#include <SqlitePersiBny.h>
-#include <EclairageUnicolore.h>
-#include <EclairageMulticolore.h>
-#include <iostream>
 #include <vector>
 #include <string>
+#include <iostream>
 #include <cgicc/Cgicc.h>
-#include <cgicc/HTTPHTMLHeader.h>
+#include <SqlitePersiBny.h>
 #include <cgicc/HTMLClasses.h>
+#include <EclairageUnicolore.h>
+#include <cgicc/HTTPHTMLHeader.h>
+#include <EclairageMulticolore.h>
 
 
 class UcAjouter {
@@ -27,12 +27,12 @@ class UcAjouter {
     /**
      * Méthode permettant d'ajouter un éclairage unicolore dans la base de données
      */
-    void doIt(EclairageUnicolore::Ent & ent);
+    void doIt(EclairageUnicolore & eclairage, cgicc::Cgicc & cgi);
 
     /**
      * Méthode permettant d'ajouter un éclairage multicolore dans la base de données.
      */
-    void doIt(EclairageMulticolore::Ent & ent);
+    void doIt(EclairageMulticolore & eclairage, cgicc::Cgicc & cgi);
 
 };
 #endif

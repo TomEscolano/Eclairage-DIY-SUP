@@ -32,21 +32,13 @@ int main()
 
     if(id != cgi.getElements().end() && action != cgi.getElements().end())
     {
-    	// Eclairage temporaire pour récupérer l'entité de l'eclairage selectionné
+    	// Eclairage temporaire, etat
 		Eclairage tmp;
-		SqlitePersiBny::Resultat resultat;
-		bool etat;
-		if(**action == "activer")
-			etat = true;
-		else
-			etat = false;
+		bool etat = (**action == "activer") ? true : false;
 		
 		// Selection de l'ID de l'eclairage
 		std::string idd = **id;
 		tmp.controleur.ent.setID(atoi(idd.c_str()));
-
-		//Récupération de l'entité de l'éclairage
-		//tmp.controleur.get(tmp.controleur.ent);
 
 		//Modification de l'éclairage
 		ucGerer.doIt(tmp.controleur.ent, etat);

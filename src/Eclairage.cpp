@@ -8,13 +8,36 @@
 
 #include <Eclairage.h>
 
-void Eclairage::IHMFormulaire::set(const Eclairage::Ent & ent)
+void Eclairage::IHMFormulaire::set(Eclairage::Ent & ent, std::string type)
 {
+	// Affichage du formulaire et remplacement du type d'éclairage
 	FichierTextePersiBny fichier("html/formulaire.html");
-	std::cout << fichier.getContenu();
+	std::string html = fichier.getContenu();
+	
+	html.replace(html.find("_typeEclairage"), sizeof("_typeEclairage")-1, "unicolore");
+	
+	std::cout << html;
 }
 
-void Eclairage::IHMFormulaire::get(Eclairage::Ent & ent) {
+void Eclairage::IHMFormulaire::get(Eclairage::Ent & ent)
+{
+
+	cgicc::Cgicc cgi;
+
+    // Récupération des paramètres pour le script
+    cgicc::form_iterator nom = cgi.getElement("nom");
+    cgicc::form_iterator couleur = cgi.getElement("couleur");
+
+    if(nom != cgi.getElements().end() && couleur != cgi.getElements().end())
+    {
+    	ent.setNom(**nom);
+    	if(**couleur == "0")
+    		ent.setCouleur(Bleu);
+    	if(**couleur == "1")
+    		ent.setCouleur(Blanc);
+    	if(**couleur == "2")
+    		ent.setCouleur(Rouge);
+    }	
 }
 
 void Eclairage::Controleur::activer(bool etat)
