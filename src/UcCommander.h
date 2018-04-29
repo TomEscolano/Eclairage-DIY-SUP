@@ -8,8 +8,12 @@
 #ifndef _UCCOMMANDER_H
 #define _UCCOMMANDER_H
 
-
+#include <Eclairage.h>
 #include <SqlitePersiBny.h>
+#include <cgicc/CgiDefs.h>
+#include <cgicc/Cgicc.h>
+#include <cgicc/HTTPHTMLHeader.h>
+#include <cgicc/HTMLClasses.h>
 
 class Eclairage;
 
@@ -19,9 +23,9 @@ private:
 
   public:
     /**
-     * Méthode permettant d'allumer/éteindre un éclairage passé en paramètres.
+     * MÃ©thode permettant d'allumer/Ã©teindre un Ã©clairage passÃ© en paramÃ¨tres.
      */
-    void doIt(Eclairage & eclairage, bool etat);
+    void doIt(Eclairage::Ent & eclairage, bool etat);
 
 };
 #endif
