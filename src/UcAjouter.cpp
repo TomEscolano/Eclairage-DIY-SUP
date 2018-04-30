@@ -9,18 +9,20 @@
 
 void UcAjouter::doIt(EclairageUnicolore & eclairage, cgicc::Cgicc & cgi)
 {
+    SqlitePersiBny persi("/var/eclairage/bdd.db");
+    SqlitePersiBny::Resultat resultat;
+
     cgicc::form_iterator nom = cgi.getElement("nom");
     cgicc::form_iterator couleur = cgi.getElement("couleur");
+    cgicc::form_iterator id = cgi.getElement("id");
 
     // Si le nom et la couleur sont donnés
-    if(nom != cgi.getElements().end() && couleur != cgi.getElements().end())
-    {
-        SqlitePersiBny persi("/var/eclairage/bdd.db");
-     
+    if(nom != cgi.getElements().end() && couleur != cgi.getElements().end() && id != cgi.getElements().end())
+    {     
         // Insertion de l'éclairage dans la BDD, si non existant   
         try
         {
-            persi.executerSql("INSERT INTO eclairages(nom, couleur) VALUES(\"" + **nom + "\", " + **couleur + ");");
+            persi.executerSql("INSERT INTO eclairages(id, nom, couleur) VALUES(" + **id + ", \"" + **nom + "\", " + **couleur + ");");
         }catch(...)
         {
         }
@@ -28,12 +30,8 @@ void UcAjouter::doIt(EclairageUnicolore & eclairage, cgicc::Cgicc & cgi)
         cgicc::form_iterator numeroPrise = cgi.getElement("numeroPrise");
         if(numeroPrise != cgi.getElements().end())
         {
-            // Récuperation de l'ID
-            SqlitePersiBny::Resultat res;
-            persi.executerSql("SELECT id FROM eclairages WHERE nom = \"" + **nom + "\";", res);
-
             // Insertion de l'éclairage unicolore dans la BDD
-            persi.executerSql("INSERT INTO unicolores(id,numeroPrise) VALUES(" + res.at(0).at(0).second + ", " + **numeroPrise + ");");
+            persi.executerSql("INSERT INTO unicolores(id,numeroPrise) VALUES(" + **id + ", " + **numeroPrise + ");");
             std::cout << "<p>Creation terminee !</p>";
             std::cout << "<meta http-equiv='refresh' content='2; URL=/cgi-bin/index.cgi'> ";
         }
@@ -41,18 +39,28 @@ void UcAjouter::doIt(EclairageUnicolore & eclairage, cgicc::Cgicc & cgi)
         {
             // Si le nom et la couleur sont présents
             // Affichage du formulaire unicolore
-            eclairage.EclairageUnicolore::controleur.ihmFormulaire.set(eclairage.controleur.ent, **nom, **couleur);
+            eclairage.EclairageUnicolore::controleur.ihmFormulaire.set(eclairage.controleur.ent, **nom, **couleur, **id);
         }
     }
     else
     {
         // Si aucune info n'est donnée
-        // Affichage du formulaire eclairage
+        // Création de l'ID en fonction du dernier ID et affichage du formulaire eclairage
+        try
+        {
+            persi.executerSql("select seq from sqlite_sequence;", resultat);   
+            eclairage.controleur.ent.setID(atoi(resultat.at(0).at(0).second.c_str())+1);
+        }
+        catch(...)
+        {
+            eclairage.controleur.ent.setID(0);
+        }        
+        
         eclairage.Eclairage::controleur.ihmFormulaire.set(eclairage.controleur.ent, "unicolore");
     }
 }
 
-void UcAjouter::doIt(EclairageMulticolore::Ent & ent, cgicc::Cgicc & cgi)
+void UcAjouter::doIt(EclairageMulticolore & ent, cgicc::Cgicc & cgi)
 {
     /*
 	SqlitePersiBny persiBny(this->DB);
@@ -87,7 +95,7 @@ int main()
         else if(**type == "multicolore")
         {
             EclairageMulticolore eclairage;
-            ucAjouter.doIt(eclairage, cgi)
+            ucAjouter.doIt(eclairage, cgi);
         }
     }
 

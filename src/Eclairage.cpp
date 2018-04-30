@@ -15,6 +15,7 @@ void Eclairage::IHMFormulaire::set(Eclairage::Ent & ent, std::string type)
 	std::string html = fichier.getContenu();
 	
 	html.replace(html.find("_typeEclairage"), sizeof("_typeEclairage")-1, "unicolore");
+	html.replace(html.find("_idEclairage"), sizeof("_idEclairage")-1, std::to_string(ent.getID()));
 	
 	std::cout << html;
 }
