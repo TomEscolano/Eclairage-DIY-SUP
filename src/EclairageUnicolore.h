@@ -84,6 +84,12 @@ class EclairageUnicolore : public Eclairage {
 				void set(EclairageUnicolore::Ent & ent);
 		 };
 
+ 		class IHMParametre{
+		 	public:
+
+				void set(EclairageUnicolore::Ent & ent);
+		 };
+
 		/**
 		 * Classe controleur contenant une entité, une persistance et une IHMFormulaire de création.
 		 */
@@ -98,6 +104,8 @@ class EclairageUnicolore : public Eclairage {
 				IHMFormulaire ihmFormulaire;
 
 				IHMJardin ihmJardin;
+
+				IHMParametre ihmParametre;
 
 				void getIHMJardin();
 

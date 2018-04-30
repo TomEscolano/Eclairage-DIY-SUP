@@ -73,13 +73,7 @@ void SUP::extraireEclairages(std::vector<EclairageUnicolore> & eclairagesUnicolo
 
 		//Propriétés spécifiques
 		tmp.controleur.ent.setID(atoi(resultat.at(i).at(0).second.c_str()));
-
-		if(resultat.at(i).at(1).second == "0")
-			tmp.controleur.ent.setCouleur(Bleu);
-		if(resultat.at(i).at(1).second == "1")
-			tmp.controleur.ent.setCouleur(Rouge);
-		if(resultat.at(i).at(1).second == "2")
-			tmp.controleur.ent.setCouleur(Blanc);
+		tmp.controleur.ent.setNumeroPrise(atoi(resultat.at(i).at(1).second.c_str()));
 
 		//Propriétés génériques
 		this->persiBny.executerSql("SELECT * FROM eclairages WHERE id = " + std::to_string(tmp.controleur.ent.getID()) + ";", subRes);
@@ -87,6 +81,12 @@ void SUP::extraireEclairages(std::vector<EclairageUnicolore> & eclairagesUnicolo
 		tmp.controleur.ent.setActive(subRes.at(0).at(2).second == "1" ? true : false);
 		tmp.controleur.ent.setNom(subRes.at(0).at(3).second.c_str());
 		tmp.controleur.ent.setConsommation(atoi(subRes.at(0).at(4).second.c_str()));
+		if(subRes.at(i).at(5).second == "0")
+			tmp.controleur.ent.setCouleur(Bleu);
+		if(subRes.at(i).at(5).second == "1")
+			tmp.controleur.ent.setCouleur(Blanc);
+		if(subRes.at(i).at(5).second == "2")
+			tmp.controleur.ent.setCouleur(Rouge);
 
 		eclairagesUnicolores.push_back(tmp);
 		subRes.clear();

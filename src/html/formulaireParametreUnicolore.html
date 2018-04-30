@@ -1,0 +1,25 @@
+<h2>Formulaire de modification d'eclairage unicolore</h2>
+<form action="/cgi-bin/UcModifier.cgi" method="get">
+  <input type="hidden" name="type" value="unicolore">
+  <input type="hidden" name="id" value="_idEclairage">
+
+  Nom: <br>
+  <input type="text" name="nom" value="_nomEclairage">
+  <br>
+  <br>
+  Couleur:<br>
+  <select name="couleur">
+  	<option value="0">Bleu</option>
+  	<option value="1">Blanc</option>
+  	<option value="2">Rouge</option>
+</select><br><br>
+
+  Numero de prise:<br>
+  <select name="numeroPrise">
+  	<option value="1">1</option>
+  	<option value="2">2</option>
+  	<option value="3">3</option>
+</select>
+<br><br>
+  <input type="submit" value="Continuer">
+</form>

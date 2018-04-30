@@ -13,23 +13,24 @@
 #include <Eclairage.h>
 #include <EclairageMulticolore.h>
 #include <EclairageUnicolore.h>
-#include <UcAjouter.h>
+#include <cgicc/Cgicc.h>
+#include <cgicc/HTMLClasses.h>
+#include <cgicc/HTTPHTMLHeader.h>
 
 class UcModifier {
   public:
     /**
      * Méthode permettant de modifier la configuration un éclairage multicolore.
      */
-    void doIt(EclairageMulticolore::Ent eclairage);
+    void doIt(EclairageMulticolore & eclairage, cgicc::Cgicc & cgi);
 
     /**
      * Méthode permettant de modifier la configuration d'un éclairage unicolore.
      */
-    void doIt(EclairageUnicolore::Ent eclairage);
+    void doIt(EclairageUnicolore & eclairage, cgicc::Cgicc & cgi);
 
 private:
     const char * DB = "/var/eclairage/bdd.db";
-	UcAjouter ucAjouter;
 
 };
 #endif

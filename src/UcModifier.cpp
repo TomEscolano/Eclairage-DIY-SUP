@@ -8,42 +8,43 @@
 
 #include <UcModifier.h>
 
-void UcModifier::doIt(EclairageMulticolore::Ent eclairage)
+void UcModifier::doIt(EclairageMulticolore & eclairage, cgicc::Cgicc & cgi)
 {
-	SqlitePersiBny persi(this->DB);
-	SqlitePersiBny::Resultat resultat;
 	
-	try
-	{
+	/*SqlitePersiBny persi(this->DB);
+	SqlitePersiBny::Resultat resultat;
+
 		persi.executerSql("SELECT * FROM multicolores WHERE id = " + std::to_string(eclairage.getID()) + ";", resultat);
 		resultat.at(0).at(0).second;
 
    		persi.executerSql("UPDATE eclairages SET nom = \"" + eclairage.getNom() + "\" allume = " + std::to_string(eclairage.getAllume()) + " active = " + std::to_string(eclairage.getActive()) + " consommation = " + std::to_string(eclairage.getConsommation()) + " couleur = " + std::to_string(eclairage.getCouleur()) + " x = " + std::to_string(eclairage.getX()) + " y = " + std::to_string(eclairage.getY()) + " WHERE id = " + std::to_string(eclairage.getID()) + ";");
 	
-   		persi.executerSql("UPDATE multicolores SET id = " + std::to_string(eclairage.getID())+ " adresseMac = " + eclairage.getAdresseMac()+ " adresseIP = " + eclairage.getAdresseIP()+ " versionFirmware = " + std::to_string(eclairage.getVersionFirmware()) + " luminosite = " + std::to_string(eclairage.getLuminosite())+ " niveauBatterie = " + std::to_string(eclairage.getNiveauBatterie())+ " WHERE id = " + std::to_string(eclairage.getID())+ ";");
-	}
-	catch(...)
-	{
-		this->ucAjouter.doIt(eclairage);
-	}
+   		persi.executerSql("UPDATE multicolores SET id = " + std::to_string(eclairage.getID())+ " adresseMac = " + eclairage.getAdresseMac()+ " adresseIP = " + eclairage.getAdresseIP()+ " versionFirmware = " + std::to_string(eclairage.getVersionFirmware()) + " luminosite = " + std::to_string(eclairage.getLuminosite())+ " niveauBatterie = " + std::to_string(eclairage.getNiveauBatterie())+ " WHERE id = " + std::to_string(eclairage.getID())+ ";");*/
+
+
 }
 
-void UcModifier::doIt(EclairageUnicolore::Ent eclairage)
+void UcModifier::doIt(EclairageUnicolore & eclairage, cgicc::Cgicc & cgi)
 {
-	SqlitePersiBny persi(this->DB);
-	SqlitePersiBny::Resultat resultat;
+	cgicc::form_iterator id = cgi.getElement("id");
+	cgicc::form_iterator nom = cgi.getElement("nom");
+    cgicc::form_iterator couleur = cgi.getElement("couleur");
+    cgicc::form_iterator numeroPrise = cgi.getElement("numeroPrise");
 
-	try
-	{
-		persi.executerSql("SELECT * FROM unicolores WHERE id = " + std::to_string(eclairage.getID()) + ";", resultat);
-		resultat.at(0).at(0).second;
+    if(nom != cgi.getElements().end() && couleur != cgi.getElements().end() && numeroPrise != cgi.getElements().end() && id != cgi.getElements().end())
+    {
+    		SqlitePersiBny persi("/var/eclairage/bdd.db");
+    		persi.executerSql("UPDATE eclairages SET nom =\"" + **nom + "\", couleur = " + **couleur + " WHERE id = " + **id + ";");
+    		persi.executerSql("UPDATE unicolores SET numeroPrise = " + **numeroPrise + " WHERE id = " + **id + ";");
+    		std::cout << "<p>Configuration mise à jour !<p>";
+            std::cout << "<meta http-equiv='refresh' content='2; URL=/cgi-bin/index.cgi'> ";
 
-   		persi.executerSql("UPDATE eclairages SET nom = " + eclairage.getNom() + " allume = " + std::to_string(eclairage.getAllume()) + " active = " + std::to_string(eclairage.getActive()) + " consommation =" + std::to_string(eclairage.getConsommation()) + " couleur = " + std::to_string(eclairage.getCouleur()) + " x = " + std::to_string(eclairage.getX()) + " y = " + std::to_string(eclairage.getY()) + " WHERE id = " + std::to_string(eclairage.getID()) + ";");
-	}
-	catch(...)
+    }
+	else
 	{
-		this->ucAjouter.doIt(eclairage);
+		eclairage.EclairageUnicolore::controleur.ihmParametre.set(eclairage.controleur.ent);
 	}
+	
 }
 
 
@@ -51,10 +52,41 @@ void UcModifier::doIt(EclairageUnicolore::Ent eclairage)
 int main()
 {
 	UcModifier ucModifier;
+	cgicc::Cgicc cgi;
+
+    // Envoi des headers HTTP
+    std::cout << cgicc::HTTPHTMLHeader() << std::endl;
+
+    // Début du document HTML
+    std::cout << cgicc::html() << cgicc::head(cgicc::title("Modifier un eclairage")) << std::endl;
+    std::cout << cgicc::body() << std::endl;
+
+    // Récupération du type d'éclairage dans l'url (GET)
+    cgicc::form_iterator type = cgi.getElement("type");
+    cgicc::form_iterator id = cgi.getElement("id");
+
+    if(type != cgi.getElements().end() && id != cgi.getElements().end())
+    {
+        if(**type == "unicolore")
+        {
+            EclairageUnicolore eclairage;
+            std::string idd = **id;
+            eclairage.controleur.ent.setID(atoi(idd.c_str()));
+            ucModifier.doIt(eclairage, cgi);
+        }
+        else if(**type == "multicolore")
+        {
+            EclairageMulticolore eclairage;
+            //ucModifier.doIt(eclairage, cgi);
+        }
+    }
+
+    // Fermeture du document
+    std::cout << cgicc::body() << cgicc::html();
 	
 	return 0;
 }
 
 #endif
 
-//g++ -o /usr/lib/cgi-bin/UcModifier UcModifier.cpp Eclairage.cpp EclairageUnicolore.cpp EclairageMulticolore.cpp SqlitePersiBny.cpp UcAjouter.cpp -lsqlite3 -I . -D _UT_UcModifier_
+//g++ -o /usr/lib/cgi-bin/UcModifier UcModifier.cpp Eclairage.cpp EclairageUnicolore.cpp EclairageMulticolore.cpp SqlitePersiBny.cpp UcAjouter.cpp -lsqlite3 -lcgicc -I . -D _UT_UcModifier_
