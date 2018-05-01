@@ -93,6 +93,8 @@ void SUP::extraireEclairages(std::vector<EclairageUnicolore> & eclairagesUnicolo
 	}
 
 	resultat.clear();
+	subRes.clear();
+
 	// Multicolore
 	this->persiBny.executerSql("SELECT * FROM multicolores;", resultat);
 
@@ -101,26 +103,26 @@ void SUP::extraireEclairages(std::vector<EclairageUnicolore> & eclairagesUnicolo
 		EclairageMulticolore tmp;
 		
 		//Propriétés spécifiques
-
 		tmp.controleur.ent.setID(atoi(resultat.at(i).at(0).second.c_str()));
 		tmp.controleur.ent.setAdresseMac(resultat.at(i).at(1).second);
 		tmp.controleur.ent.setAdresseIP(resultat.at(i).at(2).second);
 		tmp.controleur.ent.setVersionFirmware(atof(resultat.at(i).at(3).second.c_str()));
-		if(resultat.at(i).at(4).second == "0")
-			tmp.controleur.ent.setCouleur(Bleu);
-		if(resultat.at(i).at(4).second == "1")
-			tmp.controleur.ent.setCouleur(Rouge);
-		if(resultat.at(i).at(4).second == "2")
-			tmp.controleur.ent.setCouleur(Blanc);
+		tmp.controleur.ent.setLuminosite(atoi(resultat.at(i).at(4).second.c_str()));
 		tmp.controleur.ent.setNiveauBatterie(atoi(resultat.at(i).at(5).second.c_str()));
 
 		//Propriétés génériques
-		this->persiBny.executerSql("SELECT * FROM eclairages WHERE id = " + std::to_string(tmp.controleur.ent.getID()) + ";", subRes);
-		tmp.controleur.ent.setAllume(subRes.at(0).at(1).second == "1" ? true : false);
-		tmp.controleur.ent.setActive(subRes.at(0).at(2).second == "1" ? true : false);
-		tmp.controleur.ent.setNom(subRes.at(0).at(3).second);
-		tmp.controleur.ent.setConsommation(atoi(subRes.at(0).at(4).second.c_str()));
-
+		this->persiBny.executerSql("SELECT allume, active, nom, consommation, couleur FROM eclairages WHERE id = " + std::to_string(tmp.controleur.ent.getID()) + ";", subRes);
+		tmp.controleur.ent.setAllume(subRes.at(0).at(0).second == "1" ? true : false);
+		tmp.controleur.ent.setActive(subRes.at(0).at(1).second == "1" ? true : false);
+		tmp.controleur.ent.setNom(subRes.at(0).at(2).second);
+		tmp.controleur.ent.setConsommation(atoi(subRes.at(0).at(3).second.c_str()));
+		if(subRes.at(0).at(4).second == "0")
+			tmp.controleur.ent.setCouleur(Bleu);
+		if(subRes.at(0).at(4).second == "1")
+			tmp.controleur.ent.setCouleur(Blanc);
+		if(subRes.at(0).at(4).second == "2")
+			tmp.controleur.ent.setCouleur(Rouge);
+		
 		eclairagesMulticolores.push_back(tmp);
 		subRes.clear();
 	}
