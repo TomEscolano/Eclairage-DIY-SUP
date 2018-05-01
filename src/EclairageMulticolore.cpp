@@ -8,31 +8,75 @@
 
 #include <EclairageMulticolore.h>
 
-void EclairageMulticolore::IHMFormulaire::set(EclairageMulticolore::Ent & ent)
+void EclairageMulticolore::IHMFormulaire::set(EclairageMulticolore::Ent & ent, std::string nom, std::string couleur, std::string id)
 {
-	this->Eclairage::IHMFormulaire::set(ent, "multicolore");
+	// Affichage du formulaire de création d'éclairage multicolore
 	FichierTextePersiBny fichier("html/formulaireMulticolore.html");
-	std::cout << fichier.getContenu();
+	std::string html = fichier.getContenu();
+
+	html.replace(html.find("_nomEclairage"), sizeof("_nomEclairage")-1, nom);
+	html.replace(html.find("_couleurEclairage"), sizeof("_couleurEclairage")-1, couleur);
+	html.replace(html.find("_idEclairage"), sizeof("_idEclairage")-1, id);
+
+	std::cout << html;
 }
 
 void EclairageMulticolore::IHMFormulaire::get(EclairageMulticolore::Ent & ent) {
 }
 
 void EclairageMulticolore::IHMJardin::set(EclairageMulticolore::Ent & ent) {
-	std::cout << "<img src='/eclairage.svg' onclick='toggleMenu(\"menu-box" + std::to_string(ent.getID()) + "\")'/><ul id='menu-box" + std::to_string(ent.getID()) + "' style='display: none'>";
+	std::string logo;
 
-	if(ent.getActive() == true)
+	if(ent.getActive())
+	{
+		if(ent.getAllume() == true && ent.getCouleur() == 0)
+			logo = "multicoloreBleu.png";
+		if(ent.getAllume() == true && ent.getCouleur() == 1)
+			logo = "multicoloreBlanc.png" ;
+		if(ent.getAllume() == true && ent.getCouleur() == 2)
+			logo = "multicoloreRouge.png";
+		else if(ent.getAllume() == false)
+			logo = "multicoloreDesactive.png";
+	}
+	else
+		logo = "multicoloreDesactive.png";
+	
+
+	std::cout << "<img style='width=100px;height:100px;' src='/" + logo + "' onclick='toggleMenu(\"menu-box" + std::to_string(ent.getID()) + "\")'/><ul id='menu-box" + std::to_string(ent.getID()) + "' style='display: none'>";
+
+	if(ent.getActive())
 		std::cout << "<li><a href='UcGerer.cgi?id=" + std::to_string(ent.getID()) + "&action=desactiver'>Desactiver</a></li>" << std::endl;
 	else
 		std::cout << "<li><a href='UcGerer.cgi?id=" + std::to_string(ent.getID()) + "&action=activer'>Activer</a></li>" << std::endl;
 
-	if(ent.getAllume() == true)
+	if(ent.getAllume())
 		std::cout << "<li><a href='UcCommander.cgi?id=" + std::to_string(ent.getID()) + "&action=eteindre'>Eteindre</a></li>" << std::endl;
 	else
 		std::cout << "<li><a href='UcCommander.cgi?id=" + std::to_string(ent.getID()) + "&action=allumer'>Allumer</a></li>" << std::endl;
 	
-	std::cout << "<li><a href='UcModifier.cgi?id=" + std::to_string(ent.getID()) + "&action=parametrer'>Parametrer</a></li>" << std::endl;
+	std::cout << "<li><a href='UcModifier.cgi?id=" + std::to_string(ent.getID()) + "&type=multicolore'>Parametrer</a></li>" << std::endl;
 	std::cout << "</ul>" << std::endl;
+}
+
+void EclairageMulticolore::IHMParametre::set(EclairageMulticolore::Ent & ent)
+{
+	//Récupération du nom de l'éclairage
+	SqlitePersiBny persi("/var/eclairage/bdd.db");
+	SqlitePersiBny::Resultat resultat;
+
+	// Affichage du formulaire de création d'éclairage unicolore
+	FichierTextePersiBny fichier("html/formulaireParametreMulticolore.html");
+	std::string html = fichier.getContenu();
+
+	html.replace(html.find("_idEclairage"), sizeof("_idEclairage")-1, std::to_string(ent.getID()));
+	persi.executerSql("SELECT nom FROM eclairages WHERE id = " + std::to_string(ent.getID()) + ";", resultat);
+	html.replace(html.find("_nomEclairage"), sizeof("_nomEclairage")-1, resultat.at(0).at(0).second);
+	resultat.clear();
+	persi.executerSql("SELECT adresseIP FROM multicolores WHERE id = " + std::to_string(ent.getID()) + ";", resultat);
+	html.replace(html.find("_addr"), sizeof("_addr")-1, resultat.at(0).at(0).second);
+
+	std::cout << html;
+
 }
 
 void EclairageMulticolore::Ent::setAdresseIP(std::string adresseIP)

@@ -105,7 +105,7 @@ class EclairageMulticolore : public Eclairage {
 			/**
 			 * Méthde permettant d'afficher le formulaire de création d'éclairage multicolore
 			 */
-			void set(EclairageMulticolore::Ent & ent);
+			void set(EclairageMulticolore::Ent & ent, std::string nom, std::string couleur, std::string id);
 
 			/**
 			 * Méthode permettant de récupérer les données entrées par l'utilisateur lors de la création d'éclairage multicolore.
@@ -122,6 +122,12 @@ class EclairageMulticolore : public Eclairage {
 				void set(EclairageMulticolore::Ent & ent);
 		 };
 
+		class IHMParametre{
+		 	public:
+
+				void set(EclairageMulticolore::Ent & ent);
+		 };
+
 		/**
 		 * Controleur de l'eclairage multicolore composé d'une entité, une persistance et une IHM de création.
 		 */		
@@ -134,6 +140,8 @@ class EclairageMulticolore : public Eclairage {
 				IHMFormulaire ihmFormulaire;
 
 				IHMJardin ihmJardin;
+
+				IHMParametre ihmParametre;
 
 				Controleur():Eclairage::Controleur(), ent(), persiBny(){};
 
