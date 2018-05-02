@@ -38,7 +38,7 @@ class SUP {
     /**
      * Méthode permettant d'afficher les informations d'un éclairage Unicolore :
      * - Nom
-     * - Etat (allumé/activé)
+     * - Etat (activé/désactivé)
      * - Consommation
      */
     void visualiserInfo(EclairageUnicolore::Ent eclairage);
@@ -46,7 +46,7 @@ class SUP {
     /**
      * Méthode permettant d'afficher les informations d'un éclairage Multicolore :
      * - Nom
-     * - Etat (allumé/activé)
+     * - Etat (activé/désactivé)
      * - Consommation
      * - Luminosité
      * - Batterie

@@ -32,7 +32,7 @@ void UcAjouter::doIt(EclairageUnicolore & eclairage, cgicc::Cgicc & cgi)
         {
             // Insertion de l'éclairage unicolore dans la BDD
             persi.executerSql("INSERT INTO unicolores(id,numeroPrise) VALUES(" + **id + ", " + **numeroPrise + ");");
-            std::cout << "<p>Creation terminee !</p>";
+            std::cout << "<div class='w3-panel w3-green'><h3>Succes !</h3><p>Ajout de l'eclairage termine !</p>  </div>";
             std::cout << "<meta http-equiv='refresh' content='2; URL=/cgi-bin/index.cgi'> ";
         }
         else
@@ -85,7 +85,7 @@ void UcAjouter::doIt(EclairageMulticolore & eclairage, cgicc::Cgicc & cgi)
         {
             // Insertion de l'éclairage multicolore dans la BDD
             persi.executerSql("INSERT INTO multicolores(id,adresseIP) VALUES(" + **id + ", \"" + **adresseIP + "\");");
-            std::cout << "<p>Creation terminee !</p>";
+            std::cout << "<div class='w3-panel w3-green'><h3>Succes !</h3><p>Ajout de l'eclairage termine !</p>  </div>";
             std::cout << "<meta http-equiv='refresh' content='2; URL=/cgi-bin/index.cgi'> ";
         }
         else
@@ -124,7 +124,7 @@ int main()
     std::cout << cgicc::HTTPHTMLHeader() << std::endl;
 
     // Début du document HTML
-    std::cout << cgicc::html() << cgicc::head(cgicc::title("Ajouter un eclairage")) << std::endl;
+    std::cout << cgicc::html() << cgicc::head() << "<title>Ajouter un eclairage</title><link rel='stylesheet' href='https://www.w3schools.com/w3css/4/w3.css'>" << std::endl;
     std::cout << cgicc::body() << std::endl;
 
     // Récupération du type d'éclairage dans l'url (GET)

@@ -1,14 +1,24 @@
-<h2>Formulaire de création d'éclairage multicolore</h2>
 <br>
-<form action="/cgi-bin/UcAjouter.cgi" method="get">
-  <input type="hidden" name="type" value="multicolore">
-  <input type="hidden" name="nom" value="_nomEclairage">
-  <input type="hidden" name="couleur" value="_couleurEclairage">
-  <input type="hidden" name="id" value="_idEclairage">
+<center>
+  <div class="w3-card-4" style="width:50%;">
 
-  Adresse IP: <br>
-  <input type="text" name="adresseIP" value="127.0.0.1">
-  <br>
+  <div class="w3-container w3-blue">
+    <h2>Ajouter un eclairage multicolore</h2>
+  </div>
+
+  <form class="w3-container" action="/cgi-bin/UcAjouter.cgi" method="get">
+    <input type="hidden" name="type" value="multicolore">
+  	<input type="hidden" name="nom" value="_nomEclairage">
+  	<input type="hidden" name="couleur" value="_couleurEclairage">
+  	<input type="hidden" name="id" value="_idEclairage">
+
 <br>
-  <input type="submit" value="Continuer">
-</form> 
+  <label>Adresse IP</label>
+  <input class="w3-input" type="text" name="adresseIP" value="127.0.0.1">
+</select><br><br>
+    <input type="submit" value="Continuer">
+<br><br>
+  </form>
+
+</div> 
+</center>

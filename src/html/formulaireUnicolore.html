@@ -1,17 +1,28 @@
-<h2>Formulaire de création d'éclairage unicolore</h2>
 <br>
-<form action="/cgi-bin/UcAjouter.cgi" method="get">
+<center>
+  <div class="w3-card-4" style="width:50%;">
+
+  <div class="w3-container w3-blue">
+    <h2>Ajouter un eclairage unicolore</h2>
+  </div>
+
+  <form class="w3-container" action="/cgi-bin/UcAjouter.cgi" method="get">
   <input type="hidden" name="type" value="unicolore">
   <input type="hidden" name="nom" value="_nomEclairage">
   <input type="hidden" name="couleur" value="_couleurEclairage">
   <input type="hidden" name="id" value="_idEclairage">
 
-  Numero de prise:<br>
-  <select name="numeroPrise">
-  	<option value="1">1</option>
-  	<option value="2">2</option>
-  	<option value="3">3</option>
-</select>
 <br>
-  <input type="submit" value="Continuer">
-</form> 
+ <label>Numero de prise</label><br>
+  <select name="numeroPrise">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+</select>
+</select><br><br>
+    <input type="submit" value="Continuer">
+<br><br>
+  </form>
+
+</div> 
+</center>

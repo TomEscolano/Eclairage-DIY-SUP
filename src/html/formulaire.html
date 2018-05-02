@@ -1,18 +1,29 @@
-<h2>Formulaire de création d'éclairage</h2>
-
-<form action="/cgi-bin/UcAjouter.cgi" method="get">
-  <input type="hidden" name="type" value="_typeEclairage">
-  <input type="hidden" name="id" value="_idEclairage">
-  Nom: <br>
-  <input type="text" name="nom" value="Eclairage">
-  <br>
-  Couleur:<br>
-  <select name="couleur">
-  	<option value="0">Bleu</option>
-  	<option value="1">Blanc</option>
-  	<option value="2">Rouge</option>
-</select>
 <br>
+<center>
+  <div class="w3-card-4" style="width:50%;">
 
-  <input type="submit" value="Continuer">
-</form> 
+  <div class="w3-container w3-blue">
+    <h2>Ajouter un eclairage</h2>
+  </div>
+
+  <form class="w3-container" action="/cgi-bin/UcAjouter.cgi" method="get">
+    <input type="hidden" name="type" value="_typeEclairage">
+    <input type="hidden" name="id" value="_idEclairage">
+
+<br>
+  <label>Nom</label>
+  <input class="w3-input" type="text" name="nom" value="Eclairage">
+
+<br>
+  <label>Couleur</label><br>
+<select name="couleur" class="w3-select">
+    <option value="0">Bleu</option>
+    <option value="1">Blanc</option>
+    <option value="2">Rouge</option>
+</select><br><br>
+    <input type="submit" value="Continuer">
+<br><br>
+  </form>
+
+</div> 
+</center>
