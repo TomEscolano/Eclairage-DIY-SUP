@@ -18,7 +18,7 @@ var searchData=
   ['ucmettreajour',['UcMettreAJour',['../classUcMettreAJour.html',1,'']]],
   ['ucmettreajour_2ecpp',['UcMettreAJour.cpp',['../UcMettreAJour_8cpp.html',1,'']]],
   ['ucmettreajour_2eh',['UcMettreAJour.h',['../UcMettreAJour_8h.html',1,'']]],
-  ['ucmodifier',['UcModifier',['../classUcModifier.html',1,'']]],
+  ['ucmodifier',['UcModifier',['../classUcModifier.html',1,'UcModifier'],['../classUcImporter.html#aeccf733a6900d43104d8e70979444084',1,'UcImporter::ucModifier()']]],
   ['ucmodifier_2ecpp',['UcModifier.cpp',['../UcModifier_8cpp.html',1,'']]],
   ['ucmodifier_2eh',['UcModifier.h',['../UcModifier_8h.html',1,'']]],
   ['ucsupprimer',['UcSupprimer',['../classUcSupprimer.html',1,'']]],

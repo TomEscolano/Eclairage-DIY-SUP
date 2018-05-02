@@ -6,7 +6,8 @@
 
 
 
-Graphe d\textquotesingle{}hÃ©ritage de Eclairage\+:\+:Controleur\+:\nopagebreak
+Graphe d\textquotesingle{}hÃ©ritage de Eclairage\+:\+:Controleur\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -15,15 +16,18 @@ Graphe d\textquotesingle{}hÃ©ritage de Eclairage\+:\+:Controleur\+:\nopagebreak
 \end{figure}
 
 
-Graphe de collaboration de Eclairage\+:\+:Controleur\+:\nopagebreak
+Graphe de collaboration de Eclairage\+:\+:Controleur\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=190pt]{classEclairage_1_1Controleur__coll__graph}
+\includegraphics[width=350pt]{classEclairage_1_1Controleur__coll__graph}
 \end{center}
 \end{figure}
 \subsection*{Fonctions membres publiques}
 \begin{DoxyCompactItemize}
+\item 
+\hyperlink{classEclairage_1_1Controleur_a1da92efcda2c7f42d6065287d9633a76}{Controleur} ()
 \item 
 void \hyperlink{classEclairage_1_1Controleur_abdf832d1dba32ae0cae84009022704ae}{activer} (bool etat)
 \item 
@@ -33,14 +37,34 @@ void \hyperlink{classEclairage_1_1Controleur_a4962daee48ffa6cd40d01623a4506d04}{
 \item 
 void \hyperlink{classEclairage_1_1Controleur_a3fa6d8e23e50c00383913259a8a14162}{get\+I\+H\+M\+Formulaire} ()
 \item 
-void \hyperlink{classEclairage_1_1Controleur_a5a9e725e98db67bd3a584a3819b269f6}{set} (const \hyperlink{classEclairage_1_1Ent}{Ent} \&ent)
+void \hyperlink{classEclairage_1_1Controleur_a93fa11d4e18e798b78b406cff1285eb3}{set} (const \hyperlink{classEclairage_1_1Ent}{Eclairage\+::\+Ent} \&\hyperlink{classEclairage_1_1Controleur_a20290481ceacaea499fef52f24d2b83a}{ent})
 \item 
-void \hyperlink{classEclairage_1_1Controleur_aaa82a14322c2a354aacb0787a6532105}{get} (\hyperlink{classEclairage_1_1Ent}{Ent} \&ent)
+void \hyperlink{classEclairage_1_1Controleur_ae58d8c92798a66be4198f474ff32c34e}{get} (\hyperlink{classEclairage_1_1Ent}{Eclairage\+::\+Ent} \&\hyperlink{classEclairage_1_1Controleur_a20290481ceacaea499fef52f24d2b83a}{ent})
+\end{DoxyCompactItemize}
+\subsection*{Attributs publics}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classEclairage_1_1PersiBny}{Persi\+Bny} \hyperlink{classEclairage_1_1Controleur_adf01a0ed6f5da21a5fb4301cf50c2954}{persi\+Bny}
+\item 
+\hyperlink{classEclairage_1_1Ent}{Ent} \hyperlink{classEclairage_1_1Controleur_a20290481ceacaea499fef52f24d2b83a}{ent}
+\item 
+\hyperlink{classEclairage_1_1IHMJardin}{I\+H\+M\+Jardin} \hyperlink{classEclairage_1_1Controleur_a41548efbfd409ba503f311496d8b64bd}{ihm\+Jardin}
+\item 
+\hyperlink{classEclairage_1_1IHMFormulaire}{I\+H\+M\+Formulaire} \hyperlink{classEclairage_1_1Controleur_a454347810e4f1fa0024077e2a83dab06}{ihm\+Formulaire}
 \end{DoxyCompactItemize}
 
 
 \subsection{Description dÃ©taillÃ©e}
 \hyperlink{classEclairage_1_1Controleur}{Controleur} de la classe eclairage. 
+
+\subsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{classEclairage_1_1Controleur_a1da92efcda2c7f42d6065287d9633a76}\label{classEclairage_1_1Controleur_a1da92efcda2c7f42d6065287d9633a76}} 
+\index{Eclairage\+::\+Controleur@{Eclairage\+::\+Controleur}!Controleur@{Controleur}}
+\index{Controleur@{Controleur}!Eclairage\+::\+Controleur@{Eclairage\+::\+Controleur}}
+\subsubsection{\texorpdfstring{Controleur()}{Controleur()}}
+{\footnotesize\ttfamily Eclairage\+::\+Controleur\+::\+Controleur (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructeur du controleur de l\textquotesingle{}eclairage. Instancie l\textquotesingle{}entité et la persistance. 
 
 \subsection{Documentation des fonctions membres}
 \mbox{\Hypertarget{classEclairage_1_1Controleur_abdf832d1dba32ae0cae84009022704ae}\label{classEclairage_1_1Controleur_abdf832d1dba32ae0cae84009022704ae}} 
@@ -55,13 +79,17 @@ Méthode permettant d\textquotesingle{}activer/désactiver l\textquotesingle{}écla
 \subsubsection{\texorpdfstring{allumer()}{allumer()}}
 {\footnotesize\ttfamily void Eclairage\+::\+Controleur\+::allumer (\begin{DoxyParamCaption}\item[{bool}]{etat }\end{DoxyParamCaption})}
 
-Méthode permettant d\textquotesingle{}allumer/éteindre un éclairage grâce à un booléen passé en paramètre. \mbox{\Hypertarget{classEclairage_1_1Controleur_aaa82a14322c2a354aacb0787a6532105}\label{classEclairage_1_1Controleur_aaa82a14322c2a354aacb0787a6532105}} 
+Méthode permettant d\textquotesingle{}allumer/éteindre un éclairage grâce à un booléen passé en paramètre. \mbox{\Hypertarget{classEclairage_1_1Controleur_ae58d8c92798a66be4198f474ff32c34e}\label{classEclairage_1_1Controleur_ae58d8c92798a66be4198f474ff32c34e}} 
 \index{Eclairage\+::\+Controleur@{Eclairage\+::\+Controleur}!get@{get}}
 \index{get@{get}!Eclairage\+::\+Controleur@{Eclairage\+::\+Controleur}}
 \subsubsection{\texorpdfstring{get()}{get()}}
 {\footnotesize\ttfamily void Eclairage\+::\+Controleur\+::get (\begin{DoxyParamCaption}\item[{\hyperlink{classEclairage_1_1Ent}{Eclairage\+::\+Ent} \&}]{ent }\end{DoxyParamCaption})}
 
-Méthode permettant de récupérer l\textquotesingle{}entité de l\textquotesingle{}éclairage. \mbox{\Hypertarget{classEclairage_1_1Controleur_a3fa6d8e23e50c00383913259a8a14162}\label{classEclairage_1_1Controleur_a3fa6d8e23e50c00383913259a8a14162}} 
+Méthode permettant de récupérer l\textquotesingle{}entité de l\textquotesingle{}éclairage. 
+
+RÃ©fÃ©rences Blanc, Bleu, Eclairage\+::\+Ent\+::get\+I\+D(), Rouge, Eclairage\+::\+Ent\+::set\+Active(), Eclairage\+::\+Ent\+::set\+Allume(), Eclairage\+::\+Ent\+::set\+Consommation(), Eclairage\+::\+Ent\+::set\+Couleur(), et Eclairage\+::\+Ent\+::set\+Nom().
+
+\mbox{\Hypertarget{classEclairage_1_1Controleur_a3fa6d8e23e50c00383913259a8a14162}\label{classEclairage_1_1Controleur_a3fa6d8e23e50c00383913259a8a14162}} 
 \index{Eclairage\+::\+Controleur@{Eclairage\+::\+Controleur}!get\+I\+H\+M\+Formulaire@{get\+I\+H\+M\+Formulaire}}
 \index{get\+I\+H\+M\+Formulaire@{get\+I\+H\+M\+Formulaire}!Eclairage\+::\+Controleur@{Eclairage\+::\+Controleur}}
 \subsubsection{\texorpdfstring{get\+I\+H\+M\+Formulaire()}{getIHMFormulaire()}}
@@ -73,13 +101,40 @@ Méthode permettant de récupérer les informations entrées par le propriétaire lor
 \subsubsection{\texorpdfstring{get\+I\+H\+M\+Jardin()}{getIHMJardin()}}
 {\footnotesize\ttfamily void Eclairage\+::\+Controleur\+::get\+I\+H\+M\+Jardin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Méthode permettant de récupérer l\textquotesingle{}état de l\textquotesingle{}\hyperlink{classEclairage_1_1IHMJardin}{I\+H\+M\+Jardin} (Icone représentant l\textquotesingle{}éclairage dans l\textquotesingle{}I\+HM de supervision) \mbox{\Hypertarget{classEclairage_1_1Controleur_a5a9e725e98db67bd3a584a3819b269f6}\label{classEclairage_1_1Controleur_a5a9e725e98db67bd3a584a3819b269f6}} 
+Méthode permettant de récupérer l\textquotesingle{}état de l\textquotesingle{}\hyperlink{classEclairage_1_1IHMJardin}{I\+H\+M\+Jardin} (Icone représentant l\textquotesingle{}éclairage dans l\textquotesingle{}I\+HM de supervision) \mbox{\Hypertarget{classEclairage_1_1Controleur_a93fa11d4e18e798b78b406cff1285eb3}\label{classEclairage_1_1Controleur_a93fa11d4e18e798b78b406cff1285eb3}} 
 \index{Eclairage\+::\+Controleur@{Eclairage\+::\+Controleur}!set@{set}}
 \index{set@{set}!Eclairage\+::\+Controleur@{Eclairage\+::\+Controleur}}
 \subsubsection{\texorpdfstring{set()}{set()}}
-{\footnotesize\ttfamily void Eclairage\+::\+Controleur\+::set (\begin{DoxyParamCaption}\item[{const \hyperlink{classEclairage_1_1Ent}{Ent} \&}]{ent }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Eclairage\+::\+Controleur\+::set (\begin{DoxyParamCaption}\item[{const \hyperlink{classEclairage_1_1Ent}{Eclairage\+::\+Ent} \&}]{ent }\end{DoxyParamCaption})}
 
 Méthode permettant de modifier intégralement la configuration de l\textquotesingle{}éclairage en lui passant une entité en paramètres. 
+
+\subsection{Documentation des donnÃ©es membres}
+\mbox{\Hypertarget{classEclairage_1_1Controleur_a20290481ceacaea499fef52f24d2b83a}\label{classEclairage_1_1Controleur_a20290481ceacaea499fef52f24d2b83a}} 
+\index{Eclairage\+::\+Controleur@{Eclairage\+::\+Controleur}!ent@{ent}}
+\index{ent@{ent}!Eclairage\+::\+Controleur@{Eclairage\+::\+Controleur}}
+\subsubsection{\texorpdfstring{ent}{ent}}
+{\footnotesize\ttfamily \hyperlink{classEclairage_1_1Ent}{Ent} Eclairage\+::\+Controleur\+::ent}
+
+\mbox{\Hypertarget{classEclairage_1_1Controleur_a454347810e4f1fa0024077e2a83dab06}\label{classEclairage_1_1Controleur_a454347810e4f1fa0024077e2a83dab06}} 
+\index{Eclairage\+::\+Controleur@{Eclairage\+::\+Controleur}!ihm\+Formulaire@{ihm\+Formulaire}}
+\index{ihm\+Formulaire@{ihm\+Formulaire}!Eclairage\+::\+Controleur@{Eclairage\+::\+Controleur}}
+\subsubsection{\texorpdfstring{ihm\+Formulaire}{ihmFormulaire}}
+{\footnotesize\ttfamily \hyperlink{classEclairage_1_1IHMFormulaire}{I\+H\+M\+Formulaire} Eclairage\+::\+Controleur\+::ihm\+Formulaire}
+
+\mbox{\Hypertarget{classEclairage_1_1Controleur_a41548efbfd409ba503f311496d8b64bd}\label{classEclairage_1_1Controleur_a41548efbfd409ba503f311496d8b64bd}} 
+\index{Eclairage\+::\+Controleur@{Eclairage\+::\+Controleur}!ihm\+Jardin@{ihm\+Jardin}}
+\index{ihm\+Jardin@{ihm\+Jardin}!Eclairage\+::\+Controleur@{Eclairage\+::\+Controleur}}
+\subsubsection{\texorpdfstring{ihm\+Jardin}{ihmJardin}}
+{\footnotesize\ttfamily \hyperlink{classEclairage_1_1IHMJardin}{I\+H\+M\+Jardin} Eclairage\+::\+Controleur\+::ihm\+Jardin}
+
+\mbox{\Hypertarget{classEclairage_1_1Controleur_adf01a0ed6f5da21a5fb4301cf50c2954}\label{classEclairage_1_1Controleur_adf01a0ed6f5da21a5fb4301cf50c2954}} 
+\index{Eclairage\+::\+Controleur@{Eclairage\+::\+Controleur}!persi\+Bny@{persi\+Bny}}
+\index{persi\+Bny@{persi\+Bny}!Eclairage\+::\+Controleur@{Eclairage\+::\+Controleur}}
+\subsubsection{\texorpdfstring{persi\+Bny}{persiBny}}
+{\footnotesize\ttfamily \hyperlink{classEclairage_1_1PersiBny}{Persi\+Bny} Eclairage\+::\+Controleur\+::persi\+Bny}
+
+
 
 La documentation de cette classe a Ã©tÃ© gÃ©nÃ©rÃ©e Ã  partir des fichiers suivants \+:\begin{DoxyCompactItemize}
 \item 

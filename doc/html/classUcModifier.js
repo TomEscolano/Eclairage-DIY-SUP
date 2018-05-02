@@ -1,5 +1,5 @@
 var classUcModifier =
 [
-    [ "doIt", "classUcModifier.html#aed5805ddcf7fb9268bfd8a5394fb5ad1", null ],
-    [ "doIt", "classUcModifier.html#a437ca726b504e979f16e0afed4532636", null ]
+    [ "doIt", "classUcModifier.html#a24b0e875af96b4e32a0a5085d0aaf5bb", null ],
+    [ "doIt", "classUcModifier.html#a101ddb93b5cf6bf1b85cb0d0bbdaca42", null ]
 ];

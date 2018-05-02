@@ -80,6 +80,7 @@ $(document).ready(function(){initNavTree('classSUP.html','');});
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Fonctions membres publiques</a> &#124;
 <a href="classSUP-members.html">Liste de tous les membres</a>  </div>
   <div class="headertitle">
@@ -92,16 +93,12 @@ $(document).ready(function(){initNavTree('classSUP.html','');});
 Graphe de collaboration de SUP:</div>
 <div class="dyncontent">
 <div class="center"><img src="classSUP__coll__graph.png" border="0" usemap="#SUP_coll__map" alt="Collaboration graph"/></div>
+<map name="SUP_coll__map" id="SUP_coll__map">
+</map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Fonctions membres publiques</h2></td></tr>
-<tr class="memitem:a69cb7b2974264f0288b16111d53fd864"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSUP.html#a69cb7b2974264f0288b16111d53fd864">visualiserInfo</a> (const Ent &amp;eclairage)</td></tr>
-<tr class="separator:a69cb7b2974264f0288b16111d53fd864"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e461671a3916688e5d222f4bb4c6cc7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSUP.html#a7e461671a3916688e5d222f4bb4c6cc7">extraireEclairages</a> (const sqlite3 &amp;bdd, std::vector&lt; <a class="el" href="classEclairageUnicolore.html">EclairageUnicolore</a> &gt; &amp;eclairagesUnicolores, std::vector&lt; <a class="el" href="classEclairageMulticolore.html">EclairageMulticolore</a> &gt; &amp;eclairagesMulticolores)</td></tr>
-<tr class="separator:a7e461671a3916688e5d222f4bb4c6cc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6528eb32eae523e02b74f8b781e1af99"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSUP.html#a6528eb32eae523e02b74f8b781e1af99">suivreConsoElectricite</a> ()</td></tr>
-<tr class="separator:a6528eb32eae523e02b74f8b781e1af99"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a00c939fd10402af9876dd3b6a0ff4abb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSUP.html#a00c939fd10402af9876dd3b6a0ff4abb">doIt</a> ()</td></tr>
 <tr class="separator:a00c939fd10402af9876dd3b6a0ff4abb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -121,83 +118,7 @@ Fonctions membres publiques</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="a7e461671a3916688e5d222f4bb4c6cc7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7e461671a3916688e5d222f4bb4c6cc7">&#9670;&nbsp;</a></span>extraireEclairages()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void SUP::extraireEclairages </td>
-          <td>(</td>
-          <td class="paramtype">const sqlite3 &amp;&#160;</td>
-          <td class="paramname"><em>bdd</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="classEclairageUnicolore.html">EclairageUnicolore</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>eclairagesUnicolores</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="classEclairageMulticolore.html">EclairageMulticolore</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>eclairagesMulticolores</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Méthode permettant d'extraire la liste des eclairages unicolores et multicolores. </p>
-
-</div>
-</div>
-<a id="a6528eb32eae523e02b74f8b781e1af99"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6528eb32eae523e02b74f8b781e1af99">&#9670;&nbsp;</a></span>suivreConsoElectricite()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void SUP::suivreConsoElectricite </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Méthode permettant de suivre la consommation électrique d'un éclairage. </p>
-
-</div>
-</div>
-<a id="a69cb7b2974264f0288b16111d53fd864"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a69cb7b2974264f0288b16111d53fd864">&#9670;&nbsp;</a></span>visualiserInfo()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void SUP::visualiserInfo </td>
-          <td>(</td>
-          <td class="paramtype">const Ent &amp;&#160;</td>
-          <td class="paramname"><em>eclairage</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Méthode permettant d'afficher les informations d'un éclairage :</p><ul>
-<li>ID</li>
-<li>Etat (allumé/activé)</li>
-<li>Consommation</li>
-<li>Luminosité</li>
-<li>Batterie </li>
-</ul>
+<p class="reference">RÃ©fÃ©rences <a class="el" href="classSUP.html#a00c939fd10402af9876dd3b6a0ff4abb">doIt()</a>, et <a class="el" href="classFichierTextePersiBny.html#aa82a4b555eca2b92c4ec1b1d3231d0c2">FichierTextePersiBny::getContenu()</a>.</p>
 
 </div>
 </div>

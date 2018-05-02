@@ -1,9 +1,11 @@
 <map id="src/EclairageMulticolore.h" name="src/EclairageMulticolore.h">
 <area shape="rect" id="node2" href="$EclairageMulticolore_8cpp.html" title="src/EclairageMulticolore.cpp" alt="" coords="5,80,192,107"/>
-<area shape="rect" id="node3" href="$SUP_8cpp.html" title="src/SUP.cpp" alt="" coords="314,155,411,181"/>
-<area shape="rect" id="node4" href="$UcModifier_8h.html" title="src/UcModifier.h" alt="" coords="217,80,335,107"/>
-<area shape="rect" id="node6" href="$UcAjouter_8h.html" title="src/UcAjouter.h" alt="" coords="431,80,545,107"/>
-<area shape="rect" id="node5" href="$UcModifier_8cpp.html" title="src/UcModifier.cpp" alt="" coords="158,155,290,181"/>
-<area shape="rect" id="node7" href="$UcAjouter_8cpp.html" title="src/UcAjouter.cpp" alt="" coords="435,155,562,181"/>
-<area shape="rect" id="node8" href="$UcImporter_8cpp.html" title="src/UcImporter.cpp" alt="" coords="586,155,721,181"/>
+<area shape="rect" id="node3" href="$SUP_8h.html" title="src/SUP.h" alt="" coords="216,80,299,107"/>
+<area shape="rect" id="node5" href="$UcAjouter_8h.html" title="src/UcAjouter.h" alt="" coords="323,80,437,107"/>
+<area shape="rect" id="node9" href="$UcModifier_8h.html" title="src/UcModifier.h" alt="" coords="465,80,583,107"/>
+<area shape="rect" id="node4" href="$SUP_8cpp.html" title="src/SUP.cpp" alt="" coords="191,155,289,181"/>
+<area shape="rect" id="node6" href="$UcAjouter_8cpp.html" title="src/UcAjouter.cpp" alt="" coords="313,155,439,181"/>
+<area shape="rect" id="node7" href="$UcImporter_8h.html" title="src/UcImporter.h" alt="" coords="464,155,584,181"/>
+<area shape="rect" id="node8" href="$UcImporter_8cpp.html" title="src/UcImporter.cpp" alt="" coords="457,229,591,256"/>
+<area shape="rect" id="node10" href="$UcModifier_8cpp.html" title="src/UcModifier.cpp" alt="" coords="609,155,741,181"/>
 </map>

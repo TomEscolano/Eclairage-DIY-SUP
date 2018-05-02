@@ -81,6 +81,8 @@ $(document).ready(function(){initNavTree('classEclairage.html','');});
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-methods">Fonctions membres publiques</a> &#124;
+<a href="#pub-attribs">Attributs publics</a> &#124;
 <a href="classEclairage-members.html">Liste de tous les membres</a>  </div>
   <div class="headertitle">
 <div class="title">Référence de la classe Eclairage</div>  </div>
@@ -93,14 +95,22 @@ Graphe d'héritage de Eclairage:</div>
 <div class="dyncontent">
 <div class="center"><img src="classEclairage__inherit__graph.png" border="0" usemap="#Eclairage_inherit__map" alt="Inheritance graph"/></div>
 <map name="Eclairage_inherit__map" id="Eclairage_inherit__map">
-<area shape="rect" id="node2" href="classEclairageMulticolore.html" title="{EclairageMulticolore\n||}" alt="" coords="5,131,144,208"/>
-<area shape="rect" id="node3" href="classEclairageUnicolore.html" title="{EclairageUnicolore\n||}" alt="" coords="168,131,299,208"/>
+<area shape="rect" id="node2" href="classEclairageMulticolore.html" title="{EclairageMulticolore\n|+ controleur\l|+ EclairageMulticolore()\l}" alt="" coords="5,131,164,208"/>
+<area shape="rect" id="node3" href="classEclairageUnicolore.html" title="{EclairageUnicolore\n|+ controleur\l|}" alt="" coords="189,131,319,208"/>
 </map>
 </div>
 <div class="dynheader">
 Graphe de collaboration de Eclairage:</div>
 <div class="dyncontent">
 <div class="center"><img src="classEclairage__coll__graph.png" border="0" usemap="#Eclairage_coll__map" alt="Collaboration graph"/></div>
+<map name="Eclairage_coll__map" id="Eclairage_coll__map">
+<area shape="rect" id="node2" href="classEclairage_1_1Controleur.html" title="{Eclairage::Controleur\n||+ Controleur()\l+ activer()\l+ allumer()\l+ getIHMJardin()\l+ getIHMFormulaire()\l+ set()\l+ get()\l}" alt="" coords="271,595,418,760"/>
+<area shape="rect" id="node3" href="classEclairage_1_1PersiBny.html" title="{Eclairage::PersiBny\n||+ PersiBny()\l+ set()\l+ get()\l}" alt="" coords="5,323,143,429"/>
+<area shape="rect" id="node4" href="classSqlitePersiBny.html" title="{SqlitePersiBny\n||+ SqlitePersiBny()\l+ ~SqlitePersiBny()\l+ executerSql()\l+ executerSql()\l+ getDernierId()\l+ getDernierId()\l+ resultatToString()\l}" alt="" coords="6,5,142,171"/>
+<area shape="rect" id="node5" href="classEclairage_1_1IHMFormulaire.html" title="{Eclairage::IHMFormulaire\n||+ set()\l+ get()\l}" alt="" coords="167,330,338,422"/>
+<area shape="rect" id="node6" href="classEclairage_1_1Ent.html" title="{Eclairage::Ent\n||+ Ent()\l+ setID()\l+ setAllume()\l+ setActive()\l+ setNom()\l+ setCouleur()\l+ setConsommation()\l+ setX()\l+ setY()\l+ getID()\l+ getAllume()\l+ getActive()\l+ getNom()\l+ getCouleur()\l+ getConsommation()\l+ getX()\l+ getY()\l}" alt="" coords="363,220,511,532"/>
+<area shape="rect" id="node7" href="classEclairage_1_1IHMJardin.html" title="{Eclairage::IHMJardin\n||+ set()\l}" alt="" coords="535,337,679,415"/>
+</map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
@@ -115,6 +125,16 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEclairage_1_1PersiBny.html">PersiBny</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Fonctions membres publiques</h2></td></tr>
+<tr class="memitem:ae246cce1fc7671351a776a582c2e3b62"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEclairage.html#ae246cce1fc7671351a776a582c2e3b62">Eclairage</a> ()</td></tr>
+<tr class="separator:ae246cce1fc7671351a776a582c2e3b62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Attributs publics</h2></td></tr>
+<tr class="memitem:a90da39183159a9bf674ad6350e8f00a8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classEclairage_1_1Controleur.html">Controleur</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEclairage.html#a90da39183159a9bf674ad6350e8f00a8">controleur</a></td></tr>
+<tr class="separator:a90da39183159a9bf674ad6350e8f00a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Classe m�re repr�sentant un �clairage g�n�rique comportant:</p><ul>
@@ -124,7 +144,49 @@ Classes</h2></td></tr>
 <li>Une entit�</li>
 <li>Une persistance </li>
 </ul>
-</div><hr/>La documentation de cette classe a été générée à partir du fichier suivant :<ul>
+</div><h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
+<a id="ae246cce1fc7671351a776a582c2e3b62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae246cce1fc7671351a776a582c2e3b62">&#9670;&nbsp;</a></span>Eclairage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eclairage::Eclairage </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des données membres</h2>
+<a id="a90da39183159a9bf674ad6350e8f00a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90da39183159a9bf674ad6350e8f00a8">&#9670;&nbsp;</a></span>controleur</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classEclairage_1_1Controleur.html">Controleur</a> Eclairage::controleur</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>L'�clairage n'a qu'un controleur, accessible en public, qui controle l'eclairage dans sa totalit�. </p>
+
+</div>
+</div>
+<hr/>La documentation de cette classe a été générée à partir du fichier suivant :<ul>
 <li>src/<a class="el" href="Eclairage_8h_source.html">Eclairage.h</a></li>
 </ul>
 </div><!-- contents -->

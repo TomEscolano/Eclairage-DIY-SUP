@@ -81,6 +81,7 @@ $(document).ready(function(){initNavTree('classEclairage_1_1Controleur.html','')
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Fonctions membres publiques</a> &#124;
+<a href="#pub-attribs">Attributs publics</a> &#124;
 <a href="classEclairage_1_1Controleur-members.html">Liste de tous les membres</a>  </div>
   <div class="headertitle">
 <div class="title">RÃ©fÃ©rence de la classe Eclairage::Controleur</div>  </div>
@@ -93,18 +94,27 @@ Graphe d'hÃ©ritage de Eclairage::Controleur:</div>
 <div class="dyncontent">
 <div class="center"><img src="classEclairage_1_1Controleur__inherit__graph.png" border="0" usemap="#Eclairage_1_1Controleur_inherit__map" alt="Inheritance graph"/></div>
 <map name="Eclairage_1_1Controleur_inherit__map" id="Eclairage_1_1Controleur_inherit__map">
-<area shape="rect" id="node2" href="classEclairageMulticolore_1_1Controleur.html" title="{EclairageMulticolore\l::Controleur\n||+ recevoir()\l+ envoyer()\l}" alt="" coords="5,204,144,311"/>
-<area shape="rect" id="node3" href="classEclairageUnicolore_1_1Controleur.html" title="{EclairageUnicolore\l::Controleur\n||}" alt="" coords="168,211,299,303"/>
+<area shape="rect" id="node2" href="classEclairageMulticolore_1_1Controleur.html" title="{EclairageMulticolore\l::Controleur\n|+ ent\l+ persiBny\l+ ihmFormulaire\l+ ihmJardin\l+ ihmParametre\l|+ Controleur()\l+ recevoir()\l+ envoyer()\l+ getIHMJardin()\l}" alt="" coords="5,263,144,457"/>
+<area shape="rect" id="node3" href="classEclairageUnicolore_1_1Controleur.html" title="{EclairageUnicolore\l::Controleur\n|+ ent\l+ persiBny\l+ ihmFormulaire\l+ ihmJardin\l+ ihmParametre\l|+ Controleur()\l+ getIHMJardin()\l}" alt="" coords="168,277,299,443"/>
 </map>
 </div>
 <div class="dynheader">
 Graphe de collaboration de Eclairage::Controleur:</div>
 <div class="dyncontent">
 <div class="center"><img src="classEclairage_1_1Controleur__coll__graph.png" border="0" usemap="#Eclairage_1_1Controleur_coll__map" alt="Collaboration graph"/></div>
+<map name="Eclairage_1_1Controleur_coll__map" id="Eclairage_1_1Controleur_coll__map">
+<area shape="rect" id="node2" href="classEclairage_1_1PersiBny.html" title="{Eclairage::PersiBny\n||+ PersiBny()\l+ set()\l+ get()\l}" alt="" coords="5,323,143,429"/>
+<area shape="rect" id="node3" href="classSqlitePersiBny.html" title="{SqlitePersiBny\n||+ SqlitePersiBny()\l+ ~SqlitePersiBny()\l+ executerSql()\l+ executerSql()\l+ getDernierId()\l+ getDernierId()\l+ resultatToString()\l}" alt="" coords="6,5,142,171"/>
+<area shape="rect" id="node4" href="classEclairage_1_1IHMFormulaire.html" title="{Eclairage::IHMFormulaire\n||+ set()\l+ get()\l}" alt="" coords="167,330,338,422"/>
+<area shape="rect" id="node5" href="classEclairage_1_1Ent.html" title="{Eclairage::Ent\n||+ Ent()\l+ setID()\l+ setAllume()\l+ setActive()\l+ setNom()\l+ setCouleur()\l+ setConsommation()\l+ setX()\l+ setY()\l+ getID()\l+ getAllume()\l+ getActive()\l+ getNom()\l+ getCouleur()\l+ getConsommation()\l+ getX()\l+ getY()\l}" alt="" coords="363,220,511,532"/>
+<area shape="rect" id="node6" href="classEclairage_1_1IHMJardin.html" title="{Eclairage::IHMJardin\n||+ set()\l}" alt="" coords="535,337,679,415"/>
+</map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Fonctions membres publiques</h2></td></tr>
+<tr class="memitem:a1da92efcda2c7f42d6065287d9633a76"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEclairage_1_1Controleur.html#a1da92efcda2c7f42d6065287d9633a76">Controleur</a> ()</td></tr>
+<tr class="separator:a1da92efcda2c7f42d6065287d9633a76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abdf832d1dba32ae0cae84009022704ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEclairage_1_1Controleur.html#abdf832d1dba32ae0cae84009022704ae">activer</a> (bool etat)</td></tr>
 <tr class="separator:abdf832d1dba32ae0cae84009022704ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acca8b13291f05a3e65a0c628409d65f4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEclairage_1_1Controleur.html#acca8b13291f05a3e65a0c628409d65f4">allumer</a> (bool etat)</td></tr>
@@ -113,14 +123,52 @@ Fonctions membres publiques</h2></td></tr>
 <tr class="separator:a4962daee48ffa6cd40d01623a4506d04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3fa6d8e23e50c00383913259a8a14162"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEclairage_1_1Controleur.html#a3fa6d8e23e50c00383913259a8a14162">getIHMFormulaire</a> ()</td></tr>
 <tr class="separator:a3fa6d8e23e50c00383913259a8a14162"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5a9e725e98db67bd3a584a3819b269f6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEclairage_1_1Controleur.html#a5a9e725e98db67bd3a584a3819b269f6">set</a> (const <a class="el" href="classEclairage_1_1Ent.html">Ent</a> &amp;ent)</td></tr>
-<tr class="separator:a5a9e725e98db67bd3a584a3819b269f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa82a14322c2a354aacb0787a6532105"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEclairage_1_1Controleur.html#aaa82a14322c2a354aacb0787a6532105">get</a> (<a class="el" href="classEclairage_1_1Ent.html">Ent</a> &amp;ent)</td></tr>
-<tr class="separator:aaa82a14322c2a354aacb0787a6532105"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93fa11d4e18e798b78b406cff1285eb3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEclairage_1_1Controleur.html#a93fa11d4e18e798b78b406cff1285eb3">set</a> (const <a class="el" href="classEclairage_1_1Ent.html">Eclairage::Ent</a> &amp;<a class="el" href="classEclairage_1_1Controleur.html#a20290481ceacaea499fef52f24d2b83a">ent</a>)</td></tr>
+<tr class="separator:a93fa11d4e18e798b78b406cff1285eb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae58d8c92798a66be4198f474ff32c34e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEclairage_1_1Controleur.html#ae58d8c92798a66be4198f474ff32c34e">get</a> (<a class="el" href="classEclairage_1_1Ent.html">Eclairage::Ent</a> &amp;<a class="el" href="classEclairage_1_1Controleur.html#a20290481ceacaea499fef52f24d2b83a">ent</a>)</td></tr>
+<tr class="separator:ae58d8c92798a66be4198f474ff32c34e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Attributs publics</h2></td></tr>
+<tr class="memitem:adf01a0ed6f5da21a5fb4301cf50c2954"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classEclairage_1_1PersiBny.html">PersiBny</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEclairage_1_1Controleur.html#adf01a0ed6f5da21a5fb4301cf50c2954">persiBny</a></td></tr>
+<tr class="separator:adf01a0ed6f5da21a5fb4301cf50c2954"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20290481ceacaea499fef52f24d2b83a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classEclairage_1_1Ent.html">Ent</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEclairage_1_1Controleur.html#a20290481ceacaea499fef52f24d2b83a">ent</a></td></tr>
+<tr class="separator:a20290481ceacaea499fef52f24d2b83a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41548efbfd409ba503f311496d8b64bd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classEclairage_1_1IHMJardin.html">IHMJardin</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEclairage_1_1Controleur.html#a41548efbfd409ba503f311496d8b64bd">ihmJardin</a></td></tr>
+<tr class="separator:a41548efbfd409ba503f311496d8b64bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a454347810e4f1fa0024077e2a83dab06"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classEclairage_1_1IHMFormulaire.html">IHMFormulaire</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEclairage_1_1Controleur.html#a454347810e4f1fa0024077e2a83dab06">ihmFormulaire</a></td></tr>
+<tr class="separator:a454347810e4f1fa0024077e2a83dab06"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description dÃ©taillÃ©e</h2>
 <div class="textblock"><p><a class="el" href="classEclairage_1_1Controleur.html">Controleur</a> de la classe eclairage. </p>
-</div><h2 class="groupheader">Documentation des fonctions membres</h2>
+</div><h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
+<a id="a1da92efcda2c7f42d6065287d9633a76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1da92efcda2c7f42d6065287d9633a76">&#9670;&nbsp;</a></span>Controleur()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eclairage::Controleur::Controleur </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Constructeur du controleur de l'eclairage. Instancie l'entité et la persistance. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions membres</h2>
 <a id="abdf832d1dba32ae0cae84009022704ae"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abdf832d1dba32ae0cae84009022704ae">&#9670;&nbsp;</a></span>activer()</h2>
 
@@ -159,8 +207,8 @@ Fonctions membres publiques</h2></td></tr>
 
 </div>
 </div>
-<a id="aaa82a14322c2a354aacb0787a6532105"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaa82a14322c2a354aacb0787a6532105">&#9670;&nbsp;</a></span>get()</h2>
+<a id="ae58d8c92798a66be4198f474ff32c34e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae58d8c92798a66be4198f474ff32c34e">&#9670;&nbsp;</a></span>get()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -175,6 +223,8 @@ Fonctions membres publiques</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Méthode permettant de récupérer l'entité de l'éclairage. </p>
+
+<p class="reference">RÃ©fÃ©rences <a class="el" href="Couleur_8h.html#aa304d0ca681f782b1d7735da33037dd7a58b0623118011f228f9e035e740ca481">Blanc</a>, <a class="el" href="Couleur_8h.html#aa304d0ca681f782b1d7735da33037dd7a5e599bb418352502c3ea69bd355a42d2">Bleu</a>, <a class="el" href="classEclairage_1_1Ent.html#a503507f6dc76a84b54e22ef21d9f301d">Eclairage::Ent::getID()</a>, <a class="el" href="Couleur_8h.html#aa304d0ca681f782b1d7735da33037dd7ac78027705d90ce96cada10ca69871d13">Rouge</a>, <a class="el" href="classEclairage_1_1Ent.html#a1e9471a412f746a2284778c8d9548499">Eclairage::Ent::setActive()</a>, <a class="el" href="classEclairage_1_1Ent.html#a3c9d21bd3c725857050e39eb449d1ad5">Eclairage::Ent::setAllume()</a>, <a class="el" href="classEclairage_1_1Ent.html#a64c03bcbe84186341b0d9f23e91cdfd8">Eclairage::Ent::setConsommation()</a>, <a class="el" href="classEclairage_1_1Ent.html#a5f1a309d7e9c51a921a9ffcf8f6343f7">Eclairage::Ent::setCouleur()</a>, et <a class="el" href="classEclairage_1_1Ent.html#a348836d7b3c2f69f376d63c84ace8e3e">Eclairage::Ent::setNom()</a>.</p>
 
 </div>
 </div>
@@ -214,8 +264,8 @@ Fonctions membres publiques</h2></td></tr>
 
 </div>
 </div>
-<a id="a5a9e725e98db67bd3a584a3819b269f6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5a9e725e98db67bd3a584a3819b269f6">&#9670;&nbsp;</a></span>set()</h2>
+<a id="a93fa11d4e18e798b78b406cff1285eb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93fa11d4e18e798b78b406cff1285eb3">&#9670;&nbsp;</a></span>set()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -223,13 +273,70 @@ Fonctions membres publiques</h2></td></tr>
         <tr>
           <td class="memname">void Eclairage::Controleur::set </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classEclairage_1_1Ent.html">Ent</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classEclairage_1_1Ent.html">Eclairage::Ent</a> &amp;&#160;</td>
           <td class="paramname"><em>ent</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p>Méthode permettant de modifier intégralement la configuration de l'éclairage en lui passant une entité en paramètres. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des donnÃ©es membres</h2>
+<a id="a20290481ceacaea499fef52f24d2b83a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20290481ceacaea499fef52f24d2b83a">&#9670;&nbsp;</a></span>ent</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classEclairage_1_1Ent.html">Ent</a> Eclairage::Controleur::ent</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a454347810e4f1fa0024077e2a83dab06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a454347810e4f1fa0024077e2a83dab06">&#9670;&nbsp;</a></span>ihmFormulaire</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classEclairage_1_1IHMFormulaire.html">IHMFormulaire</a> Eclairage::Controleur::ihmFormulaire</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a41548efbfd409ba503f311496d8b64bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41548efbfd409ba503f311496d8b64bd">&#9670;&nbsp;</a></span>ihmJardin</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classEclairage_1_1IHMJardin.html">IHMJardin</a> Eclairage::Controleur::ihmJardin</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adf01a0ed6f5da21a5fb4301cf50c2954"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf01a0ed6f5da21a5fb4301cf50c2954">&#9670;&nbsp;</a></span>persiBny</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classEclairage_1_1PersiBny.html">PersiBny</a> Eclairage::Controleur::persiBny</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>

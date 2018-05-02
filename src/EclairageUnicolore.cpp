@@ -118,9 +118,9 @@ void EclairageUnicolore::PersiBny::get(Ent & ent)
 	this->Eclairage::PersiBny::get(ent);
 
 	SqlitePersiBny::Resultat resultat;
-	this->executerSql("SELECT * FROM unicolores WHERE id = " + std::to_string(ent.getID()) + ";", resultat);
+	this->executerSql("SELECT numeroPrise FROM unicolores WHERE id = " + std::to_string(ent.getID()) + ";", resultat);
 
-	ent.setNumeroPrise(atoi(resultat.at(0).at(1).second.c_str()));
+	ent.setNumeroPrise(atoi(resultat.at(0).at(0).second.c_str()));
 }
 
 #ifdef _UT_EclairageUnicolore_

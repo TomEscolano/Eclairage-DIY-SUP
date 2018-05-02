@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['persibny',['PersiBny',['../classEclairageMulticolore_1_1PersiBny.html',1,'EclairageMulticolore::PersiBny'],['../classEclairageUnicolore_1_1PersiBny.html',1,'EclairageUnicolore::PersiBny'],['../classEclairage_1_1PersiBny.html',1,'Eclairage::PersiBny']]]
+  ['owningstdiobytesourcebase',['OwningStdIOByteSourceBase',['../classio_1_1detail_1_1OwningStdIOByteSourceBase.html',1,'io::detail']]]
 ];

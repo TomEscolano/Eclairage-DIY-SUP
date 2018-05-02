@@ -1,3 +1,4 @@
 <map id="EclairageMulticolore::PersiBny" name="EclairageMulticolore::PersiBny">
-<area shape="rect" id="node2" href="$classEclairage_1_1PersiBny.html" title="{Eclairage::PersiBny\n||+ set()\l+ get()\l}" alt="" coords="6,5,143,97"/>
+<area shape="rect" id="node2" href="$classEclairage_1_1PersiBny.html" title="{Eclairage::PersiBny\n||+ PersiBny()\l+ set()\l+ get()\l}" alt="" coords="6,219,143,325"/>
+<area shape="rect" id="node3" href="$classSqlitePersiBny.html" title="{SqlitePersiBny\n||+ SqlitePersiBny()\l+ ~SqlitePersiBny()\l+ executerSql()\l+ executerSql()\l+ getDernierId()\l+ getDernierId()\l+ resultatToString()\l}" alt="" coords="7,5,143,171"/>
 </map>

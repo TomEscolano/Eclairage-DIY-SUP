@@ -6,7 +6,8 @@
 
 
 
-Graphe d\textquotesingle{}héritage de Eclairage\+Multicolore\+:\+:Ent\+:\nopagebreak
+Graphe d\textquotesingle{}héritage de Eclairage\+Multicolore\+:\+:Ent\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -15,7 +16,8 @@ Graphe d\textquotesingle{}héritage de Eclairage\+Multicolore\+:\+:Ent\+:\nopage
 \end{figure}
 
 
-Graphe de collaboration de Eclairage\+Multicolore\+:\+:Ent\+:\nopagebreak
+Graphe de collaboration de Eclairage\+Multicolore\+:\+:Ent\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -25,13 +27,17 @@ Graphe de collaboration de Eclairage\+Multicolore\+:\+:Ent\+:\nopagebreak
 \subsection*{Fonctions membres publiques}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{classEclairageMulticolore_1_1Ent_af7d67d8332c642aed4cc4b4ed3d28a22}{set\+Adresse\+IP} (const std\+::string \&adresse\+IP)
+\hyperlink{classEclairageMulticolore_1_1Ent_a1827dfdb3bed2e7d54cfe968594f1554}{Ent} ()
 \item 
-void \hyperlink{classEclairageMulticolore_1_1Ent_a5c6a220619c1918a4f7d0b055a9c62d8}{set\+Adresse\+Mac} (const std\+::string \&adresse\+Mac)
+void \hyperlink{classEclairageMulticolore_1_1Ent_a6078fbeb06a59bf1588fbd091088063a}{set\+Adresse\+IP} (std\+::string adresse\+IP)
 \item 
-void \hyperlink{classEclairageMulticolore_1_1Ent_ae27a0476fd11a1038a5dad51ec4b1174}{set\+Niveau\+Batterie} (const unsigned int \&niveau\+Batterie)
+void \hyperlink{classEclairageMulticolore_1_1Ent_a25d7782dfbf10906f9cd2193e3abde74}{set\+Adresse\+Mac} (std\+::string adresse\+Mac)
+\item 
+void \hyperlink{classEclairageMulticolore_1_1Ent_ab2543b93055678eb150e9840c1263904}{set\+Niveau\+Batterie} (unsigned int niveau\+Batterie)
 \item 
 void \hyperlink{classEclairageMulticolore_1_1Ent_a8d4b24f6283dad3d1eebd990c32500df}{set\+Version\+Firmware} (float version)
+\item 
+void \hyperlink{classEclairageMulticolore_1_1Ent_a460390825420ff54e2226ab599ec9192}{set\+Luminosite} (int luminosite)
 \item 
 std\+::string \hyperlink{classEclairageMulticolore_1_1Ent_ab94fe4fea3e833da751893b042b58c72}{get\+Adresse\+IP} ()
 \item 
@@ -40,7 +46,35 @@ std\+::string \hyperlink{classEclairageMulticolore_1_1Ent_ae507ad469e0e50b258d94
 unsigned int \hyperlink{classEclairageMulticolore_1_1Ent_ace38da1ad4db26da09187eb9057aa814}{get\+Niveau\+Batterie} ()
 \item 
 float \hyperlink{classEclairageMulticolore_1_1Ent_a1d3deebf88fdd71633bc92219a070ce1}{get\+Version\+Firmware} ()
+\item 
+int \hyperlink{classEclairageMulticolore_1_1Ent_a904bd089ddde05670d7390fa609e43a9}{get\+Luminosite} ()
 \end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Classe entit� de l\textquotesingle{}�clairage comportant\+:
+\begin{DoxyItemize}
+\item Une adresse IP
+\end{DoxyItemize}
+
+Un adresse M\+AC
+\begin{DoxyItemize}
+\item Le iveau de batterie du Rapsberry\+Pi controlant l\textquotesingle{}�clairage
+\item La version du firmware
+\item La lminosit� venant du capteur sur le R\+PI 
+\end{DoxyItemize}
+
+\subsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{classEclairageMulticolore_1_1Ent_a1827dfdb3bed2e7d54cfe968594f1554}\label{classEclairageMulticolore_1_1Ent_a1827dfdb3bed2e7d54cfe968594f1554}} 
+\index{Eclairage\+Multicolore\+::\+Ent@{Eclairage\+Multicolore\+::\+Ent}!Ent@{Ent}}
+\index{Ent@{Ent}!Eclairage\+Multicolore\+::\+Ent@{Eclairage\+Multicolore\+::\+Ent}}
+\subsubsection{\texorpdfstring{Ent()}{Ent()}}
+{\footnotesize\ttfamily Eclairage\+Multicolore\+::\+Ent\+::\+Ent (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Références get\+Adresse\+I\+P(), get\+Adresse\+Mac(), get\+Luminosite(), get\+Niveau\+Batterie(), get\+Version\+Firmware(), set\+Adresse\+I\+P(), set\+Adresse\+Mac(), set\+Luminosite(), set\+Niveau\+Batterie(), et set\+Version\+Firmware().
+
 
 
 \subsection{Documentation des fonctions membres}
@@ -50,11 +84,29 @@ float \hyperlink{classEclairageMulticolore_1_1Ent_a1d3deebf88fdd71633bc92219a070
 \subsubsection{\texorpdfstring{get\+Adresse\+I\+P()}{getAdresseIP()}}
 {\footnotesize\ttfamily std\+::string Eclairage\+Multicolore\+::\+Ent\+::get\+Adresse\+IP (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+Références Sqlite\+Persi\+Bny\+::executer\+Sql().
+
 \mbox{\Hypertarget{classEclairageMulticolore_1_1Ent_ae507ad469e0e50b258d949e86e7fc964}\label{classEclairageMulticolore_1_1Ent_ae507ad469e0e50b258d949e86e7fc964}} 
 \index{Eclairage\+Multicolore\+::\+Ent@{Eclairage\+Multicolore\+::\+Ent}!get\+Adresse\+Mac@{get\+Adresse\+Mac}}
 \index{get\+Adresse\+Mac@{get\+Adresse\+Mac}!Eclairage\+Multicolore\+::\+Ent@{Eclairage\+Multicolore\+::\+Ent}}
 \subsubsection{\texorpdfstring{get\+Adresse\+Mac()}{getAdresseMac()}}
 {\footnotesize\ttfamily std\+::string Eclairage\+Multicolore\+::\+Ent\+::get\+Adresse\+Mac (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Références Sqlite\+Persi\+Bny\+::executer\+Sql().
+
+\mbox{\Hypertarget{classEclairageMulticolore_1_1Ent_a904bd089ddde05670d7390fa609e43a9}\label{classEclairageMulticolore_1_1Ent_a904bd089ddde05670d7390fa609e43a9}} 
+\index{Eclairage\+Multicolore\+::\+Ent@{Eclairage\+Multicolore\+::\+Ent}!get\+Luminosite@{get\+Luminosite}}
+\index{get\+Luminosite@{get\+Luminosite}!Eclairage\+Multicolore\+::\+Ent@{Eclairage\+Multicolore\+::\+Ent}}
+\subsubsection{\texorpdfstring{get\+Luminosite()}{getLuminosite()}}
+{\footnotesize\ttfamily int Eclairage\+Multicolore\+::\+Ent\+::get\+Luminosite (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Références Sqlite\+Persi\+Bny\+::executer\+Sql().
 
 \mbox{\Hypertarget{classEclairageMulticolore_1_1Ent_ace38da1ad4db26da09187eb9057aa814}\label{classEclairageMulticolore_1_1Ent_ace38da1ad4db26da09187eb9057aa814}} 
 \index{Eclairage\+Multicolore\+::\+Ent@{Eclairage\+Multicolore\+::\+Ent}!get\+Niveau\+Batterie@{get\+Niveau\+Batterie}}
@@ -62,35 +114,69 @@ float \hyperlink{classEclairageMulticolore_1_1Ent_a1d3deebf88fdd71633bc92219a070
 \subsubsection{\texorpdfstring{get\+Niveau\+Batterie()}{getNiveauBatterie()}}
 {\footnotesize\ttfamily unsigned int Eclairage\+Multicolore\+::\+Ent\+::get\+Niveau\+Batterie (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+Références Sqlite\+Persi\+Bny\+::executer\+Sql().
+
 \mbox{\Hypertarget{classEclairageMulticolore_1_1Ent_a1d3deebf88fdd71633bc92219a070ce1}\label{classEclairageMulticolore_1_1Ent_a1d3deebf88fdd71633bc92219a070ce1}} 
 \index{Eclairage\+Multicolore\+::\+Ent@{Eclairage\+Multicolore\+::\+Ent}!get\+Version\+Firmware@{get\+Version\+Firmware}}
 \index{get\+Version\+Firmware@{get\+Version\+Firmware}!Eclairage\+Multicolore\+::\+Ent@{Eclairage\+Multicolore\+::\+Ent}}
 \subsubsection{\texorpdfstring{get\+Version\+Firmware()}{getVersionFirmware()}}
 {\footnotesize\ttfamily float Eclairage\+Multicolore\+::\+Ent\+::get\+Version\+Firmware (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{classEclairageMulticolore_1_1Ent_af7d67d8332c642aed4cc4b4ed3d28a22}\label{classEclairageMulticolore_1_1Ent_af7d67d8332c642aed4cc4b4ed3d28a22}} 
+
+
+Références Sqlite\+Persi\+Bny\+::executer\+Sql().
+
+\mbox{\Hypertarget{classEclairageMulticolore_1_1Ent_a6078fbeb06a59bf1588fbd091088063a}\label{classEclairageMulticolore_1_1Ent_a6078fbeb06a59bf1588fbd091088063a}} 
 \index{Eclairage\+Multicolore\+::\+Ent@{Eclairage\+Multicolore\+::\+Ent}!set\+Adresse\+IP@{set\+Adresse\+IP}}
 \index{set\+Adresse\+IP@{set\+Adresse\+IP}!Eclairage\+Multicolore\+::\+Ent@{Eclairage\+Multicolore\+::\+Ent}}
 \subsubsection{\texorpdfstring{set\+Adresse\+I\+P()}{setAdresseIP()}}
-{\footnotesize\ttfamily void Eclairage\+Multicolore\+::\+Ent\+::set\+Adresse\+IP (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{adresse\+IP }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Eclairage\+Multicolore\+::\+Ent\+::set\+Adresse\+IP (\begin{DoxyParamCaption}\item[{std\+::string}]{adresse\+IP }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{classEclairageMulticolore_1_1Ent_a5c6a220619c1918a4f7d0b055a9c62d8}\label{classEclairageMulticolore_1_1Ent_a5c6a220619c1918a4f7d0b055a9c62d8}} 
+
+
+Références Sqlite\+Persi\+Bny\+::executer\+Sql().
+
+\mbox{\Hypertarget{classEclairageMulticolore_1_1Ent_a25d7782dfbf10906f9cd2193e3abde74}\label{classEclairageMulticolore_1_1Ent_a25d7782dfbf10906f9cd2193e3abde74}} 
 \index{Eclairage\+Multicolore\+::\+Ent@{Eclairage\+Multicolore\+::\+Ent}!set\+Adresse\+Mac@{set\+Adresse\+Mac}}
 \index{set\+Adresse\+Mac@{set\+Adresse\+Mac}!Eclairage\+Multicolore\+::\+Ent@{Eclairage\+Multicolore\+::\+Ent}}
 \subsubsection{\texorpdfstring{set\+Adresse\+Mac()}{setAdresseMac()}}
-{\footnotesize\ttfamily void Eclairage\+Multicolore\+::\+Ent\+::set\+Adresse\+Mac (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{adresse\+Mac }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Eclairage\+Multicolore\+::\+Ent\+::set\+Adresse\+Mac (\begin{DoxyParamCaption}\item[{std\+::string}]{adresse\+Mac }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{classEclairageMulticolore_1_1Ent_ae27a0476fd11a1038a5dad51ec4b1174}\label{classEclairageMulticolore_1_1Ent_ae27a0476fd11a1038a5dad51ec4b1174}} 
+
+
+Références Sqlite\+Persi\+Bny\+::executer\+Sql().
+
+\mbox{\Hypertarget{classEclairageMulticolore_1_1Ent_a460390825420ff54e2226ab599ec9192}\label{classEclairageMulticolore_1_1Ent_a460390825420ff54e2226ab599ec9192}} 
+\index{Eclairage\+Multicolore\+::\+Ent@{Eclairage\+Multicolore\+::\+Ent}!set\+Luminosite@{set\+Luminosite}}
+\index{set\+Luminosite@{set\+Luminosite}!Eclairage\+Multicolore\+::\+Ent@{Eclairage\+Multicolore\+::\+Ent}}
+\subsubsection{\texorpdfstring{set\+Luminosite()}{setLuminosite()}}
+{\footnotesize\ttfamily void Eclairage\+Multicolore\+::\+Ent\+::set\+Luminosite (\begin{DoxyParamCaption}\item[{int}]{luminosite }\end{DoxyParamCaption})}
+
+
+
+Références Sqlite\+Persi\+Bny\+::executer\+Sql().
+
+\mbox{\Hypertarget{classEclairageMulticolore_1_1Ent_ab2543b93055678eb150e9840c1263904}\label{classEclairageMulticolore_1_1Ent_ab2543b93055678eb150e9840c1263904}} 
 \index{Eclairage\+Multicolore\+::\+Ent@{Eclairage\+Multicolore\+::\+Ent}!set\+Niveau\+Batterie@{set\+Niveau\+Batterie}}
 \index{set\+Niveau\+Batterie@{set\+Niveau\+Batterie}!Eclairage\+Multicolore\+::\+Ent@{Eclairage\+Multicolore\+::\+Ent}}
 \subsubsection{\texorpdfstring{set\+Niveau\+Batterie()}{setNiveauBatterie()}}
-{\footnotesize\ttfamily void Eclairage\+Multicolore\+::\+Ent\+::set\+Niveau\+Batterie (\begin{DoxyParamCaption}\item[{const unsigned int \&}]{niveau\+Batterie }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Eclairage\+Multicolore\+::\+Ent\+::set\+Niveau\+Batterie (\begin{DoxyParamCaption}\item[{unsigned int}]{niveau\+Batterie }\end{DoxyParamCaption})}
+
+
+
+Références Sqlite\+Persi\+Bny\+::executer\+Sql().
 
 \mbox{\Hypertarget{classEclairageMulticolore_1_1Ent_a8d4b24f6283dad3d1eebd990c32500df}\label{classEclairageMulticolore_1_1Ent_a8d4b24f6283dad3d1eebd990c32500df}} 
 \index{Eclairage\+Multicolore\+::\+Ent@{Eclairage\+Multicolore\+::\+Ent}!set\+Version\+Firmware@{set\+Version\+Firmware}}
 \index{set\+Version\+Firmware@{set\+Version\+Firmware}!Eclairage\+Multicolore\+::\+Ent@{Eclairage\+Multicolore\+::\+Ent}}
 \subsubsection{\texorpdfstring{set\+Version\+Firmware()}{setVersionFirmware()}}
 {\footnotesize\ttfamily void Eclairage\+Multicolore\+::\+Ent\+::set\+Version\+Firmware (\begin{DoxyParamCaption}\item[{float}]{version }\end{DoxyParamCaption})}
+
+
+
+Références Sqlite\+Persi\+Bny\+::executer\+Sql().
 
 
 

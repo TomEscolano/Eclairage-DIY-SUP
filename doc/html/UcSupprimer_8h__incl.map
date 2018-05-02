@@ -1,4 +1,8 @@
 <map id="src/UcSupprimer.h" name="src/UcSupprimer.h">
-<area shape="rect" id="node2" href="$SqlitePersiBny_8h.html" title="SqlitePersiBny.h" alt="" coords="159,80,277,107"/>
-<area shape="rect" id="node4" href="$SqlitePersiBnyException_8h.html" title="SqlitePersiBnyException.h" alt="" coords="59,155,236,181"/>
+<area shape="rect" id="node2" href="$SqlitePersiBny_8h.html" title="SqlitePersiBny.h" alt="" coords="317,155,436,181"/>
+<area shape="rect" id="node9" href="$Eclairage_8h.html" title="Eclairage.h" alt="" coords="763,80,849,107"/>
+<area shape="rect" id="node4" href="$SqlitePersiBnyException_8h.html" title="SqlitePersiBnyException.h" alt="" coords="64,229,241,256"/>
+<area shape="rect" id="node12" href="$Couleur_8h.html" title="Couleur.h" alt="" coords="1080,155,1159,181"/>
+<area shape="rect" id="node13" href="$Utility_8h.html" title="Utility.h" alt="" coords="562,155,629,181"/>
+<area shape="rect" id="node16" href="$FichierTextePersiBny_8h.html" title="FichierTextePersiBny.h" alt="" coords="805,155,964,181"/>
 </map>

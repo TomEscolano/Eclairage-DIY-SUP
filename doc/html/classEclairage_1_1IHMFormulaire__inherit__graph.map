@@ -1,0 +1,4 @@
+<map id="Eclairage::IHMFormulaire" name="Eclairage::IHMFormulaire">
+<area shape="rect" id="node2" href="$classEclairageMulticolore_1_1IHMFormulaire.html" title="{EclairageMulticolore\l::IHMFormulaire\n||+ set()\l+ get()\l}" alt="" coords="5,145,144,252"/>
+<area shape="rect" id="node3" href="$classEclairageUnicolore_1_1IHMFormulaire.html" title="{EclairageUnicolore\l::IHMFormulaire\n||+ set()\l+ get()\l}" alt="" coords="168,145,299,252"/>
+</map>

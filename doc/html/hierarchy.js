@@ -6,7 +6,6 @@ var hierarchy =
       [ "io::detail::NonOwningStringByteSource", "classio_1_1detail_1_1NonOwningStringByteSource.html", null ],
       [ "io::detail::OwningStdIOByteSourceBase", "classio_1_1detail_1_1OwningStdIOByteSourceBase.html", null ]
     ] ],
-    [ "ClientTcpComBny", "classClientTcpComBny.html", null ],
     [ "Eclairage::Controleur", "classEclairage_1_1Controleur.html", [
       [ "EclairageMulticolore::Controleur", "classEclairageMulticolore_1_1Controleur.html", null ],
       [ "EclairageUnicolore::Controleur", "classEclairageUnicolore_1_1Controleur.html", null ]
@@ -39,26 +38,49 @@ var hierarchy =
         [ "io::error::too_few_columns", "structio_1_1error_1_1too__few__columns.html", null ],
         [ "io::error::too_many_columns", "structio_1_1error_1_1too__many__columns.html", null ]
       ] ],
-      [ "SqlitePersiBnyException", "classSqlitePersiBnyException.html", null ],
-      [ "TcpIpComBnyException", "classTcpIpComBnyException.html", null ]
+      [ "SqlitePersiBnyException", "classSqlitePersiBnyException.html", null ]
     ] ],
     [ "io::ignore_overflow", "structio_1_1ignore__overflow.html", null ],
-    [ "Eclairage::IHMFormulaire", "classEclairage_1_1IHMFormulaire.html", null ],
-    [ "Eclairage::IHMJardin", "classEclairage_1_1IHMJardin.html", null ],
+    [ "Eclairage::IHMFormulaire", "classEclairage_1_1IHMFormulaire.html", [
+      [ "EclairageMulticolore::IHMFormulaire", "classEclairageMulticolore_1_1IHMFormulaire.html", null ],
+      [ "EclairageUnicolore::IHMFormulaire", "classEclairageUnicolore_1_1IHMFormulaire.html", null ]
+    ] ],
+    [ "Eclairage::IHMJardin", "classEclairage_1_1IHMJardin.html", [
+      [ "EclairageMulticolore::IHMJardin", "classEclairageMulticolore_1_1IHMJardin.html", null ],
+      [ "EclairageUnicolore::IHMJardin", "classEclairageUnicolore_1_1IHMJardin.html", null ]
+    ] ],
+    [ "EclairageMulticolore::IHMParametre", "classEclairageMulticolore_1_1IHMParametre.html", null ],
+    [ "EclairageUnicolore::IHMParametre", "classEclairageUnicolore_1_1IHMParametre.html", null ],
+    [ "std::ios_base", null, [
+      [ "std::basic_ios< Char >", null, [
+        [ "std::basic_istream< Char >", null, [
+          [ "std::basic_iostream< Char >", null, [
+            [ "std::basic_fstream< Char >", null, [
+              [ "std::fstream", null, [
+                [ "FichierTextePersiBny", "classFichierTextePersiBny.html", null ]
+              ] ]
+            ] ]
+          ] ]
+        ] ],
+        [ "std::basic_ostream< Char >", null, [
+          [ "std::basic_iostream< Char >", null, null ]
+        ] ]
+      ] ]
+    ] ],
     [ "io::LineReader", "classio_1_1LineReader.html", null ],
     [ "io::no_comment", "structio_1_1no__comment.html", null ],
     [ "io::no_quote_escape< sep >", "structio_1_1no__quote__escape.html", null ],
-    [ "Eclairage::PersiBny", "classEclairage_1_1PersiBny.html", [
-      [ "EclairageMulticolore::PersiBny", "classEclairageMulticolore_1_1PersiBny.html", null ],
-      [ "EclairageUnicolore::PersiBny", "classEclairageUnicolore_1_1PersiBny.html", null ]
-    ] ],
     [ "io::set_to_max_on_overflow", "structio_1_1set__to__max__on__overflow.html", null ],
     [ "io::single_and_empty_line_comment< comment_start_char_list >", "structio_1_1single__and__empty__line__comment.html", null ],
     [ "io::single_line_comment< comment_start_char_list >", "structio_1_1single__line__comment.html", null ],
-    [ "SqlitePersiBny", "classSqlitePersiBny.html", null ],
+    [ "SqlitePersiBny", "classSqlitePersiBny.html", [
+      [ "Eclairage::PersiBny", "classEclairage_1_1PersiBny.html", [
+        [ "EclairageMulticolore::PersiBny", "classEclairageMulticolore_1_1PersiBny.html", null ],
+        [ "EclairageUnicolore::PersiBny", "classEclairageUnicolore_1_1PersiBny.html", null ]
+      ] ]
+    ] ],
     [ "SUP", "classSUP.html", null ],
     [ "io::detail::SynchronousReader", "classio_1_1detail_1_1SynchronousReader.html", null ],
-    [ "TcpComBny", "classTcpComBny.html", null ],
     [ "io::throw_on_overflow", "structio_1_1throw__on__overflow.html", null ],
     [ "io::trim_chars< trim_char_list >", "structio_1_1trim__chars.html", null ],
     [ "UcAjouter", "classUcAjouter.html", null ],

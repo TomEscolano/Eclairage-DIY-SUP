@@ -1,9 +1,10 @@
 var searchData=
 [
-  ['tcpcombny',['TcpComBny',['../classTcpComBny.html',1,'']]],
-  ['tcpipcombnyexception',['TcpIpComBnyException',['../classTcpIpComBnyException.html',1,'']]],
-  ['throw_5fon_5foverflow',['throw_on_overflow',['../structio_1_1throw__on__overflow.html',1,'io']]],
-  ['too_5ffew_5fcolumns',['too_few_columns',['../structio_1_1error_1_1too__few__columns.html',1,'io::error']]],
-  ['too_5fmany_5fcolumns',['too_many_columns',['../structio_1_1error_1_1too__many__columns.html',1,'io::error']]],
-  ['trim_5fchars',['trim_chars',['../structio_1_1trim__chars.html',1,'io']]]
+  ['set_5fto_5fmax_5fon_5foverflow',['set_to_max_on_overflow',['../structio_1_1set__to__max__on__overflow.html',1,'io']]],
+  ['single_5fand_5fempty_5fline_5fcomment',['single_and_empty_line_comment',['../structio_1_1single__and__empty__line__comment.html',1,'io']]],
+  ['single_5fline_5fcomment',['single_line_comment',['../structio_1_1single__line__comment.html',1,'io']]],
+  ['sqlitepersibny',['SqlitePersiBny',['../classSqlitePersiBny.html',1,'']]],
+  ['sqlitepersibnyexception',['SqlitePersiBnyException',['../classSqlitePersiBnyException.html',1,'']]],
+  ['sup',['SUP',['../classSUP.html',1,'']]],
+  ['synchronousreader',['SynchronousReader',['../classio_1_1detail_1_1SynchronousReader.html',1,'io::detail']]]
 ];

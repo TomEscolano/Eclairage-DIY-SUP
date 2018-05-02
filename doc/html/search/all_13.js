@@ -1,9 +1,11 @@
 var searchData=
 [
-  ['what',['what',['../structio_1_1error_1_1base.html#a35483dfbe91cea45cfa7c5613e83e5ef',1,'io::error::base::what()'],['../classSqlitePersiBnyException.html#ac1ff5b82a1a2f3ff35b1c90ddc7356d7',1,'SqlitePersiBnyException::what()'],['../classTcpIpComBnyException.html#a5a5d21a18a7863b106020a2c6113402d',1,'TcpIpComBnyException::what()']]],
-  ['with_5fcolumn_5fcontent',['with_column_content',['../structio_1_1error_1_1with__column__content.html',1,'io::error::with_column_content'],['../structio_1_1error_1_1with__column__content.html#aca754ef952be5ff4fcfe51ccb57ab66d',1,'io::error::with_column_content::with_column_content()']]],
-  ['with_5fcolumn_5fname',['with_column_name',['../structio_1_1error_1_1with__column__name.html',1,'io::error::with_column_name'],['../structio_1_1error_1_1with__column__name.html#a07d04d38dc87e6b20d2371695a3229c7',1,'io::error::with_column_name::with_column_name()']]],
-  ['with_5ferrno',['with_errno',['../structio_1_1error_1_1with__errno.html',1,'io::error::with_errno'],['../structio_1_1error_1_1with__errno.html#a32a76a42097cfdfb2793511082eb0f93',1,'io::error::with_errno::with_errno()']]],
-  ['with_5ffile_5fline',['with_file_line',['../structio_1_1error_1_1with__file__line.html',1,'io::error::with_file_line'],['../structio_1_1error_1_1with__file__line.html#a742ad5e6a169a7972c908f606a28ab4e',1,'io::error::with_file_line::with_file_line()']]],
-  ['with_5ffile_5fname',['with_file_name',['../structio_1_1error_1_1with__file__name.html',1,'io::error::with_file_name'],['../structio_1_1error_1_1with__file__name.html#aeb0eced36b022e8a00b19727d833067f',1,'io::error::with_file_name::with_file_name()']]]
+  ['_7easynchronousreader',['~AsynchronousReader',['../classio_1_1detail_1_1AsynchronousReader.html#a284dd807219eb954c35de4379822c02b',1,'io::detail::AsynchronousReader']]],
+  ['_7ebytesourcebase',['~ByteSourceBase',['../classio_1_1ByteSourceBase.html#ac3228fe608b3268e49c2243d668d6efd',1,'io::ByteSourceBase']]],
+  ['_7efichiertextepersibny',['~FichierTextePersiBny',['../classFichierTextePersiBny.html#a1ee8d139d3e42d7bcc6b5853f25cb09b',1,'FichierTextePersiBny']]],
+  ['_7enonowningistreambytesource',['~NonOwningIStreamByteSource',['../classio_1_1detail_1_1NonOwningIStreamByteSource.html#a74a5a592a35640f3b2c5694ca509bec7',1,'io::detail::NonOwningIStreamByteSource']]],
+  ['_7enonowningstringbytesource',['~NonOwningStringByteSource',['../classio_1_1detail_1_1NonOwningStringByteSource.html#aa727fc8845a570b7a7a2367da3fe0adf',1,'io::detail::NonOwningStringByteSource']]],
+  ['_7eowningstdiobytesourcebase',['~OwningStdIOByteSourceBase',['../classio_1_1detail_1_1OwningStdIOByteSourceBase.html#accecf70a8e958d44b0adf4211a775452',1,'io::detail::OwningStdIOByteSourceBase']]],
+  ['_7esqlitepersibny',['~SqlitePersiBny',['../classSqlitePersiBny.html#a20a424146469e8d6ca9347c660d1027c',1,'SqlitePersiBny']]],
+  ['_7esqlitepersibnyexception',['~SqlitePersiBnyException',['../classSqlitePersiBnyException.html#a06ed1843ac6330bb56476b28322e0836',1,'SqlitePersiBnyException']]]
 ];

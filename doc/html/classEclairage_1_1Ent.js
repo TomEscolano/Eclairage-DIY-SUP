@@ -1,5 +1,6 @@
 var classEclairage_1_1Ent =
 [
+    [ "Ent", "classEclairage_1_1Ent.html#a2c185a5889bd49a541d9e1785b25322a", null ],
     [ "getActive", "classEclairage_1_1Ent.html#a7fdf3efdeb7ec2f649a79a1681db6e1e", null ],
     [ "getAllume", "classEclairage_1_1Ent.html#a6d968244e96edee75019717f95dbb1d2", null ],
     [ "getConsommation", "classEclairage_1_1Ent.html#afb847965b5bcccc415bb169e500656f9", null ],
@@ -14,6 +15,6 @@ var classEclairage_1_1Ent =
     [ "setCouleur", "classEclairage_1_1Ent.html#a5f1a309d7e9c51a921a9ffcf8f6343f7", null ],
     [ "setID", "classEclairage_1_1Ent.html#a927ff132e908bb3e68dab254f6c2ac2d", null ],
     [ "setNom", "classEclairage_1_1Ent.html#a348836d7b3c2f69f376d63c84ace8e3e", null ],
-    [ "setX", "classEclairage_1_1Ent.html#a4803c876b2dc4ca8b85542261aae7bb1", null ],
+    [ "setX", "classEclairage_1_1Ent.html#a4c5528c086dee2b6c5433c6e103f7eeb", null ],
     [ "setY", "classEclairage_1_1Ent.html#abdf5e31d5b5788c832b964c3712b7231", null ]
 ];

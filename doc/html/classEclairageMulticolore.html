@@ -81,6 +81,8 @@ $(document).ready(function(){initNavTree('classEclairageMulticolore.html','');})
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-methods">Fonctions membres publiques</a> &#124;
+<a href="#pub-attribs">Attributs publics</a> &#124;
 <a href="classEclairageMulticolore-members.html">Liste de tous les membres</a>  </div>
   <div class="headertitle">
 <div class="title">Référence de la classe EclairageMulticolore</div>  </div>
@@ -93,7 +95,7 @@ Graphe d'héritage de EclairageMulticolore:</div>
 <div class="dyncontent">
 <div class="center"><img src="classEclairageMulticolore__inherit__graph.png" border="0" usemap="#EclairageMulticolore_inherit__map" alt="Inheritance graph"/></div>
 <map name="EclairageMulticolore_inherit__map" id="EclairageMulticolore_inherit__map">
-<area shape="rect" id="node2" href="classEclairage.html" title="{Eclairage\n||}" alt="" coords="37,5,113,83"/>
+<area shape="rect" id="node2" href="classEclairage.html" title="{Eclairage\n|+ controleur\l|+ Eclairage()\l}" alt="" coords="37,5,133,83"/>
 </map>
 </div>
 <div class="dynheader">
@@ -101,7 +103,19 @@ Graphe de collaboration de EclairageMulticolore:</div>
 <div class="dyncontent">
 <div class="center"><img src="classEclairageMulticolore__coll__graph.png" border="0" usemap="#EclairageMulticolore_coll__map" alt="Collaboration graph"/></div>
 <map name="EclairageMulticolore_coll__map" id="EclairageMulticolore_coll__map">
-<area shape="rect" id="node2" href="classEclairage.html" title="{Eclairage\n||}" alt="" coords="37,5,113,83"/>
+<area shape="rect" id="node2" href="classEclairage.html" title="{Eclairage\n||+ Eclairage()\l}" alt="" coords="668,911,764,988"/>
+<area shape="rect" id="node3" href="classEclairage_1_1Controleur.html" title="{Eclairage::Controleur\n||+ Controleur()\l+ activer()\l+ allumer()\l+ getIHMJardin()\l+ getIHMFormulaire()\l+ set()\l+ get()\l}" alt="" coords="656,624,803,789"/>
+<area shape="rect" id="node9" href="classEclairageMulticolore_1_1Controleur.html" title="{EclairageMulticolore\l::Controleur\n||+ Controleur()\l+ recevoir()\l+ envoyer()\l+ getIHMJardin()\l}" alt="" coords="493,881,632,1017"/>
+<area shape="rect" id="node4" href="classEclairage_1_1PersiBny.html" title="{Eclairage::PersiBny\n||+ PersiBny()\l+ set()\l+ get()\l}" alt="" coords="79,323,217,429"/>
+<area shape="rect" id="node14" href="classEclairageMulticolore_1_1PersiBny.html" title="{EclairageMulticolore\l::PersiBny\n||+ PersiBny()\l+ set()\l+ get()\l}" alt="" coords="5,646,144,767"/>
+<area shape="rect" id="node5" href="classSqlitePersiBny.html" title="{SqlitePersiBny\n||+ SqlitePersiBny()\l+ ~SqlitePersiBny()\l+ executerSql()\l+ executerSql()\l+ getDernierId()\l+ getDernierId()\l+ resultatToString()\l}" alt="" coords="80,5,216,171"/>
+<area shape="rect" id="node6" href="classEclairage_1_1IHMFormulaire.html" title="{Eclairage::IHMFormulaire\n||+ set()\l+ get()\l}" alt="" coords="284,330,455,422"/>
+<area shape="rect" id="node13" href="classEclairageMulticolore_1_1IHMFormulaire.html" title="{EclairageMulticolore\l::IHMFormulaire\n||+ set()\l+ get()\l}" alt="" coords="168,653,307,760"/>
+<area shape="rect" id="node7" href="classEclairage_1_1Ent.html" title="{Eclairage::Ent\n||+ Ent()\l+ setID()\l+ setAllume()\l+ setActive()\l+ setNom()\l+ setCouleur()\l+ setConsommation()\l+ setX()\l+ setY()\l+ getID()\l+ getAllume()\l+ getActive()\l+ getNom()\l+ getCouleur()\l+ getConsommation()\l+ getX()\l+ getY()\l}" alt="" coords="757,220,905,532"/>
+<area shape="rect" id="node11" href="classEclairageMulticolore_1_1Ent.html" title="{EclairageMulticolore::Ent\n||+ Ent()\l+ setAdresseIP()\l+ setAdresseMac()\l+ setNiveauBatterie()\l+ setVersionFirmware()\l+ setLuminosite()\l+ getAdresseIP()\l+ getAdresseMac()\l+ getNiveauBatterie()\l+ getVersionFirmware()\l+ getLuminosite()\l}" alt="" coords="827,595,994,819"/>
+<area shape="rect" id="node8" href="classEclairage_1_1IHMJardin.html" title="{Eclairage::IHMJardin\n||+ set()\l}" alt="" coords="565,337,709,415"/>
+<area shape="rect" id="node12" href="classEclairageMulticolore_1_1IHMJardin.html" title="{EclairageMulticolore\l::IHMJardin\n||+ set()\l}" alt="" coords="493,661,632,753"/>
+<area shape="rect" id="node10" href="classEclairageMulticolore_1_1IHMParametre.html" title="{EclairageMulticolore\l::IHMParametre\n||+ set()\l}" alt="" coords="331,661,469,753"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -111,9 +125,85 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEclairageMulticolore_1_1Ent.html">Ent</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEclairageMulticolore_1_1IHMFormulaire.html">IHMFormulaire</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEclairageMulticolore_1_1IHMJardin.html">IHMJardin</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEclairageMulticolore_1_1IHMParametre.html">IHMParametre</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEclairageMulticolore_1_1PersiBny.html">PersiBny</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Fonctions membres publiques</h2></td></tr>
+<tr class="memitem:a4ed0135965af48317dc414a7af731358"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEclairageMulticolore.html#a4ed0135965af48317dc414a7af731358">EclairageMulticolore</a> ()</td></tr>
+<tr class="separator:a4ed0135965af48317dc414a7af731358"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classEclairage"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classEclairage')"><img src="closed.png" alt="-"/>&#160;Fonctions membres publiques hérités de <a class="el" href="classEclairage.html">Eclairage</a></td></tr>
+<tr class="memitem:ae246cce1fc7671351a776a582c2e3b62 inherit pub_methods_classEclairage"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEclairage.html#ae246cce1fc7671351a776a582c2e3b62">Eclairage</a> ()</td></tr>
+<tr class="separator:ae246cce1fc7671351a776a582c2e3b62 inherit pub_methods_classEclairage"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Attributs publics</h2></td></tr>
+<tr class="memitem:a676c67e499fa0883aef82f76ca80a86d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classEclairageMulticolore_1_1Controleur.html">Controleur</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEclairageMulticolore.html#a676c67e499fa0883aef82f76ca80a86d">controleur</a></td></tr>
+<tr class="separator:a676c67e499fa0883aef82f76ca80a86d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_attribs_classEclairage"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_classEclairage')"><img src="closed.png" alt="-"/>&#160;Attributs publics hérités de <a class="el" href="classEclairage.html">Eclairage</a></td></tr>
+<tr class="memitem:a90da39183159a9bf674ad6350e8f00a8 inherit pub_attribs_classEclairage"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classEclairage_1_1Controleur.html">Controleur</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEclairage.html#a90da39183159a9bf674ad6350e8f00a8">controleur</a></td></tr>
+<tr class="separator:a90da39183159a9bf674ad6350e8f00a8 inherit pub_attribs_classEclairage"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Classe fille (de eclairage) repr�sentant un �clairage multicolore comportant:</p><ul>
+<li>Un controleur</li>
+<li>Une entit� comportant:<ul>
+<li>l'adresse IP de l'eclairage</li>
+<li>son adresse MAC bluetooth</li>
+<li>le niveau de sa batterie</li>
+<li>sa version de firmware</li>
+<li>le taux de luminosit� actuel</li>
+</ul>
+</li>
+<li>Une persistance (polymorph�e) </li>
+</ul>
+</div><h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
+<a id="a4ed0135965af48317dc414a7af731358"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ed0135965af48317dc414a7af731358">&#9670;&nbsp;</a></span>EclairageMulticolore()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">EclairageMulticolore::EclairageMulticolore </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des données membres</h2>
+<a id="a676c67e499fa0883aef82f76ca80a86d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a676c67e499fa0883aef82f76ca80a86d">&#9670;&nbsp;</a></span>controleur</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classEclairageMulticolore_1_1Controleur.html">Controleur</a> EclairageMulticolore::controleur</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>La documentation de cette classe a été générée à partir du fichier suivant :<ul>
 <li>src/<a class="el" href="EclairageMulticolore_8h_source.html">EclairageMulticolore.h</a></li>
 </ul>

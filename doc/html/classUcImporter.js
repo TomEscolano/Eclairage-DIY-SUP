@@ -1,4 +1,5 @@
 var classUcImporter =
 [
-    [ "doIt", "classUcImporter.html#a93440ab7c07ac87c4860d97e17da9080", null ]
+    [ "doIt", "classUcImporter.html#a1e97036c9ebad5fc036fa7f576313e17", null ],
+    [ "ucModifier", "classUcImporter.html#aeccf733a6900d43104d8e70979444084", null ]
 ];

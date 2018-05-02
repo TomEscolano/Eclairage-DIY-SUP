@@ -189,13 +189,13 @@ void EclairageMulticolore::PersiBny::get(Ent & ent)
 	this->Eclairage::PersiBny::get(ent);
 
 	SqlitePersiBny::Resultat resultat;
-	this->executerSql("SELECT * FROM multicolores WHERE id = " + std::to_string(ent.getID()) + ";", resultat);
+	this->executerSql("SELECT adresseMac, adresseIP, versionFirmware, luminosite, niveauBatterie FROM multicolores WHERE id = " + std::to_string(ent.getID()) + ";", resultat);
 
-	ent.setAdresseMac(resultat.at(0).at(1).second);
-	ent.setAdresseIP(resultat.at(0).at(2).second);
-	ent.setVersionFirmware((unsigned int) atoi(resultat.at(0).at(3).second.c_str()));
-	ent.setLuminosite(atoi(resultat.at(0).at(4).second.c_str()));
-	ent.setNiveauBatterie(atoi(resultat.at(0).at(5).second.c_str()));
+	ent.setAdresseMac(resultat.at(0).at(0).second);
+	ent.setAdresseIP(resultat.at(0).at(1).second);
+	ent.setVersionFirmware((unsigned int) atoi(resultat.at(0).at(2).second.c_str()));
+	ent.setLuminosite(atoi(resultat.at(0).at(3).second.c_str()));
+	ent.setNiveauBatterie(atoi(resultat.at(0).at(4).second.c_str()));
 }
 
 #ifdef _UT_EclairageMulticolore_

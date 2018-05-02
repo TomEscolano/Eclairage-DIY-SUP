@@ -1,3 +1,3 @@
 <map id="EclairageMulticolore::Controleur" name="EclairageMulticolore::Controleur">
-<area shape="rect" id="node2" href="$classEclairage_1_1Controleur.html" title="{Eclairage::Controleur\n||+ activer()\l+ allumer()\l+ getIHMJardin()\l+ getIHMFormulaire()\l+ set()\l+ get()\l}" alt="" coords="5,5,152,156"/>
+<area shape="rect" id="node2" href="$classEclairage_1_1Controleur.html" title="{Eclairage::Controleur\n|+ persiBny\l+ ent\l+ ihmJardin\l+ ihmFormulaire\l|+ Controleur()\l+ activer()\l+ allumer()\l+ getIHMJardin()\l+ getIHMFormulaire()\l+ set()\l+ get()\l}" alt="" coords="5,5,152,215"/>
 </map>

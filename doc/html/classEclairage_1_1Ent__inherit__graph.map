@@ -1,4 +1,4 @@
 <map id="Eclairage::Ent" name="Eclairage::Ent">
-<area shape="rect" id="node2" href="$classEclairageMulticolore_1_1Ent.html" title="{EclairageMulticolore::Ent\n||+ setAdresseIP()\l+ setAdresseMac()\l+ setNiveauBatterie()\l+ setVersionFirmware()\l+ getAdresseIP()\l+ getAdresseMac()\l+ getNiveauBatterie()\l+ getVersionFirmware()\l}" alt="" coords="5,351,172,531"/>
-<area shape="rect" id="node3" href="$classEclairageUnicolore_1_1Ent.html" title="{EclairageUnicolore::Ent\n||+ setNumeroPrise()\l+ getNumeroPrise()\l}" alt="" coords="196,395,355,487"/>
+<area shape="rect" id="node2" href="$classEclairageMulticolore_1_1Ent.html" title="{EclairageMulticolore::Ent\n||+ Ent()\l+ setAdresseIP()\l+ setAdresseMac()\l+ setNiveauBatterie()\l+ setVersionFirmware()\l+ setLuminosite()\l+ getAdresseIP()\l+ getAdresseMac()\l+ getNiveauBatterie()\l+ getVersionFirmware()\l+ getLuminosite()\l}" alt="" coords="5,365,172,589"/>
+<area shape="rect" id="node3" href="$classEclairageUnicolore_1_1Ent.html" title="{EclairageUnicolore::Ent\n||+ Ent()\l+ setNumeroPrise()\l+ getNumeroPrise()\l}" alt="" coords="196,424,355,531"/>
 </map>
