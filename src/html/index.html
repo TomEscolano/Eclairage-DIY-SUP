@@ -3,7 +3,12 @@
 <head>
 	<title>Superviseur</title>
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<style type="text/css">
+	
+	</style>
 	<script type="text/javascript">
+
+		// Affichage des menus d'éclairages
 		function toggleMenu(id) {
 		  var menuBox = document.getElementById(id);    
 		  if(menuBox.style.display == "block") { // if is menuBox displayed, hide it
@@ -21,6 +26,14 @@
 		    menuInfos.style.display = "block";
 		  }
 		}
+
+		// Creer un bouton
+		function createButton(event) {
+			document.getElementById("datas")[0].value = event.clientX;
+			document.getElementById("datas")[1].value = event.clientY;
+			document.getElementById('modal').style.display='block';
+		}
+
 	</script>
 </head>
 <body>
@@ -28,4 +41,24 @@
 <div class="w3-container w3-blue">
   <h2>Superviseur</h2>
 </div>
+<img src="/house.jpg" style=" max-width: 55%;height: auto;" onclick="createButton(event);">
 <br>
+
+<div id="modal" class="w3-modal">
+    <div class="w3-modal-content w3-card-4">
+      <header class="w3-container w3-blue"> 
+        <span onclick="document.getElementById('modal').style.display='none'" 
+        class="w3-button w3-display-topright">&times;</span>
+        <center><h2>Ajouter un eclairage</h2></center>
+      </header>
+      <div class="w3-container">
+        <center><h3><a href="/cgi-bin/UcAjouter.cgi?type=unicolore">Unicolore</a> | <a href="/cgi-bin/UcAjouter.cgi?type=multicolore">Multicolore</a></h3></center>
+      </div>
+    </div>
+  </div>
+
+<form id="datas">
+	<input type="hidden" name="x" value="">
+	<input type="hidden" name="y" value="">
+	<input type="hidden" name="type" value="">
+</form>
