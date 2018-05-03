@@ -13,24 +13,24 @@ void SUP::visualiserInfo(EclairageUnicolore::Ent eclairage)
 	/**
 	 * Variables contenant:
 	 * 	- Resultat de la requete SQL
-	 *  - Vecteur de pairs mettant en relation les champs à remplacer et les informations de l'eclairage
 	 *  - Nom du fichier HTML qui va acceuillir les infos de l'eclairage
 	 */
 	SqlitePersiBny::Resultat resultat;
-	std::vector<std::pair<std::string, std::string>> infosUni;
-	std::string html = "html/infoPanelUnicolore.html";
+	std::string fichier = "html/infoPanelUnicolore.html";
+
+	FichierTextePersiBny file(fichier);
+	std::string html = file.getContenu();
 
 	// Requete SQL selectionnant le nom, l'etat et la consommation de l'eclairage
 	this->persiBny.executerSql("SELECT nom,active,consommation FROM eclairages WHERE id = " + std::to_string(eclairage.getID()) + ";", resultat);
 
-	// Insertion des données dans le vecteur
-	infosUni.at(0) = std::make_pair("_nom", resultat.at(0).at(0).second);
-	infosUni.at(1) = std::make_pair("_active", resultat.at(0).at(1).second);
-	infosUni.at(2) = std::make_pair("_consommation", resultat.at(0).at(2).second);
-	infosUni.at(3) = std::make_pair("_idClass", "infos_"+std::to_string(eclairage.getID()));
+	// Insertion des données dans le fichier HTML
+	html.replace(html.find("_nom"), sizeof("_nom")-1, resultat.at(0).at(0).second);
+	html.replace(html.find("_active"), sizeof("_active")-1, resultat.at(0).at(1).second);
+	html.replace(html.find("_consommation"), sizeof("_consommation")-1, resultat.at(0).at(2).second);
+	html.replace(html.find("_idClass"), sizeof("_idClass")-1, "menu-box"+std::to_string(eclairage.getID()) + "_infos");
 
-	// Remplacement des données dans le fichier HTML
-	std::cout << Utility::remplacer(html, infosUni);
+	std::cout << html;
 }
 
 void SUP::visualiserInfo(EclairageMulticolore::Ent eclairage)
@@ -38,7 +38,6 @@ void SUP::visualiserInfo(EclairageMulticolore::Ent eclairage)
 	/**
 	 * Variables contenant:
 	 * 	- Resultat de la requete SQL
-	 *  - Vecteur de pairs mettant en relation les champs à remplacer et les informations de l'eclairage
 	 *  - Nom du fichier HTML qui va acceuillir les infos de l'eclairage
 	 */
 	SqlitePersiBny::Resultat resultat;

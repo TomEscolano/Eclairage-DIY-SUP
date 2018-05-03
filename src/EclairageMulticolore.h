@@ -105,7 +105,7 @@ class EclairageMulticolore : public Eclairage {
 			/**
 			 * Méthde permettant d'afficher le formulaire de création d'éclairage multicolore
 			 */
-			void set(EclairageMulticolore::Ent & ent, std::string nom, std::string couleur, std::string id);
+			void set(EclairageMulticolore::Ent & ent, std::string nom, std::string couleur, std::string id, std::string x, std::string y);
 
 			/**
 			 * Méthode permettant de récupérer les données entrées par l'utilisateur lors de la création d'éclairage multicolore.

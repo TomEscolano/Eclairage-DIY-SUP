@@ -26,7 +26,11 @@ SqlitePersiBny::~SqlitePersiBny() throw (SqlitePersiBnyException) {
 int SqlitePersiBny::executerSql(std::string requete,
 		SqlitePersiBny::Resultat& resultat) throw (SqlitePersiBnyException) {
 	sqlite3_stmt *stmt;
+	
+
 	//std::cout << requete << "<br>" << std::endl;
+	
+
 	sqlite3_busy_timeout(this->db, 2000); // Attente de 2sec si la bdd est occupée
 	int rc;
 	do

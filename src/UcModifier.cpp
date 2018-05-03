@@ -20,7 +20,7 @@ void UcModifier::doIt(EclairageMulticolore & eclairage, cgicc::Cgicc & cgi)
             SqlitePersiBny persi("/var/eclairage/bdd.db");
             persi.executerSql("UPDATE eclairages SET nom =\"" + **nom + "\", couleur = " + **couleur + " WHERE id = " + **id + ";");
             persi.executerSql("UPDATE multicolores SET adresseIP = \"" + **adresseIP + "\" WHERE id = " + **id + ";");
-            std::cout << "<p>Configuration mise à jour !<p>";
+            std::cout << "<div class='w3-panel w3-green'><h3>Succes !</h3><p>Modification terminee !</p>  </div>";
             std::cout << "<meta http-equiv='refresh' content='2; URL=/cgi-bin/index.cgi'> ";
 
     }
@@ -42,7 +42,7 @@ void UcModifier::doIt(EclairageUnicolore & eclairage, cgicc::Cgicc & cgi)
     		SqlitePersiBny persi("/var/eclairage/bdd.db");
     		persi.executerSql("UPDATE eclairages SET nom =\"" + **nom + "\", couleur = " + **couleur + " WHERE id = " + **id + ";");
     		persi.executerSql("UPDATE unicolores SET numeroPrise = " + **numeroPrise + " WHERE id = " + **id + ";");
-    		std::cout << "<p>Configuration mise à jour !<p>";
+            std::cout << "<div class='w3-panel w3-green'><h3>Succes !</h3><p>Modification terminee !</p>  </div>";
             std::cout << "<meta http-equiv='refresh' content='2; URL=/cgi-bin/index.cgi'> ";
 
     }
@@ -64,7 +64,7 @@ int main()
     std::cout << cgicc::HTTPHTMLHeader() << std::endl;
 
     // Début du document HTML
-    std::cout << cgicc::html() << cgicc::head(cgicc::title("Modifier un eclairage")) << std::endl;
+    std::cout << cgicc::html() << cgicc::head() << "<title>Modifier un eclairage</title><link rel='stylesheet' href='https://www.w3schools.com/w3css/4/w3.css'>" << std::endl;
     std::cout << cgicc::body() << std::endl;
 
     // Récupération du type d'éclairage dans l'url (GET)

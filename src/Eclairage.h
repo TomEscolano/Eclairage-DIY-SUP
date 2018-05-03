@@ -101,7 +101,7 @@ class Eclairage {
 		/**
 		 * Méthde permettant d'afficher le formulaire de création d'éclairage
 		 */
-		void set(Eclairage::Ent & ent, std::string type);
+		void set(Eclairage::Ent & ent, std::string type, std::string x, std::string y);
 
 		/**
 		 * Méthode permettant de récupérer les données entrées par l'utilisateur lors de la création d'éclairage.

@@ -23,7 +23,7 @@ int main()
 	std::cout << cgicc::HTTPHTMLHeader() << std::endl;
 
     // Début du document HTML
-    std::cout << cgicc::html() << cgicc::head(cgicc::title("Activer un eclairage")) << std::endl;
+    std::cout << cgicc::html() << cgicc::head() << "<title>Activer un eclairage</title><link rel='stylesheet' href='https://www.w3schools.com/w3css/4/w3.css'>" << std::endl;
     std::cout << cgicc::body() << std::endl;
 
     // Modification de l'eclairage soumis au document
@@ -43,8 +43,9 @@ int main()
 		//Modification de l'éclairage
 		ucGerer.doIt(tmp.controleur.ent, etat);
     
-		std::cout << "<p>Modification terminee !</p>";
-		std::cout << " <meta http-equiv='refresh' content='2; URL=/cgi-bin/index.cgi'> ";
+		std::cout << "<div class='w3-panel w3-green'><h3>Succes !</h3><p>Modification terminee !</p>  </div>";
+		std::cout << " <meta http-equiv='refresh'content='2; URL=/cgi-bin/index.cgi'> " << std::endl;
+
     }
 
       // Fin du document HTML

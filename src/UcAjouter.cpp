@@ -15,6 +15,8 @@ void UcAjouter::doIt(EclairageUnicolore & eclairage, cgicc::Cgicc & cgi)
     cgicc::form_iterator nom = cgi.getElement("nom");
     cgicc::form_iterator couleur = cgi.getElement("couleur");
     cgicc::form_iterator id = cgi.getElement("id");
+    cgicc::form_iterator x = cgi.getElement("x");
+    cgicc::form_iterator y = cgi.getElement("y");
 
     // Si le nom et la couleur sont donnés
     if(nom != cgi.getElements().end() && couleur != cgi.getElements().end() && id != cgi.getElements().end())
@@ -22,7 +24,7 @@ void UcAjouter::doIt(EclairageUnicolore & eclairage, cgicc::Cgicc & cgi)
         // Insertion de l'éclairage dans la BDD, si non existant   
         try
         {
-            persi.executerSql("INSERT INTO eclairages(id, nom, couleur) VALUES(" + **id + ", \"" + **nom + "\", " + **couleur + ");");
+            persi.executerSql("INSERT INTO eclairages(id, nom, couleur, x, y) VALUES(" + **id + ", \"" + **nom + "\", " + **couleur + ", " + **x + ", " + **y + ");");
         }catch(...)
         {
         }
@@ -39,7 +41,7 @@ void UcAjouter::doIt(EclairageUnicolore & eclairage, cgicc::Cgicc & cgi)
         {
             // Si le nom et la couleur sont présents
             // Affichage du formulaire unicolore
-            eclairage.EclairageUnicolore::controleur.ihmFormulaire.set(eclairage.controleur.ent, **nom, **couleur, **id);
+            eclairage.EclairageUnicolore::controleur.ihmFormulaire.set(eclairage.controleur.ent, **nom, **couleur, **id, **x, **y);
         }
     }
     else
@@ -56,7 +58,7 @@ void UcAjouter::doIt(EclairageUnicolore & eclairage, cgicc::Cgicc & cgi)
             eclairage.controleur.ent.setID(0);
         }        
         
-        eclairage.Eclairage::controleur.ihmFormulaire.set(eclairage.controleur.ent, "unicolore");
+        eclairage.Eclairage::controleur.ihmFormulaire.set(eclairage.controleur.ent, "unicolore", **x, **y);
     }
 }
 
@@ -68,6 +70,8 @@ void UcAjouter::doIt(EclairageMulticolore & eclairage, cgicc::Cgicc & cgi)
     cgicc::form_iterator nom = cgi.getElement("nom");
     cgicc::form_iterator couleur = cgi.getElement("couleur");
     cgicc::form_iterator id = cgi.getElement("id");
+    cgicc::form_iterator x = cgi.getElement("x");
+    cgicc::form_iterator y = cgi.getElement("y");
 
     // Si le nom et la couleur sont donnés
     if(nom != cgi.getElements().end() && couleur != cgi.getElements().end() && id != cgi.getElements().end())
@@ -75,7 +79,7 @@ void UcAjouter::doIt(EclairageMulticolore & eclairage, cgicc::Cgicc & cgi)
         // Insertion de l'éclairage dans la BDD, si non existant   
         try
         {
-            persi.executerSql("INSERT INTO eclairages(id, nom, couleur) VALUES(" + **id + ", \"" + **nom + "\", " + **couleur + ");");
+            persi.executerSql("INSERT INTO eclairages(id, nom, couleur, x, y) VALUES(" + **id + ", \"" + **nom + "\", " + **couleur + ", " + **x + ", " + **y + ");");
         }catch(...)
         {
         }
@@ -92,7 +96,7 @@ void UcAjouter::doIt(EclairageMulticolore & eclairage, cgicc::Cgicc & cgi)
         {
             // Si le nom et la couleur sont présents
             // Affichage du formulaire multicolore
-            eclairage.EclairageMulticolore::controleur.ihmFormulaire.set(eclairage.controleur.ent, **nom, **couleur, **id);
+            eclairage.EclairageMulticolore::controleur.ihmFormulaire.set(eclairage.controleur.ent, **nom, **couleur, **id, **x, **y);
         }
     }
     else
@@ -107,9 +111,9 @@ void UcAjouter::doIt(EclairageMulticolore & eclairage, cgicc::Cgicc & cgi)
         catch(...)
         {
             eclairage.controleur.ent.setID(0);
-        }        
+        }
         
-        eclairage.Eclairage::controleur.ihmFormulaire.set(eclairage.controleur.ent, "multicolore");
+        eclairage.Eclairage::controleur.ihmFormulaire.set(eclairage.controleur.ent, "multicolore", **x, **y);
     }
 }
 

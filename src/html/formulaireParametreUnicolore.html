@@ -1,25 +1,39 @@
-<h2>Formulaire de modification d'eclairage unicolore</h2>
-<form action="/cgi-bin/UcModifier.cgi" method="get">
+<br>
+<center>
+  <div class="w3-card-4" style="width:50%;">
+
+  <div class="w3-container w3-blue">
+    <h2>Parametrer un eclairage</h2>
+  </div>
+
+  <form class="w3-container" action="/cgi-bin/UcModifier.cgi" method="get">
   <input type="hidden" name="type" value="unicolore">
   <input type="hidden" name="id" value="_idEclairage">
-
-  Nom: <br>
-  <input type="text" name="nom" value="_nomEclairage">
-  <br>
-  <br>
-  Couleur:<br>
+<br>
+  <label>Nom</label>
+  <input class="w3-input" type="text" name="nom" value="_nomEclairage">
+  <br><br>
+  <label>Adresse IP</label>
+  <input class="w3-input" type="text" name="adresseIP" value="_addr">
+  <br><br>
+  <label>Couleur</label>
   <select name="couleur">
-  	<option value="0">Bleu</option>
-  	<option value="1">Blanc</option>
-  	<option value="2">Rouge</option>
+    <option value="0">Bleu</option>
+    <option value="1">Blanc</option>
+    <option value="2">Rouge</option>
+</select><br><br>
+  <label>Numero de prise</label>
+  <select name="numeroPrise">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
 </select><br><br>
 
-  Numero de prise:<br>
-  <select name="numeroPrise">
-  	<option value="1">1</option>
-  	<option value="2">2</option>
-  	<option value="3">3</option>
-</select>
+    <input type="submit" value="Continuer">
 <br><br>
-  <input type="submit" value="Continuer">
-</form>
+  <a href="/cgi-bin/UcSupprimer.cgi?id=_idSuppr">Supprimer l'eclairage</a>
+
+  </form>
+
+</div> 
+</center>

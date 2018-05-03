@@ -79,7 +79,7 @@ void UcImporter::doIt(UcModifier & ucModifier)
 					eclairage.controleur.ent.setCouleur(Blanc);
 
 				//Creation de l'eclairage ou modification
-				ucModifier.doIt(eclairage.controleur.ent);
+				ucModifier.doIt(eclairage,cgi);
 			}
 		}
 
@@ -124,7 +124,7 @@ void UcImporter::doIt(UcModifier & ucModifier)
 				eclairage.controleur.ent.setNiveauBatterie(niveauBatterie);
 
 				//Creation de l'eclairage ou modification
-				ucModifier.doIt(eclairage.controleur.ent);
+				ucModifier.doIt(eclairage,cgi);
 			}
 			
 		}

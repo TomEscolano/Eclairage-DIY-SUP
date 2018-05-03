@@ -8,7 +8,7 @@
 
 #include <EclairageUnicolore.h>
 
-void EclairageUnicolore::IHMFormulaire::set(EclairageUnicolore::Ent & ent, std::string nom, std::string couleur, std::string id)
+void EclairageUnicolore::IHMFormulaire::set(EclairageUnicolore::Ent & ent, std::string nom, std::string couleur, std::string id, std::string x, std::string y)
 {
 	// Affichage du formulaire de création d'éclairage unicolore
 	FichierTextePersiBny fichier("html/formulaireUnicolore.html");
@@ -17,6 +17,9 @@ void EclairageUnicolore::IHMFormulaire::set(EclairageUnicolore::Ent & ent, std::
 	html.replace(html.find("_nomEclairage"), sizeof("_nomEclairage")-1, nom);
 	html.replace(html.find("_couleurEclairage"), sizeof("_couleurEclairage")-1, couleur);
 	html.replace(html.find("_idEclairage"), sizeof("_idEclairage")-1, id);
+	html.replace(html.find("_xEclairage"), sizeof("_xEclairage")-1, x);
+	html.replace(html.find("_yEclairage"), sizeof("_yEclairage")-1, y);
+
 
 	std::cout << html;
 }
@@ -43,8 +46,7 @@ void EclairageUnicolore::IHMJardin::set(EclairageUnicolore::Ent & ent)
 		logo = "unicoloreDesactive.png";
 	
 
-	std::cout << "<img style='width=100px;height:100px;' src='/" + logo + "' onclick='toggleMenu(\"menu-box" + std::to_string(ent.getID()) + "\")'/><ul id='menu-box" + std::to_string(ent.getID()) + "' style='display: none'>";
-
+	std::cout << "<img style='width:100px;height:100px;position:absolute;z-index:2;margin-left:" + std::to_string(ent.getX()-60)+ "px;margin-top:"+ std::to_string(ent.getY()-130)+"px;' src='/" + logo + "' onclick='toggleMenu(\"menu-box" + std::to_string(ent.getID()) + "\")'/><ul id='menu-box" + std::to_string(ent.getID()) + "' style='display:none; z-index:2;margin-left:" + std::to_string(ent.getX()-60)+ "px;margin-top:"+ std::to_string(ent.getY()-30)+"px;positon:absolute;'>";
 	if(ent.getActive())
 		std::cout << "<li><a href='UcGerer.cgi?id=" + std::to_string(ent.getID()) + "&action=desactiver'>Desactiver</a></li>" << std::endl;
 	else
@@ -73,6 +75,7 @@ void EclairageUnicolore::IHMParametre::set(EclairageUnicolore::Ent & ent)
 
 	html.replace(html.find("_idEclairage"), sizeof("_idEclairage")-1, std::to_string(ent.getID()));
 	html.replace(html.find("_nomEclairage"), sizeof("_nomEclairage")-1, resultat.at(0).at(0).second);
+	html.replace(html.find("_idSuppr"), sizeof("_idSuppr")-1, std::to_string(ent.getID()));
 
 	std::cout << html;
 

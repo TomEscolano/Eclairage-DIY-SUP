@@ -8,7 +8,7 @@
 
 #include <Eclairage.h>
 
-void Eclairage::IHMFormulaire::set(Eclairage::Ent & ent, std::string type)
+void Eclairage::IHMFormulaire::set(Eclairage::Ent & ent, std::string type, std::string x, std::string y)
 {
 	// Affichage du formulaire et remplacement du type d'éclairage
 	FichierTextePersiBny fichier("html/formulaire.html");
@@ -16,6 +16,10 @@ void Eclairage::IHMFormulaire::set(Eclairage::Ent & ent, std::string type)
 	
 	html.replace(html.find("_typeEclairage"), sizeof("_typeEclairage")-1, type);
 	html.replace(html.find("_idEclairage"), sizeof("_idEclairage")-1, std::to_string(ent.getID()));
+	html.replace(html.find("_xEclairage"), sizeof("_xEclairage")-1, x);
+	html.replace(html.find("_yEclairage"), sizeof("_yEclairage")-1, y);
+
+
 	
 	std::cout << html;
 }

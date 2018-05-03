@@ -17,7 +17,7 @@ void UcExporter::doIt()
 
 	std::cout <<  "<iframe width='1' height='1' frameborder='0' src='/eclairages_multicolores_save.csv'></iframe>" << std::endl;
 	std::cout <<  "<iframe width='1' height='1' frameborder='0' src='/eclairages_unicolores_save.csv'></iframe>" << std::endl;
-	std::cout << " <meta http-equiv='refresh'content='2; URL=/cgi-bin/'> " << std::endl;
+	std::cout << " <meta http-equiv='refresh'content='2; URL=/cgi-bin/index.cgi'> " << std::endl;
 
 	system("rm *.csv");
 }

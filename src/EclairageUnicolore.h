@@ -67,7 +67,7 @@ class EclairageUnicolore : public Eclairage {
 			 /**
 			  * Méthde permettant d'afficher le formulaire de création d'éclairage unicolore
 			  */
-			 void set(EclairageUnicolore::Ent & ent, std::string nom, std::string couleur, std::string id);
+			 void set(EclairageUnicolore::Ent & ent, std::string nom, std::string couleur, std::string id, std::string x, std::string y);
 
 			 /**
 			  * Méthode permettant de récupérer les données entrées par l'utilisateur lors de la création d'éclairage unicolore.

@@ -4,7 +4,12 @@
 	<title>Superviseur</title>
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<style type="text/css">
-	
+	a{text-decoration: none}
+	ul{
+		background: white;
+		padding: 1%;
+		padding-left: 2%;
+	}
 	</style>
 	<script type="text/javascript">
 
@@ -13,9 +18,11 @@
 		  var menuBox = document.getElementById(id);    
 		  if(menuBox.style.display == "block") { // if is menuBox displayed, hide it
 		    menuBox.style.display = "none";
+		    menuBox.style.position = "absolute";
 		  }
 		  else { // if is menuBox hidden, display it
 		    menuBox.style.display = "block";
+		    menuBox.style.position = "absolute";
 		  }
 
 		  var menuInfos = document.getElementById(id+"_infos");
@@ -29,8 +36,9 @@
 
 		// Creer un bouton
 		function createButton(event) {
-			document.getElementById("datas")[0].value = event.clientX;
-			document.getElementById("datas")[1].value = event.clientY;
+			document.getElementById("unicolore").href = "/cgi-bin/UcAjouter.cgi?type=unicolore&x="+event.clientX+"&y="+event.clientY;
+			document.getElementById("multicolore").href = "/cgi-bin/UcAjouter.cgi?type=multicolore&x="+event.clientX+"&y="+event.clientY;
+			
 			document.getElementById('modal').style.display='block';
 		}
 
@@ -41,7 +49,7 @@
 <div class="w3-container w3-blue">
   <h2>Superviseur</h2>
 </div>
-<img src="/house.jpg" style=" max-width: 55%;height: auto;" onclick="createButton(event);">
+<img src="/house.jpg" style=" max-width: 55%;height: auto; position:absolute;z-index: 1;" onclick="createButton(event);">
 <br>
 
 <div id="modal" class="w3-modal">
@@ -52,13 +60,7 @@
         <center><h2>Ajouter un eclairage</h2></center>
       </header>
       <div class="w3-container">
-        <center><h3><a href="/cgi-bin/UcAjouter.cgi?type=unicolore">Unicolore</a> | <a href="/cgi-bin/UcAjouter.cgi?type=multicolore">Multicolore</a></h3></center>
+        <center><h3><a id="unicolore" href="/cgi-bin/UcAjouter.cgi?type=unicolore">Unicolore</a> || <a id="multicolore" href="/cgi-bin/UcAjouter.cgi?type=multicolore">Multicolore</a></h3></center>
       </div>
     </div>
-  </div>
-
-<form id="datas">
-	<input type="hidden" name="x" value="">
-	<input type="hidden" name="y" value="">
-	<input type="hidden" name="type" value="">
-</form>
+</div>
