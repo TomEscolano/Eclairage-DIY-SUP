@@ -46,7 +46,8 @@ void EclairageUnicolore::IHMJardin::set(EclairageUnicolore::Ent & ent)
 		logo = "unicoloreDesactive.png";
 	
 
-	std::cout << "<img style='width:100px;height:100px;position:absolute;z-index:2;margin-left:" + std::to_string(ent.getX()-60)+ "px;margin-top:"+ std::to_string(ent.getY()-130)+"px;' src='/" + logo + "' onclick='toggleMenu(\"menu-box" + std::to_string(ent.getID()) + "\")'/><ul id='menu-box" + std::to_string(ent.getID()) + "' style='display:none; z-index:2;margin-left:" + std::to_string(ent.getX()-60)+ "px;margin-top:"+ std::to_string(ent.getY()-30)+"px;positon:absolute;'>";
+	std::cout << "<img style='width:75px;height:175x;position:absolute;z-index:2;margin-left:" + std::to_string(ent.getX()-60)+ "px;margin-top:"+ std::to_string(ent.getY()-130)+"px;' src='/" + logo + "' onclick='toggleMenu(\"menu-box" + std::to_string(ent.getID()) + "\")'/><ul id='menu-box" + std::to_string(ent.getID()) + "' style='display:none; z-index:2;margin-left:" + std::to_string(ent.getX())+ "px;margin-top:"+ std::to_string(ent.getY()-130)+"px;positon:absolute;'>";
+	
 	if(ent.getActive())
 		std::cout << "<li><a href='UcGerer.cgi?id=" + std::to_string(ent.getID()) + "&action=desactiver'>Desactiver</a></li>" << std::endl;
 	else

@@ -43,7 +43,10 @@ int main()
 		//Modification de l'éclairage
 		ucCommander.doIt(tmp.controleur.ent, etat);
     
-		std::cout << "<div class='w3-panel w3-green'><h3>Succes !</h3><p>Modification terminee !</p>  </div>";
+    	if(etat)
+			std::cout << "<div class='w3-panel w3-green'><h3>Succes !</h3><p>Allumage termine !</p>  </div>";
+		else
+			std::cout << "<div class='w3-panel w3-green'><h3>Succes !</h3><p>Extinction terminee !</p>  </div>";
 		std::cout << "<meta http-equiv='refresh' content='2; URL=/cgi-bin/index.cgi'> ";
     }
 
