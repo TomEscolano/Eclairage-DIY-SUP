@@ -54,9 +54,9 @@ void EclairageUnicolore::IHMJardin::set(EclairageUnicolore::Ent & ent)
 		std::cout << "<li><a href='UcGerer.cgi?id=" + std::to_string(ent.getID()) + "&action=activer'>Activer</a></li>" << std::endl;
 
 	if(ent.getAllume())
-		std::cout << "<li><a href='UcCommander.cgi?id=" + std::to_string(ent.getID()) + "&action=eteindre'>Eteindre</a></li>" << std::endl;
+		std::cout << "<li><a href='UcCommander.cgi?id=" + std::to_string(ent.getID()) + "&action=eteindre&type=unicolore'>Eteindre</a></li>" << std::endl;
 	else
-		std::cout << "<li><a href='UcCommander.cgi?id=" + std::to_string(ent.getID()) + "&action=allumer'>Allumer</a></li>" << std::endl;
+		std::cout << "<li><a href='UcCommander.cgi?id=" + std::to_string(ent.getID()) + "&action=allumer&type=unicolore'>Allumer</a></li>" << std::endl;
 	
 	std::cout << "<li><a href='UcModifier.cgi?id=" + std::to_string(ent.getID()) + "&type=unicolore'>Parametrer</a></li>" << std::endl;
 	std::cout << "</ul>" << std::endl;
@@ -127,20 +127,31 @@ void EclairageUnicolore::PersiBny::get(Ent & ent)
 	ent.setNumeroPrise(atoi(resultat.at(0).at(0).second.c_str()));
 }
 
+void EclairageUnicolore::EclairageComBny::allumer(EclairageUnicolore::Ent & ent, bool etat)
+{
+	this->clientTcpComBny.connecter("127.0.0.1", 5554);
+	std::string message = "{\"demande\":\"fe\", \"etat\":" + std::to_string(etat) + ",\"id\":"+ std::to_string(ent.getID())+"}";
+
+	this->clientTcpComBny.fprintf(message.c_str());
+
+	this->clientTcpComBny.deconnecter();
+}
+
 #ifdef _UT_EclairageUnicolore_
 #include <iostream>
 
 int main()
 {
 	EclairageUnicolore eclairage;
-	eclairage.controleur.ent.setNumeroPrise(1);
-	eclairage.controleur.ent.setCouleur(Rouge);
-	eclairage.controleur.ent.setID(9);
+	//eclairage.controleur.ent.setNumeroPrise(1);
+	//eclairage.controleur.ent.setCouleur(Rouge);
+	//eclairage.controleur.ent.setID(9);
 	//eclairage.controleur.persiBny.set(eclairage.controleur.ent);
-	eclairage.controleur.ihmFormulaire.set(eclairage.controleur.ent);
+	//eclairage.controleur.ihmFormulaire.set(eclairage.controleur.ent);
+	//eclairage.controleur.eclairageComBny.allumer(eclairage.controleur.ent, true);
 
 	return 0;
 }
 #endif
 
-//g++ -o EclairageUnicolore EclairageUnicolore.cpp Eclairage.cpp SqlitePersiBny.cpp -lsqlite3 -I . -D _UT_EclairageUnicolore_
+//g++ -o EclairageUnicolore EclairageUnicolore.cpp Eclairage.cpp SqlitePersiBny.cpp ClientTcpComBny.cpp TcpComBny.cpp -lsqlite3 -I . -D _UT_EclairageUnicolore_ -lcgicc

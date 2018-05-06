@@ -10,6 +10,7 @@
 
 
 #include <Eclairage.h>
+#include <ClientTcpComBny.h>
 
 /**
  * Classe fille (de eclairage) représentant un éclairage unicolore comportant:
@@ -90,6 +91,14 @@ class EclairageUnicolore : public Eclairage {
 				void set(EclairageUnicolore::Ent & ent);
 		 };
 
+		 class EclairageComBny{
+		 	private:
+		 		ClientTcpComBny clientTcpComBny;
+
+		 	public:
+		 		void allumer(EclairageUnicolore::Ent & ent, bool etat);
+		 };
+
 		/**
 		 * Classe controleur contenant une entité, une persistance et une IHMFormulaire de création.
 		 */
@@ -106,6 +115,8 @@ class EclairageUnicolore : public Eclairage {
 				IHMJardin ihmJardin;
 
 				IHMParametre ihmParametre;
+
+				EclairageComBny	eclairageComBny;
 
 				void getIHMJardin();
 

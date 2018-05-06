@@ -52,9 +52,9 @@ void EclairageMulticolore::IHMJardin::set(EclairageMulticolore::Ent & ent) {
 		std::cout << "<li><a href='UcGerer.cgi?id=" + std::to_string(ent.getID()) + "&action=activer'>Activer</a></li>" << std::endl;
 
 	if(ent.getAllume())
-		std::cout << "<li><a href='UcCommander.cgi?id=" + std::to_string(ent.getID()) + "&action=eteindre'>Eteindre</a></li>" << std::endl;
+		std::cout << "<li><a href='UcCommander.cgi?id=" + std::to_string(ent.getID()) + "&action=eteindre&type=multicolore'>Eteindre</a></li>" << std::endl;
 	else
-		std::cout << "<li><a href='UcCommander.cgi?id=" + std::to_string(ent.getID()) + "&action=allumer'>Allumer</a></li>" << std::endl;
+		std::cout << "<li><a href='UcCommander.cgi?id=" + std::to_string(ent.getID()) + "&action=allumer&type=multicolore'>Allumer</a></li>" << std::endl;
 	
 	std::cout << "<li><a href='UcModifier.cgi?id=" + std::to_string(ent.getID()) + "&type=multicolore'>Parametrer</a></li>" << std::endl;
 	std::cout << "</ul>" << std::endl;
