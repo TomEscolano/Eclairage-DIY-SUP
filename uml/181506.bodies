@@ -1,0 +1,3 @@
+class UcGerer
+!!!202754.cpp!!!	doIt(inout eclairage : Eclairage::Ent, in etat : bool) : void
+	eclairage.setActive(etat);

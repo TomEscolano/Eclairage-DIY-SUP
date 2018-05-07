@@ -1,26 +1,30 @@
-window_sizes 1366 713 441 919 658 0
+window_sizes 1920 1056 441 1473 957 44
 cleanlooks_style
 diagrams
   activitydiagram_ref 128002 // UcExporter
-    120 110 105 A0 132 0
+    120 110 105 A0 84 0
   activitydiagram_ref 128130 // UcImporter
-    120 110 105 A0 307 0
+    120 110 105 A0 139 0
   classdiagram_ref 134786 // dcc
     1473 1001 39 E-Landscape 0 0
   usecasediagram_ref 128258 // UseCase
-    120 110 100 A0 132 224
-  active  classdiagram_ref 141442 // vc
-    919 658 60 E-Landscape 636 1155
+    120 110 127 A0 132 37
+  classdiagram_ref 147970 // vcc
+    1473 957 110 A0-Landscape 2052 543
+  active  activitydiagram_ref 154498 // ucAjouter
+    1473 957 74 A0 0 0
 end
 show_stereotypes
-selected classdiagram_ref 141442 // vc
 open
   
   package_ref 128003 // domaine
   
   package_ref 128131 // analyse
+  activitynode_ref 135298 // initial_node
+  activitynode_ref 135426 // decision
+  activitynode_ref 136322 // merge
+  activitynode_ref 136450 // decision
   
-  package_ref 128259 // conception
-  classview_ref 134530 // src
+  package_ref 128002 // conception-reversed
 end
 end

@@ -1,0 +1,17 @@
+class UcCommander
+!!!202370.cpp!!!	doIt(inout eclairage : EclairageMulticolore, in etat : bool) : void
+	eclairage.controleur.ent.setAllume(etat);
+!!!202498.cpp!!!	doIt(inout eclairage : EclairageUnicolore, in etat : bool) : void
+	if(eclairage.controleur.ent.getActive())
+	{
+		eclairage.controleur.ent.setAllume(etat);
+		eclairage.controleur.eclairageComBny.allumer(eclairage.controleur.ent, etat);
+		if(etat)
+			std::cout << "<div class='w3-panel w3-green'><h3>Succes !</h3><p>Allumage reussi !</p>  </div>";
+		else
+			std::cout << "<div class='w3-panel w3-green'><h3>Succes !</h3><p>Extinction reussi !</p>  </div>";
+	}
+	else
+	{
+		std::cout << "<div class='w3-panel w3-red'><h3>Erreur !</h3><p>Veuillez activer l'eclairage !</p>  </div>";
+	}

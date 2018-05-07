@@ -1,0 +1,40 @@
+class UcModifier
+!!!203266.cpp!!!	doIt(inout eclairage : EclairageMulticolore, inout cgi : cgicc::Cgicc) : void
+    cgicc::form_iterator id = cgi.getElement("id");
+    cgicc::form_iterator nom = cgi.getElement("nom");
+    cgicc::form_iterator couleur = cgi.getElement("couleur");
+    cgicc::form_iterator adresseIP = cgi.getElement("adresseIP");
+
+    if(nom != cgi.getElements().end() && couleur != cgi.getElements().end() && adresseIP != cgi.getElements().end() && id != cgi.getElements().end())
+    {
+            SqlitePersiBny persi("/var/eclairage/bdd.db");
+            persi.executerSql("UPDATE eclairages SET nom =\"" + **nom + "\", couleur = " + **couleur + " WHERE id = " + **id + ";");
+            persi.executerSql("UPDATE multicolores SET adresseIP = \"" + **adresseIP + "\" WHERE id = " + **id + ";");
+            std::cout << "<div class='w3-panel w3-green'><h3>Succes !</h3><p>Modification terminee !</p>  </div>";
+            std::cout << "<meta http-equiv='refresh' content='2; URL=/cgi-bin/index.cgi'> ";
+
+    }
+    else
+    {
+        eclairage.EclairageMulticolore::controleur.ihmParametre.set(eclairage.controleur.ent);
+    }
+!!!203394.cpp!!!	doIt(inout eclairage : EclairageUnicolore, inout cgi : cgicc::Cgicc) : void
+	cgicc::form_iterator id = cgi.getElement("id");
+	cgicc::form_iterator nom = cgi.getElement("nom");
+    cgicc::form_iterator couleur = cgi.getElement("couleur");
+    cgicc::form_iterator numeroPrise = cgi.getElement("numeroPrise");
+
+    if(nom != cgi.getElements().end() && couleur != cgi.getElements().end() && numeroPrise != cgi.getElements().end() && id != cgi.getElements().end())
+    {
+    		SqlitePersiBny persi("/var/eclairage/bdd.db");
+    		persi.executerSql("UPDATE eclairages SET nom =\"" + **nom + "\", couleur = " + **couleur + " WHERE id = " + **id + ";");
+    		persi.executerSql("UPDATE unicolores SET numeroPrise = " + **numeroPrise + " WHERE id = " + **id + ";");
+            std::cout << "<div class='w3-panel w3-green'><h3>Succes !</h3><p>Modification terminee !</p>  </div>";
+            std::cout << "<meta http-equiv='refresh' content='2; URL=/cgi-bin/index.cgi'> ";
+
+    }
+	else
+	{
+		eclairage.EclairageUnicolore::controleur.ihmParametre.set(eclairage.controleur.ent);
+	}
+	

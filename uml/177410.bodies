@@ -1,0 +1,32 @@
+class IHMFormulaire
+!!!191106.cpp!!!	set(inout ent : Eclairage::Ent, in type : string, in x : string, in y : string) : void
+	// Affichage du formulaire et remplacement du type d'éclairage
+	FichierTextePersiBny fichier("html/formulaire.html");
+	std::string html = fichier.getContenu();
+	
+	html.replace(html.find("_typeEclairage"), sizeof("_typeEclairage")-1, type);
+	html.replace(html.find("_idEclairage"), sizeof("_idEclairage")-1, std::to_string(ent.getID()));
+	html.replace(html.find("_xEclairage"), sizeof("_xEclairage")-1, x);
+	html.replace(html.find("_yEclairage"), sizeof("_yEclairage")-1, y);
+
+
+	
+	std::cout << html;
+!!!191234.cpp!!!	get(inout ent : Eclairage::Ent) : void
+
+	cgicc::Cgicc cgi;
+
+    // Récupération des paramètres pour le script
+    cgicc::form_iterator nom = cgi.getElement("nom");
+    cgicc::form_iterator couleur = cgi.getElement("couleur");
+
+    if(nom != cgi.getElements().end() && couleur != cgi.getElements().end())
+    {
+    	ent.setNom(**nom);
+    	if(**couleur == "0")
+    		ent.setCouleur(Bleu);
+    	if(**couleur == "1")
+    		ent.setCouleur(Blanc);
+    	if(**couleur == "2")
+    		ent.setCouleur(Rouge);
+    }	

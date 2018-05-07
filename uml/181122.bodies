@@ -1,14 +1,5 @@
-/******************************************************
-* \file UcAjouter.cpp
-* \author Tom ESCOLANO
-
-* \brief Projet : Eclairage DIY - SUP
-*******************************************************/
-
-#include <UcAjouter.h>
-
-void UcAjouter::doIt(EclairageUnicolore & eclairage, cgicc::Cgicc & cgi)
-{
+class UcAjouter
+!!!202114.cpp!!!	doIt(inout eclairage : EclairageUnicolore, inout cgi : cgicc::Cgicc) : void
     SqlitePersiBny persi("/var/eclairage/bdd.db");
     SqlitePersiBny::Resultat resultat;
 
@@ -18,7 +9,7 @@ void UcAjouter::doIt(EclairageUnicolore & eclairage, cgicc::Cgicc & cgi)
     cgicc::form_iterator x = cgi.getElement("x");
     cgicc::form_iterator y = cgi.getElement("y");
 
-    // Si le nom la couleur et l'ID sont donnés
+    // Si le nom et la couleur sont donnés
     if(nom != cgi.getElements().end() && couleur != cgi.getElements().end() && id != cgi.getElements().end())
     {     
         // Insertion de l'éclairage dans la BDD, si non existant   
@@ -39,7 +30,7 @@ void UcAjouter::doIt(EclairageUnicolore & eclairage, cgicc::Cgicc & cgi)
         }
         else
         {
-            // Si le nom, la couleur et l'ID sont présents
+            // Si le nom et la couleur sont présents
             // Affichage du formulaire unicolore
             eclairage.EclairageUnicolore::controleur.ihmFormulaire.set(eclairage.controleur.ent, **nom, **couleur, **id, **x, **y);
         }
@@ -60,10 +51,7 @@ void UcAjouter::doIt(EclairageUnicolore & eclairage, cgicc::Cgicc & cgi)
         
         eclairage.Eclairage::controleur.ihmFormulaire.set(eclairage.controleur.ent, "unicolore", **x, **y);
     }
-}
-
-void UcAjouter::doIt(EclairageMulticolore & eclairage, cgicc::Cgicc & cgi)
-{
+!!!202242.cpp!!!	doIt(inout eclairage : EclairageMulticolore, inout cgi : cgicc::Cgicc) : void
     SqlitePersiBny persi("/var/eclairage/bdd.db");
     SqlitePersiBny::Resultat resultat;
 
@@ -73,7 +61,7 @@ void UcAjouter::doIt(EclairageMulticolore & eclairage, cgicc::Cgicc & cgi)
     cgicc::form_iterator x = cgi.getElement("x");
     cgicc::form_iterator y = cgi.getElement("y");
 
-    // Si le nom, la couleur et l'ID sont donnés
+    // Si le nom et la couleur sont donnés
     if(nom != cgi.getElements().end() && couleur != cgi.getElements().end() && id != cgi.getElements().end())
     {     
         // Insertion de l'éclairage dans la BDD, si non existant   
@@ -83,7 +71,7 @@ void UcAjouter::doIt(EclairageMulticolore & eclairage, cgicc::Cgicc & cgi)
         }catch(...)
         {
         }
-        // Si l'adresse IP est présente
+        // Si un numero de prise est présent
         cgicc::form_iterator adresseIP = cgi.getElement("adresseIP");
         if(adresseIP != cgi.getElements().end())
         {
@@ -115,44 +103,3 @@ void UcAjouter::doIt(EclairageMulticolore & eclairage, cgicc::Cgicc & cgi)
         
         eclairage.Eclairage::controleur.ihmFormulaire.set(eclairage.controleur.ent, "multicolore", **x, **y);
     }
-}
-
-
-#ifdef _UT_UcAjouter_
-int main()
-{
-	UcAjouter ucAjouter;
-    cgicc::Cgicc cgi;
-
-    // Envoi des headers HTTP
-    std::cout << cgicc::HTTPHTMLHeader() << std::endl;
-
-    // Début du document HTML
-    std::cout << cgicc::html() << cgicc::head() << "<title>Ajouter un eclairage</title><link rel='stylesheet' href='https://www.w3schools.com/w3css/4/w3.css'>" << std::endl;
-    std::cout << cgicc::body() << std::endl;
-
-    // Récupération du type d'éclairage dans l'url (GET)
-    cgicc::form_iterator type = cgi.getElement("type");
-
-    if(type != cgi.getElements().end())
-    {
-        if(**type == "unicolore")
-        {
-            EclairageUnicolore eclairage;
-            ucAjouter.doIt(eclairage, cgi);
-        }
-        else if(**type == "multicolore")
-        {
-            EclairageMulticolore eclairage;
-            ucAjouter.doIt(eclairage, cgi);
-        }
-    }
-
-    // Fermeture du document
-    std::cout << cgicc::body() << cgicc::html();
-
-	return 0;
-}
-#endif
-
-//g++ -o /usr/lib/cgi-bin/UcAjouter.cgi UcAjouter.cpp Eclairage.cpp EclairageMulticolore.cpp EclairageUnicolore.cpp SqlitePersiBny.cpp -I . -lsqlite3 -lcgicc -D _UT_UcAjouter_

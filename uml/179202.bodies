@@ -1,0 +1,11 @@
+class Ent
+!!!195842.cpp!!!	setNumeroPrise(in num : int) : void
+	this->numeroPrise = num;
+	SqlitePersiBny persi(this->DB);
+	persi.executerSql("UPDATE unicolores SET numeroPrise = " + std::to_string(numeroPrise) + " WHERE id = " + std::to_string(this->getID()) + ";");
+!!!195970.cpp!!!	getNumeroPrise() : int
+	SqlitePersiBny persi(this->DB);
+	SqlitePersiBny::Resultat resultat;
+	persi.executerSql("SELECT numeroPrise FROM unicolores WHERE id = " + std::to_string(this->getID()) + ";", resultat);
+	this->numeroPrise = atoi(resultat.at(0).at(0).second.c_str());
+	return this->numeroPrise;

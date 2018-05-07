@@ -1,0 +1,695 @@
+format 218
+"io detail" // conception-reversed::src::io detail
+  revision 1
+  modified_by 2 "tom"
+  // class settings
+  
+  classdiagramsettings member_max_width 0 end
+  
+  usecasediagramsettings end
+  
+  sequencediagramsettings end
+  
+  collaborationdiagramsettings end
+  
+  objectdiagramsettings end
+  
+  componentdiagramsettings
+   end
+  
+  deploymentdiagramsettings
+   end
+  
+  statediagramsettings
+   end
+  
+  activitydiagramsettings
+   end
+  
+  cpp_namespace "io::detail"
+  classview 141442 "src"
+    
+    classdiagramsettings member_max_width 0 end
+    
+    collaborationdiagramsettings end
+    
+    objectdiagramsettings end
+    
+    sequencediagramsettings end
+    
+    statediagramsettings
+     end
+    
+    
+    activitydiagramsettings
+     end
+    class 173058 "OwningStdIOByteSourceBase"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 176514 // <generalisation>
+	relation 176514 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 176514 // <generalisation>
+	  b parent class_ref 172930 // ByteSourceBase
+      end
+
+      operation 178050 "OwningStdIOByteSourceBase"
+	cpp_inline public explicit_return_type ""
+	nparams 1
+	  param inout name "file" explicit_type "FILE"
+	cpp_decl "    ${comment}${inline}explicit ${name}${(}${t0} * ${p0}${v0}${)}${volatile}${throw}${abstract} :file(file){
+                                // Tell the std library that we want to do the buffering ourself.
+                                std::setvbuf(file, 0, _IONBF, 0);
+                        };
+"
+	
+	
+	
+	
+      end
+
+      operation 178178 "read"
+	cpp_inline public explicit_return_type "int"
+	nparams 2
+	  param inout name "buffer" explicit_type "char"
+	  param in name "size" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} * ${p0}${v0}, ${t1} ${p1}${v1}${)}${const}${volatile}${throw}${abstract} {
+                                return std::fread(buffer, 1, size, file);
+                        };
+"
+	
+	
+	
+	
+      end
+
+      operation 178306 "~OwningStdIOByteSourceBase"
+	cpp_inline public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw}${abstract} {
+                                std::fclose(file);
+                        };
+"
+	
+	
+	
+	
+      end
+
+      attribute 156418 "file"
+	private explicit_type "FILE"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+    end
+
+    class 173186 "NonOwningIStreamByteSource"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 176642 // <generalisation>
+	relation 176642 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 176642 // <generalisation>
+	  b parent class_ref 172930 // ByteSourceBase
+      end
+
+      operation 178434 "NonOwningIStreamByteSource"
+	cpp_inline public explicit_return_type ""
+	nparams 1
+	  param inout name "in" explicit_type "istream"
+	cpp_decl "    ${comment}${inline}explicit ${name}${(}${t0} & ${p0}${v0}${)}${volatile}${throw}${abstract} :in(in){};
+"
+	
+	
+	
+	
+      end
+
+      operation 178562 "read"
+	cpp_inline public explicit_return_type "int"
+	nparams 2
+	  param inout name "buffer" explicit_type "char"
+	  param in name "size" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} * ${p0}${v0}, ${t1} ${p1}${v1}${)}${const}${volatile}${throw}${abstract} {
+                                in.read(buffer, size);
+                                return in.gcount();
+                        };
+"
+	
+	
+	
+	
+      end
+
+      operation 178690 "~NonOwningIStreamByteSource"
+	cpp_inline public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw}${abstract} {};
+"
+	
+	
+	
+	
+      end
+
+      attribute 156546 "in"
+	private explicit_type "istream"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} & ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+    end
+
+    class 173314 "NonOwningStringByteSource"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 176770 // <generalisation>
+	relation 176770 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 176770 // <generalisation>
+	  b parent class_ref 172930 // ByteSourceBase
+      end
+
+      operation 178818 "NonOwningStringByteSource"
+	cpp_inline public explicit_return_type ""
+	nparams 2
+	  param in name "str" explicit_type "char"
+	  param in name "size" explicit_type "long long"
+	cpp_decl "    ${comment}${inline}${name}${(}const ${t0} * ${p0}${v0}, ${t1} ${p1}${v1}${)}${volatile}${throw}${abstract} :str(str), remaining_byte_count(size){};
+"
+	
+	
+	
+	
+      end
+
+      operation 178946 "read"
+	cpp_inline public explicit_return_type "int"
+	nparams 2
+	  param inout name "buffer" explicit_type "char"
+	  param in name "desired_byte_count" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} * ${p0}${v0}, ${t1} ${p1}${v1}${)}${const}${volatile}${throw}${abstract} {
+                                int to_copy_byte_count = desired_byte_count;
+                                if(remaining_byte_count < to_copy_byte_count)
+                                        to_copy_byte_count = remaining_byte_count;
+                                std::memcpy(buffer, str, to_copy_byte_count);
+                                remaining_byte_count -= to_copy_byte_count;
+                                str += to_copy_byte_count;
+                                return to_copy_byte_count;
+                        };
+"
+	
+	
+	
+	
+      end
+
+      operation 179074 "~NonOwningStringByteSource"
+	cpp_inline public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw}${abstract} {};
+"
+	
+	
+	
+	
+      end
+
+      attribute 156674 "str"
+	const_attribute private explicit_type "char"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 156802 "remaining_byte_count"
+	private explicit_type "long long"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+    end
+
+    class 173442 "AsynchronousReader"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      operation 179202 "init"
+	cpp_inline public explicit_return_type "void"
+	nparams 1
+	  param in name "arg_byte_source" explicit_type "std::unique_ptr<ByteSourceBase>"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+                                std::unique_lock<std::mutex>guard(lock);
+                                byte_source = std::move(arg_byte_source);
+                                desired_byte_count = -1;
+                                termination_requested = false;
+                                worker = std::thread(
+                                        [&]{
+                                                std::unique_lock<std::mutex>guard(lock);
+                                                try{
+                                                        for(;;){
+                                                                read_requested_condition.wait(
+                                                                        guard, 
+                                                                        [&]{
+                                                                                return desired_byte_count != -1 || termination_requested;
+                                                                        }
+                                                                );
+                                                                if(termination_requested)
+                                                                        return;
+
+                                                                read_byte_count = byte_source->read(buffer, desired_byte_count);
+                                                                desired_byte_count = -1;
+                                                                if(read_byte_count == 0)
+                                                                        break;
+                                                                read_finished_condition.notify_one();
+                                                        }
+                                                }catch(...){
+                                                        read_error = std::current_exception();
+                                                }
+                                                read_finished_condition.notify_one();
+                                        }
+                                );
+                        };
+"
+	
+	
+	
+	
+      end
+
+      operation 179330 "is_valid"
+	const cpp_inline public explicit_return_type "bool"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract} {
+                                return byte_source != nullptr;
+                        };
+"
+	
+	
+	
+	
+      end
+
+      operation 179458 "start_read"
+	cpp_inline public explicit_return_type "void"
+	nparams 2
+	  param inout name "arg_buffer" explicit_type "char"
+	  param in name "arg_desired_byte_count" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} * ${p0}${v0}, ${t1} ${p1}${v1}${)}${const}${volatile}${throw}${abstract} {
+                                std::unique_lock<std::mutex>guard(lock);
+                                buffer = arg_buffer;
+                                desired_byte_count = arg_desired_byte_count;
+                                read_byte_count = -1;
+                                read_requested_condition.notify_one();
+                        };
+"
+	
+	
+	
+	
+      end
+
+      operation 179586 "finish_read"
+	cpp_inline public explicit_return_type "int"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract} {
+                                std::unique_lock<std::mutex>guard(lock);
+                                read_finished_condition.wait(
+                                        guard, 
+                                        [&]{
+                                                return read_byte_count != -1 || read_error;
+                                        }
+                                );
+                                if(read_error)
+                                        std::rethrow_exception(read_error);
+                                else
+                                        return read_byte_count;
+                        };
+"
+	
+	
+	
+	
+      end
+
+      operation 179714 "~AsynchronousReader"
+	cpp_inline public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw}${abstract} {
+                                if(byte_source != nullptr){
+                                        {
+                                                std::unique_lock<std::mutex>guard(lock);
+                                                termination_requested = true;
+                                        }
+                                        read_requested_condition.notify_one();
+                                        worker.join();
+                                }
+                        };
+"
+	
+	
+	
+	
+      end
+
+      classrelation 176898 // byte_source (<directional composition>)
+	relation 176898 *-->
+	  stereotype "std::unique_ptr"
+	  a role_name "byte_source" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value};
+"
+	    classrelation_ref 176898 // byte_source (<directional composition>)
+	  b parent class_ref 172930 // ByteSourceBase
+      end
+
+      attribute 156930 "worker"
+	private explicit_type "std::thread"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 157058 "termination_requested"
+	private explicit_type "bool"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 157186 "read_error"
+	private explicit_type "std::exception_ptr"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 157314 "buffer"
+	private explicit_type "char"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 157442 "desired_byte_count"
+	private explicit_type "int"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 157570 "read_byte_count"
+	private explicit_type "int"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 157698 "lock"
+	private explicit_type "std::mutex"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 157826 "read_finished_condition"
+	private explicit_type "std::condition_variable"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 157954 "read_requested_condition"
+	private explicit_type "std::condition_variable"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+    end
+
+    class 173570 "SynchronousReader"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      operation 179842 "init"
+	cpp_inline public explicit_return_type "void"
+	nparams 1
+	  param in name "arg_byte_source" explicit_type "std::unique_ptr<ByteSourceBase>"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+                                byte_source = std::move(arg_byte_source);
+                        };
+"
+	
+	
+	
+	
+      end
+
+      operation 179970 "is_valid"
+	const cpp_inline public explicit_return_type "bool"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract} {
+                                return byte_source != nullptr;
+                        };
+"
+	
+	
+	
+	
+      end
+
+      operation 180098 "start_read"
+	cpp_inline public explicit_return_type "void"
+	nparams 2
+	  param inout name "arg_buffer" explicit_type "char"
+	  param in name "arg_desired_byte_count" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} * ${p0}${v0}, ${t1} ${p1}${v1}${)}${const}${volatile}${throw}${abstract} {
+                                buffer = arg_buffer;
+                                desired_byte_count = arg_desired_byte_count;
+                        };
+"
+	
+	
+	
+	
+      end
+
+      operation 180226 "finish_read"
+	cpp_inline public explicit_return_type "int"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract} {
+                                return byte_source->read(buffer, desired_byte_count);
+                        };
+"
+	
+	
+	
+	
+      end
+
+      classrelation 177026 // byte_source (<directional composition>)
+	relation 177026 *-->
+	  stereotype "std::unique_ptr"
+	  a role_name "byte_source" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value};
+"
+	    classrelation_ref 177026 // byte_source (<directional composition>)
+	  b parent class_ref 172930 // ByteSourceBase
+      end
+
+      attribute 158082 "buffer"
+	private explicit_type "char"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 158210 "desired_byte_count"
+	private explicit_type "int"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+    end
+  end
+
+  deploymentview 148226 "io detail"
+    //deployment diagram settings
+    deploymentdiagramsettings
+     end
+    artifact 151554 "csvReader"
+      stereotype "source"
+      cpp_h "/*******************************************************
+* \\file ${name}.h
+* \\author Tom ESCOLANO
+
+* \\brief Projet : Eclairage DIY - SUP
+*******************************************************/
+
+#ifndef ${NAMESPACE}_${NAME}_H
+#define ${NAMESPACE}_${NAME}_H
+
+${comment}
+${includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "/******************************************************
+* \\file ${name}.cpp
+* \\author Tom ESCOLANO
+
+\\brief Projet : Eclairage DIY - SUP
+*******************************************************/
+
+${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}
+
+#ifdef _UT_${name}_
+int main()
+{
+	return 0;
+}
+#endif
+"
+      associated_elems
+	class_ref 173058 // OwningStdIOByteSourceBase
+	class_ref 173186 // NonOwningIStreamByteSource
+	class_ref 173314 // NonOwningStringByteSource
+	class_ref 173442 // AsynchronousReader
+	class_ref 173570 // SynchronousReader
+      end
+    end
+  end
+end

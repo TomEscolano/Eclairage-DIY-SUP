@@ -4,54 +4,54 @@ activitynodecanvas 128386 activitynode_ref 128130 // initial_node
   xyz 171.021 151.019 2000
 end
 activitynodecanvas 128514 activitynode_ref 128258 // activity_final
-  xyz 489.018 848.812 2000
+  xyz 489.118 848.812 2000
 end
 fragment 129154 "Utilisateur"
-  xyzwh 75.9672 102.737 0 231 779
+  xyzwh 75.9672 102.837 0 231 779
 end
 fragment 129282 "Système"
-  xyzwh 314.89 102.716 0 399 778
+  xyzwh 314.19 102.816 0 399 778
 end
 fragment 129410 "BDD"
-  xyzwh 723.181 104.316 2000 243 780
+  xyzwh 723.581 103.616 2000 243 780
 end
 activityactioncanvas 129538 activityaction_ref 128130 // activity action Appui sur le bouton "exporter"
   
   show_opaque_action_definition default
-  xyzwh 131.656 320.952 2000 103 71
+  xyzwh 131.856 320.452 2000 103 71
 end
 activityactioncanvas 129794 activityaction_ref 128258 // activity action Création du fichier "eclairages_export.csv"
   
   show_opaque_action_definition default
-  xyzwh 335.349 221.53 2005 165 69
+  xyzwh 335.049 221.03 2005 165 69
 end
 activityactioncanvas 130050 activityaction_ref 128386 // activity action Demande d'extraction des eclairages
   
   show_opaque_action_definition default
-  xyzwh 339.15 329.543 2000 161 73
+  xyzwh 339.05 329.043 2000 161 73
 end
 activityactioncanvas 130178 activityaction_ref 128514 // activity action Extractions des eclairages
   
   show_opaque_action_definition default
-  xyzwh 789.85 333.694 2005 129 67
+  xyzwh 789.15 333.294 2005 129 67
 end
 activityactioncanvas 130562 activityaction_ref 128642 // activity action Ecriture dans le fichier "eclairages_export.csv" de la configurations des éclairages
   
   show_opaque_action_definition default
-  xyzwh 433.037 438.976 2000 167 111
+  xyzwh 433.637 438.276 2000 167 111
 end
 activityactioncanvas 130946 activityaction_ref 128770 // activity action Lancement du téléchargement du fichier "eclairages_export.csv"
   
   show_opaque_action_definition default
-  xyzwh 417.812 717.413 2000 173 101
+  xyzwh 417.112 717.113 2000 173 101
 end
 activitynodecanvas 132226 activitynode_ref 128642 // decision
-  xyz 498.954 595.926 2000
+  xyz 498.954 595.226 2000
 end
 activityactioncanvas 133378 activityaction_ref 129410 // activity action Démarrage du programme
   
   show_opaque_action_definition default
-  xyzwh 130.059 200.211 2011 101 75
+  xyzwh 130.059 200.911 2011 101 75
 end
 flowcanvas 129922 flow_ref 128258 // <flow>
   
@@ -70,7 +70,7 @@ flowcanvas 130434 flow_ref 128514 // <flow>
 end
 flowcanvas 130690 flow_ref 128642 // <flow>
   
-  from ref 130178 z 2006 to point 851.126 487.257
+  from ref 130178 z 2006 to point 851.3 487.9
   line 130818 z 2006 to ref 130562
    write_horizontally default
 end
@@ -86,13 +86,13 @@ flowcanvas 132354 flow_ref 129922 //
 end
 flowcanvas 132610 flow_ref 130178 // Extraction terminée
   
-  from ref 132226 z 2001 label "Extraction terminée" xyz 511 659.5 3000 to ref 130946
+  from ref 132226 z 2001 label "Extraction terminée" xyz 511 659 2001 to ref 130946
    write_horizontally default
 end
 flowcanvas 132738 flow_ref 130306 // Extraction non terminée
   decenter_end 793
   
-  from ref 132226 z 2001 label "Extraction non terminée" xyz 543.5 612.5 3000 to point 560.762 609.311
+  from ref 132226 z 2001 label "Extraction non terminée" xyz 543 612 2001 to point 560.2 609.1
   line 133250 z 2001 to ref 130562
    write_horizontally default
 end

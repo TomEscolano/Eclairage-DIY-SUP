@@ -1,0 +1,3 @@
+class Controleur
+!!!197250.cpp!!!	getIHMJardin() : void
+	this->ihmJardin.set(this->ent);

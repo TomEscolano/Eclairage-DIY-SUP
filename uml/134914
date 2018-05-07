@@ -1,0 +1,1308 @@
+format 218
+"io" // conception-reversed::src::io
+  revision 1
+  modified_by 2 "tom"
+  // class settings
+  
+  classdiagramsettings member_max_width 0 end
+  
+  usecasediagramsettings end
+  
+  sequencediagramsettings end
+  
+  collaborationdiagramsettings end
+  
+  objectdiagramsettings end
+  
+  componentdiagramsettings
+   end
+  
+  deploymentdiagramsettings
+   end
+  
+  statediagramsettings
+   end
+  
+  activitydiagramsettings
+   end
+  
+  cpp_namespace "io"
+  classview 141314 "src"
+    
+    classdiagramsettings member_max_width 0 end
+    
+    collaborationdiagramsettings end
+    
+    objectdiagramsettings end
+    
+    sequencediagramsettings end
+    
+    statediagramsettings
+     end
+    
+    
+    activitydiagramsettings
+     end
+    class 172930 "ByteSourceBase"
+      abstract visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      operation 177794 "read"
+	abstract cpp_virtual public explicit_return_type "int"
+	nparams 2
+	  param inout name "buffer" explicit_type "char"
+	  param in name "size" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} * ${p0}${v0}, ${t1} ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+"
+	
+	
+	
+	
+      end
+
+      operation 177922 "~ByteSourceBase"
+	cpp_virtual cpp_inline public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw}${abstract} {};
+"
+	
+	
+	
+	
+      end
+    end
+
+    class 173698 "LineReader"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      attribute 158338 "block_len"
+	class_attribute const_attribute private explicit_type "int"
+	init_value "=  1<<24"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${h_value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 158466 "buffer"
+	private explicit_type "char[]"
+	stereotype "std::unique_ptr"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment " must be constructed before (and thus destructed after) the reader!"
+      end
+
+      classrelation 177154 // reader (<directional composition>)
+	relation 177154 *-->
+	  a role_name "reader" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 177154 // reader (<directional composition>)
+	  b parent class_ref 173570 // SynchronousReader
+      end
+
+      classrelation 177282 // <directional composition>
+	relation 177282 *-->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 177282 // <directional composition>
+	  b parent class_ref 173442 // AsynchronousReader
+      end
+
+      attribute 158594 "data_begin"
+	private explicit_type "int"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 158722 "data_end"
+	private explicit_type "int"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 158850 "file_name"
+	private explicit_type "char"
+	multiplicity "[error::max_file_name_length+1]"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${multiplicity}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 158978 "file_line"
+	private explicit_type "uint"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      operation 180354 "open_file"
+	class_operation cpp_inline private explicit_return_type "std::unique_ptr<ByteSourceBase>"
+	nparams 1
+	  param in name "file_name" explicit_type "char"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} * ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+                        // We open the file in binary mode as it makes no difference under *nix
+                        // and under Windows we handle \\r\\n newlines ourself.
+                        FILE*file = std::fopen(file_name, \"rb\");
+                        if(file == 0){
+                                int x = errno; // store errno as soon as possible, doing it after constructor call can fail.
+                                error::can_not_open_file err;
+                                err.set_errno(x);
+                                err.set_file_name(file_name);
+                                throw err;
+                        }
+                        return std::unique_ptr<ByteSourceBase>(new detail::OwningStdIOByteSourceBase(file));
+                };
+"
+	
+	
+	
+	
+      end
+
+      operation 180482 "init"
+	cpp_inline private explicit_return_type "void"
+	nparams 1
+	  param in name "byte_source" explicit_type "std::unique_ptr<ByteSourceBase>"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+                        file_line = 0;
+
+                        buffer = std::unique_ptr<char[]>(new char[3*block_len]);
+                        data_begin = 0;
+                        data_end = byte_source->read(buffer.get(), 2*block_len);
+
+                        // Ignore UTF-8 BOM
+                        if(data_end >= 3 && buffer[0] == '\\xEF' && buffer[1] == '\\xBB' && buffer[2] == '\\xBF')
+                                data_begin = 3;
+
+                        if(data_end == 2*block_len){
+                                reader.init(std::move(byte_source));
+                                reader.start_read(buffer.get() + 2*block_len, block_len);
+                        }
+                };
+"
+	
+	
+	
+	
+      end
+
+      operation 180610 "LineReader"
+	cpp_deleted public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw}${abstract};
+"
+	
+	
+	
+	
+      end
+
+      operation 180738 "LineReader"
+	cpp_deleted public explicit_return_type ""
+	nparams 1
+	  param in name "" type class_ref 173698 // LineReader
+	cpp_decl "    ${comment}${inline}${name}${(}const ${t0} & ${p0}${v0}${)}${volatile}${throw}${abstract};
+"
+	
+	
+	
+	
+      end
+
+      operation 180866 "operator ="
+	cpp_deleted public return_type class_ref 173698 // LineReader
+	nparams 1
+	  param in name "" type class_ref 173698 // LineReader
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} & ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	
+	
+	
+	
+      end
+
+      operation 180994 "LineReader"
+	cpp_inline public explicit_return_type ""
+	nparams 1
+	  param in name "file_name" explicit_type "char"
+	cpp_decl "    ${comment}${inline}explicit ${name}${(}const ${t0} * ${p0}${v0}${)}${volatile}${throw}${abstract} {
+                        set_file_name(file_name);
+                        init(open_file(file_name));
+                };
+"
+	
+	
+	
+	
+      end
+
+      operation 181122 "LineReader"
+	cpp_inline public explicit_return_type ""
+	nparams 1
+	  param in name "file_name" explicit_type "string"
+	cpp_decl "    ${comment}${inline}explicit ${name}${(}const ${t0} & ${p0}${v0}${)}${volatile}${throw}${abstract} {
+                        set_file_name(file_name.c_str());
+                        init(open_file(file_name.c_str()));
+                };
+"
+	
+	
+	
+	
+      end
+
+      operation 181250 "LineReader"
+	cpp_inline public explicit_return_type ""
+	nparams 2
+	  param in name "file_name" explicit_type "char"
+	  param in name "byte_source" explicit_type "std::unique_ptr<ByteSourceBase>"
+	cpp_decl "    ${comment}${inline}${name}${(}const ${t0} * ${p0}${v0}, ${t1} ${p1}${v1}${)}${volatile}${throw}${abstract} {
+                        set_file_name(file_name);
+                        init(std::move(byte_source));
+                };
+"
+	
+	
+	
+	
+      end
+
+      operation 181378 "LineReader"
+	cpp_inline public explicit_return_type ""
+	nparams 2
+	  param in name "file_name" explicit_type "string"
+	  param in name "byte_source" explicit_type "std::unique_ptr<ByteSourceBase>"
+	cpp_decl "    ${comment}${inline}${name}${(}const ${t0} & ${p0}${v0}, ${t1} ${p1}${v1}${)}${volatile}${throw}${abstract} {
+                        set_file_name(file_name.c_str());
+                        init(std::move(byte_source));
+                };
+"
+	
+	
+	
+	
+      end
+
+      operation 181506 "LineReader"
+	cpp_inline public explicit_return_type ""
+	nparams 3
+	  param in name "file_name" explicit_type "char"
+	  param in name "data_begin" explicit_type "char"
+	  param in name "data_end" explicit_type "char"
+	cpp_decl "    ${comment}${inline}${name}${(}const ${t0} * ${p0}${v0}, const ${t1} * ${p1}${v1}, const ${t2} * ${p2}${v2}${)}${volatile}${throw}${abstract} {
+                        set_file_name(file_name);
+                        init(std::unique_ptr<ByteSourceBase>(new detail::NonOwningStringByteSource(data_begin, data_end-data_begin)));
+                };
+"
+	
+	
+	
+	
+      end
+
+      operation 181634 "LineReader"
+	cpp_inline public explicit_return_type ""
+	nparams 3
+	  param in name "file_name" explicit_type "string"
+	  param in name "data_begin" explicit_type "char"
+	  param in name "data_end" explicit_type "char"
+	cpp_decl "    ${comment}${inline}${name}${(}const ${t0} & ${p0}${v0}, const ${t1} * ${p1}${v1}, const ${t2} * ${p2}${v2}${)}${volatile}${throw}${abstract} {
+                        set_file_name(file_name.c_str());
+                        init(std::unique_ptr<ByteSourceBase>(new detail::NonOwningStringByteSource(data_begin, data_end-data_begin)));
+                };
+"
+	
+	
+	
+	
+      end
+
+      operation 181762 "LineReader"
+	cpp_inline public explicit_return_type ""
+	nparams 2
+	  param in name "file_name" explicit_type "char"
+	  param inout name "file" explicit_type "FILE"
+	cpp_decl "    ${comment}${inline}${name}${(}const ${t0} * ${p0}${v0}, ${t1} * ${p1}${v1}${)}${volatile}${throw}${abstract} {
+                        set_file_name(file_name);
+                        init(std::unique_ptr<ByteSourceBase>(new detail::OwningStdIOByteSourceBase(file)));
+                };
+"
+	
+	
+	
+	
+      end
+
+      operation 181890 "LineReader"
+	cpp_inline public explicit_return_type ""
+	nparams 2
+	  param in name "file_name" explicit_type "string"
+	  param inout name "file" explicit_type "FILE"
+	cpp_decl "    ${comment}${inline}${name}${(}const ${t0} & ${p0}${v0}, ${t1} * ${p1}${v1}${)}${volatile}${throw}${abstract} {
+                        set_file_name(file_name.c_str());
+                        init(std::unique_ptr<ByteSourceBase>(new detail::OwningStdIOByteSourceBase(file)));
+                };
+"
+	
+	
+	
+	
+      end
+
+      operation 182018 "LineReader"
+	cpp_inline public explicit_return_type ""
+	nparams 2
+	  param in name "file_name" explicit_type "char"
+	  param inout name "in" explicit_type "istream"
+	cpp_decl "    ${comment}${inline}${name}${(}const ${t0} * ${p0}${v0}, ${t1} & ${p1}${v1}${)}${volatile}${throw}${abstract} {
+                        set_file_name(file_name);
+                        init(std::unique_ptr<ByteSourceBase>(new detail::NonOwningIStreamByteSource(in)));
+                };
+"
+	
+	
+	
+	
+      end
+
+      operation 182146 "LineReader"
+	cpp_inline public explicit_return_type ""
+	nparams 2
+	  param in name "file_name" explicit_type "string"
+	  param inout name "in" explicit_type "istream"
+	cpp_decl "    ${comment}${inline}${name}${(}const ${t0} & ${p0}${v0}, ${t1} & ${p1}${v1}${)}${volatile}${throw}${abstract} {
+                        set_file_name(file_name.c_str());
+                        init(std::unique_ptr<ByteSourceBase>(new detail::NonOwningIStreamByteSource(in)));
+                };
+"
+	
+	
+	
+	
+      end
+
+      operation 182274 "set_file_name"
+	cpp_inline public explicit_return_type "void"
+	nparams 1
+	  param in name "file_name" explicit_type "string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+                        set_file_name(file_name.c_str());
+                };
+"
+	
+	
+	
+	
+      end
+
+      operation 182402 "set_file_name"
+	cpp_inline public explicit_return_type "void"
+	nparams 1
+	  param in name "file_name" explicit_type "char"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} * ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+                        strncpy(this->file_name, file_name, error::max_file_name_length);
+                        this->file_name[error::max_file_name_length] = '\\0';
+                };
+"
+	
+	
+	
+	
+      end
+
+      operation 182530 "get_truncated_file_name"
+	const cpp_inline public explicit_return_type "char"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}const ${type} * ${name}${(}${)}${const}${volatile}${throw}${abstract} {
+                        return file_name;
+                };
+"
+	
+	
+	
+	
+      end
+
+      operation 182658 "set_file_line"
+	cpp_inline public explicit_return_type "void"
+	nparams 1
+	  param in name "file_line" explicit_type "uint"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+                        this->file_line = file_line;
+                };
+"
+	
+	
+	
+	
+      end
+
+      operation 182786 "get_file_line"
+	const cpp_inline public explicit_return_type "uint"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract} {
+                        return file_line;
+                };
+"
+	
+	
+	
+	
+      end
+
+      operation 182914 "next_line"
+	cpp_inline public explicit_return_type "char"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} * ${name}${(}${)}${const}${volatile}${throw}${abstract} {
+                        if(data_begin == data_end)
+                                return 0;
+
+                        ++file_line;
+
+                        assert(data_begin < data_end);
+                        assert(data_end <= block_len*2);
+
+                        if(data_begin >= block_len){
+                                std::memcpy(buffer.get(), buffer.get()+block_len, block_len);
+                                data_begin -= block_len;
+                                data_end -= block_len;
+                                if(reader.is_valid())
+                                {
+                                        data_end += reader.finish_read();
+                                        std::memcpy(buffer.get()+block_len, buffer.get()+2*block_len, block_len);
+                                        reader.start_read(buffer.get() + 2*block_len, block_len);
+                                }
+                        }
+
+                        int line_end = data_begin;
+                        while(buffer[line_end] != '\\n' && line_end != data_end){
+                                ++line_end;
+                        }
+
+                        if(line_end - data_begin + 1 > block_len){
+                                error::line_length_limit_exceeded err;
+                                err.set_file_name(file_name);
+                                err.set_file_line(file_line);
+                                throw err;
+                        }
+
+                        if(buffer[line_end] == '\\n'){
+                                buffer[line_end] = '\\0';
+                        }else{
+                                // some files are missing the newline at the end of the
+                                // last line
+                                ++data_end;
+                                buffer[line_end] = '\\0';
+                        }
+
+                        // handle windows \\r\\n-line breaks
+                        if(line_end != data_begin && buffer[line_end-1] == '\\r')
+                                buffer[line_end-1] = '\\0';
+
+                        char*ret = buffer.get() + data_begin;
+                        data_begin = line_end+1;
+                        return ret;
+                };
+"
+	
+	
+	
+	
+      end
+    end
+
+    class 175618 "ignore_column"
+      visibility package stereotype "typedef" explicit_base_type "unsigned"
+      cpp_decl "${comment}typedef ${type} ${name};
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+    end
+
+    class 175746 "trim_chars"
+      visibility package stereotype "struct"
+      nformals 1
+      formal name "char ... trim_char_list" type "" explicit_default_value ""
+        explicit_extends ""
+      cpp_decl "${comment}${template}struct ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      operation 185090 "is_trim_char"
+	class_operation cpp_inline private explicit_return_type "bool"
+	nparams 1
+	  param in name "" explicit_type "char"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}constexpr ${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+                        return false;
+                };
+"
+	
+	
+	
+	
+      end
+
+      operation 185218 "trim"
+	class_operation cpp_inline public explicit_return_type "void"
+	nparams 2
+	  param inout name "str_begin" explicit_type "char"
+	  param inout name "str_end" explicit_type "char"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} * & ${p0}${v0}, ${t1} * & ${p1}${v1}${)}${const}${volatile}${throw}${abstract} {
+                        while(is_trim_char(*str_begin, trim_char_list...) && str_begin != str_end)
+                                ++str_begin;
+                        while(is_trim_char(*(str_end-1), trim_char_list...) && str_begin != str_end)
+                                --str_end;
+                        *str_end = '\\0';
+                };
+"
+	
+	
+	
+	
+      end
+    end
+
+    class 175874 "no_comment"
+      visibility package stereotype "struct"
+      cpp_decl "${comment}${template}struct ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      operation 185346 "is_comment"
+	class_operation cpp_inline public explicit_return_type "bool"
+	nparams 1
+	  param in name "" explicit_type "char"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} * ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+                        return false;
+                };
+"
+	
+	
+	
+	
+      end
+    end
+
+    class 176002 "single_line_comment"
+      visibility package stereotype "struct"
+      nformals 1
+      formal name "char ... comment_start_char_list" type "" explicit_default_value ""
+        explicit_extends ""
+      cpp_decl "${comment}${template}struct ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      operation 185474 "is_comment_start_char"
+	class_operation cpp_inline private explicit_return_type "bool"
+	nparams 1
+	  param in name "" explicit_type "char"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}constexpr ${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+                        return false;
+                };
+"
+	
+	
+	
+	
+      end
+
+      operation 185602 "is_comment"
+	class_operation cpp_inline public explicit_return_type "bool"
+	nparams 1
+	  param in name "line" explicit_type "char"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} * ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+                        return is_comment_start_char(*line, comment_start_char_list...);
+                };
+"
+	
+	
+	
+	
+      end
+    end
+
+    class 176130 "empty_line_comment"
+      visibility package stereotype "struct"
+      cpp_decl "${comment}${template}struct ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      operation 185730 "is_comment"
+	class_operation cpp_inline public explicit_return_type "bool"
+	nparams 1
+	  param in name "line" explicit_type "char"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} * ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+                        if(*line == '\\0')
+                                return true;
+                        while(*line == ' ' || *line == '\\t'){
+                                ++line;
+                                if(*line == 0)
+                                        return true;
+                        }
+                        return false;
+                };
+"
+	
+	
+	
+	
+      end
+    end
+
+    class 176258 "single_and_empty_line_comment"
+      visibility package stereotype "struct"
+      nformals 1
+      formal name "char ... comment_start_char_list" type "" explicit_default_value ""
+        explicit_extends ""
+      cpp_decl "${comment}${template}struct ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      operation 185858 "is_comment"
+	class_operation cpp_inline public explicit_return_type "bool"
+	nparams 1
+	  param in name "line" explicit_type "char"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} * ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+                        return single_line_comment<comment_start_char_list...>::is_comment(line) || empty_line_comment::is_comment(line);
+                };
+"
+	
+	
+	
+	
+      end
+    end
+
+    class 176386 "no_quote_escape"
+      visibility package stereotype "struct"
+      nformals 1
+      formal name "sep" type "char" explicit_default_value ""
+        explicit_extends ""
+      cpp_decl "${comment}${template}struct ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      operation 185986 "find_next_column_end"
+	class_operation cpp_inline public explicit_return_type "char"
+	nparams 1
+	  param in name "col_begin" explicit_type "char"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}const ${type} * ${name}${(}const ${t0} * ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+                        while(*col_begin != sep && *col_begin != '\\0')
+                                ++col_begin;
+                        return col_begin;
+                };
+"
+	
+	
+	
+	
+      end
+
+      operation 186114 "unescape"
+	class_operation cpp_inline public explicit_return_type "void"
+	nparams 2
+	  param inout name "" explicit_type "char"
+	  param inout name "" explicit_type "char"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} * & ${p0}${v0}, ${t1} * & ${p1}${v1}${)}${const}${volatile}${throw}${abstract} {
+
+                };
+"
+	
+	
+	
+	
+      end
+    end
+
+    class 176514 "double_quote_escape"
+      visibility package stereotype "struct"
+      nformals 2
+      formal name "sep" type "char" explicit_default_value ""
+        explicit_extends ""
+      formal name "quote" type " char" explicit_default_value ""
+        explicit_extends ""
+      cpp_decl "${comment}${template}struct ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      operation 186242 "find_next_column_end"
+	class_operation cpp_inline public explicit_return_type "char"
+	nparams 1
+	  param in name "col_begin" explicit_type "char"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}const ${type} * ${name}${(}const ${t0} * ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+                        while(*col_begin != sep && *col_begin != '\\0')
+                                if(*col_begin != quote)
+                                        ++col_begin;
+                                else{
+                                        do{
+                                                ++col_begin;
+                                                while(*col_begin != quote){
+                                                        if(*col_begin == '\\0')
+                                                                throw error::escaped_string_not_closed();
+                                                        ++col_begin;
+                                                }
+                                                ++col_begin;
+                                        }while(*col_begin == quote);
+                                }      
+                        return col_begin;      
+                };
+"
+	
+	
+	
+	
+      end
+
+      operation 186370 "unescape"
+	class_operation cpp_inline public explicit_return_type "void"
+	nparams 2
+	  param inout name "col_begin" explicit_type "char"
+	  param inout name "col_end" explicit_type "char"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} * & ${p0}${v0}, ${t1} * & ${p1}${v1}${)}${const}${volatile}${throw}${abstract} {
+                        if(col_end - col_begin >= 2){
+                                if(*col_begin == quote && *(col_end-1) == quote){
+                                        ++col_begin;
+                                        --col_end;
+                                        char*out = col_begin;
+                                        for(char*in = col_begin; in!=col_end; ++in){
+                                                if(*in == quote && (in+1) != col_end && *(in+1) == quote){
+                                                         ++in;
+                                                }
+                                                *out = *in;
+                                                ++out;
+                                        }
+                                        col_end = out;
+                                        *col_end = '\\0';
+                                }
+                        }
+                       
+                };
+"
+	
+	
+	
+	
+      end
+    end
+
+    class 176642 "throw_on_overflow"
+      visibility package stereotype "struct"
+      cpp_decl "${comment}${template}struct ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      operation 186498 "on_overflow"
+	stereotype "template"
+	class_operation cpp_inline public explicit_return_type "void"
+	nparams 1
+	  param inout name "" explicit_type "T"
+	cpp_decl "    ${comment}template<class T>
+  ${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+                        throw error::integer_overflow();
+                };
+"
+	
+	
+	
+	
+      end
+
+      operation 186626 "on_underflow"
+	stereotype "template"
+	class_operation cpp_inline public explicit_return_type "void"
+	nparams 1
+	  param inout name "" explicit_type "T"
+	cpp_decl "    ${comment}template<class T>
+  ${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+                        throw error::integer_underflow();
+                };
+"
+	
+	
+	
+	
+      end
+    end
+
+    class 176770 "ignore_overflow"
+      visibility package stereotype "struct"
+      cpp_decl "${comment}${template}struct ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      operation 186754 "on_overflow"
+	stereotype "template"
+	class_operation cpp_inline public explicit_return_type "void"
+	nparams 1
+	  param inout name "" explicit_type "T"
+	cpp_decl "    ${comment}template<class T>
+  ${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {};
+"
+	
+	
+	
+	
+      end
+
+      operation 186882 "on_underflow"
+	stereotype "template"
+	class_operation cpp_inline public explicit_return_type "void"
+	nparams 1
+	  param inout name "" explicit_type "T"
+	cpp_decl "    ${comment}template<class T>
+  ${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {};
+"
+	
+	
+	
+	
+      end
+    end
+
+    class 176898 "set_to_max_on_overflow"
+      visibility package stereotype "struct"
+      cpp_decl "${comment}${template}struct ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      operation 187010 "on_overflow"
+	stereotype "template"
+	class_operation cpp_inline public explicit_return_type "void"
+	nparams 1
+	  param inout name "x" explicit_type "T"
+	cpp_decl "    ${comment}template<class T>
+  ${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+                        x = std::numeric_limits<T>::max();
+                };
+"
+	
+	
+	
+	
+      end
+
+      operation 187138 "on_underflow"
+	stereotype "template"
+	class_operation cpp_inline public explicit_return_type "void"
+	nparams 1
+	  param inout name "x" explicit_type "T"
+	cpp_decl "    ${comment}template<class T>
+  ${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+                        x = std::numeric_limits<T>::min();
+                };
+"
+	
+	
+	
+	
+      end
+    end
+
+    class 177026 "CSVReader"
+      visibility package 
+      nformals 5
+      formal name "column_count" type "unsigned" explicit_default_value ""
+        explicit_extends ""
+      formal name "trim_policy" type "class" explicit_default_value "trim_chars<' ', '\\t'>"
+        explicit_extends ""
+      formal name "quote_policy" type "class" explicit_default_value "no_quote_escape<','>"
+        explicit_extends ""
+      formal name "overflow_policy" type "class" explicit_default_value "throw_on_overflow"
+        explicit_extends ""
+      formal name "comment_policy" type "class" explicit_default_value "no_comment"
+        explicit_extends ""
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 183170 // in (<directional composition>)
+	relation 183170 *-->
+	  a role_name "in" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 183170 // in (<directional composition>)
+	  b parent class_ref 173698 // LineReader
+      end
+
+      attribute 159362 "column_names"
+	private explicit_type "string"
+	multiplicity "[column_count]"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${multiplicity}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 159490 "col_order"
+	private explicit_type "int"
+	stereotype "std::vector"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      operation 187266 "set_column_names"
+	cpp_inline private explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract} {};
+"
+	
+	
+	
+	
+      end
+
+      operation 187394 "CSVReader"
+	cpp_deleted cpp_inline public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw}${abstract};
+"
+	
+	
+	
+	
+      end
+
+      operation 187522 "CSVReader"
+	cpp_deleted cpp_inline public explicit_return_type ""
+	nparams 1
+	  param in name "" type class_ref 177026 // CSVReader
+	cpp_decl "    ${comment}${inline}${name}${(}const ${t0} & ${p0}${v0}${)}${volatile}${throw}${abstract};
+"
+	
+	
+	
+	
+      end
+
+      operation 187650 "operator ="
+	public return_type class_ref 177026 // CSVReader
+	nparams 1
+	  param in name "" type class_ref 177026 // CSVReader
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} & ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	
+	
+	
+	
+      end
+
+      operation 187778 "next_line"
+	cpp_inline public explicit_return_type "char"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} * ${name}${(}${)}${const}${volatile}${throw}${abstract} {
+			return in.next_line();
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 187906 "has_column"
+	const cpp_inline public explicit_return_type "bool"
+	nparams 1
+	  param in name "name" explicit_type "string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+                        return col_order.end() != std::find(
+                                col_order.begin(), col_order.end(),
+                                        std::find(std::begin(column_names), std::end(column_names), name)
+                                - std::begin(column_names));
+                };
+"
+	
+	
+	
+	
+      end
+
+      operation 188034 "set_file_name"
+	cpp_inline public explicit_return_type "void"
+	nparams 1
+	  param in name "file_name" explicit_type "string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+                        in.set_file_name(file_name);
+                };
+"
+	
+	
+	
+	
+      end
+
+      operation 188162 "set_file_name"
+	cpp_inline public explicit_return_type "void"
+	nparams 1
+	  param in name "file_name" explicit_type "char"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} * ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+                        in.set_file_name(file_name);
+                };
+"
+	
+	
+	
+	
+      end
+
+      operation 188290 "get_truncated_file_name"
+	const cpp_inline public explicit_return_type "char"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}const ${type} * ${name}${(}${)}${const}${volatile}${throw}${abstract} {
+                        return in.get_truncated_file_name();
+                };
+"
+	
+	
+	
+	
+      end
+
+      operation 188418 "set_file_line"
+	cpp_inline public explicit_return_type "void"
+	nparams 1
+	  param in name "file_line" explicit_type "uint"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+                        in.set_file_line(file_line);
+                };
+"
+	
+	
+	
+	
+      end
+
+      operation 188546 "get_file_line"
+	const cpp_inline public explicit_return_type "uint"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract} {
+                        return in.get_file_line();
+                };
+"
+	
+	
+	
+	
+      end
+
+      operation 188674 "parse_helper"
+	cpp_inline private explicit_return_type "void"
+	nparams 1
+	  param in name "" explicit_type "std::size_t"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {};
+"
+	
+	
+	
+	
+      end
+    end
+  end
+
+  deploymentview 148098 "io"
+    //deployment diagram settings
+    deploymentdiagramsettings
+     end
+    artifact 151426 "csvReader"
+      stereotype "source"
+      cpp_h "/*******************************************************
+* \\file ${name}.h
+* \\author Tom ESCOLANO
+
+* \\brief Projet : Eclairage DIY - SUP
+*******************************************************/
+
+#ifndef ${NAMESPACE}_${NAME}_H
+#define ${NAMESPACE}_${NAME}_H
+
+${comment}
+${includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "/******************************************************
+* \\file ${name}.cpp
+* \\author Tom ESCOLANO
+
+\\brief Projet : Eclairage DIY - SUP
+*******************************************************/
+
+${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}
+
+#ifdef _UT_${name}_
+int main()
+{
+	return 0;
+}
+#endif
+"
+      associated_elems
+	class_ref 172930 // ByteSourceBase
+	class_ref 173698 // LineReader
+	class_ref 175618 // ignore_column
+	class_ref 175746 // trim_chars
+	class_ref 175874 // no_comment
+	class_ref 176002 // single_line_comment
+	class_ref 176130 // empty_line_comment
+	class_ref 176258 // single_and_empty_line_comment
+	class_ref 176386 // no_quote_escape
+	class_ref 176514 // double_quote_escape
+	class_ref 176642 // throw_on_overflow
+	class_ref 176770 // ignore_overflow
+	class_ref 176898 // set_to_max_on_overflow
+	class_ref 177026 // CSVReader
+      end
+    end
+  end
+end

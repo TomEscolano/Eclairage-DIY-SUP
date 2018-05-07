@@ -1,0 +1,23 @@
+class PersiBny
+!!!194434.cpp!!!	set(inout ent : EclairageMulticolore::Ent) : void
+	//Màj dans la table eclairages les popriétés
+	//Utilisation du set de la classe mère
+	this->Eclairage::PersiBny::set(ent);
+
+	//Délai de traitement
+	usleep(1000);
+
+	//Màj dans la table multicolores les propriétés
+	this->executerSql("UPDATE multicolores SET adresseMac = \"" + ent.getAdresseMac() + "\", adresseIP = \"" + ent.getAdresseIP() + "\", versionFirmware = " + std::to_string(ent.getVersionFirmware()) + ", couleur = \"" + std::to_string(ent.getCouleur()) + "\" WHERE id = " + std::to_string(ent.getID()) + ";");
+!!!194562.cpp!!!	get(inout ent : EclairageMulticolore::Ent) : void
+	//On update l'ent grâce à la classe mère
+	this->Eclairage::PersiBny::get(ent);
+
+	SqlitePersiBny::Resultat resultat;
+	this->executerSql("SELECT adresseMac, adresseIP, versionFirmware, luminosite, niveauBatterie FROM multicolores WHERE id = " + std::to_string(ent.getID()) + ";", resultat);
+
+	ent.setAdresseMac(resultat.at(0).at(0).second);
+	ent.setAdresseIP(resultat.at(0).at(1).second);
+	ent.setVersionFirmware((unsigned int) atoi(resultat.at(0).at(2).second.c_str()));
+	ent.setLuminosite(atoi(resultat.at(0).at(3).second.c_str()));
+	ent.setNiveauBatterie(atoi(resultat.at(0).at(4).second.c_str()));

@@ -1,0 +1,8 @@
+class EclairageComBny
+!!!196994.cpp!!!	allumer(inout ent : EclairageUnicolore::Ent, in etat : bool) : void
+	this->clientTcpComBny.connecter("127.0.0.1", 5554);
+	std::string message = "{\"demande\":\"fe\", \"etat\":" + std::to_string(etat) + ",\"id\":"+ std::to_string(ent.getID())+"}";
+
+	this->clientTcpComBny.fprintf(message.c_str());
+
+	this->clientTcpComBny.deconnecter();

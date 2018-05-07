@@ -1,0 +1,33 @@
+class IHMJardin
+!!!196738.cpp!!!	set(inout ent : EclairageUnicolore::Ent) : void
+	std::string logo;
+
+	if(ent.getActive())
+	{
+		if(ent.getAllume() == true && ent.getCouleur() == 0)
+			logo = "unicoloreBleu.png";
+		if(ent.getAllume() == true && ent.getCouleur() == 1)
+			logo = "unicoloreBlanc.png" ;
+		if(ent.getAllume() == true && ent.getCouleur() == 2)
+			logo = "unicoloreRouge.png";
+		else if(ent.getAllume() == false)
+			logo = "unicoloreDesactive.png";
+	}
+	else
+		logo = "unicoloreDesactive.png";
+	
+
+	std::cout << "<img style='width:75px;height:175x;position:absolute;z-index:2;margin-left:" + std::to_string(ent.getX()-60)+ "px;margin-top:"+ std::to_string(ent.getY()-130)+"px;' src='/" + logo + "' onclick='toggleMenu(\"menu-box" + std::to_string(ent.getID()) + "\")'/><ul id='menu-box" + std::to_string(ent.getID()) + "' style='display:none; z-index:2;margin-left:" + std::to_string(ent.getX())+ "px;margin-top:"+ std::to_string(ent.getY()-130)+"px;positon:absolute;'>";
+	
+	if(ent.getActive())
+		std::cout << "<li><a href='UcGerer.cgi?id=" + std::to_string(ent.getID()) + "&action=desactiver'>Desactiver</a></li>" << std::endl;
+	else
+		std::cout << "<li><a href='UcGerer.cgi?id=" + std::to_string(ent.getID()) + "&action=activer'>Activer</a></li>" << std::endl;
+
+	if(ent.getAllume())
+		std::cout << "<li><a href='UcCommander.cgi?id=" + std::to_string(ent.getID()) + "&action=eteindre&type=unicolore'>Eteindre</a></li>" << std::endl;
+	else
+		std::cout << "<li><a href='UcCommander.cgi?id=" + std::to_string(ent.getID()) + "&action=allumer&type=unicolore'>Allumer</a></li>" << std::endl;
+	
+	std::cout << "<li><a href='UcModifier.cgi?id=" + std::to_string(ent.getID()) + "&type=unicolore'>Parametrer</a></li>" << std::endl;
+	std::cout << "</ul>" << std::endl;

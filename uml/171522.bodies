@@ -1,0 +1,40 @@
+class ClientTcpComBny
+!!!175618.cpp!!!	~ClientTcpComBny()
+  this->deconnecter();
+!!!175746.cpp!!!	connecter(in ip : string, in port : unsigned short int) : void
+  if(this->tcpComBny != NULL) this->tcpComBny->fermer();
+  int socketDesc = socket(AF_INET , SOCK_STREAM , 0) ;
+  if(socketDesc == -1) throw TcpIpComBnyException("socket");
+  struct sockaddr_in adresseServeur ;
+  int ctrl;
+  bzero((char*) &adresseServeur, sizeof(adresseServeur));
+  adresseServeur.sin_family = AF_INET;
+  adresseServeur.sin_port = htons(port);
+  ctrl = inet_aton (ip.c_str() , &adresseServeur.sin_addr);
+  if(ctrl == 0 ) throw TcpIpComBnyException("inet_aton");
+  ctrl = connect( socketDesc , (struct sockaddr*) &adresseServeur , sizeof(adresseServeur));
+  if(ctrl != 0) throw TcpIpComBnyException("connect");
+  this->tcpComBny = new TcpComBny(socketDesc);
+!!!175874.cpp!!!	recevoir(inout buffer : char, in size : std::size_t, inout count : std::size_t) : void
+  if(this->tcpComBny == NULL)  throw TcpIpComBnyException("no established connection");
+  this->tcpComBny->recevoir( buffer,  size, count);
+!!!176002.cpp!!!	fscanf(in format : char) : void
+	if(this->tcpComBny == NULL)  throw TcpIpComBnyException("no established connection");
+	va_list args;
+	va_start(args,format);
+	this->tcpComBny->fscanf(format,args);
+	va_end(args);
+!!!176130.cpp!!!	envoyer(in buffer : char, in size : std::size_t) : void
+  if(this->tcpComBny == NULL) throw TcpIpComBnyException("no established connection");
+  this->tcpComBny->envoyer(buffer, size);
+!!!176258.cpp!!!	fprintf(in format : char) : void
+	if(this->tcpComBny == NULL)  throw TcpIpComBnyException("no established connection");
+	va_list args;
+	va_start(args,format);
+	this->tcpComBny->fprintf(format,args);
+	va_end(args);
+!!!176386.cpp!!!	deconnecter(in  : void) : void
+  if(this->tcpComBny != NULL) {
+    delete this->tcpComBny;
+    this->tcpComBny = NULL;
+  }

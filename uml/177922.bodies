@@ -1,0 +1,19 @@
+class Controleur
+!!!192002.cpp!!!	activer(in etat : bool) : void
+	this->ent.setActive(etat);
+!!!192130.cpp!!!	allumer(in etat : bool) : void
+	this->ent.setAllume(etat);
+!!!192642.cpp!!!	get(inout ent : Eclairage::Ent) : void
+	SqlitePersiBny::Resultat resultat;
+	this->persiBny.executerSql("SELECT allume, active, nom, consommation, couleur FROM eclairages WHERE id = " + std::to_string(ent.getID()) + ";", resultat);
+
+	ent.setAllume(resultat.at(0).at(0).second == "1" ? true : false);
+	ent.setActive(resultat.at(0).at(1).second == "1" ? true : false);
+	ent.setNom(resultat.at(0).at(2).second);
+	ent.setConsommation((unsigned int)atoi(resultat.at(0).at(3).second.c_str()));
+	if(resultat.at(0).at(4).second == "0")
+		ent.setCouleur(Bleu);
+	if(resultat.at(0).at(4).second == "1")
+		ent.setCouleur(Rouge);
+	if(resultat.at(0).at(4).second == "2")
+		ent.setCouleur(Blanc);

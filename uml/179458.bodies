@@ -1,0 +1,14 @@
+class IHMFormulaire
+!!!196482.cpp!!!	set(inout ent : EclairageUnicolore::Ent, in nom : string, in couleur : string, in id : string, in x : string, in y : string) : void
+	// Affichage du formulaire de création d'éclairage unicolore
+	FichierTextePersiBny fichier("html/formulaireUnicolore.html");
+	std::string html = fichier.getContenu();
+
+	html.replace(html.find("_nomEclairage"), sizeof("_nomEclairage")-1, nom);
+	html.replace(html.find("_couleurEclairage"), sizeof("_couleurEclairage")-1, couleur);
+	html.replace(html.find("_idEclairage"), sizeof("_idEclairage")-1, id);
+	html.replace(html.find("_xEclairage"), sizeof("_xEclairage")-1, x);
+	html.replace(html.find("_yEclairage"), sizeof("_yEclairage")-1, y);
+
+
+	std::cout << html;

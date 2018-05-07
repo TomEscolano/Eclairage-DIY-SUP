@@ -1,0 +1,18 @@
+class IHMParametre
+!!!196866.cpp!!!	set(inout ent : EclairageUnicolore::Ent) : void
+	//Récupération du nom de l'éclairage
+	SqlitePersiBny persi("/var/eclairage/bdd.db");
+	SqlitePersiBny::Resultat resultat;
+
+	persi.executerSql("SELECT nom FROM eclairages WHERE id = " + std::to_string(ent.getID()) + ";", resultat);
+
+	// Affichage du formulaire de création d'éclairage unicolore
+	FichierTextePersiBny fichier("html/formulaireParametreUnicolore.html");
+	std::string html = fichier.getContenu();
+
+	html.replace(html.find("_idEclairage"), sizeof("_idEclairage")-1, std::to_string(ent.getID()));
+	html.replace(html.find("_nomEclairage"), sizeof("_nomEclairage")-1, resultat.at(0).at(0).second);
+	html.replace(html.find("_idSuppr"), sizeof("_idSuppr")-1, std::to_string(ent.getID()));
+
+	std::cout << html;
+

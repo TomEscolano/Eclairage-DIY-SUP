@@ -1,6 +1,6 @@
 format 218
 "conception" // conception
-  revision 13
+  revision 15
   modified_by 2 "tom"
   // class settings
   
@@ -183,6 +183,10 @@ format 218
 	flow 130562 "<flow>"
 	  on activityaction_ref 128130 // activity action Appui sur le bouton "exporter"
 	end
+
+	flow 137986 "<flow>"
+	  on activityaction_ref 136194 // activity action Récupération du type d'éclairage dans l'URL (get)
+	end
       end
 
       activityaction 129538 "Lecture d'une ligne du fichier de configuration"
@@ -210,6 +214,272 @@ format 218
 	opaque_action
 	flow 131074 ""
 	  on activitynode_ref 128770 // decision
+	end
+
+	flow 144898 "<flow>"
+	  on activitynode_ref 136450 // decision
+	end
+      end
+
+      activitydiagram 154498 "ucAjouter"
+	activitydiagramsettings draw_all_relations no
+	 end
+	size A0
+      end
+
+      activitynode 135298 initial_node ""
+	flow 137858 "<flow>"
+	  on activityaction_ref 129410 // activity action Démarrage du programme
+	end
+      end
+
+      activitynode 135426 decision ""
+	flow 138242 "<flow>"
+	  on activityaction_ref 136322 // activity action Création d'un éclairage unicolore
+	end
+
+	flow 138370 "multicolore"
+	  on activityaction_ref 136450 // activity action Création d'un éclairage multicolore
+	end
+
+	flow 138498 "unicolore"
+	  on activityaction_ref 136322 // activity action Création d'un éclairage unicolore
+	end
+      end
+
+      activityaction 136194 "Récupération du type d'éclairage dans l'URL (get)"
+	opaque_action
+	flow 138114 "<flow>"
+	  on activitynode_ref 135426 // decision
+	end
+      end
+
+      activityaction 136322 "Création d'un éclairage unicolore"
+	opaque_action
+	flow 138754 "<flow>"
+	  on activityaction_ref 136578 // activity action Récupération du nom, de la couleur, de l'ID, du x et du y dans l'URL (get)
+	end
+
+	flow 139650 "<flow>"
+	  on activityaction_ref 136962 // activity action Affichage du formulaire eclairage
+	end
+
+	flow 142722 "<flow>"
+	  on activitynode_ref 136322 // merge
+	end
+      end
+
+      activityaction 136450 "Création d'un éclairage multicolore"
+	opaque_action
+	flow 138626 "<flow>"
+	  on activityaction_ref 136578 // activity action Récupération du nom, de la couleur, de l'ID, du x et du y dans l'URL (get)
+	end
+
+	flow 139778 "<flow>"
+	  on activityaction_ref 136962 // activity action Affichage du formulaire eclairage
+	end
+
+	flow 141570 "<flow>"
+	  on activityaction_ref 137346 // activity action Affichage du formulaire eclairage
+	end
+
+	flow 142594 "<flow>"
+	  on activitynode_ref 136322 // merge
+	end
+      end
+
+      activityaction 136578 "Récupération du nom, de la couleur, de l'ID, du x et du y dans l'URL (get)"
+	opaque_action
+	flow 139010 "<flow>"
+	  on activitynode_ref 135682 // decision
+	end
+
+	flow 139138 "<flow>"
+	  on activitynode_ref 135682 // decision
+	end
+
+	flow 141314 "<flow>"
+	  on activitynode_ref 136450 // decision
+	end
+
+	flow 144770 "<flow>"
+	  on activityaction_ref 129666 // activity action Insertion de l'eclairage dans la base de données
+	end
+      end
+
+      activitynode 135682 decision ""
+	flow 138882 "<flow>"
+	  on activityaction_ref 136578 // activity action Récupération du nom, de la couleur, de l'ID, du x et du y dans l'URL (get)
+	end
+
+	flow 139266 "Nom, Couleur et ID non présents"
+	  on activityaction_ref 136578 // activity action Récupération du nom, de la couleur, de l'ID, du x et du y dans l'URL (get)
+	end
+
+	flow 140034 "Nom, Couleur et ID non présents"
+	  on activityaction_ref 136962 // activity action Affichage du formulaire eclairage
+	end
+
+	flow 140162 "Nom, Couleur et ID présents"
+	  on activityaction_ref 136834 // activity action Affichage du formulaire unicolore
+	end
+      end
+
+      activityaction 136834 "Affichage du formulaire unicolore"
+	opaque_action
+	flow 140290 "<flow>"
+	  on activityaction_ref 137090 // activity action Insertion de l'eclairage spécifique dans la base de données
+	end
+
+	flow 140418 "<flow>"
+	  on activityaction_ref 137218 // activity action Récupération du numero de prise de l'éclairage
+	end
+
+	flow 143234 "<flow>"
+	  on activityaction_ref 138114 // activity action Remplissage du formulaire spécifique
+	end
+
+	flow 143618 "<flow>"
+	  on activitynode_ref 136706 // merge
+	end
+      end
+
+      activityaction 136962 "Affichage du formulaire eclairage"
+	opaque_action
+	flow 139906 "<flow>"
+	  on activityaction_ref 136578 // activity action Récupération du nom, de la couleur, de l'ID, du x et du y dans l'URL (get)
+	end
+
+	flow 140930 "<flow>"
+	  on activitynode_ref 136322 // merge
+	end
+
+	flow 142978 "<flow>"
+	  on activityaction_ref 137986 // activity action Remplissage du formulaire d'eclairage
+	end
+      end
+
+      activityaction 137090 "Insertion de l'eclairage spécifique dans la base de données"
+	opaque_action
+	flow 142082 "<flow>"
+	  on activityaction_ref 137730 // activity action Affichage du message de succès
+	end
+
+	flow 144642 "<flow>"
+	  on activityaction_ref 137730 // activity action Affichage du message de succès
+	end
+      end
+
+      activityaction 137218 "Récupération du numero de prise de l'éclairage"
+	opaque_action
+	flow 140546 "<flow>"
+	  on activityaction_ref 137090 // activity action Insertion de l'eclairage spécifique dans la base de données
+	end
+
+	flow 144386 "<flow>"
+	  on activitynode_ref 136962 // merge
+	end
+      end
+
+      activityaction 137346 "Affichage du formulaire eclairage"
+	opaque_action
+	flow 141058 "<flow>"
+	  on activitynode_ref 136322 // merge
+	end
+      end
+
+      activitynode 136322 merge ""
+	flow 142850 "<flow>"
+	  on activityaction_ref 136962 // activity action Affichage du formulaire eclairage
+	end
+      end
+
+      activitynode 136450 decision ""
+	flow 141442 "unicolore"
+	  on activityaction_ref 136834 // activity action Affichage du formulaire unicolore
+	end
+
+	flow 141698 "multicolore"
+	  on activityaction_ref 137474 // activity action Affichage du formulaire multicolore
+	end
+      end
+
+      activityaction 137474 "Affichage du formulaire multicolore"
+	opaque_action
+	flow 141826 "<flow>"
+	  on activityaction_ref 137602 // activity action Récupération de l'adresse IP
+	end
+
+	flow 143362 "<flow>"
+	  on activityaction_ref 138114 // activity action Remplissage du formulaire spécifique
+	end
+
+	flow 143490 "<flow>"
+	  on activitynode_ref 136706 // merge
+	end
+      end
+
+      activityaction 137602 "Récupération de l'adresse IP"
+	opaque_action
+	flow 141954 "<flow>"
+	  on activityaction_ref 137090 // activity action Insertion de l'eclairage spécifique dans la base de données
+	end
+
+	flow 144258 "<flow>"
+	  on activitynode_ref 136962 // merge
+	end
+      end
+
+      activityaction 137730 "Affichage du message de succès"
+	opaque_action
+	flow 142210 "<flow>"
+	  on activityaction_ref 137858 // activity action Redirection vers la page principale
+	end
+      end
+
+      activityaction 137858 "Redirection vers la page principale"
+	opaque_action
+	flow 142338 "<flow>"
+	  on activitynode_ref 136578 // activity_final
+	end
+      end
+
+      activitynode 136578 activity_final ""
+      end
+
+      activityaction 137986 "Remplissage du formulaire d'eclairage"
+	opaque_action
+	flow 143106 "<flow>"
+	  on activityaction_ref 136578 // activity action Récupération du nom, de la couleur, de l'ID, du x et du y dans l'URL (get)
+	end
+      end
+
+      activityaction 138114 "Remplissage du formulaire spécifique"
+	opaque_action
+	flow 143874 "<flow>"
+	  on activitynode_ref 136834 // decision
+	end
+      end
+
+      activitynode 136706 merge ""
+	flow 143746 "<flow>"
+	  on activityaction_ref 138114 // activity action Remplissage du formulaire spécifique
+	end
+      end
+
+      activitynode 136834 decision ""
+	flow 144002 "unicolore"
+	  on activityaction_ref 137218 // activity action Récupération du numero de prise de l'éclairage
+	end
+
+	flow 144130 "multicolore"
+	  on activityaction_ref 137602 // activity action Récupération de l'adresse IP
+	end
+      end
+
+      activitynode 136962 merge ""
+	flow 144514 "<flow>"
+	  on activityaction_ref 137090 // activity action Insertion de l'eclairage spécifique dans la base de données
 	end
       end
     end
@@ -492,6 +762,30 @@ ${inlines}
 	  on usecase_ref 128002 // superviser
       end
     end
+
+    usecase 141826 "gerer"
+      
+      usecasediagramsettings end
+      
+      sequencediagramsettings end
+      
+      collaborationdiagramsettings end
+      
+      classdiagramsettings member_max_width 0 end
+      
+      objectdiagramsettings end
+      
+      statediagramsettings
+       end
+      
+      activitydiagramsettings
+       end
+      simplerelation 141442
+	-_->
+	  stereotype "extend"
+	  on usecase_ref 128002 // superviser
+      end
+    end
   end
 
   classview 128002 "vc"
@@ -696,7 +990,6 @@ ${inlines}
       mysql_decl ""
       
     end
-
   end
 
   deploymentview 141186 "vc"

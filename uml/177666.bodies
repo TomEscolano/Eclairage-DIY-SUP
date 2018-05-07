@@ -1,0 +1,96 @@
+class SqlitePersiBny
+!!!198402.cpp!!!	SqlitePersiBny(in fichierBdd : char)
+	int rc = sqlite3_open(fichierBdd, &db);
+	if (rc != SQLITE_OK) {
+		throw SqlitePersiBnyException("sqlite3_open",
+				sqlite3_errcode(this->db));
+	}
+!!!198530.cpp!!!	~SqlitePersiBny()
+	int rc = SQLITE_OK;
+	if (this->db != NULL)
+		rc = sqlite3_close(db);
+	if (rc != SQLITE_OK)
+		rc = sqlite3_close(db);
+		//throw SqlitePersiBnyException("sqlite3_close",
+				//sqlite3_errcode(this->db));
+!!!198658.cpp!!!	executerSql(in requete : string) : void
+
+	//std::cout << requete << "<br>" << std::endl;
+
+	char *zErrMsg = 0;
+
+	sqlite3_busy_timeout(this->db, 2000); // Attente de 2sec si la bdd est occupée
+	int rc;
+	do
+	{
+		rc = sqlite3_exec(db, requete.c_str(), NULL, NULL, &zErrMsg); // Reessaye tant que la BDD est occupée
+		usleep(500);
+	}while(rc == SQLITE_BUSY );
+
+	if (rc != SQLITE_OK) {
+		sqlite3_free(zErrMsg);
+		throw SqlitePersiBnyException("sqlite3_exec",
+				sqlite3_errcode(this->db));
+	}
+	sqlite3_exec(this->db, "END TRANSACTION", 0, 0, 0);
+!!!198786.cpp!!!	executerSql(in requete : string, inout resultat : SqlitePersiBny::Resultat) : int
+	sqlite3_stmt *stmt;
+	
+
+	//std::cout << requete << "<br>" << std::endl;
+	
+
+	sqlite3_busy_timeout(this->db, 2000); // Attente de 2sec si la bdd est occupée
+	int rc;
+	do
+	{
+		rc = sqlite3_prepare_v2(this->db, requete.c_str(), -1, &stmt, NULL); // Reessaye tant ue la BDD est occupée
+		usleep(500);
+	}while(rc == SQLITE_BUSY);
+
+	if (rc != SQLITE_OK) {
+		throw SqlitePersiBnyException("sqlite3_prepare_v2",
+				sqlite3_errcode(this->db));
+	}
+	do {
+		rc = sqlite3_step(stmt);
+		if (rc != SQLITE_ROW && rc != SQLITE_DONE) {
+			sqlite3_finalize(stmt);
+			throw SqlitePersiBnyException("sqlite3_step",
+					sqlite3_errcode(this->db));
+		}
+		if (rc == SQLITE_DONE) {
+			break;
+		}
+		int nbChamps = sqlite3_column_count(stmt);
+		SqlitePersiBny::Ligne ligne;
+		for (int i = 0; i < nbChamps; i++) {
+			ligne.push_back(
+					SqlitePersiBny::Champs(sqlite3_column_name(stmt, i),
+							(const char*) sqlite3_column_text(stmt, i)));
+		}
+		resultat.push_back(ligne);
+	} while (rc == SQLITE_ROW);
+	rc = sqlite3_finalize(stmt);
+	if (rc != SQLITE_OK)
+		throw SqlitePersiBnyException("sqlite3_finalize",
+				sqlite3_errcode(this->db));
+	return resultat.size();
+!!!198914.cpp!!!	getDernierId() : int
+	return sqlite3_last_insert_rowid(this->db);
+!!!199042.cpp!!!	getDernierId(in table : string) : int
+	SqlitePersiBny::Resultat resultat;
+	this->executerSql("select id from " + table + " order by id desc limit 1;",resultat);
+	try{
+		return std::stoi(resultat.at(0).at(0).second);
+	}catch(const std::out_of_range &e){
+		return 0;
+	}
+!!!199170.cpp!!!	resultatToString(inout resultat : SqlitePersiBny::Resultat) : string
+	std::ostringstream os;
+	for (SqlitePersiBny::Ligne ligne : resultat) {
+		for (SqlitePersiBny::Champs champs : ligne)
+			os << champs.first << ":" << champs.second << ";";
+		os << std::endl;
+	}
+	return os.str();

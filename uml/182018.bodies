@@ -1,0 +1,6 @@
+class UcSupprimer
+!!!203522.cpp!!!	doIt(in eclairage : Eclairage::Ent) : void
+	SqlitePersiBny persi(this->DB);
+	persi.executerSql("DELETE FROM eclairages WHERE id = " + std::to_string(eclairage.getID()) + "; DELETE FROM multicolores WHERE id = " + std::to_string(eclairage.getID()) + "; DELETE FROM unicolores WHERE id = " + std::to_string(eclairage.getID()) + ";");
+	std::cout << "<div class='w3-panel w3-green'><h3>Succes !</h3><p>Suppression terminee !</p>  </div>";
+    std::cout << "<meta http-equiv='refresh' content='2; URL=/cgi-bin/index.cgi'> ";
