@@ -1,52 +1,52 @@
 format 218
 
 fragment 128002 "Utilisateur"
-  xyzwh 77.1858 80.2508 2000 244 801
+  xyzwh 77.0858 80.2508 2000 244 801
 end
 fragment 128130 "Système"
-  xyzwh 332.194 79.1077 0 236 805
+  xyzwh 331.644 79.1577 0 236 805
 end
 fragment 128258 "BDD"
-  xyzwh 577.344 81.1077 0 207 802
+  xyzwh 577.344 81.1577 0 207 802
 end
 activitynodecanvas 128386 activitynode_ref 128386 // initial_node
-  xyz 194.05 137.203 2005
+  xyz 194.2 137.503 2005
 end
 activitynodecanvas 128514 activitynode_ref 128514 // activity_final
-  xyz 422.796 818.36 2005
+  xyz 422.496 818.86 2005
 end
 activityactioncanvas 128770 activityaction_ref 128898 // activity action Appui sur le bouton "importer"
   
   show_opaque_action_definition default
-  xyzwh 155.956 313.16 2005 101 77
+  xyzwh 155.206 313.71 2005 101 77
 end
 activityactioncanvas 128898 activityaction_ref 129026 // activity action Demande de saisie d'un fichier de configuration
   
   show_opaque_action_definition default
-  xyzwh 402.946 305.067 2000 123 97
+  xyzwh 402.096 305.717 2000 123 97
 end
 activityactioncanvas 129026 activityaction_ref 129154 // activity action Saisie d'un fichier de configuration
   
   show_opaque_action_definition default
-  xyzwh 145.677 444.921 2005 133 83
+  xyzwh 145.227 444.171 2005 133 83
 end
 activityactioncanvas 129666 activityaction_ref 129282 // activity action Démarrage du programme
   
   show_opaque_action_definition default
-  xyzwh 143.05 193.746 2011 121 77
+  xyzwh 143.2 193.296 2011 121 77
 end
 activityactioncanvas 130178 activityaction_ref 129538 // activity action Lecture d'une ligne du fichier de configuration
   
   show_opaque_action_definition default
-  xyzwh 378.296 533.545 2000 113 93
+  xyzwh 378.996 533.495 2000 113 93
 end
 activitynodecanvas 130306 activitynode_ref 128770 // decision
-  xyz 422.296 691.493 2000
+  xyz 422.996 691.943 2000
 end
 activityactioncanvas 130818 activityaction_ref 129666 // activity action Insertion de l'eclairage dans la base de données
   
   show_opaque_action_definition default
-  xyzwh 610.088 534.092 2000 109 89
+  xyzwh 610.288 534.992 2000 109 89
 end
 flowcanvas 129282 flow_ref 129410 // <flow>
   

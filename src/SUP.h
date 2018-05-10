@@ -21,15 +21,18 @@
 #include <cgicc/HTMLClasses.h>
 #include <Utility.h>
 
+// Classe de supervision du projet. (index.cgi sur le serveur WEB)
 class SUP {
   private:
     
+    /**
+     * Classe de persistance, permet l'interraction avec la BDD
+     */
     class PersiBny : public SqlitePersiBny{
       public:
         /**
          * Constructeur de la persistance lui indiquant le fichier de base de donnée.
          */
-
         PersiBny(): SqlitePersiBny("/var/eclairage/bdd.db"){};
     };
    
@@ -63,9 +66,17 @@ class SUP {
      */
     void suivreConsoElectricite();
 
+    /**
+     * Méthode permettant d'afficher les éclairages en apellant leur IHMJardin
+     */
     void afficherEclairages(std::vector<EclairageUnicolore> & eclairagesUnicolores, std::vector<EclairageMulticolore> & eclairagesMulticolores);
 
   public:
+    /**
+     * Méthode qui:
+     * - Extrait les éclairages de la BDD
+     * - Les affiche (avec leurs infos)
+     */
     void doIt();
 
 };

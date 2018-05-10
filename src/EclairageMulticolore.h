@@ -32,7 +32,7 @@ class EclairageMulticolore : public Eclairage {
 		 * Classe entité de l'éclairage comportant:
 		 * 	- Une adresse IP
 		 *  - Un adresse MAC
-		 * 	- Le iveau de batterie du RapsberryPi controlant l'éclairage
+		 * 	- Le niveau de batterie du RapsberryPi controlant l'éclairage
 		 * 	- La version du firmware
 		 * 	- La lminosité venant du capteur sur le RPI
 		 */
@@ -94,7 +94,6 @@ class EclairageMulticolore : public Eclairage {
 				 * Méthode permettant de get la configuration de l'éclairage dans la base de données.
 				 */
 				void get(Ent & ent);
-
 		};
 
 		/**
@@ -114,6 +113,9 @@ class EclairageMulticolore : public Eclairage {
 
 		 };
 
+		 /**
+		  * Classe permettant d'afficher l'IHM de l'éclairage dans le jardin
+		  */
 		 class IHMJardin : public Eclairage::IHMJardin {
 		 	public:
 				/**
@@ -122,21 +124,30 @@ class EclairageMulticolore : public Eclairage {
 				void set(EclairageMulticolore::Ent & ent);
 		 };
 
+		 /**
+		  * Classe permettant d'afficher l'IHM de configuration de l'éclairage
+		  */
 		class IHMParametre{
 		 	public:
-
 				void set(EclairageMulticolore::Ent & ent);
 		 };
 
-		 
+		 /**
+		  * Classe permettant de communiquer par réseau avec l'éclairage
+		  */
 		 class EclairageComBny{
 		 	private:
 		 		ClientTcpComBny clientTcpComBny;
 
 		 	public:
+		 	   /**
+		  		* Méthode permettant d'allumer un éclairage distant par le réseau
+		  		*/
 		 		void allumer(EclairageMulticolore::Ent & ent, bool etat);
+		 	   /**
+		  		* Méthode permettant de changer la couleur un éclairage distant par le réseau
+		  		*/
 		 		void changerCouleur(EclairageMulticolore::Ent & ent, std::string couleur);
-
 		 };
 
 		/**

@@ -6,7 +6,8 @@
 
 
 
-Graphe de collaboration de Uc\+Commander\+:\nopagebreak
+Graphe de collaboration de Uc\+Commander\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -16,20 +17,32 @@ Graphe de collaboration de Uc\+Commander\+:\nopagebreak
 \subsection*{Fonctions membres publiques}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{classUcCommander_a692e86b498f3d897f122479ec1954ed8}{do\+It} (\hyperlink{classEclairage_1_1Ent}{Eclairage\+::\+Ent} \&eclairage, bool etat)
+void \hyperlink{classUcCommander_a1a146cc03213ae7b129d274756fba084}{do\+It} (\hyperlink{classEclairageMulticolore}{Eclairage\+Multicolore} \&eclairage, bool etat)
+\item 
+void \hyperlink{classUcCommander_a3f58b4a5484c34d0f99f2b154ea0261b}{do\+It} (\hyperlink{classEclairageUnicolore}{Eclairage\+Unicolore} \&eclairage, bool etat)
 \end{DoxyCompactItemize}
 
 
 \subsection{Documentation des fonctions membres}
-\mbox{\Hypertarget{classUcCommander_a692e86b498f3d897f122479ec1954ed8}\label{classUcCommander_a692e86b498f3d897f122479ec1954ed8}} 
+\mbox{\Hypertarget{classUcCommander_a1a146cc03213ae7b129d274756fba084}\label{classUcCommander_a1a146cc03213ae7b129d274756fba084}} 
 \index{Uc\+Commander@{Uc\+Commander}!do\+It@{do\+It}}
 \index{do\+It@{do\+It}!Uc\+Commander@{Uc\+Commander}}
-\subsubsection{\texorpdfstring{do\+It()}{doIt()}}
-{\footnotesize\ttfamily void Uc\+Commander\+::do\+It (\begin{DoxyParamCaption}\item[{\hyperlink{classEclairage_1_1Ent}{Eclairage\+::\+Ent} \&}]{eclairage,  }\item[{bool}]{etat }\end{DoxyParamCaption})}
+\subsubsection{\texorpdfstring{do\+It()}{doIt()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Uc\+Commander\+::do\+It (\begin{DoxyParamCaption}\item[{\hyperlink{classEclairageMulticolore}{Eclairage\+Multicolore} \&}]{eclairage,  }\item[{bool}]{etat }\end{DoxyParamCaption})}
 
-Méthode permettant d\textquotesingle{}allumer/éteindre un éclairage passé en paramètres. 
+Méthode permettant d\textquotesingle{}allumer/éteindre un éclairage multicolore passé en paramètres. 
 
-Références Eclairage\+::controleur, do\+It(), Eclairage\+::\+Controleur\+::ent, Eclairage\+::\+Ent\+::set\+Allume(), et Eclairage\+::\+Ent\+::set\+I\+D().
+Références Eclairage\+Multicolore\+::\+Eclairage\+Com\+Bny\+::allumer(), Eclairage\+Unicolore\+::controleur, Eclairage\+Multicolore\+::controleur, do\+It(), Eclairage\+Multicolore\+::\+Controleur\+::eclairage\+Com\+Bny, Eclairage\+Unicolore\+::\+Controleur\+::ent, Eclairage\+Multicolore\+::\+Controleur\+::ent, Eclairage\+::\+Ent\+::get\+Active(), Eclairage\+::\+Ent\+::set\+Allume(), et Eclairage\+::\+Ent\+::set\+I\+D().
+
+\mbox{\Hypertarget{classUcCommander_a3f58b4a5484c34d0f99f2b154ea0261b}\label{classUcCommander_a3f58b4a5484c34d0f99f2b154ea0261b}} 
+\index{Uc\+Commander@{Uc\+Commander}!do\+It@{do\+It}}
+\index{do\+It@{do\+It}!Uc\+Commander@{Uc\+Commander}}
+\subsubsection{\texorpdfstring{do\+It()}{doIt()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Uc\+Commander\+::do\+It (\begin{DoxyParamCaption}\item[{\hyperlink{classEclairageUnicolore}{Eclairage\+Unicolore} \&}]{eclairage,  }\item[{bool}]{etat }\end{DoxyParamCaption})}
+
+Méthode permettant d\textquotesingle{}allumer/éteindre un éclairage unicolore passé en paramètres. 
+
+Références Eclairage\+Unicolore\+::\+Eclairage\+Com\+Bny\+::allumer(), Eclairage\+Unicolore\+::controleur, Eclairage\+Unicolore\+::\+Controleur\+::eclairage\+Com\+Bny, Eclairage\+Unicolore\+::\+Controleur\+::ent, Eclairage\+::\+Ent\+::get\+Active(), et Eclairage\+::\+Ent\+::set\+Allume().
 
 
 

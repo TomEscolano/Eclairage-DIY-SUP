@@ -1,117 +1,117 @@
 format 218
 
 fragment 128002 "utilisateur"
-  xyzwh 137.591 46.8861 2000 379 1138
+  xyzwh 137.791 47.3861 2000 379 1138
 end
 fragment 128130 "système"
-  xyzwh 515.825 47.6539 2000 573 1136
+  xyzwh 515.525 48.1539 2000 573 1136
 end
 fragment 128258 "BDD"
-  xyzwh 1091.66 51.4132 2000 246 1136
+  xyzwh 1092.46 51.0132 2000 246 1136
 end
 activitynodecanvas 128386 activitynode_ref 135298 // initial_node
-  xyz 275.631 115.994 2005
+  xyz 275.431 115.794 2005
 end
 activityactioncanvas 128514 activityaction_ref 129410 // activity action Démarrage du programme
   
   show_opaque_action_definition default
-  xyzwh 239.835 167.873 2011 101 75
+  xyzwh 239.135 167.673 2011 101 75
 end
 activitynodecanvas 128770 activitynode_ref 135426 // decision
-  xyz 274.889 390.624 2005
+  xyz 274.089 390.224 2005
 end
-activityactioncanvas 128898 activityaction_ref 136194 // activity action Récupération du type d'éclairage dans l'URL (get)
+activityactioncanvas 128898 activityaction_ref 136194 // activity action Récupération de l'ID dans l'URL (get)
   
   show_opaque_action_definition default
-  xyzwh 216.889 270.855 2010 141 79
+  xyzwh 216.089 270.155 2010 141 79
 end
 activityactioncanvas 129282 activityaction_ref 136322 // activity action Création d'un éclairage unicolore
   
   show_opaque_action_definition default
-  xyzwh 537.808 101.897 2005 149 61
+  xyzwh 537.508 101.597 2005 149 61
 end
 activityactioncanvas 129410 activityaction_ref 136450 // activity action Création d'un éclairage multicolore
   
   show_opaque_action_definition default
-  xyzwh 815.922 100.768 2005 153 61
+  xyzwh 815.622 100.768 2005 153 61
 end
 activityactioncanvas 130946 activityaction_ref 136578 // activity action Récupération du nom, de la couleur, de l'ID, du x et du y dans l'URL (get)
   
   show_opaque_action_definition default
-  xyzwh 662.196 356.688 2005 171 91
+  xyzwh 662.096 356.388 2005 171 91
 end
-activityactioncanvas 133634 activityaction_ref 136834 // activity action Affichage du formulaire unicolore
+activityactioncanvas 133634 activityaction_ref 136834 // activity action Affichage du formulaire de paramétrage unicolore
   
   show_opaque_action_definition default
-  xyzwh 602.979 543.293 2005 111 67
+  xyzwh 602.879 543.493 2005 111 67
 end
 activityactioncanvas 133762 activityaction_ref 136962 // activity action Affichage du formulaire eclairage
   
   show_opaque_action_definition default
-  xyzwh 697.661 249.477 2011 121 77
+  xyzwh 697.561 249.377 2011 121 77
 end
-activityactioncanvas 134914 activityaction_ref 137090 // activity action Insertion de l'eclairage spécifique dans la base de données
+activityactioncanvas 134914 activityaction_ref 137090 // activity action Suppression de l'éclairage dans la base de données
   
   show_opaque_action_definition default
-  xyzwh 1138.32 910.821 2005 181 71
+  xyzwh 1138.92 910.321 2005 181 71
 end
 activityactioncanvas 135298 activityaction_ref 137218 // activity action Récupération du numero de prise de l'éclairage
   
   show_opaque_action_definition default
-  xyzwh 533.783 811.941 2005 149 75
+  xyzwh 533.683 811.541 2005 149 75
 end
 activitynodecanvas 136706 activitynode_ref 136322 // merge
-  xyz 741.191 182.979 2005
+  xyz 741.291 182.979 2005
 end
 activitynodecanvas 137346 activitynode_ref 136450 // decision
-  xyz 728.327 478.907 2005
+  xyz 728.327 478.107 2005
 end
-activityactioncanvas 138114 activityaction_ref 137474 // activity action Affichage du formulaire multicolore
+activityactioncanvas 138114 activityaction_ref 137474 // activity action Affichage du formulaire de paramétrage multicolore
   
   show_opaque_action_definition default
-  xyzwh 783.922 541.971 2005 109 71
+  xyzwh 783.822 541.171 2005 109 71
 end
 activityactioncanvas 138498 activityaction_ref 137602 // activity action Récupération de l'adresse IP
   
   show_opaque_action_definition default
-  xyzwh 823.797 813.425 2005 139 63
+  xyzwh 823.197 813.225 2005 139 63
 end
 activityactioncanvas 139906 activityaction_ref 137730 // activity action Affichage du message de succès
   
   show_opaque_action_definition default
-  xyzwh 675.211 1007.77 2005 171 63
+  xyzwh 675.211 1007.37 2005 171 63
 end
 activityactioncanvas 140034 activityaction_ref 137858 // activity action Redirection vers la page principale
   
   show_opaque_action_definition default
-  xyzwh 696.11 1090.39 2005 139 63
+  xyzwh 696.61 1090.09 2005 139 63
 end
 activitynodecanvas 140418 activitynode_ref 136578 // activity_final
-  xyz 288.575 1106.29 2005
+  xyz 288.575 1106.89 2005
 end
 activityactioncanvas 140802 activityaction_ref 137986 // activity action Remplissage du formulaire d'eclairage
   
   show_opaque_action_definition default
-  xyzwh 223.863 505.115 2005 153 69
+  xyzwh 223.163 505.415 2005 153 69
 end
 activityactioncanvas 140930 activityaction_ref 138114 // activity action Remplissage du formulaire spécifique
   
   show_opaque_action_definition default
-  xyzwh 215.217 652.066 2005 175 63
+  xyzwh 215.617 652.166 2005 175 63
 end
 activitynodecanvas 143618 activitynode_ref 136706 // merge
-  xyz 731.129 622.671 2005
+  xyz 731.229 622.671 2005
 end
 activitynodecanvas 144258 activitynode_ref 136834 // decision
-  xyz 730.678 756.111 2013
+  xyz 730.078 756.911 2013
 end
 activitynodecanvas 145282 activitynode_ref 136962 // merge
-  xyz 741.639 893.905 2010
+  xyz 741.739 893.605 2010
 end
 activityactioncanvas 146434 activityaction_ref 129666 // activity action Insertion de l'eclairage dans la base de données
   
   show_opaque_action_definition default
-  xyzwh 1139 362 2005 133 71
+  xyzwh 1139.5 362.9 2005 133 71
 end
 flowcanvas 128642 flow_ref 137858 // <flow>
   
@@ -130,29 +130,29 @@ flowcanvas 129154 flow_ref 138114 // <flow>
 end
 flowcanvas 129922 flow_ref 138370 // multicolore
   
-  from ref 128770 z 2006 label "multicolore" xyz 326 386 3000 to point 433.107 402.108
-  line 130306 z 2006 to point 440.01 79.4475
-  line 130178 z 2006 to point 885.407 76.0605
+  from ref 128770 z 2006 label "multicolore" xyz 326 386 2006 to point 433.5 402.8
+  line 130306 z 2006 to point 440.4 79.7
+  line 130178 z 2006 to point 885.9 76.6
   line 130050 z 2006 to ref 129410
    write_horizontally default
 end
 flowcanvas 130434 flow_ref 138498 // unicolore
   
-  from ref 128770 z 2006 label "unicolore" xyz 337 434 3000 to point 285.018 452.558
-  line 130562 z 2006 to point 463.976 449.171
-  line 130690 z 2006 to point 467.492 130.026
+  from ref 128770 z 2006 label "unicolore" xyz 337 434 2006 to point 285.9 452.8
+  line 130562 z 2006 to point 463.5 449.7
+  line 130690 z 2006 to point 467.3 130.4
   line 130818 z 2006 to ref 129282
    write_horizontally default
 end
 flowcanvas 137730 flow_ref 141442 // unicolore
   
-  from ref 137346 z 2006 label "unicolore" xyz 659.5 479.5 3000 to point 650.478 494.71
+  from ref 137346 z 2006 label "unicolore" xyz 659 479 2006 to point 650.4 494.2
   line 137858 z 2006 to ref 133634
    write_horizontally default
 end
 flowcanvas 138242 flow_ref 141698 // multicolore
   
-  from ref 137346 z 2006 label "multicolore" xyz 762.5 481.5 3000 to point 834.217 497.708
+  from ref 137346 z 2006 label "multicolore" xyz 762 481 2006 to point 834.2 497.3
   line 138370 z 2006 to ref 138114
    write_horizontally default
 end
@@ -183,16 +183,16 @@ flowcanvas 141826 flow_ref 142850 // <flow>
 end
 flowcanvas 141954 flow_ref 142978 // <flow>
   
-  from ref 133762 z 2012 to point 538.115 283.098
-  line 142082 z 2012 to point 541.468 532.86
+  from ref 133762 z 2012 to point 538 283.5
+  line 142082 z 2012 to point 541.1 532.8
   line 142210 z 2012 to ref 140802
    write_horizontally default
 end
 flowcanvas 142338 flow_ref 143106 // <flow>
   
-  from ref 140802 z 2006 to point 299.314 591.021
-  line 142850 z 2006 to point 583.863 587.667
-  line 142722 z 2006 to point 585.765 401.772
+  from ref 140802 z 2006 to point 299.7 591.1
+  line 142850 z 2006 to point 583.5 587.3
+  line 142722 z 2006 to point 585.9 401.1
   line 142466 z 2006 to ref 130946
    write_horizontally default
 end
@@ -208,26 +208,26 @@ flowcanvas 143874 flow_ref 143618 // <flow>
 end
 flowcanvas 144002 flow_ref 143746 // <flow>
   
-  from ref 143618 z 2006 to point 742.58 678.262
+  from ref 143618 z 2006 to point 742.8 678
   line 144130 z 2006 to ref 140930
    write_horizontally default
 end
 flowcanvas 144386 flow_ref 143874 // <flow>
   
-  from ref 140930 z 2014 to point 295.961 738.776
-  line 144514 z 2014 to point 738.776 736.874
+  from ref 140930 z 2014 to point 295.9 738
+  line 144514 z 2014 to point 738 736.6
   line 144642 z 2014 to ref 144258
    write_horizontally default
 end
 flowcanvas 144770 flow_ref 144002 // unicolore
   
-  from ref 144258 z 2014 label "unicolore" xyz 634 757 3000 to point 601.982 773.562
+  from ref 144258 z 2014 label "unicolore" xyz 634 757 2014 to point 601.1 773.5
   line 145154 z 2014 to ref 135298
    write_horizontally default
 end
 flowcanvas 144898 flow_ref 144130 // multicolore
   
-  from ref 144258 z 2014 label "multicolore" xyz 783 757 3000 to point 887.982 775.013
+  from ref 144258 z 2014 label "multicolore" xyz 783 757 2014 to point 887.3 775.9
   line 145026 z 2014 to ref 138498
    write_horizontally default
 end
@@ -243,14 +243,14 @@ flowcanvas 145538 flow_ref 144386 // <flow>
 end
 flowcanvas 145666 flow_ref 144514 // <flow>
   
-  from ref 145282 z 2011 to point 751.188 944.692
+  from ref 145282 z 2011 to point 751.1 944.2
   line 145794 z 2011 to ref 134914
    write_horizontally default
 end
 flowcanvas 145922 flow_ref 144642 // <flow>
   
-  from ref 134914 z 2006 to point 1215.87 989.989
-  line 146306 z 2006 to point 753.541 984.283
+  from ref 134914 z 2006 to point 1215.9 989.7
+  line 146306 z 2006 to point 753.5 984.2
   line 146050 z 2006 to ref 139906
    write_horizontally default
 end
@@ -261,8 +261,8 @@ flowcanvas 146562 flow_ref 144770 // <flow>
 end
 flowcanvas 146690 flow_ref 144898 // <flow>
   
-  from ref 146434 z 2006 to point 1204 454
-  line 146818 z 2006 to point 737 457
+  from ref 146434 z 2006 to point 1204.2 454.2
+  line 146818 z 2006 to point 737.3 457.3
   line 146946 z 2006 to ref 137346
    write_horizontally default
 end

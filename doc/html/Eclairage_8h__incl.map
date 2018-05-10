@@ -1,7 +1,8 @@
 <map id="src/Eclairage.h" name="src/Eclairage.h">
-<area shape="rect" id="node6" href="$Couleur_8h.html" title="Couleur.h" alt="" coords="219,80,298,107"/>
-<area shape="rect" id="node7" href="$Utility_8h.html" title="Utility.h" alt="" coords="36,80,103,107"/>
-<area shape="rect" id="node9" href="$SqlitePersiBny_8h.html" title="SqlitePersiBny.h" alt="" coords="322,80,441,107"/>
-<area shape="rect" id="node15" href="$FichierTextePersiBny_8h.html" title="FichierTextePersiBny.h" alt="" coords="819,80,978,107"/>
-<area shape="rect" id="node11" href="$SqlitePersiBnyException_8h.html" title="SqlitePersiBnyException.h" alt="" coords="246,155,423,181"/>
+<area shape="rect" id="node6" href="$Utility_8h.html" title="Utility.h" alt="" coords="656,80,723,107"/>
+<area shape="rect" id="node8" href="$SqlitePersiBny_8h.html" title="SqlitePersiBny.h" alt="" coords="462,80,581,107"/>
+<area shape="rect" id="node13" href="$ClientTcpComBny_8h.html" title="ClientTcpComBny.h" alt="" coords="122,80,262,107"/>
+<area shape="rect" id="node17" href="$FichierTextePersiBny_8h.html" title="FichierTextePersiBny.h" alt="" coords="798,80,957,107"/>
+<area shape="rect" id="node10" href="$SqlitePersiBnyException_8h.html" title="SqlitePersiBnyException.h" alt="" coords="321,155,498,181"/>
+<area shape="rect" id="node15" href="$TcpIpComBnyException_8h.html" title="TcpIpComBnyException.h" alt="" coords="33,155,207,181"/>
 </map>

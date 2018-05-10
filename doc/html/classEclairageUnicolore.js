@@ -1,6 +1,7 @@
 var classEclairageUnicolore =
 [
     [ "Controleur", "classEclairageUnicolore_1_1Controleur.html", "classEclairageUnicolore_1_1Controleur" ],
+    [ "EclairageComBny", "classEclairageUnicolore_1_1EclairageComBny.html", "classEclairageUnicolore_1_1EclairageComBny" ],
     [ "Ent", "classEclairageUnicolore_1_1Ent.html", "classEclairageUnicolore_1_1Ent" ],
     [ "IHMFormulaire", "classEclairageUnicolore_1_1IHMFormulaire.html", "classEclairageUnicolore_1_1IHMFormulaire" ],
     [ "IHMJardin", "classEclairageUnicolore_1_1IHMJardin.html", "classEclairageUnicolore_1_1IHMJardin" ],

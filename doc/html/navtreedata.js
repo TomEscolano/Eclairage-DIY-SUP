@@ -16,26 +16,21 @@ var NAVTREE =
       [ "Hiérarchie des classes", "hierarchy.html", "hierarchy" ],
       [ "Membres de classe", "functions.html", [
         [ "Tout", "functions.html", "functions_dup" ],
-        [ "Fonctions", "functions_func.html", null ],
+        [ "Fonctions", "functions_func.html", "functions_func" ],
         [ "Variables", "functions_vars.html", null ],
         [ "Définitions de type", "functions_type.html", null ]
       ] ]
     ] ],
     [ "Fichiers", null, [
-      [ "Liste des fichiers", "files.html", "files" ],
-      [ "Membres de fichier", "globals.html", [
-        [ "Tout", "globals.html", null ],
-        [ "Énumérations", "globals_enum.html", null ],
-        [ "Valeurs énumérées", "globals_eval.html", null ]
-      ] ]
+      [ "Liste des fichiers", "files.html", "files" ]
     ] ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"Couleur_8cpp.html",
-"classio_1_1detail_1_1NonOwningIStreamByteSource.html#a74a5a592a35640f3b2c5694ca509bec7"
+"ClientTcpComBny_8cpp.html",
+"classio_1_1CSVReader.html#a9fad9ae02aa243dba6bc78156c5ce7e5"
 ];
 
 var SYNCONMSG = 'cliquez pour désactiver la synchronisation du panel';

@@ -4,6 +4,7 @@ var classEclairageMulticolore_1_1Controleur =
     [ "envoyer", "classEclairageMulticolore_1_1Controleur.html#ac73fb221d85530dd039312caf6720e99", null ],
     [ "getIHMJardin", "classEclairageMulticolore_1_1Controleur.html#ab06e56013add8ba3042e031240bc1e1d", null ],
     [ "recevoir", "classEclairageMulticolore_1_1Controleur.html#af9c385233534bf62ede4f97b9e823105", null ],
+    [ "eclairageComBny", "classEclairageMulticolore_1_1Controleur.html#ae240bd02dd965d087a463ded78faa23c", null ],
     [ "ent", "classEclairageMulticolore_1_1Controleur.html#aeabfeee39071b60f621fdb4478c9f274", null ],
     [ "ihmFormulaire", "classEclairageMulticolore_1_1Controleur.html#a92a97faa92f80c288d19f9c9a2eb5f9b", null ],
     [ "ihmJardin", "classEclairageMulticolore_1_1Controleur.html#ade81715a76f65eb38b70bbf0dcf2b823", null ],

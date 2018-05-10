@@ -49,22 +49,22 @@ class Eclairage {
 
 		/**
 		 * Couleurs possibles:
-		 * rouge
-		 * rougeOrange
-		 * orange
-		 * jauneOrange
-		 * jaune
-		 * vert
-		 * turquoise
-		 * vertBleu
-		 * bleuClair
-		 * bleuVert
-		 * bleu
-		 * bleuSombre
-		 * roseClair
-		 * rose
-		 * roseSombre
-		 * blanc
+		 * 	- rouge
+		 * 	- rougeOrange
+		 * 	- orange
+		 * 	- jauneOrange
+		 * 	- jaune
+		 * 	- vert
+		 * 	- turquoise
+		 * 	- vertBleu
+		 * 	- bleuClair
+		 * 	- bleuVert
+		 * 	- bleu
+		 * 	- bleuSombre
+		 * 	- roseClair
+		 * 	- rose
+		 * 	- roseSombre
+		 * 	- blanc
 		 */
 		std::string couleur;
 
@@ -129,12 +129,14 @@ class Eclairage {
 
 	};
 
+   /**
+	* Classe permettant la persistance de l'éclairage dans la BDD
+	*/
 	class PersiBny : public SqlitePersiBny{
 	  public:
 	  	/**
 		 * Constructeur de la persistance lui indiquant le fichier de base de donnée.
 	  	 **/
-
 	  	PersiBny(): SqlitePersiBny("/var/eclairage/bdd.db"){};
 
 		/**

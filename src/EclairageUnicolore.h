@@ -57,7 +57,6 @@ class EclairageUnicolore : public Eclairage {
 				 * Méthode permettant de get la configuration de l'éclairage dans la base de données.
 				 */
 				void get(Ent & ent);
-
 		};
 
 		/**
@@ -76,7 +75,10 @@ class EclairageUnicolore : public Eclairage {
 			 void get(EclairageUnicolore::Ent & ent);
 
 		 };
-		 
+
+		 /**
+		  * Classe permettant d'afficher l'IHM de l'éclairage dans le jardin
+		  */
 		 class IHMJardin : public Eclairage::IHMJardin {
 		 	public:
 				/**
@@ -84,18 +86,26 @@ class EclairageUnicolore : public Eclairage {
 				 */
 				void set(EclairageUnicolore::Ent & ent);
 		 };
-
+		 
+		 /**
+		  * Classe permettant d'afficher l'IHM de configuration de l'éclairage
+		  */
  		class IHMParametre{
 		 	public:
-
 				void set(EclairageUnicolore::Ent & ent);
 		 };
-
+		 
+		 /**
+		  * Classe permettant de communiquer par réseau avec l'éclairage
+		  */
 		 class EclairageComBny{
 		 	private:
 		 		ClientTcpComBny clientTcpComBny;
 
 		 	public:
+		 	   /**
+		  		* Méthode permettant d'allumer un éclairage distant par le réseau
+		  		*/
 		 		void allumer(EclairageUnicolore::Ent & ent, bool etat);
 		 };
 

@@ -92,16 +92,20 @@ $(document).ready(function(){initNavTree('classUcCommander.html','');});
 Graphe de collaboration de UcCommander:</div>
 <div class="dyncontent">
 <div class="center"><img src="classUcCommander__coll__graph.png" border="0" usemap="#UcCommander_coll__map" alt="Collaboration graph"/></div>
+<map name="UcCommander_coll__map" id="UcCommander_coll__map">
+</map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Fonctions membres publiques</h2></td></tr>
-<tr class="memitem:a692e86b498f3d897f122479ec1954ed8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUcCommander.html#a692e86b498f3d897f122479ec1954ed8">doIt</a> (<a class="el" href="classEclairage_1_1Ent.html">Eclairage::Ent</a> &amp;eclairage, bool etat)</td></tr>
-<tr class="separator:a692e86b498f3d897f122479ec1954ed8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a146cc03213ae7b129d274756fba084"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUcCommander.html#a1a146cc03213ae7b129d274756fba084">doIt</a> (<a class="el" href="classEclairageMulticolore.html">EclairageMulticolore</a> &amp;eclairage, bool etat)</td></tr>
+<tr class="separator:a1a146cc03213ae7b129d274756fba084"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f58b4a5484c34d0f99f2b154ea0261b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUcCommander.html#a3f58b4a5484c34d0f99f2b154ea0261b">doIt</a> (<a class="el" href="classEclairageUnicolore.html">EclairageUnicolore</a> &amp;eclairage, bool etat)</td></tr>
+<tr class="separator:a3f58b4a5484c34d0f99f2b154ea0261b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentation des fonctions membres</h2>
-<a id="a692e86b498f3d897f122479ec1954ed8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a692e86b498f3d897f122479ec1954ed8">&#9670;&nbsp;</a></span>doIt()</h2>
+<a id="a1a146cc03213ae7b129d274756fba084"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a146cc03213ae7b129d274756fba084">&#9670;&nbsp;</a></span>doIt() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -109,7 +113,7 @@ Fonctions membres publiques</h2></td></tr>
         <tr>
           <td class="memname">void UcCommander::doIt </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classEclairage_1_1Ent.html">Eclairage::Ent</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classEclairageMulticolore.html">EclairageMulticolore</a> &amp;&#160;</td>
           <td class="paramname"><em>eclairage</em>, </td>
         </tr>
         <tr>
@@ -125,9 +129,40 @@ Fonctions membres publiques</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Méthode permettant d'allumer/éteindre un éclairage passé en paramètres. </p>
+<p>Méthode permettant d'allumer/éteindre un éclairage multicolore passé en paramètres. </p>
 
-<p class="reference">Références <a class="el" href="classEclairage.html#a90da39183159a9bf674ad6350e8f00a8">Eclairage::controleur</a>, <a class="el" href="classUcCommander.html#a692e86b498f3d897f122479ec1954ed8">doIt()</a>, <a class="el" href="classEclairage_1_1Controleur.html#a20290481ceacaea499fef52f24d2b83a">Eclairage::Controleur::ent</a>, <a class="el" href="classEclairage_1_1Ent.html#a3c9d21bd3c725857050e39eb449d1ad5">Eclairage::Ent::setAllume()</a>, et <a class="el" href="classEclairage_1_1Ent.html#a927ff132e908bb3e68dab254f6c2ac2d">Eclairage::Ent::setID()</a>.</p>
+<p class="reference">Références <a class="el" href="classEclairageMulticolore_1_1EclairageComBny.html#a863eb83090dc43e4e391098fb568a245">EclairageMulticolore::EclairageComBny::allumer()</a>, <a class="el" href="classEclairageUnicolore.html#a974bfcd41cf3aa01fdcaaaeaae1a33f7">EclairageUnicolore::controleur</a>, <a class="el" href="classEclairageMulticolore.html#a676c67e499fa0883aef82f76ca80a86d">EclairageMulticolore::controleur</a>, <a class="el" href="classUcCommander.html#a1a146cc03213ae7b129d274756fba084">doIt()</a>, <a class="el" href="classEclairageMulticolore_1_1Controleur.html#ae240bd02dd965d087a463ded78faa23c">EclairageMulticolore::Controleur::eclairageComBny</a>, <a class="el" href="classEclairageUnicolore_1_1Controleur.html#a7405ea9580f0a795d73fe9d28e7d52d2">EclairageUnicolore::Controleur::ent</a>, <a class="el" href="classEclairageMulticolore_1_1Controleur.html#aeabfeee39071b60f621fdb4478c9f274">EclairageMulticolore::Controleur::ent</a>, <a class="el" href="classEclairage_1_1Ent.html#a7fdf3efdeb7ec2f649a79a1681db6e1e">Eclairage::Ent::getActive()</a>, <a class="el" href="classEclairage_1_1Ent.html#a3c9d21bd3c725857050e39eb449d1ad5">Eclairage::Ent::setAllume()</a>, et <a class="el" href="classEclairage_1_1Ent.html#a927ff132e908bb3e68dab254f6c2ac2d">Eclairage::Ent::setID()</a>.</p>
+
+</div>
+</div>
+<a id="a3f58b4a5484c34d0f99f2b154ea0261b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f58b4a5484c34d0f99f2b154ea0261b">&#9670;&nbsp;</a></span>doIt() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UcCommander::doIt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classEclairageUnicolore.html">EclairageUnicolore</a> &amp;&#160;</td>
+          <td class="paramname"><em>eclairage</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>etat</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Méthode permettant d'allumer/éteindre un éclairage unicolore passé en paramètres. </p>
+
+<p class="reference">Références <a class="el" href="classEclairageUnicolore_1_1EclairageComBny.html#aba2faf9212f4d7cc1e5d022bdb761a26">EclairageUnicolore::EclairageComBny::allumer()</a>, <a class="el" href="classEclairageUnicolore.html#a974bfcd41cf3aa01fdcaaaeaae1a33f7">EclairageUnicolore::controleur</a>, <a class="el" href="classEclairageUnicolore_1_1Controleur.html#aaff6697834f75bb05777f6339e153061">EclairageUnicolore::Controleur::eclairageComBny</a>, <a class="el" href="classEclairageUnicolore_1_1Controleur.html#a7405ea9580f0a795d73fe9d28e7d52d2">EclairageUnicolore::Controleur::ent</a>, <a class="el" href="classEclairage_1_1Ent.html#a7fdf3efdeb7ec2f649a79a1681db6e1e">Eclairage::Ent::getActive()</a>, et <a class="el" href="classEclairage_1_1Ent.html#a3c9d21bd3c725857050e39eb449d1ad5">Eclairage::Ent::setAllume()</a>.</p>
 
 </div>
 </div>

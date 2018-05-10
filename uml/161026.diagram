@@ -1,0 +1,84 @@
+format 218
+
+fragment 128002 "système"
+  xyzwh 361.525 51.9286 2000 242 671
+end
+fragment 128130 "utilisateur"
+  xyzwh 82.448 52.6924 2000 270 679
+end
+fragment 128258 "BDD"
+  xyzwh 613.824 47.2778 2000 137 677
+end
+activitynodecanvas 128386 activitynode_ref 143490 // initial_node
+  xyz 212.925 124.1 2005
+end
+activityactioncanvas 128514 activityaction_ref 129282 // activity action Démarrage du programme
+  
+  show_opaque_action_definition default
+  xyzwh 168.052 174.265 2005 115 65
+end
+activityactioncanvas 128642 activityaction_ref 144642 // activity action Lecture du fichier index.html
+  
+  show_opaque_action_definition default
+  xyzwh 417.547 180.819 2005 141 65
+end
+activityactioncanvas 128770 activityaction_ref 144770 // activity action Extraction des eclairages
+  
+  show_opaque_action_definition default
+  xyzwh 424.327 390.892 2005 127 67
+end
+activityactioncanvas 128898 activityaction_ref 128514 // activity action Extractions des eclairages
+  
+  show_opaque_action_definition default
+  xyzwh 634.432 388.038 2005 109 75
+end
+activityactioncanvas 129026 activityaction_ref 144898 // activity action Affichage des eclairages
+  
+  show_opaque_action_definition default
+  xyzwh 430.859 489.477 2005 123 63
+end
+activityactioncanvas 129154 activityaction_ref 145026 // activity action Affichage du contenu de l'index.html
+  
+  show_opaque_action_definition default
+  xyzwh 417.689 280.025 2010 137 69
+end
+activitynodecanvas 129410 activitynode_ref 143618 // activity_final
+  xyz 203.945 515.436 2005
+end
+flowcanvas 129282 flow_ref 151426 // <flow>
+  
+  from ref 128386 z 2006 to ref 128514
+   write_horizontally default
+end
+flowcanvas 129538 flow_ref 151554 // <flow>
+  
+  from ref 128514 z 2006 to ref 128642
+   write_horizontally default
+end
+flowcanvas 129666 flow_ref 151682 // <flow>
+  
+  from ref 128642 z 2011 to ref 129154
+   write_horizontally default
+end
+flowcanvas 129794 flow_ref 151810 // <flow>
+  
+  from ref 129154 z 2011 to ref 128770
+   write_horizontally default
+end
+flowcanvas 129922 flow_ref 151938 // <flow>
+  
+  from ref 128770 z 2006 to ref 128898
+   write_horizontally default
+end
+flowcanvas 130050 flow_ref 152066 // <flow>
+  
+  from ref 128898 z 2006 to point 688 525
+  line 130306 z 2006 to ref 129026
+   write_horizontally default
+end
+flowcanvas 130178 flow_ref 152194 // <flow>
+  
+  from ref 129026 z 2006 to ref 129410
+   write_horizontally default
+end
+end

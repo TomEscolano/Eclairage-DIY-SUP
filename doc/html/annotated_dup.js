@@ -1,6 +1,7 @@
 var annotated_dup =
 [
     [ "io", "namespaceio.html", "namespaceio" ],
+    [ "ClientTcpComBny", "classClientTcpComBny.html", "classClientTcpComBny" ],
     [ "Eclairage", "classEclairage.html", "classEclairage" ],
     [ "EclairageMulticolore", "classEclairageMulticolore.html", "classEclairageMulticolore" ],
     [ "EclairageUnicolore", "classEclairageUnicolore.html", "classEclairageUnicolore" ],
@@ -8,6 +9,8 @@ var annotated_dup =
     [ "SqlitePersiBny", "classSqlitePersiBny.html", "classSqlitePersiBny" ],
     [ "SqlitePersiBnyException", "classSqlitePersiBnyException.html", "classSqlitePersiBnyException" ],
     [ "SUP", "classSUP.html", "classSUP" ],
+    [ "TcpComBny", "classTcpComBny.html", "classTcpComBny" ],
+    [ "TcpIpComBnyException", "classTcpIpComBnyException.html", "classTcpIpComBnyException" ],
     [ "UcAjouter", "classUcAjouter.html", "classUcAjouter" ],
     [ "UcCommander", "classUcCommander.html", "classUcCommander" ],
     [ "UcExporter", "classUcExporter.html", "classUcExporter" ],

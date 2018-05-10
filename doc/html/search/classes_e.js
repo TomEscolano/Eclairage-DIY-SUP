@@ -1,5 +1,7 @@
 var searchData=
 [
+  ['tcpcombny',['TcpComBny',['../classTcpComBny.html',1,'']]],
+  ['tcpipcombnyexception',['TcpIpComBnyException',['../classTcpIpComBnyException.html',1,'']]],
   ['throw_5fon_5foverflow',['throw_on_overflow',['../structio_1_1throw__on__overflow.html',1,'io']]],
   ['too_5ffew_5fcolumns',['too_few_columns',['../structio_1_1error_1_1too__few__columns.html',1,'io::error']]],
   ['too_5fmany_5fcolumns',['too_many_columns',['../structio_1_1error_1_1too__many__columns.html',1,'io::error']]],

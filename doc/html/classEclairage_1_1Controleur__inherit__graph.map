@@ -1,4 +1,4 @@
 <map id="Eclairage::Controleur" name="Eclairage::Controleur">
-<area shape="rect" id="node2" href="$classEclairageMulticolore_1_1Controleur.html" title="{EclairageMulticolore\l::Controleur\n|+ ent\l+ persiBny\l+ ihmFormulaire\l+ ihmJardin\l+ ihmParametre\l|+ Controleur()\l+ recevoir()\l+ envoyer()\l+ getIHMJardin()\l}" alt="" coords="5,263,144,457"/>
-<area shape="rect" id="node3" href="$classEclairageUnicolore_1_1Controleur.html" title="{EclairageUnicolore\l::Controleur\n|+ ent\l+ persiBny\l+ ihmFormulaire\l+ ihmJardin\l+ ihmParametre\l|+ Controleur()\l+ getIHMJardin()\l}" alt="" coords="168,277,299,443"/>
+<area shape="rect" id="node2" href="$classEclairageMulticolore_1_1Controleur.html" title="{EclairageMulticolore\l::Controleur\n|+ ent\l+ persiBny\l+ ihmFormulaire\l+ ihmJardin\l+ ihmParametre\l+ eclairageComBny\l|+ Controleur()\l+ recevoir()\l+ envoyer()\l+ getIHMJardin()\l}" alt="" coords="5,263,144,472"/>
+<area shape="rect" id="node3" href="$classEclairageUnicolore_1_1Controleur.html" title="{EclairageUnicolore\l::Controleur\n|+ ent\l+ persiBny\l+ ihmFormulaire\l+ ihmJardin\l+ ihmParametre\l+ eclairageComBny\l|+ Controleur()\l+ getIHMJardin()\l}" alt="" coords="169,277,306,457"/>
 </map>

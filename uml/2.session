@@ -1,4 +1,4 @@
-window_sizes 1920 1056 441 1473 957 44
+window_sizes 1920 1009 441 1473 954 0
 cleanlooks_style
 diagrams
   activitydiagram_ref 128002 // UcExporter
@@ -6,25 +6,31 @@ diagrams
   activitydiagram_ref 128130 // UcImporter
     120 110 105 A0 139 0
   classdiagram_ref 134786 // dcc
-    1473 1001 39 E-Landscape 0 0
+    1473 1001 44 E-Landscape 0 0
   usecasediagram_ref 128258 // UseCase
     120 110 127 A0 132 37
   classdiagram_ref 147970 // vcc
-    1473 957 110 A0-Landscape 2052 543
-  active  activitydiagram_ref 154498 // ucAjouter
+    1473 957 30 A0-Landscape 0 0
+  activitydiagram_ref 154498 // ucAjouter
     1473 957 74 A0 0 0
+  classdiagram_ref 134531 // dca
+    1178 718 48 A0 0 160
+  activitydiagram_ref 161026 // SUP
+    120 110 118 A0 0 0
+  activitydiagram_ref 161154 // UcModifier
+    120 110 98 A0 0 0
+  active  activitydiagram_ref 161282 // UcSupprimer
+    1473 954 142 A0 0 0
 end
 show_stereotypes
+selected activitydiagram_ref 161282 // UcSupprimer
 open
   
   package_ref 128003 // domaine
   
   package_ref 128131 // analyse
-  activitynode_ref 135298 // initial_node
-  activitynode_ref 135426 // decision
-  activitynode_ref 136322 // merge
-  activitynode_ref 136450 // decision
+  activity_ref 128002 // diagrammesActivite
   
-  package_ref 128002 // conception-reversed
+  package_ref 134658 // src
 end
 end

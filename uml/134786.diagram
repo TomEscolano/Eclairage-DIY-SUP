@@ -2,107 +2,107 @@ format 218
 
 classcanvas 128002 class_ref 135811 // Eclairage
   classdiagramsettings member_max_width 0 end
-  xyz 2201.25 843.196 2000
+  xyz 2201.98 843.351 2000
 end
 classcanvas 128130 class_ref 136707 // EclairageUnicolore
   classdiagramsettings member_max_width 0 end
-  xyz 1343.29 843.196 2006
+  xyz 1343.59 843.351 2006
 end
 classcanvas 128386 class_ref 136835 // Couleur
   classdiagramsettings member_max_width 0 end
-  xyz 1237.89 680.935 2012
+  xyz 1237.68 680.839 2012
 end
 classcanvas 128642 class_ref 136963 // EclairageMulticolore
   classdiagramsettings member_max_width 0 end
-  xyz 1592.57 629.196 2006
+  xyz 1592.67 629.543 2006
 end
 classcanvas 128898 class_ref 144003 // SUP
   classdiagramsettings member_max_width 0 end
-  xyz 1708.25 926.213 2000
+  xyz 2047.96 1024.15 2000
 end
 classcanvas 129026 class_ref 144131 // UcGerer
   classdiagramsettings member_max_width 0 end
-  xyz 3029.59 836.181 3005
+  xyz 1761.43 949.594 3005
 end
 classcanvas 129410 class_ref 150659 // UcImporter
   classdiagramsettings member_max_width 0 end
-  xyz 2650.89 1088.4 3010
+  xyz 1383.64 1199.32 3010
 end
 classcanvas 129666 class_ref 150787 // UcExporter
   classdiagramsettings member_max_width 0 end
-  xyz 3400.04 1179.25 2006
+  xyz 2129.98 1290.15 2006
 end
 classcanvas 129922 class_ref 150915 // UcMettreAJour
   classdiagramsettings member_max_width 0 end
-  xyz 1042.05 1299.01 3011
+  xyz 111.779 1151.92 3011
 end
 classcanvas 130178 class_ref 151043 // UcCommander
   classdiagramsettings member_max_width 0 end
-  xyz 2805.74 990.768 3011
+  xyz 1536.64 1103.5 3011
 end
 classcanvas 130690 class_ref 136451 // IHMFormulaire
   classdiagramsettings member_max_width 0 end
-  xyz 1588.86 268.987 2006
+  xyz 1588.5 268.352 2006
 end
 classcanvas 130946 class_ref 135939 // Controleur
   classdiagramsettings member_max_width 0 end
-  xyz 1071.9 217.688 3005
+  xyz 1071.47 217.129 3005
 end
 classcanvas 131330 class_ref 136067 // Ent
   classdiagramsettings member_max_width 0 end
-  xyz 80.4785 360.43 3011
+  xyz 80.6297 360.754 3011
 end
 classcanvas 131714 class_ref 136195 // PersiBny
   classdiagramsettings member_max_width 0 end
-  xyz 1548.24 388.263 3011
+  xyz 1548.89 388.604 3011
 end
 classcanvas 132098 class_ref 136323 // IHMJardin
   classdiagramsettings member_max_width 0 end
-  xyz 1076.9 80.0477 3016
+  xyz 1076.47 80.7265 3016
 end
 classcanvas 132482 class_ref 137347 // Ent
   classdiagramsettings member_max_width 0 end
-  xyz 1067.9 925.429 3017
+  xyz 1067.47 925.538 3017
 end
 classcanvas 132866 class_ref 137475 // Controleur
   classdiagramsettings member_max_width 0 end
-  xyz 1077.9 843.396 3023
+  xyz 1077.64 843.551 3023
 end
 classcanvas 134658 class_ref 137091 // Ent
   classdiagramsettings member_max_width 0 end
-  xyz 491.557 492.85 3017
+  xyz 491.797 492.197 3017
 end
 classcanvas 135042 class_ref 137219 // Controleur
   classdiagramsettings member_max_width 0 end
-  xyz 914.567 599.43 3023
+  xyz 914.164 599.754 3023
 end
 classcanvas 137346 class_ref 135042 // PersiBny
   classdiagramsettings member_max_width 0 end
-  xyz 1555.24 547.25 2012
+  xyz 1555.34 547.063 2012
 end
 classcanvas 137730 class_ref 135170 // PersiBny
   classdiagramsettings member_max_width 0 end
-  xyz 1406.05 708.336 2012
+  xyz 1406.83 708.393 2012
 end
 classcanvas 140546 class_ref 135298 // UcAjouter
   classdiagramsettings member_max_width 0 end
-  xyz 2611.07 1207.56 2000
+  xyz 1340.55 1320.95 2000
 end
 classcanvas 140674 class_ref 135426 // UcSupprimer
   classdiagramsettings member_max_width 0 end
-  xyz 3212.98 1082.05 2000
+  xyz 1943.14 1193.29 2000
 end
 classcanvas 140802 class_ref 135554 // UcModifier
   classdiagramsettings member_max_width 0 end
-  xyz 3017.64 1328.01 2000
+  xyz 1748.45 1440.76 2000
 end
 classcanvas 145410 class_ref 142210 // SqlitePersiBny
   classdiagramsettings member_max_width 0 end
-  xyz 3131.39 1185.28 2000
+  xyz 1860.33 1298.4 2000
 end
 classcanvas 156674 class_ref 148738 // ClientTCPComBny
   classdiagramsettings member_max_width 0 end
-  xyz 1162.29 1197.91 2000
+  xyz 231.821 1052.05 2000
 end
 relationcanvas 128258 relation_ref 136195 // <generalisation>
   from ref 128130 z 2007 to ref 128002
@@ -117,78 +117,79 @@ relationcanvas 128514 relation_ref 136323 // <dependency>
   no_multiplicity_a no_multiplicity_b
 end
 relationcanvas 128770 relation_ref 136451 // <generalisation>
-  from ref 128642 z 2007 to point 1782.96 648.657
-  line 152322 z 2007 to point 1782.96 864.953
+  from ref 128642 z 2007 to point 1782.25 648.622
+  line 152322 z 2007 to point 1782.25 864.98
   line 152450 z 2007 to ref 128002
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 end
 relationcanvas 129154 relation_ref 143747 // <directional aggregation>
-  from ref 129026 z 3006 to ref 128002
-  role_a_pos 2283 838 3000 no_role_b
-  multiplicity_a_pos 2288 871 3000 multiplicity_b_pos 3004 871 3000
+  from ref 129026 z 3006 to point 2236.42 977.453
+  line 157186 z 3006 to ref 128002
+  role_a_pos 2260 890 3000 no_role_b
+  multiplicity_a_pos 2206 890 3000 multiplicity_b_pos 2079 988 3000
 end
 line 130818 ---+ decenter_begin 860 decenter_end 243
-  from ref 130690 z 2007 to point 1865.96 336.342
-  line 153346 z 2007 to point 1865.96 854.096
+  from ref 130690 z 2007 to point 1865.06 336.884
+  line 153346 z 2007 to point 1865.06 854.232
   line 153474 z 2007 to ref 128002
 relationcanvas 131074 relation_ref 157187 // <directional composition>
   decenter_begin 538
   from ref 130946 z 3006 to ref 130690
-  role_a_pos 1480 281 3000 no_role_b
+  role_a_pos 1478 281 3000 no_role_b
   multiplicity_a_pos 1569 315 3000 no_multiplicity_b
 end
 line 131202 ---+ decenter_begin 65 decenter_end 219
-  from ref 130946 z 3006 to point 1905.39 228.694
-  line 134402 z 3006 to point 1905.39 849.168
+  from ref 130946 z 3006 to point 1905.05 228.205
+  line 134402 z 3006 to point 1905.05 849.858
   line 144130 z 3006 to ref 128002
 line 131458 ---+
-  from ref 131330 z 3012 to point 41.5819 639.187
-  line 133378 z 3012 to point 40.1963 40.1963
-  line 133506 z 3012 to point 2235.65 40.1963
+  from ref 131330 z 3012 to point 41.8165 639.149
+  line 133378 z 3012 to point 40.5417 40.5417
+  line 133506 z 3012 to point 2235.73 40.5417
   line 152578 z 3012 to ref 128002
 relationcanvas 131586 relation_ref 135811 // <composition>
   geometry HV unfixed
-  from ref 130946 z 3012 to point 243.478 298.688
+  from ref 130946 z 3012 to point 243.327 298.441
   line 155522 z 3012 to ref 131330
-  role_a_pos 255 334 3000 role_b_pos 991 275 3000
+  role_a_pos 255 334 3000 role_b_pos 990 275 3000
   multiplicity_a_pos 220 336 3000 multiplicity_b_pos 1052 309 3000
 end
 line 131842 ---+ decenter_begin 848 decenter_end 365
-  from ref 131714 z 3012 to point 1826.93 455.231
-  line 133890 z 3012 to point 1826.93 860.41
+  from ref 131714 z 3012 to point 1826.34 455.585
+  line 133890 z 3012 to point 1826.34 860.88
   line 143618 z 3012 to ref 128002
 relationcanvas 131970 relation_ref 135683 // <directional composition>
   geometry VH unfixed
   decenter_begin 615
   decenter_end 443
-  from ref 130946 z 3012 to point 1215 420
+  from ref 130946 z 3012 to point 1218 420
   line 138626 z 3012 to ref 131714
-  role_a_pos 1476 397 3000 no_role_b
-  multiplicity_a_pos 1528 431 3000 no_multiplicity_b
+  role_a_pos 1475 397 3000 no_role_b
+  multiplicity_a_pos 1529 431 3000 no_multiplicity_b
 end
 line 132226 ---+ decenter_begin 789 decenter_end 123
-  from ref 132098 z 3017 to point 2159.34 125.975
-  line 155906 z 3017 to point 2159.34 845.626
+  from ref 132098 z 3017 to point 2159.85 125.9
+  line 155906 z 3017 to point 2159.85 845.758
   line 156034 z 3017 to ref 128002
 relationcanvas 132354 relation_ref 135939 // <directional composition>
   from ref 130946 z 3017 to ref 132098
-  role_a_pos 1200 145 3000 no_role_b
+  role_a_pos 1202 145 3000 no_role_b
   multiplicity_a_pos 1135 145 3000 no_multiplicity_b
 end
 relationcanvas 132610 relation_ref 134914 // <generalisation>
-  from ref 132482 z 3018 to point 450.303 971.215
-  line 151298 z 3018 to point 450.303 639.187
+  from ref 132482 z 3018 to point 450.211 971.384
+  line 151298 z 3018 to point 450.211 639.149
   line 151426 z 3018 to ref 131330
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 end
 line 132738 ---+ geometry HV unfixed
-  from ref 132482 z 3018 to point 1411.89 970.829
+  from ref 132482 z 3018 to point 1411.3 970.109
   line 153090 z 3018 to ref 128130
 relationcanvas 132994 relation_ref 136835 // <composition>
   from ref 132866 z 3024 to ref 132482
-  role_a_pos 1200 899 3000 role_b_pos 1200 892 3000
+  role_a_pos 1199 899 3000 role_b_pos 1199 892 3000
   multiplicity_a_pos 1197 899 3000 multiplicity_b_pos 1209 893 3000
 end
 relationcanvas 133122 relation_ref 134786 // <generalisation>
@@ -204,18 +205,18 @@ relationcanvas 134786 relation_ref 135042 // <generalisation>
   no_multiplicity_a no_multiplicity_b
 end
 line 134914 ---+
-  from ref 134658 z 3018 to point 681.383 1059.15
-  line 153602 z 3018 to point 1665.84 1061.92
+  from ref 134658 z 3018 to point 681.691 1059.57
+  line 153602 z 3018 to point 1665.1 1061.12
   line 153730 z 3018 to ref 128642
 relationcanvas 135170 relation_ref 136579 // <composition>
   from ref 135042 z 3024 to ref 134658
-  role_a_pos 901 614 3000 role_b_pos 810 614 3000
+  role_a_pos 889 616 3000 role_b_pos 833 615 3000
   multiplicity_a_pos 902 650 3000 multiplicity_b_pos 871 650 3000
 end
 relationcanvas 135298 relation_ref 134658 // <generalisation>
   geometry VHV unfixed
-  from ref 135042 z 3024 to point 1030.97 559.336
-  line 153986 z 3024 to point 1188.9 559.336
+  from ref 135042 z 3024 to point 1030.6 559.165
+  line 153986 z 3024 to point 1189.29 559.165
   line 154114 z 3024 to ref 130946
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
@@ -233,8 +234,8 @@ line 137858 ---+ decenter_begin 311 decenter_end 921
   from ref 137730 z 2013 to ref 128130
 relationcanvas 138114 relation_ref 135426 // <generalisation>
   geometry VHV unfixed
-  from ref 137730 z 3012 to point 1511.45 506.898
-  line 152834 z 3012 to point 1664.45 506.898
+  from ref 137730 z 3012 to point 1511.78 506.6
+  line 152834 z 3012 to point 1666.37 506.6
   line 152962 z 3012 to ref 131714
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
@@ -243,68 +244,69 @@ relationcanvas 145922 relation_ref 142722 // <directional composition>
   decenter_begin 126
   decenter_end 780
   from ref 140546 z 2001 to ref 145410
-  role_a_pos 3039 1188 3000 no_role_b
-  multiplicity_a_pos 3094 1224 3000 no_multiplicity_b
+  role_a_pos 1790 1303 3000 no_role_b
+  multiplicity_a_pos 1825 1337 3000 no_multiplicity_b
 end
 relationcanvas 146050 relation_ref 142850 // <directional composition>
   from ref 140802 z 2001 to ref 145410
-  role_a_pos 3211 1232 3000 no_role_b
-  multiplicity_a_pos 3153 1232 3000 no_multiplicity_b
+  role_a_pos 1926 1347 3000 no_role_b
+  multiplicity_a_pos 1884 1344 3000 no_multiplicity_b
 end
 relationcanvas 146178 relation_ref 142978 // <directional composition>
   decenter_begin 103
   decenter_end 893
   from ref 140674 z 2001 to ref 145410
-  role_a_pos 3241 1159 3000 no_role_b
-  multiplicity_a_pos 3205 1158 3000 no_multiplicity_b
+  role_a_pos 1972 1272 3000 no_role_b
+  multiplicity_a_pos 1935 1270 3000 no_multiplicity_b
 end
 relationcanvas 146306 relation_ref 143106 // <directional composition>
   decenter_end 345
   from ref 129026 z 3006 to ref 145410
-  role_a_pos 3179 1159 3000 no_role_b
-  multiplicity_a_pos 3145 1158 3000 no_multiplicity_b
+  role_a_pos 1910 1272 3000 no_role_b
+  multiplicity_a_pos 1876 1270 3000 no_multiplicity_b
 end
 relationcanvas 150786 relation_ref 143490 // <directional composition>
   from ref 129410 z 3011 to ref 140546
-  role_a_pos 2858 1181 3000 no_role_b
-  multiplicity_a_pos 2779 1181 3000 no_multiplicity_b
+  role_a_pos 1575 1293 3000 no_role_b
+  multiplicity_a_pos 1509 1293 3000 no_multiplicity_b
 end
 relationcanvas 154242 relation_ref 150018 // <directional aggregation>
-  from ref 128898 z 2001 to ref 128002
-  role_a_pos 2247 892 3000 no_role_b
-  multiplicity_a_pos 2215 891 3000 no_multiplicity_b
+  from ref 128898 z 2001 to point 2563.64 861.7
+  line 157314 z 2001 to ref 128002
+  role_a_pos 2296 837 3000 no_role_b
+  multiplicity_a_pos 2298 872 3000 no_multiplicity_b
 end
 relationcanvas 154754 relation_ref 150274 // <directional composition>
   decenter_begin 175
   decenter_end 219
-  from ref 129666 z 2007 to point 3285.55 1189.28
-  line 155650 z 2007 to point 3285.55 1195.59
+  from ref 129666 z 2007 to point 2013.81 1301.39
+  line 155650 z 2007 to point 2013.81 1306.15
   line 155778 z 2007 to ref 145410
-  role_a_pos 3253 1168 3000 no_role_b
-  multiplicity_a_pos 3257 1204 3000 no_multiplicity_b
+  role_a_pos 1982 1280 3000 no_role_b
+  multiplicity_a_pos 1987 1316 3000 no_multiplicity_b
 end
 relationcanvas 155266 relation_ref 150402 // <directional composition>
   decenter_begin 860
   decenter_end 219
-  from ref 129410 z 3011 to point 3092.13 1156.56
-  line 156162 z 3011 to point 3092.13 1195.59
+  from ref 129410 z 3011 to point 1821.66 1267.44
+  line 156162 z 3011 to point 1821.66 1306.15
   line 156290 z 3011 to ref 145410
-  role_a_pos 3059 1167 3000 no_role_b
-  multiplicity_a_pos 3110 1204 3000 no_multiplicity_b
+  role_a_pos 1790 1280 3000 no_role_b
+  multiplicity_a_pos 1842 1316 3000 no_multiplicity_b
 end
 relationcanvas 155394 relation_ref 150530 // <directional composition>
   geometry VHV unfixed
   decenter_begin 963
   decenter_end 88
-  from ref 130178 z 3012 to point 3117 1088.33
-  line 156418 z 3012 to point 3138 1088.33
+  from ref 130178 z 3012 to point 1856 1201.52
+  line 156418 z 3012 to point 1867 1201.52
   line 156546 z 3012 to ref 145410
-  role_a_pos 3150 1159 3000 no_role_b
-  multiplicity_a_pos 3117 1158 3000 no_multiplicity_b
+  role_a_pos 1880 1272 3000 no_role_b
+  multiplicity_a_pos 1848 1270 3000 no_multiplicity_b
 end
 relationcanvas 157058 relation_ref 150786 // <directional composition>
   from ref 129922 z 3012 to ref 156674
-  role_a_pos 1242 1246 3000 no_role_b
-  multiplicity_a_pos 1209 1244 3000 no_multiplicity_b
+  role_a_pos 312 1101 3000 no_role_b
+  multiplicity_a_pos 279 1098 3000 no_multiplicity_b
 end
 end

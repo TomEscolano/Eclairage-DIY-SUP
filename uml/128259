@@ -1,6 +1,6 @@
 format 218
 "conception" // conception
-  revision 15
+  revision 16
   modified_by 2 "tom"
   // class settings
   
@@ -89,6 +89,10 @@ format 218
 	flow 128642 "<flow>"
 	  on activityaction_ref 128642 // activity action Ecriture dans le fichier "eclairages_export.csv" de la configurations des éclairages
 	end
+
+	flow 152066 "<flow>"
+	  on activityaction_ref 144898 // activity action Affichage des eclairages
+	end
       end
 
       activityaction 128642 "Ecriture dans le fichier \"eclairages_export.csv\" de la configurations des éclairages"
@@ -162,6 +166,10 @@ format 218
 	flow 129794 "<flow>"
 	  on activityaction_ref 128898 // activity action Appui sur le bouton "importer"
 	end
+
+	flow 151554 "<flow>"
+	  on activityaction_ref 144642 // activity action Lecture du fichier index.html
+	end
       end
 
       activitynode 128642 decision ""
@@ -185,7 +193,7 @@ format 218
 	end
 
 	flow 137986 "<flow>"
-	  on activityaction_ref 136194 // activity action Récupération du type d'éclairage dans l'URL (get)
+	  on activityaction_ref 136194 // activity action Récupération de l'ID dans l'URL (get)
 	end
       end
 
@@ -247,10 +255,14 @@ format 218
 	end
       end
 
-      activityaction 136194 "Récupération du type d'éclairage dans l'URL (get)"
+      activityaction 136194 "Récupération de l'ID dans l'URL (get)"
 	opaque_action
 	flow 138114 "<flow>"
 	  on activitynode_ref 135426 // decision
+	end
+
+	flow 152962 "<flow>"
+	  on activityaction_ref 145282 // activity action Requete de suppression de l'éclairage grâce à l'ID
 	end
       end
 
@@ -266,6 +278,10 @@ format 218
 
 	flow 142722 "<flow>"
 	  on activitynode_ref 136322 // merge
+	end
+
+	flow 152322 "<flow>"
+	  on activityaction_ref 136834 // activity action Affichage du formulaire de paramétrage unicolore
 	end
       end
 
@@ -285,6 +301,10 @@ format 218
 
 	flow 142594 "<flow>"
 	  on activitynode_ref 136322 // merge
+	end
+
+	flow 152450 "<flow>"
+	  on activityaction_ref 137474 // activity action Affichage du formulaire de paramétrage multicolore
 	end
       end
 
@@ -321,14 +341,14 @@ format 218
 	end
 
 	flow 140162 "Nom, Couleur et ID présents"
-	  on activityaction_ref 136834 // activity action Affichage du formulaire unicolore
+	  on activityaction_ref 136834 // activity action Affichage du formulaire de paramétrage unicolore
 	end
       end
 
-      activityaction 136834 "Affichage du formulaire unicolore"
+      activityaction 136834 "Affichage du formulaire de paramétrage unicolore"
 	opaque_action
 	flow 140290 "<flow>"
-	  on activityaction_ref 137090 // activity action Insertion de l'eclairage spécifique dans la base de données
+	  on activityaction_ref 137090 // activity action Suppression de l'éclairage dans la base de données
 	end
 
 	flow 140418 "<flow>"
@@ -359,7 +379,7 @@ format 218
 	end
       end
 
-      activityaction 137090 "Insertion de l'eclairage spécifique dans la base de données"
+      activityaction 137090 "Suppression de l'éclairage dans la base de données"
 	opaque_action
 	flow 142082 "<flow>"
 	  on activityaction_ref 137730 // activity action Affichage du message de succès
@@ -373,7 +393,7 @@ format 218
       activityaction 137218 "Récupération du numero de prise de l'éclairage"
 	opaque_action
 	flow 140546 "<flow>"
-	  on activityaction_ref 137090 // activity action Insertion de l'eclairage spécifique dans la base de données
+	  on activityaction_ref 137090 // activity action Suppression de l'éclairage dans la base de données
 	end
 
 	flow 144386 "<flow>"
@@ -396,15 +416,15 @@ format 218
 
       activitynode 136450 decision ""
 	flow 141442 "unicolore"
-	  on activityaction_ref 136834 // activity action Affichage du formulaire unicolore
+	  on activityaction_ref 136834 // activity action Affichage du formulaire de paramétrage unicolore
 	end
 
 	flow 141698 "multicolore"
-	  on activityaction_ref 137474 // activity action Affichage du formulaire multicolore
+	  on activityaction_ref 137474 // activity action Affichage du formulaire de paramétrage multicolore
 	end
       end
 
-      activityaction 137474 "Affichage du formulaire multicolore"
+      activityaction 137474 "Affichage du formulaire de paramétrage multicolore"
 	opaque_action
 	flow 141826 "<flow>"
 	  on activityaction_ref 137602 // activity action Récupération de l'adresse IP
@@ -422,7 +442,7 @@ format 218
       activityaction 137602 "Récupération de l'adresse IP"
 	opaque_action
 	flow 141954 "<flow>"
-	  on activityaction_ref 137090 // activity action Insertion de l'eclairage spécifique dans la base de données
+	  on activityaction_ref 137090 // activity action Suppression de l'éclairage dans la base de données
 	end
 
 	flow 144258 "<flow>"
@@ -459,6 +479,14 @@ format 218
 	flow 143874 "<flow>"
 	  on activitynode_ref 136834 // decision
 	end
+
+	flow 152578 "<flow>"
+	  on activityaction_ref 137090 // activity action Suppression de l'éclairage dans la base de données
+	end
+
+	flow 152706 "<flow>"
+	  on activityaction_ref 145154 // activity action Traitement des données
+	end
       end
 
       activitynode 136706 merge ""
@@ -479,7 +507,76 @@ format 218
 
       activitynode 136962 merge ""
 	flow 144514 "<flow>"
-	  on activityaction_ref 137090 // activity action Insertion de l'eclairage spécifique dans la base de données
+	  on activityaction_ref 137090 // activity action Suppression de l'éclairage dans la base de données
+	end
+      end
+
+      activitydiagram 161026 "SUP"
+	activitydiagramsettings
+	 end
+	size A0
+      end
+
+      activitynode 143490 initial_node ""
+	flow 151426 "<flow>"
+	  on activityaction_ref 129282 // activity action Démarrage du programme
+	end
+      end
+
+      activityaction 144642 "Lecture du fichier index.html"
+	opaque_action
+	flow 151682 "<flow>"
+	  on activityaction_ref 145026 // activity action Affichage du contenu de l'index.html
+	end
+      end
+
+      activityaction 144770 "Extraction des eclairages"
+	opaque_action
+	flow 151938 "<flow>"
+	  on activityaction_ref 128514 // activity action Extractions des eclairages
+	end
+      end
+
+      activityaction 144898 "Affichage des eclairages"
+	opaque_action
+	flow 152194 "<flow>"
+	  on activitynode_ref 143618 // activity_final
+	end
+      end
+
+      activityaction 145026 "Affichage du contenu de l'index.html"
+	opaque_action
+	flow 151810 "<flow>"
+	  on activityaction_ref 144770 // activity action Extraction des eclairages
+	end
+      end
+
+      activitynode 143618 activity_final ""
+      end
+
+      activitydiagram 161154 "UcModifier"
+	activitydiagramsettings draw_all_relations no
+	 end
+	size A0
+      end
+
+      activityaction 145154 "Traitement des données"
+	opaque_action
+	flow 152834 "<flow>"
+	  on activityaction_ref 137090 // activity action Suppression de l'éclairage dans la base de données
+	end
+      end
+
+      activitydiagram 161282 "UcSupprimer"
+	activitydiagramsettings draw_all_relations no
+	 end
+	size A0
+      end
+
+      activityaction 145282 "Requete de suppression de l'éclairage grâce à l'ID"
+	opaque_action
+	flow 153090 "<flow>"
+	  on activityaction_ref 137090 // activity action Suppression de l'éclairage dans la base de données
 	end
       end
     end

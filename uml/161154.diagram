@@ -1,0 +1,164 @@
+format 218
+
+activitynodecanvas 128002 activitynode_ref 136706 // merge
+  xyz 740.857 330.326 2005
+end
+activityactioncanvas 128130 activityaction_ref 136194 // activity action Récupération de l'ID dans l'URL (get)
+  
+  show_opaque_action_definition default
+  xyzwh 222.92 248.469 2010 141 79
+end
+activityactioncanvas 128258 activityaction_ref 136322 // activity action Création d'un éclairage unicolore
+  
+  show_opaque_action_definition default
+  xyzwh 543.905 78.0283 2005 149 61
+end
+activitynodecanvas 128386 activitynode_ref 136578 // activity_final
+  xyz 305.439 832.626 2005
+end
+activityactioncanvas 128642 activityaction_ref 136450 // activity action Création d'un éclairage multicolore
+  
+  show_opaque_action_definition default
+  xyzwh 822.363 78.7582 2005 153 61
+end
+activityactioncanvas 128770 activityaction_ref 137730 // activity action Affichage du message de succès
+  
+  show_opaque_action_definition default
+  xyzwh 692.357 718.456 2005 171 63
+end
+activityactioncanvas 129026 activityaction_ref 129410 // activity action Démarrage du programme
+  
+  show_opaque_action_definition default
+  xyzwh 246.59 146.045 2011 101 75
+end
+activitynodecanvas 129282 activitynode_ref 135426 // decision
+  xyz 280.92 368.785 2005
+end
+activityactioncanvas 129410 activityaction_ref 138114 // activity action Remplissage du formulaire spécifique
+  
+  show_opaque_action_definition default
+  xyzwh 225.103 454.637 2005 175 63
+end
+activitynodecanvas 129538 activitynode_ref 135298 // initial_node
+  xyz 281.221 95.8203 2005
+end
+activityactioncanvas 129794 activityaction_ref 137474 // activity action Affichage du formulaire de paramétrage multicolore
+  
+  show_opaque_action_definition default
+  xyzwh 808.081 188.846 2005 177 71
+end
+fragment 129922 "système"
+  xyzwh 519.313 25.6199 2000 484 868
+end
+activityactioncanvas 130050 activityaction_ref 137858 // activity action Redirection vers la page principale
+  
+  show_opaque_action_definition default
+  xyzwh 706.677 821.903 2005 139 63
+end
+fragment 130178 "utilisateur"
+  xyzwh 142.547 24.7569 2000 372 872
+end
+activityactioncanvas 131074 activityaction_ref 136834 // activity action Affichage du formulaire de paramétrage unicolore
+  
+  show_opaque_action_definition default
+  xyzwh 539 180.116 2005 167 77
+end
+fragment 131202 "BDD"
+  xyzwh 1008.65 22.3176 2000 245 876
+end
+activityactioncanvas 131330 activityaction_ref 137090 // activity action Suppression de l'éclairage dans la base de données
+  
+  show_opaque_action_definition default
+  xyzwh 1048.71 572.931 2005 181 71
+end
+activityactioncanvas 140290 activityaction_ref 145154 // activity action Traitement des données
+  
+  show_opaque_action_definition default
+  xyzwh 715.285 571.798 2013 141 61
+end
+flowcanvas 131842 flow_ref 137858 // <flow>
+  
+  from ref 129538 z 2012 to ref 129026
+   write_horizontally default
+end
+flowcanvas 132354 flow_ref 138114 // <flow>
+  
+  from ref 128130 z 2011 to ref 129282
+   write_horizontally default
+end
+flowcanvas 132994 flow_ref 138370 // multicolore
+  
+  from ref 129282 z 2006 label "multicolore" xyz 332.5 364 2006 to point 439.326 380.037
+  line 133122 z 2006 to point 446.823 57.7736
+  line 133250 z 2006 to point 891.406 53.1508
+  line 133378 z 2006 to ref 128642
+   write_horizontally default
+end
+flowcanvas 134274 flow_ref 144642 // <flow>
+  
+  from ref 131330 z 2006 to point 1136.34 662.672
+  line 134402 z 2006 to point 773.705 657.372
+  line 134530 z 2006 to ref 128770
+   write_horizontally default
+end
+flowcanvas 134658 flow_ref 143490 // <flow>
+  
+  from ref 129794 z 2006 to ref 128002
+   write_horizontally default
+end
+flowcanvas 134786 flow_ref 142338 // <flow>
+  
+  from ref 130050 z 2006 to ref 128386
+   write_horizontally default
+end
+flowcanvas 134914 flow_ref 138498 // unicolore
+  
+  from ref 129282 z 2006 label "unicolore" xyz 343.5 412 2006 to point 291.822 431.995
+  line 135042 z 2006 to point 469.455 427.373
+  line 135170 z 2006 to point 473.739 108.732
+  line 135298 z 2006 to ref 128258
+   write_horizontally default
+end
+flowcanvas 135810 flow_ref 143746 // <flow>
+  
+  from ref 128002 z 2006 to point 752.048 478.439
+  line 135938 z 2006 to ref 129410
+   write_horizontally default
+end
+flowcanvas 136066 flow_ref 143618 // <flow>
+  
+  from ref 131074 z 2006 to ref 128002
+   write_horizontally default
+end
+flowcanvas 136194 flow_ref 137986 // <flow>
+  
+  from ref 129026 z 2012 to ref 128130
+   write_horizontally default
+end
+flowcanvas 136962 flow_ref 142210 // <flow>
+  
+  from ref 128770 z 2006 to ref 130050
+   write_horizontally default
+end
+flowcanvas 139778 flow_ref 152322 // <flow>
+  
+  from ref 128258 z 2006 to ref 131074
+   write_horizontally default
+end
+flowcanvas 139906 flow_ref 152450 // <flow>
+  
+  from ref 128642 z 2006 to ref 129794
+   write_horizontally default
+end
+flowcanvas 140418 flow_ref 152706 // <flow>
+  
+  from ref 129410 z 2014 to point 311.304 598.893
+  line 140674 z 2014 to ref 140290
+   write_horizontally default
+end
+flowcanvas 140546 flow_ref 152834 // <flow>
+  
+  from ref 140290 z 2014 to ref 131330
+   write_horizontally default
+end
+end
