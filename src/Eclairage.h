@@ -13,10 +13,10 @@
 #include <vector>
 #include <iostream>
 #include <unistd.h>
-#include <Couleur.h>
 #include <Utility.h>
 #include <cgicc/Cgicc.h>
 #include <SqlitePersiBny.h>
+#include <ClientTcpComBny.h>
 #include <cgicc/HTMLClasses.h>
 #include <FichierTextePersiBny.h>
 #include <cgicc/HTTPHTMLHeader.h>
@@ -47,6 +47,25 @@ class Eclairage {
 
 		unsigned int consommation;
 
+		/**
+		 * Couleurs possibles:
+		 * rouge
+		 * rougeOrange
+		 * orange
+		 * jauneOrange
+		 * jaune
+		 * vert
+		 * turquoise
+		 * vertBleu
+		 * bleuClair
+		 * bleuVert
+		 * bleu
+		 * bleuSombre
+		 * roseClair
+		 * rose
+		 * roseSombre
+		 * blanc
+		 */
 		std::string couleur;
 
 		int x;
@@ -57,7 +76,7 @@ class Eclairage {
 
 	  public:
 
-	  	Ent():id(0), allume(false), active(false), nom("undefined"), consommation(0), couleur("bleu"), x(0), y(0){}
+	  	Ent():id(0), allume(false), active(false), nom("undefined"), consommation(0), couleur("blanc"), x(0), y(0){}
 	
 		virtual void setID(const unsigned int & id);
 	

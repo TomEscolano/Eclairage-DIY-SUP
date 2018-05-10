@@ -128,6 +128,17 @@ class EclairageMulticolore : public Eclairage {
 				void set(EclairageMulticolore::Ent & ent);
 		 };
 
+		 
+		 class EclairageComBny{
+		 	private:
+		 		ClientTcpComBny clientTcpComBny;
+
+		 	public:
+		 		void allumer(EclairageMulticolore::Ent & ent, bool etat);
+		 		void changerCouleur(EclairageMulticolore::Ent & ent, std::string couleur);
+
+		 };
+
 		/**
 		 * Controleur de l'eclairage multicolore composé d'une entité, une persistance et une IHM de création.
 		 */		
@@ -142,6 +153,8 @@ class EclairageMulticolore : public Eclairage {
 				IHMJardin ihmJardin;
 
 				IHMParametre ihmParametre;
+
+				EclairageComBny eclairageComBny;
 
 				Controleur():Eclairage::Controleur(), ent(), persiBny(){};
 

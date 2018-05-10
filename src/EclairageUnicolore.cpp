@@ -33,11 +33,11 @@ void EclairageUnicolore::IHMJardin::set(EclairageUnicolore::Ent & ent)
 
 	if(ent.getActive())
 	{
-		if(ent.getAllume() == true && ent.getCouleur() == 0)
+		if(ent.getAllume() == true && ent.getCouleur().find("bleu") != std::string::npos)
 			logo = "unicoloreBleu.png";
-		if(ent.getAllume() == true && ent.getCouleur() == 1)
+		if(ent.getAllume() == true && ent.getCouleur().find("blanc") != std::string::npos)
 			logo = "unicoloreBlanc.png" ;
-		if(ent.getAllume() == true && ent.getCouleur() == 2)
+		if(ent.getAllume() == true && ent.getCouleur().find("rouge") != std::string::npos)
 			logo = "unicoloreRouge.png";
 		else if(ent.getAllume() == false)
 			logo = "unicoloreDesactive.png";
@@ -113,7 +113,7 @@ void EclairageUnicolore::PersiBny::set(Ent & ent)
 	usleep(100);
 
 	//Insère dans la table unicolores les propriétés
-	this->executerSql("UPDATE unicolores SET couleur = " + std::to_string(ent.getCouleur()) + ", numeroPrise = " + std::to_string(ent.getNumeroPrise()) + " WHERE id = " + std::to_string(ent.getID()) + ";");
+	this->executerSql("UPDATE unicolores SET couleur = " + ent.getCouleur() + ", numeroPrise = " + std::to_string(ent.getNumeroPrise()) + " WHERE id = " + std::to_string(ent.getID()) + ";");
 }
 
 void EclairageUnicolore::PersiBny::get(Ent & ent)

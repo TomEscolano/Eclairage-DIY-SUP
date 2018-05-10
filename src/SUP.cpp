@@ -79,14 +79,9 @@ void SUP::extraireEclairages(std::vector<EclairageUnicolore> & eclairagesUnicolo
 		this->persiBny.executerSql("SELECT allume, active, nom, consommation, couleur FROM eclairages WHERE id = " + std::to_string(tmp.controleur.ent.getID()) + ";", subRes);
 		tmp.controleur.ent.setAllume(subRes.at(0).at(0).second == "1" ? true : false);
 		tmp.controleur.ent.setActive(subRes.at(0).at(1).second == "1" ? true : false);
-		tmp.controleur.ent.setNom(subRes.at(0).at(2).second.c_str());
+		tmp.controleur.ent.setNom(subRes.at(0).at(2).second);
 		tmp.controleur.ent.setConsommation(atoi(subRes.at(0).at(3).second.c_str()));
-		if(subRes.at(i).at(4).second == "0")
-			tmp.controleur.ent.setCouleur(Bleu);
-		if(subRes.at(i).at(4).second == "1")
-			tmp.controleur.ent.setCouleur(Blanc);
-		if(subRes.at(i).at(4).second == "2")
-			tmp.controleur.ent.setCouleur(Rouge);
+		tmp.controleur.ent.setCouleur(subRes.at(0).at(4).second );
 
 		eclairagesUnicolores.push_back(tmp);
 		subRes.clear();
@@ -96,7 +91,7 @@ void SUP::extraireEclairages(std::vector<EclairageUnicolore> & eclairagesUnicolo
 	subRes.clear();
 
 	// Multicolore
-	this->persiBny.executerSql("SELECT id, adresseMAc, adresseIP, versionFirmware, luminosite, niveauBatterie FROM multicolores;", resultat);
+	this->persiBny.executerSql("SELECT id, adresseMac, adresseIP, versionFirmware, luminosite, niveauBatterie FROM multicolores;", resultat);
 
 	for(int i = 0; i < resultat.size(); i++)
 	{
@@ -116,12 +111,7 @@ void SUP::extraireEclairages(std::vector<EclairageUnicolore> & eclairagesUnicolo
 		tmp.controleur.ent.setActive(subRes.at(0).at(1).second == "1" ? true : false);
 		tmp.controleur.ent.setNom(subRes.at(0).at(2).second);
 		tmp.controleur.ent.setConsommation(atoi(subRes.at(0).at(3).second.c_str()));
-		if(subRes.at(0).at(4).second == "0")
-			tmp.controleur.ent.setCouleur(Bleu);
-		if(subRes.at(0).at(4).second == "1")
-			tmp.controleur.ent.setCouleur(Blanc);
-		if(subRes.at(0).at(4).second == "2")
-			tmp.controleur.ent.setCouleur(Rouge);
+		tmp.controleur.ent.setCouleur(subRes.at(0).at(4).second);
 		
 		eclairagesMulticolores.push_back(tmp);
 		subRes.clear();

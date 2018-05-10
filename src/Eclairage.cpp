@@ -68,12 +68,8 @@ void Eclairage::Controleur::get(Eclairage::Ent & ent)
 	ent.setActive(resultat.at(0).at(1).second == "1" ? true : false);
 	ent.setNom(resultat.at(0).at(2).second);
 	ent.setConsommation((unsigned int)atoi(resultat.at(0).at(3).second.c_str()));
-	if(resultat.at(0).at(4).second == "0")
-		ent.setCouleur(Bleu);
-	if(resultat.at(0).at(4).second == "1")
-		ent.setCouleur(Rouge);
-	if(resultat.at(0).at(4).second == "2")
-		ent.setCouleur(Blanc);
+	ent.setCouleur(resultat.at(0).at(4).second);
+
 }
 
 void Eclairage::Ent::setID(const unsigned int & id)
@@ -108,7 +104,7 @@ void Eclairage::Ent::setCouleur(std::string couleur)
 {
 	this->couleur = couleur;
 	SqlitePersiBny persi(this->DB);
-	persi.executerSql("UPDATE eclairages SET couleur =  " + this->couleur + " WHERE id = " + std::to_string(this->getID()) + ";");
+	persi.executerSql("UPDATE eclairages SET couleur =  \"" + this->couleur + "\" WHERE id = " + std::to_string(this->getID()) + ";");
 }
 
 void Eclairage::Ent::setConsommation(const unsigned int & conso)
@@ -216,13 +212,7 @@ void Eclairage::PersiBny::get(Ent & ent)
 	ent.setActive(atoi(resultat.at(0).at(1).second.c_str()));
 	ent.setNom(resultat.at(0).at(2).second);
 	ent.setConsommation((unsigned int)atoi(resultat.at(0).at(3).second.c_str()));
-	if(resultat.at(0).at(4).second == "0")
-			ent.setCouleur(Bleu);
-		if(resultat.at(0).at(4).second == "1")
-			ent.setCouleur(Rouge);
-		if(resultat.at(0).at(4).second == "2")
-			ent.setCouleur(Blanc);
-
+	ent.setCouleur(resultat.at(0).at(4).second);
 	ent.setX(atoi(resultat.at(0).at(5).second.c_str()));
 	ent.setY(atoi(resultat.at(0).at(6).second.c_str()));
 }

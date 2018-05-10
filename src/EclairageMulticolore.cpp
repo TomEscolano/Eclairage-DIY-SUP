@@ -31,18 +31,19 @@ void EclairageMulticolore::IHMJardin::set(EclairageMulticolore::Ent & ent) {
 
 	if(ent.getActive())
 	{
-		if(ent.getAllume() == true && ent.getCouleur() == 0)
+		std::string couleurTmp = ent.getCouleur();
+
+		if(ent.getAllume() == true && couleurTmp.find("bleu") != std::string::npos)
 			logo = "multicoloreBleu.png";
-		if(ent.getAllume() == true && ent.getCouleur() == 1)
+		if(ent.getAllume() == true && couleurTmp.find("blanc") != std::string::npos)
 			logo = "multicoloreBlanc.png" ;
-		if(ent.getAllume() == true && ent.getCouleur() == 2)
+		if(ent.getAllume() == true && couleurTmp.find("rouge") != std::string::npos)
 			logo = "multicoloreRouge.png";
 		else if(ent.getAllume() == false)
 			logo = "multicoloreDesactive.png";
 	}
 	else
 		logo = "multicoloreDesactive.png";
-	
 
 	std::cout << "<img style='width:75px;height:175x;position:absolute;z-index:2;margin-left:" + std::to_string(ent.getX()-60)+ "px;margin-top:"+ std::to_string(ent.getY()-130)+"px;' src='/" + logo + "' onclick='toggleMenu(\"menu-box" + std::to_string(ent.getID()) + "\")'/><ul id='menu-box" + std::to_string(ent.getID()) + "' style='display:none; z-index:2;margin-left:" + std::to_string(ent.getX())+ "px;margin-top:"+ std::to_string(ent.getY()-130)+"px;positon:absolute;'>";
 
@@ -185,7 +186,7 @@ void EclairageMulticolore::PersiBny::set(Ent & ent)
 	usleep(1000);
 
 	//Màj dans la table multicolores les propriétés
-	this->executerSql("UPDATE multicolores SET adresseMac = \"" + ent.getAdresseMac() + "\", adresseIP = \"" + ent.getAdresseIP() + "\", versionFirmware = " + std::to_string(ent.getVersionFirmware()) + ", couleur = \"" + std::to_string(ent.getCouleur()) + "\" WHERE id = " + std::to_string(ent.getID()) + ";");
+	this->executerSql("UPDATE multicolores SET adresseMac = \"" + ent.getAdresseMac() + "\", adresseIP = \"" + ent.getAdresseIP() + "\", versionFirmware = " + std::to_string(ent.getVersionFirmware()) + ", couleur = \"" + ent.getCouleur() + "\" WHERE id = " + std::to_string(ent.getID()) + ";");
 }
 
 void EclairageMulticolore::PersiBny::get(Ent & ent)
@@ -203,6 +204,27 @@ void EclairageMulticolore::PersiBny::get(Ent & ent)
 	ent.setNiveauBatterie(atoi(resultat.at(0).at(4).second.c_str()));
 }
 
+void EclairageMulticolore::EclairageComBny::allumer(EclairageMulticolore::Ent & ent, bool etat)
+{
+	this->clientTcpComBny.connecter(ent.getAdresseIP(), 5554);
+	std::string message = "{\"demande\":\"fe\", \"etat\":" + std::to_string(etat) + ",\"id\":"+ std::to_string(ent.getID())+"}";
+
+	this->clientTcpComBny.fprintf(message.c_str());
+
+	this->clientTcpComBny.deconnecter();
+}
+
+void EclairageMulticolore::EclairageComBny::changerCouleur(EclairageMulticolore::Ent & ent, std::string couleur)
+{
+	this->clientTcpComBny.connecter(ent.getAdresseIP(), 5554);
+	std::string message = "{\"demande\":\"cc\", \"couleur\":" + couleur + ",\"id\":"+ std::to_string(ent.getID())+"}";
+
+	this->clientTcpComBny.fprintf(message.c_str());
+
+	this->clientTcpComBny.deconnecter();
+}
+
+
 #ifdef _UT_EclairageMulticolore_
 #include <iostream>
 
@@ -211,10 +233,9 @@ int main()
 	EclairageMulticolore eclairage;
 	eclairage.controleur.ent.setID(2);
 	eclairage.controleur.ent.setAdresseMac("FF:FF:FF:FF");
-	eclairage.controleur.ihmFormulaire.set(eclairage.controleur.ent);
-	//eclairage.controleur.persiBny.set(eclairage.controleur.ent);
+
 	return 0;
 }
 #endif
 
-//g++ -o EclairageMulticolore EclairageMulticolore.cpp Eclairage.cpp SqlitePersiBny.cpp -lsqlite3 -I . -D _UT_EclairageMulticolore_
+//g++ -o EclairageMulticolore EclairageMulticolore.cpp Eclairage.cpp SqlitePersiBny.cpp -lsqlite3 -lcgicc -I . -D _UT_EclairageMulticolore_

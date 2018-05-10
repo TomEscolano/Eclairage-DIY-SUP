@@ -24,7 +24,7 @@ void UcAjouter::doIt(EclairageUnicolore & eclairage, cgicc::Cgicc & cgi)
         // Insertion de l'éclairage dans la BDD, si non existant   
         try
         {
-            persi.executerSql("INSERT INTO eclairages(id, nom, couleur, x, y) VALUES(" + **id + ", \"" + **nom + "\", " + **couleur + ", " + **x + ", " + **y + ");");
+            persi.executerSql("INSERT INTO eclairages(id, nom, couleur, x, y) VALUES(" + **id + ", \"" + **nom + "\", \"" + **couleur + "\", " + **x + ", " + **y + ");");
         }catch(...)
         {
         }
@@ -79,7 +79,7 @@ void UcAjouter::doIt(EclairageMulticolore & eclairage, cgicc::Cgicc & cgi)
         // Insertion de l'éclairage dans la BDD, si non existant   
         try
         {
-            persi.executerSql("INSERT INTO eclairages(id, nom, couleur, x, y) VALUES(" + **id + ", \"" + **nom + "\", " + **couleur + ", " + **x + ", " + **y + ");");
+            persi.executerSql("INSERT INTO eclairages(id, nom, couleur, x, y) VALUES(" + **id + ", \"" + **nom + "\", \"" + **couleur + "\", " + **x + ", " + **y + ");");
         }catch(...)
         {
         }

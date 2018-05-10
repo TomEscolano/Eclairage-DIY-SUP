@@ -18,10 +18,30 @@ void UcModifier::doIt(EclairageMulticolore & eclairage, cgicc::Cgicc & cgi)
     if(nom != cgi.getElements().end() && couleur != cgi.getElements().end() && adresseIP != cgi.getElements().end() && id != cgi.getElements().end())
     {
             SqlitePersiBny persi("/var/eclairage/bdd.db");
-            persi.executerSql("UPDATE eclairages SET nom =\"" + **nom + "\", couleur = " + **couleur + " WHERE id = " + **id + ";");
+            EclairageMulticolore tmp;
+
+            std::string tmpID = **id;
+            tmp.controleur.ent.setID(atoi(tmpID.c_str()));
+
+            //Mise à jour de l'adresse IP
             persi.executerSql("UPDATE multicolores SET adresseIP = \"" + **adresseIP + "\" WHERE id = " + **id + ";");
-            std::cout << "<div class='w3-panel w3-green'><h3>Succes !</h3><p>Modification terminee !</p>  </div>";
-            std::cout << "<meta http-equiv='refresh' content='2; URL=/cgi-bin/index.cgi'> ";
+
+            //Mise à jour de l'éclairage
+            persi.executerSql("UPDATE eclairages SET nom =\"" + **nom + "\", couleur = \"" + **couleur + "\" WHERE id = " + **id + ";");
+
+            //Envoi des paramètres à l'éclairage
+            tmp.controleur.ent.setAdresseIP(**adresseIP);
+            try
+            {
+                tmp.controleur.eclairageComBny.changerCouleur(tmp.controleur.ent, **couleur);
+                std::cout << "<div class='w3-panel w3-green'><h3>Succes !</h3><p>Modification terminee !</p>  </div>";
+
+            }catch(...)
+            {
+                std::cout << "<div class='w3-panel w3-red'><h3>Erreur !</h3><p>Impossible de se connecter à l'eclairage. Adresse IP invalide</p>  </div>";
+            }
+
+            std::cout << "<meta http-equiv='refresh' content='5; URL=/cgi-bin/index.cgi'> ";
 
     }
     else
@@ -40,7 +60,7 @@ void UcModifier::doIt(EclairageUnicolore & eclairage, cgicc::Cgicc & cgi)
     if(nom != cgi.getElements().end() && couleur != cgi.getElements().end() && numeroPrise != cgi.getElements().end() && id != cgi.getElements().end())
     {
     		SqlitePersiBny persi("/var/eclairage/bdd.db");
-    		persi.executerSql("UPDATE eclairages SET nom =\"" + **nom + "\", couleur = " + **couleur + " WHERE id = " + **id + ";");
+    		persi.executerSql("UPDATE eclairages SET nom =\"" + **nom + "\", couleur = \"" + **couleur + "\" WHERE id = " + **id + ";");
     		persi.executerSql("UPDATE unicolores SET numeroPrise = " + **numeroPrise + " WHERE id = " + **id + ";");
             std::cout << "<div class='w3-panel w3-green'><h3>Succes !</h3><p>Modification terminee !</p>  </div>";
             std::cout << "<meta http-equiv='refresh' content='2; URL=/cgi-bin/index.cgi'> ";

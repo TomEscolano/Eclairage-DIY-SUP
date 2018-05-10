@@ -12,12 +12,18 @@ void UcCommander::doIt(EclairageUnicolore & eclairage, bool etat)
 {
 	if(eclairage.controleur.ent.getActive())
 	{
-		eclairage.controleur.ent.setAllume(etat);
-		eclairage.controleur.eclairageComBny.allumer(eclairage.controleur.ent, etat);
-		if(etat)
-			std::cout << "<div class='w3-panel w3-green'><h3>Succes !</h3><p>Allumage reussi !</p>  </div>";
-		else
-			std::cout << "<div class='w3-panel w3-green'><h3>Succes !</h3><p>Extinction reussi !</p>  </div>";
+		try
+		{
+			eclairage.controleur.eclairageComBny.allumer(eclairage.controleur.ent, etat);
+			eclairage.controleur.ent.setAllume(etat);
+			if(etat)
+				std::cout << "<div class='w3-panel w3-green'><h3>Succes !</h3><p>Allumage reussi !</p>  </div>";
+			else
+				std::cout << "<div class='w3-panel w3-green'><h3>Succes !</h3><p>Extinction reussi !</p>  </div>";
+		}catch(...)
+		{
+			std::cout << "<div class='w3-panel w3-red'><h3>Erreur !</h3><p>Connection à l'eclairage echouee... !</p>  </div>";
+		}
 	}
 	else
 	{
@@ -27,7 +33,25 @@ void UcCommander::doIt(EclairageUnicolore & eclairage, bool etat)
 
 void UcCommander::doIt(EclairageMulticolore & eclairage, bool etat)
 {
-	eclairage.controleur.ent.setAllume(etat);
+	if(eclairage.controleur.ent.getActive())
+	{
+		try
+		{
+			eclairage.controleur.eclairageComBny.allumer(eclairage.controleur.ent, etat);
+			eclairage.controleur.ent.setAllume(etat);
+			if(etat)
+				std::cout << "<div class='w3-panel w3-green'><h3>Succes !</h3><p>Allumage reussi !</p>  </div>";
+			else
+				std::cout << "<div class='w3-panel w3-green'><h3>Succes !</h3><p>Extinction reussi !</p>  </div>";
+		}catch(...)
+		{
+			std::cout << "<div class='w3-panel w3-red'><h3>Erreur !</h3><p>Connection à l'eclairage echouee... !</p>  </div>";
+		}
+	}
+	else
+	{
+		std::cout << "<div class='w3-panel w3-red'><h3>Erreur !</h3><p>Veuillez activer l'eclairage !</p>  </div>";
+	}
 }
 
 #ifdef _UT_UcCommander_
@@ -68,7 +92,7 @@ int main()
 			tmp.controleur.ent.setID(atoi(idd.c_str()));
 			ucCommander.doIt(tmp, etat);
 		}	
-    	std::cout << "<meta http-equiv='refresh' content='2; URL=/cgi-bin/index.cgi'> ";
+    	std::cout << "<meta http-equiv='refresh' content='3; URL=/cgi-bin/index.cgi'> ";
     }
 
       // Fin du document HTML

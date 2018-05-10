@@ -71,12 +71,7 @@ void UcImporter::doIt(UcModifier & ucModifier)
 				eclairage.controleur.ent.setConsommation(consommation);
 				
 				//Assignation des valeurs d'éclairage spécifique
-				if(couleur == 0)
-					eclairage.controleur.ent.setCouleur(Bleu);
-				if(couleur == 1)
-					eclairage.controleur.ent.setCouleur(Rouge);
-				if(couleur == 2)
-					eclairage.controleur.ent.setCouleur(Blanc);
+				eclairage.controleur.ent.setCouleur(couleur);
 
 				//Creation de l'eclairage ou modification
 				ucModifier.doIt(eclairage,cgi);
@@ -114,12 +109,7 @@ void UcImporter::doIt(UcModifier & ucModifier)
 				eclairage.controleur.ent.setAdresseMac(adresseMac);
 				eclairage.controleur.ent.setAdresseIP(adresseIP);
 				eclairage.controleur.ent.setVersionFirmware(versionFirmware);
-				if(couleur == 0)
-					eclairage.controleur.ent.setCouleur(Bleu);
-				if(couleur == 1)
-					eclairage.controleur.ent.setCouleur(Rouge);
-				if(couleur == 2)
-					eclairage.controleur.ent.setCouleur(Blanc);
+				eclairage.controleur.ent.setCouleur(couleur);
 				eclairage.controleur.ent.setLuminosite(luminosite);
 				eclairage.controleur.ent.setNiveauBatterie(niveauBatterie);
 
