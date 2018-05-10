@@ -36,12 +36,7 @@ void Eclairage::IHMFormulaire::get(Eclairage::Ent & ent)
     if(nom != cgi.getElements().end() && couleur != cgi.getElements().end())
     {
     	ent.setNom(**nom);
-    	if(**couleur == "0")
-    		ent.setCouleur(Bleu);
-    	if(**couleur == "1")
-    		ent.setCouleur(Blanc);
-    	if(**couleur == "2")
-    		ent.setCouleur(Rouge);
+    	ent.setCouleur(**couleur);
     }	
 }
 
@@ -109,11 +104,11 @@ void Eclairage::Ent::setNom(const std::string & nom)
 	persi.executerSql("UPDATE eclairages SET nom = \"" + this->nom + "\" WHERE id = " + std::to_string(this->getID()) + ";");
 }
 
-void Eclairage::Ent::setCouleur(Couleur couleur)
+void Eclairage::Ent::setCouleur(std::string couleur)
 {
 	this->couleur = couleur;
 	SqlitePersiBny persi(this->DB);
-	persi.executerSql("UPDATE eclairages SET couleur =  " + std::to_string(this->couleur) + " WHERE id = " + std::to_string(this->getID()) + ";");
+	persi.executerSql("UPDATE eclairages SET couleur =  " + this->couleur + " WHERE id = " + std::to_string(this->getID()) + ";");
 }
 
 void Eclairage::Ent::setConsommation(const unsigned int & conso)
@@ -169,17 +164,12 @@ std::string Eclairage::Ent::getNom()
 	return this->nom;
 }
 
-Couleur Eclairage::Ent::getCouleur()
+std::string Eclairage::Ent::getCouleur()
 {
 	SqlitePersiBny persi(this->DB);
 	SqlitePersiBny::Resultat resultat;
 	persi.executerSql("SELECT couleur FROM eclairages WHERE id = " + std::to_string(this->getID()) + ";", resultat);
-	if(resultat.at(0).at(0).second == "0")
-		this->couleur = Bleu;
-	if(resultat.at(0).at(0).second == "1")
-		this->couleur = Blanc;
-	if(resultat.at(0).at(0).second == "2")
-		this->couleur = Rouge;
+	this->couleur = resultat.at(0).at(0).second;
 
 	return this->couleur;
 }

@@ -47,7 +47,7 @@ class Eclairage {
 
 		unsigned int consommation;
 
-		Couleur couleur;
+		std::string couleur;
 
 		int x;
 
@@ -57,7 +57,7 @@ class Eclairage {
 
 	  public:
 
-	  	Ent():id(0), allume(false), active(false), nom("undefined"), consommation(0), couleur(Bleu), x(0), y(0){}
+	  	Ent():id(0), allume(false), active(false), nom("undefined"), consommation(0), couleur("bleu"), x(0), y(0){}
 	
 		virtual void setID(const unsigned int & id);
 	
@@ -67,7 +67,7 @@ class Eclairage {
 	
 		virtual void setNom(const std::string & nom);
 	
-		virtual void setCouleur(Couleur couleur);
+		virtual void setCouleur(std::string couleur);
 	
 		virtual void setConsommation(const unsigned int & conso);
 	
@@ -83,7 +83,7 @@ class Eclairage {
 	
 		virtual std::string getNom();
 	
-		virtual Couleur getCouleur();
+		virtual std::string getCouleur();
 	
 		virtual unsigned int getConsommation();
 	
