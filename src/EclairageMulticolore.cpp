@@ -216,7 +216,7 @@ void EclairageMulticolore::EclairageComBny::allumer(EclairageMulticolore::Ent & 
 
 void EclairageMulticolore::EclairageComBny::changerCouleur(EclairageMulticolore::Ent & ent, std::string couleur)
 {
-	this->clientTcpComBny.connecter(ent.getAdresseIP(), 5554);
+	this->clientTcpComBny.connecter(ent.getAdresseIP(), 55554);
 	std::string message = "{\"demande\":\"cc\", \"couleur\":" + couleur + ",\"id\":"+ std::to_string(ent.getID())+"}";
 
 	this->clientTcpComBny.fprintf(message.c_str());

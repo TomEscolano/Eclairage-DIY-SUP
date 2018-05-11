@@ -102,7 +102,7 @@ int SqlitePersiBny::getDernierId(std::string table) throw (SqlitePersiBnyExcepti
 	this->executerSql("select id from " + table + " order by id desc limit 1;",resultat);
 	try{
 		return std::stoi(resultat.at(0).at(0).second);
-	}catch(const std::out_of_range &e){
+	}catch(...){
 		return 0;
 	}
 }

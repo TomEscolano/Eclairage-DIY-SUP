@@ -7,6 +7,7 @@
 
 
 #include <EclairageUnicolore.h>
+#include <JSONBny.h>
 
 void EclairageUnicolore::IHMFormulaire::set(EclairageUnicolore::Ent & ent, std::string nom, std::string couleur, std::string id, std::string x, std::string y)
 {
@@ -129,8 +130,11 @@ void EclairageUnicolore::PersiBny::get(Ent & ent)
 
 void EclairageUnicolore::EclairageComBny::allumer(EclairageUnicolore::Ent & ent, bool etat)
 {
-	this->clientTcpComBny.connecter("127.0.0.1", 5554);
-	std::string message = "{\"demande\":\"fe\", \"etat\":" + std::to_string(etat) + ",\"id\":"+ std::to_string(ent.getID())+"}";
+	this->clientTcpComBny.connecter("192.168.140.61", 55554);
+	JSONBny json;
+	int etatSerialize = etat;
+	
+	std::string message = json.serialiserUnicolore(etat, ent.getID());
 
 	this->clientTcpComBny.fprintf(message.c_str());
 
