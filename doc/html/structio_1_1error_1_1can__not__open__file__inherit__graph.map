@@ -1,6 +1,0 @@
-<map id="io::error::can_not_open_file" name="io::error::can_not_open_file">
-<area shape="rect" id="node2" href="$structio_1_1error_1_1base.html" title="{io::error::base\n|+ error_message_buffer\l|+ format_error_message()\l+ what()\l}" alt="" coords="5,131,177,223"/>
-<area shape="rect" id="node3" title="STL class. " alt="" coords="39,5,143,83"/>
-<area shape="rect" id="node4" href="$structio_1_1error_1_1with__file__name.html" title="{io::error::with_file_name\n|+ file_name\l|+ with_file_name()\l+ set_file_name()\l}" alt="" coords="201,131,363,223"/>
-<area shape="rect" id="node5" href="$structio_1_1error_1_1with__errno.html" title="{io::error::with_errno\n|+ errno_value\l|+ with_errno()\l+ set_errno()\l}" alt="" coords="387,131,521,223"/>
-</map>

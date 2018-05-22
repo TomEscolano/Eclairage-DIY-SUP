@@ -4,7 +4,10 @@ var dir_68267d1309a1af8e8297ef4c3efbcdba =
     [ "ClientTcpComBny.h", "ClientTcpComBny_8h.html", [
       [ "ClientTcpComBny", "classClientTcpComBny.html", "classClientTcpComBny" ]
     ] ],
-    [ "csvReader.h", "csvReader_8h.html", "csvReader_8h" ],
+    [ "csv.cpp", "csv_8cpp.html", null ],
+    [ "csv.h", "csv_8h.html", [
+      [ "CSV", "classCSV.html", "classCSV" ]
+    ] ],
     [ "Eclairage.cpp", "Eclairage_8cpp.html", null ],
     [ "Eclairage.h", "Eclairage_8h.html", [
       [ "Eclairage", "classEclairage.html", "classEclairage" ],

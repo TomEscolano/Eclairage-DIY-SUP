@@ -44,10 +44,10 @@ int main()
 
 		//Supression de l'éclairage
 		ucSupprimer.doIt(tmp.controleur.ent);
-        }
+    }
 
-      // Fin du document HTML
-      std::cout << cgicc::body() << cgicc::html();
+    // Fin du document HTML
+    std::cout << cgicc::body() << cgicc::html();
    
 	return 0;
 }

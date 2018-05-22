@@ -1,5 +1,5 @@
 <map id="Graphe hiérarchique des classes" name="Graphe hiérarchique des classes">
-<area shape="rect" id="node1" href="$classEclairage_1_1IHMJardin.html" title="Eclairage::IHMJardin" alt="" coords="5,46,149,73"/>
-<area shape="rect" id="node2" href="$classEclairageMulticolore_1_1IHMJardin.html" title="EclairageMulticolore\l::IHMJardin" alt="" coords="197,5,336,47"/>
-<area shape="rect" id="node3" href="$classEclairageUnicolore_1_1IHMJardin.html" title="EclairageUnicolore\l::IHMJardin" alt="" coords="201,71,332,112"/>
+<area shape="rect" id="node1" href="$classEclairage_1_1IHMFormulaire.html" title="Eclairage::IHMFormulaire" alt="" coords="5,46,176,73"/>
+<area shape="rect" id="node2" href="$classEclairageMulticolore_1_1IHMFormulaire.html" title="EclairageMulticolore\l::IHMFormulaire" alt="" coords="224,5,363,47"/>
+<area shape="rect" id="node3" href="$classEclairageUnicolore_1_1IHMFormulaire.html" title="EclairageUnicolore\l::IHMFormulaire" alt="" coords="228,71,359,112"/>
 </map>

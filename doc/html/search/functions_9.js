@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['next_5fline',['next_line',['../classio_1_1LineReader.html#a97f4e0129611d9da2b8c966ffe670be5',1,'io::LineReader::next_line()'],['../classio_1_1CSVReader.html#a9fec7797cb27f64360cc48adc5f32c72',1,'io::CSVReader::next_line()']]],
-  ['nonowningistreambytesource',['NonOwningIStreamByteSource',['../classio_1_1detail_1_1NonOwningIStreamByteSource.html#aacb55ba2f52ba1c30810697d6aa92169',1,'io::detail::NonOwningIStreamByteSource']]],
-  ['nonowningstringbytesource',['NonOwningStringByteSource',['../classio_1_1detail_1_1NonOwningStringByteSource.html#a8fd604017b38e20f90386b6e10bd95a3',1,'io::detail::NonOwningStringByteSource']]]
+  ['recevoir',['recevoir',['../classClientTcpComBny.html#ad32e6a288aeff3d243d88c60afe967c3',1,'ClientTcpComBny::recevoir()'],['../classTcpComBny.html#a1f1002ef6d3d9cfe4cfcef4cfa3ab020',1,'TcpComBny::recevoir()']]],
+  ['resultattostring',['resultatToString',['../classSqlitePersiBny.html#a6c80449c682a18e9e9ce0a860f05088d',1,'SqlitePersiBny']]]
 ];

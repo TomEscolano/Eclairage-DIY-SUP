@@ -129,6 +129,9 @@ class EclairageMulticolore : public Eclairage {
 		  */
 		class IHMParametre{
 		 	public:
+		 		/**
+		 		 * Méthode permettant d'afficher la page de paramétrage de l'éclairage
+		 		 */
 				void set(EclairageMulticolore::Ent & ent);
 		 };
 
@@ -168,16 +171,6 @@ class EclairageMulticolore : public Eclairage {
 				EclairageComBny eclairageComBny;
 
 				Controleur():Eclairage::Controleur(), ent(), persiBny(){};
-
-				/**
-				 * Méthode permettant de recevoir une configuration d'éclairage via le réseau.
-				 */
-				void recevoir();
-
-				/**
-				 * Méthode permettant d'envoyer une configuration d'eclairage via le réseau.
-				 */
-				void envoyer();
 
 				/**
 				 * Méthode permettant d'afficher l'IHM Jardin dans le superviseur.

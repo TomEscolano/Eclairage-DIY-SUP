@@ -1,8 +1,0 @@
-<map id="io::error::integer_overflow" name="io::error::integer_overflow">
-<area shape="rect" id="node2" href="$structio_1_1error_1_1base.html" title="{io::error::base\n|+ error_message_buffer\l|+ format_error_message()\l+ what()\l}" alt="" coords="5,138,177,230"/>
-<area shape="rect" id="node3" title="STL class. " alt="" coords="39,5,143,83"/>
-<area shape="rect" id="node4" href="$structio_1_1error_1_1with__file__name.html" title="{io::error::with_file_name\n|+ file_name\l|+ with_file_name()\l+ set_file_name()\l}" alt="" coords="201,138,363,230"/>
-<area shape="rect" id="node5" href="$structio_1_1error_1_1with__file__line.html" title="{io::error::with_file_line\n|+ file_line\l|+ with_file_line()\l+ set_file_line()\l}" alt="" coords="387,138,537,230"/>
-<area shape="rect" id="node6" href="$structio_1_1error_1_1with__column__name.html" title="{io::error::with_column_name\n|+ column_name\l|+ with_column_name()\l+ set_column_name()\l}" alt="" coords="561,138,747,230"/>
-<area shape="rect" id="node7" href="$structio_1_1error_1_1with__column__content.html" title="{io::error::with_column\l_content\n|+ column_content\l|+ with_column_content()\l+ set_column_content()\l}" alt="" coords="771,131,937,237"/>
-</map>

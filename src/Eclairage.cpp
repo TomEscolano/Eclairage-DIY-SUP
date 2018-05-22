@@ -19,8 +19,6 @@ void Eclairage::IHMFormulaire::set(Eclairage::Ent & ent, std::string type, std::
 	html.replace(html.find("_xEclairage"), sizeof("_xEclairage")-1, x);
 	html.replace(html.find("_yEclairage"), sizeof("_yEclairage")-1, y);
 
-
-	
 	std::cout << html;
 }
 
@@ -84,6 +82,7 @@ void Eclairage::Ent::setAllume(bool etat)
 	this->allume = etat;
 	SqlitePersiBny persi(this->DB);
 	persi.executerSql("UPDATE eclairages SET allume = " + std::to_string(this->allume) + " WHERE id = " + std::to_string(this->getID()) + ";");
+	Utility::log_action(this->getID(), "Allumer", std::to_string(this->allume));
 }
 
 void Eclairage::Ent::setActive(bool etat)
@@ -91,6 +90,7 @@ void Eclairage::Ent::setActive(bool etat)
 	this->active = etat;
 	SqlitePersiBny persi(this->DB);
 	persi.executerSql("UPDATE eclairages SET active = " + std::to_string(this->active) + " WHERE id = " + std::to_string(this->getID()) + ";");
+	Utility::log_action(this->getID(), "Activer", std::to_string(this->active));
 }
 
 void Eclairage::Ent::setNom(const std::string & nom)
@@ -98,6 +98,7 @@ void Eclairage::Ent::setNom(const std::string & nom)
 	this->nom = nom;
 	SqlitePersiBny persi(this->DB);
 	persi.executerSql("UPDATE eclairages SET nom = \"" + this->nom + "\" WHERE id = " + std::to_string(this->getID()) + ";");
+	Utility::log_action(this->getID(), "Nom", this->nom);
 }
 
 void Eclairage::Ent::setCouleur(std::string couleur)
@@ -105,6 +106,7 @@ void Eclairage::Ent::setCouleur(std::string couleur)
 	this->couleur = couleur;
 	SqlitePersiBny persi(this->DB);
 	persi.executerSql("UPDATE eclairages SET couleur =  \"" + this->couleur + "\" WHERE id = " + std::to_string(this->getID()) + ";");
+	Utility::log_action(this->getID(), "Couleur", this->couleur);
 }
 
 void Eclairage::Ent::setConsommation(const unsigned int & conso)
@@ -112,6 +114,7 @@ void Eclairage::Ent::setConsommation(const unsigned int & conso)
 	this->consommation = conso;
 	SqlitePersiBny persi(this->DB);
 	persi.executerSql("UPDATE eclairages SET consommation =  " + std::to_string(this->consommation) + " WHERE id = " + std::to_string(this->getID()) + ";");
+	Utility::log_action(this->getID(), "Consommation", std::to_string(this->consommation));
 }
 
 void Eclairage::Ent::setX(int x)
@@ -225,7 +228,7 @@ void Eclairage::IHMJardin::set(const Eclairage::Ent & ent) {
 int main()
 {
 	Eclairage eclairage;
-	eclairage.controleur.persiBny.set(eclairage.controleur.ent);
+	//eclairage.controleur.persiBny.set(eclairage.controleur.ent);
 	//eclairage.controleur.persiBny.get(eclairage.controleur.ent);
 
 	return 0;

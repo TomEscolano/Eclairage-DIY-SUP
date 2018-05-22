@@ -7,7 +7,6 @@
 
 
 #include <EclairageUnicolore.h>
-#include <JSONBny.h>
 
 void EclairageUnicolore::IHMFormulaire::set(EclairageUnicolore::Ent & ent, std::string nom, std::string couleur, std::string id, std::string x, std::string y)
 {
@@ -93,6 +92,7 @@ void EclairageUnicolore::Ent::setNumeroPrise(int num)
 	this->numeroPrise = num;
 	SqlitePersiBny persi(this->DB);
 	persi.executerSql("UPDATE unicolores SET numeroPrise = " + std::to_string(numeroPrise) + " WHERE id = " + std::to_string(this->getID()) + ";");
+	Utility::log_action(this->getID(), "Numero prise", std::to_string(this->numeroPrise));
 }
 
 int EclairageUnicolore::Ent::getNumeroPrise()
@@ -131,10 +131,8 @@ void EclairageUnicolore::PersiBny::get(Ent & ent)
 void EclairageUnicolore::EclairageComBny::allumer(EclairageUnicolore::Ent & ent, bool etat)
 {
 	this->clientTcpComBny.connecter("192.168.140.61", 55554);
-	JSONBny json;
-	int etatSerialize = etat;
-	
-	std::string message = json.serialiserUnicolore(etat, ent.getID());
+
+	std::string message = "{\"demande\":\"fe\", \"etat\":" + std::to_string(etat) + ",\"id\":"+ std::to_string(ent.getID())+"}";
 
 	this->clientTcpComBny.fprintf(message.c_str());
 

@@ -90,6 +90,7 @@ void EclairageMulticolore::Ent::setAdresseIP(std::string adresseIP)
 	this->adresseIP = adresseIP;
 	SqlitePersiBny persi(this->DB);
 	persi.executerSql("UPDATE multicolores SET adresseIP = \"" + adresseIP + "\" WHERE id = " + std::to_string(this->getID()) + ";");
+	Utility::log_action(this->getID(), "Adresse IP", this->adresseIP);
 }
 
 void EclairageMulticolore::Ent::setAdresseMac(std::string adresseMac)
@@ -97,6 +98,7 @@ void EclairageMulticolore::Ent::setAdresseMac(std::string adresseMac)
 	this->adresseMac = adresseMac;
 	SqlitePersiBny persi(this->DB);
 	persi.executerSql("UPDATE multicolores SET adresseMac = \"" + adresseMac + "\" WHERE id = " + std::to_string(this->getID()) + ";");
+	Utility::log_action(this->getID(), "Adresse Mac", this->adresseMac);
 }
 
 void EclairageMulticolore::Ent::setNiveauBatterie(unsigned int niveauBatterie)
@@ -104,6 +106,7 @@ void EclairageMulticolore::Ent::setNiveauBatterie(unsigned int niveauBatterie)
 	this->niveauBatterie = niveauBatterie;
 	SqlitePersiBny persi(this->DB);
 	persi.executerSql("UPDATE multicolores SET niveauBatterie = " + std::to_string(niveauBatterie) + " WHERE id = " + std::to_string(this->getID()) + ";");
+	Utility::log_action(this->getID(), "Niveau Batterie", std::to_string(this->niveauBatterie));
 }
 
 void EclairageMulticolore::Ent::setVersionFirmware(float version)
@@ -111,6 +114,7 @@ void EclairageMulticolore::Ent::setVersionFirmware(float version)
 	this->versionFirmware = version;
 	SqlitePersiBny persi(this->DB);
 	persi.executerSql("UPDATE multicolores SET versionFirmware = " + std::to_string(versionFirmware) + " WHERE id = " + std::to_string(this->getID()) + ";");
+	Utility::log_action(this->getID(), "Version Firmware", std::to_string(this->versionFirmware));
 }
 
 void EclairageMulticolore::Ent::setLuminosite(int luminosite)
@@ -118,6 +122,7 @@ void EclairageMulticolore::Ent::setLuminosite(int luminosite)
 	this->luminosite = luminosite;
 	SqlitePersiBny persi(this->DB);
 	persi.executerSql("UPDATE multicolores SET luminosite = " + std::to_string(luminosite) + " WHERE id = " + std::to_string(this->getID()) + ";");
+	Utility::log_action(this->getID(), "luminosite", std::to_string(this->luminosite));
 }
 
 std::string EclairageMulticolore::Ent::getAdresseIP()
@@ -170,11 +175,6 @@ void EclairageMulticolore::Controleur::getIHMJardin()
 	this->ihmJardin.set(this->ent);
 }
 
-void EclairageMulticolore::Controleur::recevoir() {
-}
-
-void EclairageMulticolore::Controleur::envoyer() {
-}
 
 void EclairageMulticolore::PersiBny::set(Ent & ent)
 {

@@ -1,0 +1,76 @@
+format 218
+
+fragment 128002 "système"
+  xyzwh 557.613 52.9399 2000 484 868
+end
+fragment 128130 "Propriétaire"
+  xyzwh 181.487 51.0569 2000 372 872
+end
+fragment 128258 "BDD"
+  xyzwh 1046.55 48.6376 2000 245 876
+end
+activitynodecanvas 128386 activitynode_ref 150146 // initial_node
+  xyz 342 139 2005
+end
+activitynodecanvas 128514 activitynode_ref 150274 // activity_final
+  xyz 355 816 2005
+end
+activityactioncanvas 128642 activityaction_ref 151810 // activity action Appui sur le bouton "Allumer"
+  
+  show_opaque_action_definition default
+  xyzwh 281 227 2005 147 56
+end
+activityactioncanvas 128898 activityaction_ref 151938 // activity action Récupération de l'ID, du type (unicolore ou multicolore) et de l'action (allumer ou eteindre) dans l'URL
+  
+  show_opaque_action_definition default
+  xyzwh 714 327 2005 185 113
+end
+activityactioncanvas 129026 activityaction_ref 152066 // activity action Modification de l'état de l'éclairage dans la base de données
+  
+  show_opaque_action_definition default
+  xyzwh 1104 636 2005 157 83
+end
+activityactioncanvas 129154 activityaction_ref 152194 // activity action Envoi d'une trame au programme SCE_RF pour allumer l'éclairage
+  
+  show_opaque_action_definition default
+  xyzwh 710 520 2005 207 80
+end
+activityactioncanvas 129282 activityaction_ref 152322 // activity action Redirection de l'utilisateur
+  
+  show_opaque_action_definition default
+  xyzwh 748 812 2005 137 64
+end
+flowcanvas 128770 flow_ref 159618 // <flow>
+  
+  from ref 128386 z 2006 to ref 128642
+   write_horizontally default
+end
+flowcanvas 129410 flow_ref 159746 // <flow>
+  
+  from ref 128642 z 2006 to point 799 256
+  line 130306 z 2006 to ref 128898
+   write_horizontally default
+end
+flowcanvas 129538 flow_ref 159874 // <flow>
+  
+  from ref 128898 z 2006 to ref 129154
+   write_horizontally default
+end
+flowcanvas 129666 flow_ref 160002 // <flow>
+  
+  from ref 129154 z 2006 to point 815 664
+  line 130178 z 2006 to ref 129026
+   write_horizontally default
+end
+flowcanvas 129794 flow_ref 160130 // <flow>
+  
+  from ref 129026 z 2006 to point 1187 850
+  line 130050 z 2006 to ref 129282
+   write_horizontally default
+end
+flowcanvas 129922 flow_ref 160258 // <flow>
+  
+  from ref 129282 z 2006 to ref 128514
+   write_horizontally default
+end
+end

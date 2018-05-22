@@ -1,6 +1,10 @@
 <map id="Graphe hiérarchique des classes" name="Graphe hiérarchique des classes">
-<area shape="rect" id="node1" href="$classio_1_1ByteSourceBase.html" title="io::ByteSourceBase" alt="" coords="5,78,144,105"/>
-<area shape="rect" id="node2" href="$classio_1_1detail_1_1NonOwningIStreamByteSource.html" title="io::detail::NonOwningIStream\lByteSource" alt="" coords="192,5,385,47"/>
-<area shape="rect" id="node3" href="$classio_1_1detail_1_1NonOwningStringByteSource.html" title="io::detail::NonOwningString\lByteSource" alt="" coords="198,71,379,112"/>
-<area shape="rect" id="node4" href="$classio_1_1detail_1_1OwningStdIOByteSourceBase.html" title="io::detail::OwningStdIOByte\lSourceBase" alt="" coords="197,136,381,177"/>
+<area shape="rect" id="node1" title="STL class. " alt="" coords="5,46,105,73"/>
+<area shape="rect" id="node2" title="STL class. " alt="" coords="153,46,308,73"/>
+<area shape="rect" id="node3" title="STL class. " alt="" coords="358,5,487,47"/>
+<area shape="rect" id="node8" title="STL class. " alt="" coords="356,71,489,112"/>
+<area shape="rect" id="node4" title="STL class. " alt="" coords="537,39,673,80"/>
+<area shape="rect" id="node5" title="STL class. " alt="" coords="721,39,852,80"/>
+<area shape="rect" id="node6" title="STL class. " alt="" coords="900,46,992,73"/>
+<area shape="rect" id="node7" href="$classFichierTextePersiBny.html" title="FichierTextePersiBny" alt="" coords="1040,46,1187,73"/>
 </map>

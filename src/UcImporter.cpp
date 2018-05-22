@@ -47,76 +47,73 @@ void UcImporter::doIt(UcModifier & ucModifier)
   		std::string contenu( (std::istreambuf_iterator<char>(ifs)),
                        (std::istreambuf_iterator<char>()));
 
-		if(contenu.find("id,allume,active,nom,consommation,couleur, x,y,numeroPrise") != std::string::npos)
+		if(contenu.find("id,allume,active,nom,consommation,x,y,couleur,numeroPrise") != std::string::npos)
 		{
 			//Unicolore
-			//Initialisation du lecteur CSV
-			io::CSVReader<9> in(file->getFilename());
-			in.read_header(io::ignore_extra_column, "id","allume","active","nom","consommation", "couleur","x","y","couleur","numeroPrise");
+			//Création du lecteur CSV
+			CSV csv;
+			csv.open(file->getFilename());
 
-			//Propriétés
-			std::string nom;
-			int id, consommation, x, y, numeroPrise, couleur, allume, active;
+			std::vector<std::vector<std::string>> donnees = csv.get_vector();
 
-			while(in.read_row(id,allume,active,nom,consommation,x,y,couleur,numeroPrise))
+			for(int i = 1; i < donnees.size(); i++)
 			{
-				//Création d'un eclairage unicolore temporaire
-				EclairageUnicolore eclairage;
+					//Création d'un eclairage unicolore temporaire
+					EclairageUnicolore eclairage;
 
-				//Assignation des valeurs d'éclairage générique
-				eclairage.controleur.ent.setID(id);
-				eclairage.controleur.ent.setAllume(allume);
-				eclairage.controleur.ent.setActive(active);
-				eclairage.controleur.ent.setNom(nom);
-				eclairage.controleur.ent.setConsommation(consommation);
-				
-				//Assignation des valeurs d'éclairage spécifique
-				eclairage.controleur.ent.setCouleur(couleur);
+					//Assignation des valeurs d'éclairage générique
+					eclairage.controleur.ent.setID(donnees[i][0]);
+					eclairage.controleur.ent.setAllume(donnees[i][1]);
+					eclairage.controleur.ent.setActive(donnees[i][2]);
+					eclairage.controleur.ent.setNom(donnees[i][3]);
+					eclairage.controleur.ent.setConsommation(donnees[i][4]);
+					
+					//Assignation des valeurs d'éclairage spécifique
+					eclairage.controleur.ent.setCouleur(donnees[i][5]);
 
-				//Creation de l'eclairage ou modification
-				ucModifier.doIt(eclairage,cgi);
+					//Creation de l'eclairage ou modification
+					//ucModifier.doIt(eclairage,cgi);
 			}
 		}
 
 		else if(contenu.find("id,allume,active,nom,consommation,couleur,x,y,adresseMac,adresseIP,versionFirmware,luminosite,niveauBatterie") != std::string::npos)
 		{
 	
-			//Multicolore
-			//Initialisation du lecteur CSV
-			io::CSVReader<13> in(file->getFilename());
-			in.read_header(io::ignore_extra_column, "id","allume","active","nom","consommation","couleur", "x","y","adresseMac","adresseIP","versionFirmware","luminosite","niveauBatterie");
+			//Ecriture des données dans le fichier
+			std::ofstream fichier;
+			fichier.open(file->getFilename());
+			file->writeToStream(fichier);
+			fichier.close();
 
-			//Propriétés
-			std::string nom, adresseMac, adresseIP;
-			int id, consommation, x, y, numeroPrise, couleur, allume, active, luminosite, niveauBatterie;
-			float versionFirmware;
+			//Lecture du fichier
+	        std::ifstream ifs(file->getFilename());
+	  		std::string contenu( (std::istreambuf_iterator<char>(ifs)),
+	                       (std::istreambuf_iterator<char>()));
 
-			while(in.read_row(id,allume,active,nom,consommation,x,y,adresseMac,adresseIP,versionFirmware,couleur,luminosite,niveauBatterie))
+			for(int i = 1; i < donnees.size(); i++)
 			{
-				//Creation d'un eclairage multicolore temporaire
-				EclairageMulticolore eclairage;
+					EclairageMulticolore eclairage;
 
-				//Assignation des valeurs d'eclairage générique
-				eclairage.controleur.ent.setID(id);
-				eclairage.controleur.ent.setAllume(allume);
-				eclairage.controleur.ent.setActive(active);
-				eclairage.controleur.ent.setNom(nom);
-				eclairage.controleur.ent.setConsommation(consommation);
-				eclairage.controleur.ent.setX(x);
-				eclairage.controleur.ent.setY(y);
-
-				//Assignation des valeurs d'éclairage spécifique
-				eclairage.controleur.ent.setAdresseMac(adresseMac);
-				eclairage.controleur.ent.setAdresseIP(adresseIP);
-				eclairage.controleur.ent.setVersionFirmware(versionFirmware);
-				eclairage.controleur.ent.setCouleur(couleur);
-				eclairage.controleur.ent.setLuminosite(luminosite);
-				eclairage.controleur.ent.setNiveauBatterie(niveauBatterie);
-
-				//Creation de l'eclairage ou modification
-				ucModifier.doIt(eclairage,cgi);
-			}
-			
+					//Assignation des valeurs d'eclairage générique
+					eclairage.controleur.ent.setID(donnees[i][0]);
+					eclairage.controleur.ent.setAllume(donnees[i][1]);
+					eclairage.controleur.ent.setActive(donnees[i][2]);
+					eclairage.controleur.ent.setNom(donnees[i][3]);
+					eclairage.controleur.ent.setConsommation(donnees[i][4]);
+					eclairage.controleur.ent.setX(donnees[i][5]);
+					eclairage.controleur.ent.setY(donnees[i][6]);
+					eclairage.controleur.ent.setCouleur(donnees[i][10]);
+	
+					//Assignation des valeurs d'éclairage spécifique
+					eclairage.controleur.ent.setAdresseMac(donnees[i][7]);
+					eclairage.controleur.ent.setAdresseIP(donnees[i][8]);
+					eclairage.controleur.ent.setVersionFirmware(donnees[i][9]);
+					eclairage.controleur.ent.setLuminosite(donnees[i][11]);
+					eclairage.controleur.ent.setNiveauBatterie(donnees[i][12]);
+	
+					//Creation de l'eclairage ou modification
+					//ucModifier.doIt(eclairage,cgi);
+			}			
 		}
 		else
 		{
@@ -126,7 +123,7 @@ void UcImporter::doIt(UcModifier & ucModifier)
 
 		// Suppression du fichier et confirmation
 		remove(file->getFilename().c_str());
-		std::cout << "<p>Importation terminée !</p>" << std::endl;
+		std::cout << "<p>Importation terminee !</p>" << std::endl;
 
     }
 

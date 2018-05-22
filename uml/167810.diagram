@@ -1,0 +1,25 @@
+format 218
+
+deploymentnodecanvas 128130 deploymentnode_ref 128130 // nanoOrdinateur
+  name "rpi3"
+  xyzwh 148 275 0 197 525
+end
+artifactcanvas 128258 artifact_ref 160514 // Supervision
+  xyz 162 325 2000
+end
+artifactcanvas 128386 artifact_ref 160642 // SCE_RF
+  xyz 164 477 2000
+end
+artifactcanvas 128642 artifact_ref 160770 // LibCgicc
+  xyz 163 400 2000
+end
+artifactcanvas 128770 artifact_ref 160898 // Serveur Apache
+  xyz 167 554 2000
+end
+artifactcanvas 128898 artifact_ref 161026 // Sqlite
+  xyz 168 636 2000
+end
+artifactcanvas 129026 artifact_ref 161154 // Raspbian
+  xyz 186 720 2000
+end
+end

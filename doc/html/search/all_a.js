@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['max_5fcolumn_5fcontent_5flength',['max_column_content_length',['../namespaceio_1_1error.html#a5a641f4f0837f4c94416e05461a62749',1,'io::error']]],
-  ['max_5fcolumn_5fname_5flength',['max_column_name_length',['../namespaceio_1_1error.html#ae17181bae477fe72ddad096b6b1d6963',1,'io::error']]],
-  ['max_5ffile_5fname_5flength',['max_file_name_length',['../namespaceio_1_1error.html#ac757e93a049ae7a5f23e522933de68e4',1,'io::error']]],
-  ['missing_5fcolumn_5fin_5fheader',['missing_column_in_header',['../structio_1_1error_1_1missing__column__in__header.html',1,'io::error']]]
+  ['readme_2emd',['README.md',['../README_8md.html',1,'']]],
+  ['recevoir',['recevoir',['../classClientTcpComBny.html#ad32e6a288aeff3d243d88c60afe967c3',1,'ClientTcpComBny::recevoir()'],['../classTcpComBny.html#a1f1002ef6d3d9cfe4cfcef4cfa3ab020',1,'TcpComBny::recevoir()']]],
+  ['resultat',['Resultat',['../classSqlitePersiBny.html#a04bdd1bacd9241210ea44ec2c072f79b',1,'SqlitePersiBny']]],
+  ['resultattostring',['resultatToString',['../classSqlitePersiBny.html#a6c80449c682a18e9e9ce0a860f05088d',1,'SqlitePersiBny']]]
 ];

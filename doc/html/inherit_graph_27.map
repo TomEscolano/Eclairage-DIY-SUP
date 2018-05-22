@@ -1,6 +1,0 @@
-<map id="Graphe hiérarchique des classes" name="Graphe hiérarchique des classes">
-<area shape="rect" id="node1" href="$classSqlitePersiBny.html" title="SqlitePersiBny" alt="" coords="5,46,113,73"/>
-<area shape="rect" id="node2" href="$classEclairage_1_1PersiBny.html" title="Eclairage::PersiBny" alt="" coords="161,46,299,73"/>
-<area shape="rect" id="node3" href="$classEclairageMulticolore_1_1PersiBny.html" title="EclairageMulticolore\l::PersiBny" alt="" coords="347,5,485,47"/>
-<area shape="rect" id="node4" href="$classEclairageUnicolore_1_1PersiBny.html" title="EclairageUnicolore\l::PersiBny" alt="" coords="351,71,481,112"/>
-</map>

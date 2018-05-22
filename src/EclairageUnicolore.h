@@ -92,6 +92,9 @@ class EclairageUnicolore : public Eclairage {
 		  */
  		class IHMParametre{
 		 	public:
+		 		/**
+		 		 * Méthode permettant d'afficher la page de paramétrage de l'éclairage
+		 		 */
 				void set(EclairageUnicolore::Ent & ent);
 		 };
 		 

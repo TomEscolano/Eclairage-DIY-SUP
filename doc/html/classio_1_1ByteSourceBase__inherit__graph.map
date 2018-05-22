@@ -1,5 +1,0 @@
-<map id="io::ByteSourceBase" name="io::ByteSourceBase">
-<area shape="rect" id="node2" href="$classio_1_1detail_1_1NonOwningIStreamByteSource.html" title="{io::detail::NonOwningIStream\lByteSource\n||+ NonOwningIStreamByteSource()\l+ read()\l+ ~NonOwningIStreamByteSource()\l}" alt="" coords="5,145,237,267"/>
-<area shape="rect" id="node3" href="$classio_1_1detail_1_1NonOwningStringByteSource.html" title="{io::detail::NonOwningString\lByteSource\n||+ NonOwningStringByteSource()\l+ read()\l+ ~NonOwningStringByteSource()\l}" alt="" coords="262,145,482,267"/>
-<area shape="rect" id="node4" href="$classio_1_1detail_1_1OwningStdIOByteSourceBase.html" title="{io::detail::OwningStdIOByte\lSourceBase\n||+ OwningStdIOByteSourceBase()\l+ read()\l+ ~OwningStdIOByteSourceBase()\l}" alt="" coords="507,145,733,267"/>
-</map>

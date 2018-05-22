@@ -1,6 +1,6 @@
 format 218
 "conception" // conception
-  revision 16
+  revision 17
   modified_by 2 "tom"
   // class settings
   
@@ -579,10 +579,60 @@ format 218
 	  on activityaction_ref 137090 // activity action Suppression de l'éclairage dans la base de données
 	end
       end
+
+      activitydiagram 167938 "UcCommander"
+	activitydiagramsettings
+	 end
+	size A0
+      end
+
+      activitynode 150146 initial_node ""
+	flow 159618 "<flow>"
+	  on activityaction_ref 151810 // activity action Appui sur le bouton "Allumer"
+	end
+      end
+
+      activitynode 150274 activity_final ""
+      end
+
+      activityaction 151810 "Appui sur le bouton \"Allumer\""
+	opaque_action
+	flow 159746 "<flow>"
+	  on activityaction_ref 151938 // activity action Récupération de l'ID, du type (unicolore ou multicolore) et de l'action (allumer ou eteindre) dans l'URL
+	end
+      end
+
+      activityaction 151938 "Récupération de l'ID, du type (unicolore ou multicolore) et de l'action (allumer ou eteindre) dans l'URL"
+	opaque_action
+	flow 159874 "<flow>"
+	  on activityaction_ref 152194 // activity action Envoi d'une trame au programme SCE_RF pour allumer l'éclairage
+	end
+      end
+
+      activityaction 152066 "Modification de l'état de l'éclairage dans la base de données"
+	opaque_action
+	flow 160130 "<flow>"
+	  on activityaction_ref 152322 // activity action Redirection de l'utilisateur
+	end
+      end
+
+      activityaction 152194 "Envoi d'une trame au programme SCE_RF pour allumer l'éclairage"
+	opaque_action
+	flow 160002 "<flow>"
+	  on activityaction_ref 152066 // activity action Modification de l'état de l'éclairage dans la base de données
+	end
+      end
+
+      activityaction 152322 "Redirection de l'utilisateur"
+	opaque_action
+	flow 160258 "<flow>"
+	  on activitynode_ref 150274 // activity_final
+	end
+      end
     end
 
     usecasediagram 128258 "UseCase"
-      usecasediagramsettings end
+      usecasediagramsettings draw_all_relations no end
       size A0
     end
 
@@ -1317,5 +1367,47 @@ int main()
 	class_ref 148738 // ClientTCPComBny
       end
     end
+  end
+
+  deploymentview 154754 "deploiement"
+    //deployment diagram settings
+    deploymentdiagramsettings
+     end
+    deploymentdiagram 167810 "deploiement"
+      deploymentdiagramsettings
+       end
+      size A4
+    end
+
+    deploymentnode 128130 "nanoOrdinateur"
+    end
+
+    artifact 160514 "Supervision"
+    end
+
+    artifact 160642 "SCE_RF"
+    end
+
+    artifact 160770 "LibCgicc"
+    end
+
+    artifact 160898 "Serveur Apache"
+      stereotype "service"
+      associated_artifacts
+      end
+    end
+
+    artifact 161026 "Sqlite"
+      stereotype "service"
+      associated_artifacts
+      end
+    end
+
+    artifact 161154 "Raspbian"
+      stereotype "SE"
+      associated_artifacts
+      end
+    end
+
   end
 end
