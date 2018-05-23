@@ -1,6 +1,6 @@
 format 218
 "conception" // conception
-  revision 18
+  revision 19
   modified_by 2 "tom"
   // class settings
   
@@ -137,7 +137,7 @@ format 218
 	end
 
 	flow 129666 "<flow>"
-	  on activityaction_ref 129282 // activity action Démarrage du programme
+	  on activityaction_ref 129282 // activity action Accès à la supervision via un navigateur Web
 	end
 
 	flow 166914 "<flow>"
@@ -169,7 +169,7 @@ format 218
 	end
       end
 
-      activityaction 129282 "Démarrage du programme"
+      activityaction 129282 "Accès à la supervision via un navigateur Web"
 	opaque_action
 	flow 129794 "<flow>"
 	  on activityaction_ref 128898 // activity action Appui sur le bouton "importer"
@@ -531,7 +531,7 @@ format 218
 
       activitynode 143490 initial_node ""
 	flow 151426 "<flow>"
-	  on activityaction_ref 129282 // activity action Démarrage du programme
+	  on activityaction_ref 129282 // activity action Accès à la supervision via un navigateur Web
 	end
       end
 
@@ -1419,6 +1419,18 @@ int main()
       stereotype "SE"
       associated_artifacts
       end
+    end
+
+    deploymentnode 134658 "Réseau Local"
+    end
+
+    deploymentnode 134786 "Emetteur IR"
+    end
+
+    deploymentnode 134914 "Emetteur RF"
+    end
+
+    artifact 167682 "SCE_IR"
     end
   end
 end

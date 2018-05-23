@@ -1,49 +1,49 @@
 format 218
 
 fragment 128002 "système"
-  xyzwh 361.525 51.9286 2000 242 671
+  xyzwh 362.125 51.7286 2000 242 671
 end
 fragment 128130 "utilisateur"
-  xyzwh 82.448 52.6924 2000 270 679
+  xyzwh 82.248 52.4924 2000 270 679
 end
 fragment 128258 "BDD"
-  xyzwh 613.824 47.2778 2000 137 677
+  xyzwh 613.624 47.2778 2000 137 677
 end
 activitynodecanvas 128386 activitynode_ref 143490 // initial_node
-  xyz 212.925 124.1 2005
+  xyz 212.725 124.5 2005
 end
-activityactioncanvas 128514 activityaction_ref 129282 // activity action Démarrage du programme
+activityactioncanvas 128514 activityaction_ref 129282 // activity action Accès à la supervision via un navigateur Web
   
   show_opaque_action_definition default
-  xyzwh 168.052 174.265 2005 115 65
+  xyzwh 155.052 172.065 2005 139 89
 end
 activityactioncanvas 128642 activityaction_ref 144642 // activity action Lecture du fichier index.html
   
   show_opaque_action_definition default
-  xyzwh 417.547 180.819 2005 141 65
+  xyzwh 417.147 180.419 2005 141 65
 end
 activityactioncanvas 128770 activityaction_ref 144770 // activity action Extraction des eclairages
   
   show_opaque_action_definition default
-  xyzwh 424.327 390.892 2005 127 67
+  xyzwh 424.927 390.292 2005 127 67
 end
 activityactioncanvas 128898 activityaction_ref 128514 // activity action Extractions des eclairages
   
   show_opaque_action_definition default
-  xyzwh 634.432 388.038 2005 109 75
+  xyzwh 634.832 388.038 2005 109 75
 end
 activityactioncanvas 129026 activityaction_ref 144898 // activity action Affichage des eclairages
   
   show_opaque_action_definition default
-  xyzwh 430.859 489.477 2005 123 63
+  xyzwh 430.659 489.477 2005 123 63
 end
 activityactioncanvas 129154 activityaction_ref 145026 // activity action Affichage du contenu de l'index.html
   
   show_opaque_action_definition default
-  xyzwh 417.689 280.025 2010 137 69
+  xyzwh 417.689 280.225 2010 137 69
 end
 activitynodecanvas 129410 activitynode_ref 143618 // activity_final
-  xyz 203.945 515.436 2005
+  xyz 202.945 504.036 2005
 end
 flowcanvas 129282 flow_ref 151426 // <flow>
   
@@ -72,7 +72,7 @@ flowcanvas 129922 flow_ref 151938 // <flow>
 end
 flowcanvas 130050 flow_ref 152066 // <flow>
   
-  from ref 128898 z 2006 to point 688 525
+  from ref 128898 z 2006 to point 688 521.6
   line 130306 z 2006 to ref 129026
    write_horizontally default
 end

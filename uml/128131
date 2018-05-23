@@ -1,6 +1,6 @@
 format 218
 "analyse" // analyse
-  revision 17
+  revision 18
   modified_by 2 "tom"
   // class settings
   
@@ -341,7 +341,7 @@ ${inlines}
 	end
 
 	attribute 128258 "couleur"
-	  private type class_ref 136835 // Couleur
+	  private explicit_type "std::string"
 	  cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	  java_decl ""
@@ -439,10 +439,10 @@ ${inlines}
 	operation 141571 "setCouleur"
 	  public explicit_return_type "void"
 	  nparams 1
-	    param in name "couleur" type class_ref 136835 // Couleur
-	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+	    param in name "couleur" explicit_type "std::string"
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "
-	  cpp_def "${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+	  cpp_def "${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
 "
 	  
@@ -553,7 +553,7 @@ ${inlines}
 	end
 
 	operation 141699 "getCouleur"
-	  public return_type class_ref 136835 // Couleur
+	  public explicit_return_type "std::string"
 	  nparams 0
 	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "

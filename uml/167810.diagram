@@ -2,24 +2,41 @@ format 218
 
 deploymentnodecanvas 128130 deploymentnode_ref 128130 // nanoOrdinateur
   name "rpi3"
-  xyzwh 148 275 0 197 525
+  xyzwh 148.606 275.006 0 197 525
 end
 artifactcanvas 128258 artifact_ref 160514 // Supervision
-  xyz 162 325 2000
+  xyz 162.567 325.844 2000
 end
 artifactcanvas 128386 artifact_ref 160642 // SCE_RF
-  xyz 164 477 2000
+  xyz 164.58 477.836 2000
 end
 artifactcanvas 128642 artifact_ref 160770 // LibCgicc
-  xyz 163 400 2000
+  xyz 163.074 400.834 2000
 end
 artifactcanvas 128770 artifact_ref 160898 // Serveur Apache
-  xyz 167 554 2000
+  xyz 167.606 554.839 2000
 end
 artifactcanvas 128898 artifact_ref 161026 // Sqlite
-  xyz 168 636 2000
+  xyz 168.113 636.375 2000
 end
 artifactcanvas 129026 artifact_ref 161154 // Raspbian
-  xyz 186 720 2000
+  xyz 186.632 720.923 2000
 end
+deploymentnodecanvas 129154 deploymentnode_ref 134658 // Réseau Local
+  xyzwh 410.536 517.487 2000 110 36
+end
+deploymentnodecanvas 129794 deploymentnode_ref 128130 // nanoOrdinateur
+  name "rpi0w"
+  xyzwh 601.388 429.85 2000 183 217
+end
+artifactcanvas 129922 artifact_ref 161154 // Raspbian
+  xyz 620.842 473.147 2005
+end
+artifactcanvas 130050 artifact_ref 167682 // SCE_IR
+  xyz 609.855 550.15 2005
+end
+line 129666 ----
+  from ref 129154 z 2001 stereotype "<<tcp/ip>>" xyz 345 507.5 3000 to ref 128130
+line 130690 ----
+  from ref 129154 z 2001 stereotype "<<tcp/ip>>" xyz 523.5 535 3000 to ref 129794
 end
