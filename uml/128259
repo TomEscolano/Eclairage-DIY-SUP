@@ -1,6 +1,6 @@
 format 218
 "conception" // conception
-  revision 17
+  revision 18
   modified_by 2 "tom"
   // class settings
   
@@ -57,6 +57,10 @@ format 218
 
 	flow 130434 "<flow>"
 	  on activityaction_ref 129410 // activity action Démarrage du programme
+	end
+
+	flow 166786 "<flow>"
+	  on activityaction_ref 128130 // activity action Appui sur le bouton "exporter"
 	end
       end
 
@@ -134,6 +138,10 @@ format 218
 
 	flow 129666 "<flow>"
 	  on activityaction_ref 129282 // activity action Démarrage du programme
+	end
+
+	flow 166914 "<flow>"
+	  on activityaction_ref 128898 // activity action Appui sur le bouton "importer"
 	end
       end
 
@@ -238,6 +246,10 @@ format 218
       activitynode 135298 initial_node ""
 	flow 137858 "<flow>"
 	  on activityaction_ref 129410 // activity action Démarrage du programme
+	end
+
+	flow 167042 "<flow>"
+	  on activityaction_ref 136194 // activity action Récupération de l'ID dans l'URL (get)
 	end
       end
 
@@ -348,7 +360,7 @@ format 218
       activityaction 136834 "Affichage du formulaire de paramétrage unicolore"
 	opaque_action
 	flow 140290 "<flow>"
-	  on activityaction_ref 137090 // activity action Suppression de l'éclairage dans la base de données
+	  on activityaction_ref 137090 // activity action Modification de l'éclairage dans la base de données
 	end
 
 	flow 140418 "<flow>"
@@ -379,7 +391,7 @@ format 218
 	end
       end
 
-      activityaction 137090 "Suppression de l'éclairage dans la base de données"
+      activityaction 137090 "Modification de l'éclairage dans la base de données"
 	opaque_action
 	flow 142082 "<flow>"
 	  on activityaction_ref 137730 // activity action Affichage du message de succès
@@ -393,7 +405,7 @@ format 218
       activityaction 137218 "Récupération du numero de prise de l'éclairage"
 	opaque_action
 	flow 140546 "<flow>"
-	  on activityaction_ref 137090 // activity action Suppression de l'éclairage dans la base de données
+	  on activityaction_ref 137090 // activity action Modification de l'éclairage dans la base de données
 	end
 
 	flow 144386 "<flow>"
@@ -442,7 +454,7 @@ format 218
       activityaction 137602 "Récupération de l'adresse IP"
 	opaque_action
 	flow 141954 "<flow>"
-	  on activityaction_ref 137090 // activity action Suppression de l'éclairage dans la base de données
+	  on activityaction_ref 137090 // activity action Modification de l'éclairage dans la base de données
 	end
 
 	flow 144258 "<flow>"
@@ -481,7 +493,7 @@ format 218
 	end
 
 	flow 152578 "<flow>"
-	  on activityaction_ref 137090 // activity action Suppression de l'éclairage dans la base de données
+	  on activityaction_ref 137090 // activity action Modification de l'éclairage dans la base de données
 	end
 
 	flow 152706 "<flow>"
@@ -507,7 +519,7 @@ format 218
 
       activitynode 136962 merge ""
 	flow 144514 "<flow>"
-	  on activityaction_ref 137090 // activity action Suppression de l'éclairage dans la base de données
+	  on activityaction_ref 137090 // activity action Modification de l'éclairage dans la base de données
 	end
       end
 
@@ -563,7 +575,7 @@ format 218
       activityaction 145154 "Traitement des données"
 	opaque_action
 	flow 152834 "<flow>"
-	  on activityaction_ref 137090 // activity action Suppression de l'éclairage dans la base de données
+	  on activityaction_ref 137090 // activity action Modification de l'éclairage dans la base de données
 	end
       end
 
@@ -576,7 +588,7 @@ format 218
       activityaction 145282 "Requete de suppression de l'éclairage grâce à l'ID"
 	opaque_action
 	flow 153090 "<flow>"
-	  on activityaction_ref 137090 // activity action Suppression de l'éclairage dans la base de données
+	  on activityaction_ref 137090 // activity action Modification de l'éclairage dans la base de données
 	end
       end
 
@@ -829,11 +841,11 @@ ${inlines}
       explicit_switch_type ""
       mysql_decl ""
       
-      classrelation 128002 // <generalisation>
-	relation 128002 ---|>
+      classrelation 195202 // <generalisation>
+	relation 195202 ---|>
 	  a public
 	    cpp default "${type}"
-	    classrelation_ref 128002 // <generalisation>
+	    classrelation_ref 195202 // <generalisation>
 	  b parent class_ref 128258 // SCE
       end
     end
@@ -1408,6 +1420,5 @@ int main()
       associated_artifacts
       end
     end
-
   end
 end

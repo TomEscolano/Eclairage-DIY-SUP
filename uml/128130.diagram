@@ -1,52 +1,47 @@
 format 218
 
 fragment 128002 "Utilisateur"
-  xyzwh 77.0858 80.2508 2000 244 801
+  xyzwh 76.5457 80.7597 2000 244 801
 end
 fragment 128130 "Système"
-  xyzwh 331.644 79.1577 0 236 805
+  xyzwh 332.495 79.0427 0 236 805
 end
 fragment 128258 "BDD"
-  xyzwh 577.344 81.1577 0 207 802
+  xyzwh 577.065 81.0427 0 207 802
 end
 activitynodecanvas 128386 activitynode_ref 128386 // initial_node
-  xyz 194.2 137.503 2005
+  xyz 194.54 137.408 2005
 end
 activitynodecanvas 128514 activitynode_ref 128514 // activity_final
-  xyz 422.496 818.86 2005
+  xyz 422.706 818.99 2005
 end
 activityactioncanvas 128770 activityaction_ref 128898 // activity action Appui sur le bouton "importer"
   
   show_opaque_action_definition default
-  xyzwh 155.206 313.71 2005 101 77
+  xyzwh 155.298 313.707 2005 101 77
 end
 activityactioncanvas 128898 activityaction_ref 129026 // activity action Demande de saisie d'un fichier de configuration
   
   show_opaque_action_definition default
-  xyzwh 402.096 305.717 2000 123 97
+  xyzwh 402.212 305.466 2000 123 97
 end
 activityactioncanvas 129026 activityaction_ref 129154 // activity action Saisie d'un fichier de configuration
   
   show_opaque_action_definition default
-  xyzwh 145.227 444.171 2005 133 83
-end
-activityactioncanvas 129666 activityaction_ref 129282 // activity action Démarrage du programme
-  
-  show_opaque_action_definition default
-  xyzwh 143.2 193.296 2011 121 77
+  xyzwh 145.576 444.56 2005 133 83
 end
 activityactioncanvas 130178 activityaction_ref 129538 // activity action Lecture d'une ligne du fichier de configuration
   
   show_opaque_action_definition default
-  xyzwh 378.996 533.495 2000 113 93
+  xyzwh 378.206 533.234 2000 113 93
 end
 activitynodecanvas 130306 activitynode_ref 128770 // decision
-  xyz 422.996 691.943 2000
+  xyz 422.206 691.57 2000
 end
 activityactioncanvas 130818 activityaction_ref 129666 // activity action Insertion de l'eclairage dans la base de données
   
   show_opaque_action_definition default
-  xyzwh 610.288 534.992 2000 109 89
+  xyzwh 610.992 534.355 2000 109 89
 end
 flowcanvas 129282 flow_ref 129410 // <flow>
   
@@ -55,23 +50,13 @@ flowcanvas 129282 flow_ref 129410 // <flow>
 end
 flowcanvas 129410 flow_ref 129538 // <flow>
   
-  from ref 128898 z 2006 to point 458 484.3
+  from ref 128898 z 2006 to point 458.988 484.765
   line 129538 z 2006 to ref 129026
-   write_horizontally default
-end
-flowcanvas 129794 flow_ref 129666 // <flow>
-  
-  from ref 128386 z 2012 to ref 129666
-   write_horizontally default
-end
-flowcanvas 129922 flow_ref 129794 // <flow>
-  
-  from ref 129666 z 2012 to ref 128770
    write_horizontally default
 end
 flowcanvas 130434 flow_ref 130690 // <flow>
   
-  from ref 129026 z 2006 to point 206.4 578
+  from ref 129026 z 2006 to point 206.221 578.115
   line 130562 z 2006 to ref 130178
    write_horizontally default
 end
@@ -82,7 +67,7 @@ flowcanvas 130946 flow_ref 130946 // <flow>
 end
 flowcanvas 131074 flow_ref 131074 // 
   
-  from ref 130818 z 2001 to point 659.05 707.45
+  from ref 130818 z 2001 to point 659.576 707.627
   line 131458 z 2001 to ref 130306
    write_horizontally default
 end
@@ -94,6 +79,11 @@ end
 flowcanvas 131330 flow_ref 131330 // Lecture terminée
   
   from ref 130306 z 2006 label "Lecture terminée" xyz 385 760 2006 to ref 128514
+   write_horizontally default
+end
+flowcanvas 131586 flow_ref 166914 // <flow>
+  
+  from ref 128386 z 2006 to ref 128770
    write_horizontally default
 end
 end

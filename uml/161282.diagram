@@ -3,68 +3,53 @@ format 218
 activityactioncanvas 128130 activityaction_ref 136194 // activity action Récupération de l'ID dans l'URL (get)
   
   show_opaque_action_definition default
-  xyzwh 263.749 250.034 2010 141 79
+  xyzwh 535.024 70.2652 2010 141 79
 end
 activitynodecanvas 128386 activitynode_ref 136578 // activity_final
-  xyz 323.252 532.418 2005
+  xyz 323.167 532.936 2005
 end
 activityactioncanvas 128770 activityaction_ref 137730 // activity action Affichage du message de succès
   
   show_opaque_action_definition default
-  xyzwh 534.753 400.191 2005 171 63
-end
-activityactioncanvas 129026 activityaction_ref 129410 // activity action Démarrage du programme
-  
-  show_opaque_action_definition default
-  xyzwh 278.364 140.659 2011 101 75
+  xyzwh 534.909 400.962 2005 171 63
 end
 activitynodecanvas 129538 activitynode_ref 135298 // initial_node
-  xyz 313.286 89.6495 2005
+  xyz 313.637 89.6694 2005
 end
 fragment 129922 "système"
-  xyzwh 466.583 21.6105 2000 287 583
+  xyzwh 466.921 21.1431 2000 287 583
 end
 activityactioncanvas 130050 activityaction_ref 137858 // activity action Redirection vers la page principale
   
   show_opaque_action_definition default
-  xyzwh 551.448 510.994 2005 139 63
+  xyzwh 551.186 510.767 2005 139 63
 end
 fragment 130178 "utilisateur"
-  xyzwh 201.391 23.6832 2000 256 580
+  xyzwh 201.233 23.7977 2000 256 580
 end
 fragment 131202 "BDD"
-  xyzwh 769.146 21.0836 2000 240 585
+  xyzwh 768.816 21.1981 2000 240 585
 end
-activityactioncanvas 131330 activityaction_ref 137090 // activity action Suppression de l'éclairage dans la base de données
+activityactioncanvas 131330 activityaction_ref 137090 // activity action Modification de l'éclairage dans la base de données
   
   show_opaque_action_definition default
-  xyzwh 794.144 245.811 2005 181 71
+  xyzwh 794.486 245.725 2005 181 71
 end
 activityactioncanvas 140162 activityaction_ref 145282 // activity action Requete de suppression de l'éclairage grâce à l'ID
   
   show_opaque_action_definition default
-  xyzwh 513.057 248.718 2005 191 73
-end
-flowcanvas 131842 flow_ref 137858 // <flow>
-  
-  from ref 129538 z 2012 to ref 129026
-   write_horizontally default
+  xyzwh 513.813 248.959 2005 191 73
 end
 flowcanvas 134274 flow_ref 144642 // <flow>
   
-  from ref 131330 z 2006 to point 877.199 359.847
-  line 134402 z 2006 to point 611.268 357.735
+  from ref 131330 z 2006 to point 877.433 359.043
+  line 134402 z 2006 to point 611.665 357.879
   line 134530 z 2006 to ref 128770
    write_horizontally default
 end
 flowcanvas 134786 flow_ref 142338 // <flow>
   
   from ref 130050 z 2006 to ref 128386
-   write_horizontally default
-end
-flowcanvas 136194 flow_ref 137986 // <flow>
-  
-  from ref 129026 z 2012 to ref 128130
    write_horizontally default
 end
 flowcanvas 136962 flow_ref 142210 // <flow>
@@ -80,6 +65,11 @@ end
 flowcanvas 140418 flow_ref 153090 // <flow>
   
   from ref 140162 z 2006 to ref 131330
+   write_horizontally default
+end
+flowcanvas 140546 flow_ref 167042 // <flow>
+  
+  from ref 129538 z 2011 to ref 128130
    write_horizontally default
 end
 end

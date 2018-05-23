@@ -1,53 +1,120 @@
 format 218
 
 subject 128002 "Eclairage DIY SUP"
-  xyzwh 360.978 318.878 2000 275 311
+  xyzwh 150.311 269.843 2000 608 412
 classcanvas 128130 class_ref 128002 // Propriétaire
   simpleclassdiagramsettings end
-  xyz 237.93 497.444 2000
+  xyz 36.2492 496.6 2000
 end
 usecasecanvas 128258 usecase_ref 128002 // superviser
-  xyzwh 402.53 510.2 3005 86 32 label_xy 412 515
+  xyzwh 498.553 512.749 3005 86 32 label_xy 509 515
 end
 usecasecanvas 128386 usecase_ref 128130 // commander
-  xyzwh 394.83 426.93 3005 98 32 label_xy 405 431
+  xyzwh 610.323 406.767 3005 98 32 label_xy 625 411
 end
 classcanvas 128898 class_ref 128130 // BDD
   simpleclassdiagramsettings class_drawing_mode entity end
-  xyz 428.848 571.254 2005
+  xyz 526.614 600.88 2005
 end
 classcanvas 129026 class_ref 128258 // SCE
   simpleclassdiagramsettings class_drawing_mode class end
-  xyz 670.882 498.394 2000
+  xyz 767.728 501.022 2000
 end
 classcanvas 129410 class_ref 128386 // SCE_RF
   simpleclassdiagramsettings class_drawing_mode class end
-  xyz 810.34 571.931 2000
+  xyz 905.731 574.512 2000
 end
 note 131202 "Allumer/Eteindre les eclairages"
-  xyzwh 464.65 352.068 2005 155 56
+  xyzwh 592.396 310.4 2005 155 56
 note 135170 "Eclairages unicolores"
-  xyzwh 916.58 499.18 2000 89 56
+  xyzwh 1012.75 499.277 2000 89 56
 note 135810 "Eclairages"
-  xyzwh 773 438 2000 97 39
+  xyzwh 789.742 404.872 2000 97 39
+usecasecanvas 136194 usecase_ref 128386 // importerCSV
+  xyzwh 318.061 626.596 3005 118 40 label_xy 333 634
+end
+usecasecanvas 136322 usecase_ref 128514 // exporterCSV
+  xyzwh 324.905 567.497 3005 104 43 label_xy 334 578
+end
+classcanvas 136450 class_ref 128514 // SCE_IR
+  simpleclassdiagramsettings class_drawing_mode class end
+  xyz 920.059 418.618 3010
+end
+usecasecanvas 137602 usecase_ref 135042 // ajouter
+  xyzwh 285.577 396.482 3005 84 36 label_xy 306 403
+end
+usecasecanvas 137730 usecase_ref 135170 // supprimer
+  xyzwh 387.441 400.375 3005 84 38 label_xy 395 405
+end
+usecasecanvas 137858 usecase_ref 135298 // modifier
+  xyzwh 500.696 401.786 3005 84 38 label_xy 516 408
+end
+usecasecanvas 137986 usecase_ref 141826 // gerer
+  xyzwh 175.928 392.7 3011 82 43 label_xy 197 403
+end
+note 140546 "Activer/
+Désactiver
+des
+éclairages"
+  xyzwh 167 280 2005 91 96
 line 129666 ----
   from ref 128130 z 3006 to ref 128258
 line 129794 ----
   from ref 128258 z 3006 to ref 129026
 simplerelationcanvas 130562 simplerelation_ref 128130
-  from ref 128386 z 3006 stereotype "<<extend>>" xyz 406 474.5 3000 to ref 128258
+  decenter_begin 450
+  from ref 128386 z 3006 to point 653.825 463.586
+  line 138882 z 3006 stereotype "<<extend>>" xyz 615 478 3000 to point 651.531 491.181
+  line 139778 z 3006 to ref 128258
 end
 relationcanvas 130818 relation_ref 128130 // <generalisation>
   from ref 129410 z 2001 to ref 129026
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 end
-line 134274 ----
+line 134274 ---- decenter_begin 440
   from ref 128258 z 3006 to ref 128898
+line 136578 ----
+  from ref 128130 z 3006 to ref 136322
+line 136706 ----
+  from ref 128130 z 3006 to ref 136194
+line 137218 ----
+  from ref 136322 z 3006 to ref 128898
+line 137346 ----
+  from ref 136194 z 3006 to ref 128898
+relationcanvas 137474 relation_ref 195202 // <generalisation>
+  from ref 136450 z 3011 to ref 129026
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+simplerelationcanvas 138114 simplerelation_ref 141442
+  decenter_begin 358
+  from ref 137986 z 3012 to point 214.74 476.615
+  line 139138 z 3012 stereotype "<<extend>>" xyz 238 486 3000 to point 337.807 496.285
+  line 139906 z 3012 to ref 128258
+end
+simplerelationcanvas 138242 simplerelation_ref 134786
+  decenter_begin 492
+  from ref 137858 z 3006 stereotype "<<extend>>" xyz 503 453.5 3000 to point 542.256 468.586
+  line 139650 z 3006 to ref 128258
+end
+simplerelationcanvas 138370 simplerelation_ref 134914
+  decenter_begin 681
+  from ref 137730 z 3006 stereotype "<<extend>>" xyz 409 445 3000 to point 455 455
+  line 140290 z 3006 to ref 128258
+end
+simplerelationcanvas 138498 simplerelation_ref 134658
+  decenter_begin 420
+  from ref 137602 z 3006 to point 321.61 451.35
+  line 139266 z 3006 stereotype "<<extend>>" xyz 328.5 465 3000 to point 413.186 477.69
+  line 139394 z 3006 to ref 128258
+end
 line 131330 -_-_
   from ref 131202 z 3006 to ref 128386
 line 135298 -_-_
   from ref 135170 z 2001 to ref 129410
 line 135938 -_-_
   from ref 129026 z 2001 to ref 135810
+line 140674 -_-_
+  from ref 140546 z 3012 to ref 137986
 end

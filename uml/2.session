@@ -1,39 +1,39 @@
-window_sizes 1920 1056 441 1473 1001 0
+window_sizes 1366 713 441 919 658 0
 cleanlooks_style
 diagrams
   activitydiagram_ref 128002 // UcExporter
-    120 110 105 A0 84 0
+    120 110 66 A0 0 0
   activitydiagram_ref 128130 // UcImporter
-    120 110 105 A0 139 0
-  classdiagram_ref 134786 // dcc
-    1473 1001 44 E-Landscape 0 0
+    120 110 66 A0 17 0
+  active  classdiagram_ref 134786 // dcc
+    919 658 44 E-Landscape 0 0
   usecasediagram_ref 128258 // UseCase
-    120 110 127 A0 132 37
-  active  classdiagram_ref 147970 // vcc
+    120 110 82 A0 111 38
+  classdiagram_ref 147970 // vcc
     1473 1001 81 A0-Landscape 17 0
   activitydiagram_ref 154498 // ucAjouter
-    1473 957 74 A0 0 0
+    1473 957 49 A0 0 0
   classdiagram_ref 134531 // dca
     1178 718 48 A0 0 160
   activitydiagram_ref 161026 // SUP
-    120 110 118 A0 0 0
+    120 110 80 A0 0 0
   activitydiagram_ref 161154 // UcModifier
-    120 110 98 A0 0 0
+    120 110 65 A0 0 0
   activitydiagram_ref 161282 // UcSupprimer
-    1473 954 142 A0 0 0
+    1473 954 87 A0 0 0
   classdiagram_ref 128003 // dcd
     120 110 100 Legal-Landscape 0 0
   deploymentdiagram_ref 167810 // deploiement
-    120 110 100 A4 0 0
+    120 110 100 A4 228 0
   activitydiagram_ref 167938 // UcCommander
-    120 110 100 A0 0 0
+    120 110 63 A0 0 0
 end
 show_stereotypes
-selected classdiagram_ref 147970 // vcc
+selected classdiagram_ref 134786 // dcc
 open
   classview_ref 128003 // vc
   classview_ref 134531 // vc
-  activity_ref 128002 // diagrammesActivite
+  usecaseview_ref 128002 // vc
   classview_ref 128002 // vc
   deploymentview_ref 154754 // deploiement
   classview_ref 141058 // src
