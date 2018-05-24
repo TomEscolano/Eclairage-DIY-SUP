@@ -1,0 +1,47 @@
+format 218
+
+classinstance 128002 class_ref 182018 // UcSupprimer
+  name ""   xyz 111 4 2005 life_line_z 2000
+classinstance 128130 class_ref 188674 // cgicc
+  name ""   xyz 515 5 2005 life_line_z 2000
+classinstance 128258 class_ref 177666 // SqlitePersiBny
+  name ""   xyz 319 4 2005 life_line_z 2000
+durationcanvas 128514 classinstance_ref 128002 // :UcSupprimer
+  xyzwh 156 84 2010 11 40
+end
+durationcanvas 128642 classinstance_ref 128130 // :cgicc
+  xyzwh 534 84 2010 11 36
+end
+durationcanvas 129026 classinstance_ref 128002 // :UcSupprimer
+  xyzwh 156 153 2010 11 41
+end
+durationcanvas 129282 classinstance_ref 128258 // :SqlitePersiBny
+  xyzwh 368 171 2010 11 25
+end
+msg 128770 synchronous
+  from durationcanvas_ref 128514
+  to durationcanvas_ref 128642
+  yz 84 2015 explicitmsg "getElement(id)"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 303 65
+msg 128898 return
+  from durationcanvas_ref 128642
+  to durationcanvas_ref 128514
+  yz 109 2020 explicitmsg "id"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 345 90
+reflexivemsg 129154 synchronous
+  to durationcanvas_ref 129026
+  yz 153 2015 msg operation_ref 203522 // "doIt(in eclairage : Eclairage::Ent) : void"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 165 131
+msg 129410 synchronous
+  from durationcanvas_ref 129026
+  to durationcanvas_ref 129282
+  yz 171 2015 msg operation_ref 198658 // "executerSql(in requete : string) : void"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "DELETE FROM eclairages WHERE id = id;
+DELETE FROM multicolores WHERE id = id ;
+DELETE FROM unicolores WHERE id = id;"
+  label_xy 376 151
+end

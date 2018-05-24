@@ -1,0 +1,144 @@
+format 218
+
+classinstance 128002 class_ref 144003 // SUP
+  name ""   xyz 157.951 4.61029 2005 life_line_z 1995
+classinstance 128130 class_ref 177666 // SqlitePersiBny
+  name ""   xyz 672.601 5.97483 2005 life_line_z 1995
+classinstance 128770 class_ref 180098 // FichierTextePersiBny
+  name ""   xyz 435.778 5.01992 2010 life_line_z 1995
+fragment 130562 "loop"
+  xyzwh 185.567 248.477 2025 314 93
+end
+fragment 131458 "loop"
+  xyzwh 187.568 437.303 2035 314 101
+end
+fragment 132482 "loop"
+  xyzwh 188.802 583.236 3005 314 126
+end
+fragment 132610 "loop"
+  xyzwh 189.412 714.275 3010 313 126
+end
+durationcanvas 128258 classinstance_ref 128002 // :SUP
+  xyzwh 176 67.7 2010 11 815
+  overlappingdurationcanvas 129922
+    xyzwh 182 172.95 2020 11 375
+    overlappingdurationcanvas 130690
+      xyzwh 188 305.85 2030 11 25
+    end
+    overlappingdurationcanvas 131202
+      xyzwh 188 501.65 2030 11 25
+    end
+  end
+  overlappingdurationcanvas 131586
+    xyzwh 182 565.5 2020 11 290
+    overlappingdurationcanvas 131970
+      xyzwh 188 637.45 2030 11 25
+    end
+    overlappingdurationcanvas 132226
+      xyzwh 188 678.5 2030 11 25
+    end
+    overlappingdurationcanvas 132738
+      xyzwh 188 768 2030 11 25
+    end
+    overlappingdurationcanvas 132994
+      xyzwh 188 809.05 2030 11 25
+    end
+  end
+end
+durationcanvas 129538 classinstance_ref 128770 // :FichierTextePersiBny
+  xyzwh 506 108.4 2010 11 42
+end
+durationcanvas 130178 classinstance_ref 128130 // :SqlitePersiBny
+  xyzwh 721 197 2010 11 47
+end
+durationcanvas 130946 classinstance_ref 128130 // :SqlitePersiBny
+  xyzwh 721 380.4 2005 11 57
+end
+reflexivemsg 128386 synchronous
+  to durationcanvas_ref 128258
+  yz 67 2015 msg operation_ref 148227 // "doIt() : void"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 187 49
+msg 129666 synchronous
+  from durationcanvas_ref 128258
+  to durationcanvas_ref 129538
+  yz 110 2015 msg operation_ref 198274 // "getContenu() : string"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "\"html/index.html\""
+  label_xy 258 91
+msg 129794 return
+  from durationcanvas_ref 129538
+  to durationcanvas_ref 128258
+  yz 134 2020 explicitmsg "contenu"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 333 118
+reflexivemsg 130050 synchronous
+  to durationcanvas_ref 129922
+  yz 172 2025 msg operation_ref 148739 // "extraireEclairages(in bdd : sqlite3, out eclairagesUnicolores : std::vector<EclairageUnicolore>, out eclairagesMulticolores : std::vector<EclairageMulticolore>) : void"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 197 152
+msg 130306 synchronous
+  from durationcanvas_ref 129922
+  to durationcanvas_ref 130178
+  yz 203 2025 msg operation_ref 198658 // "executerSql(in requete : string) : void"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "SELECT id, numeroPrise FROM unicolores;"
+  label_xy 267 186
+msg 130434 return
+  from durationcanvas_ref 130178
+  to durationcanvas_ref 129922
+  yz 231 2030 explicitmsg "eclairages unicolores"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 372 215
+reflexivemsg 130818 synchronous
+  to durationcanvas_ref 130690
+  yz 305 2035 explicitmsg "eclairagesUnicolores.push_back()"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 202 282
+msg 131074 synchronous
+  from durationcanvas_ref 129922
+  to durationcanvas_ref 130946
+  yz 381 2025 msg operation_ref 198658 // "executerSql(in requete : string) : void"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "SELECT id, adresseMac, adresseIP, versionFirmware, luminosite,
+ niveauBatterie FROM multicolores;"
+  label_xy 207 366
+reflexivemsg 131330 synchronous
+  to durationcanvas_ref 131202
+  yz 501 3005 explicitmsg "eclairagesMulticolores.push_back()"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 203 477
+reflexivemsg 131714 synchronous
+  to durationcanvas_ref 131586
+  yz 565 2025 explicitmsg "afficherEclairages()"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 193 547
+msg 131842 return
+  from durationcanvas_ref 130946
+  to durationcanvas_ref 129922
+  yz 425 3005 explicitmsg "eclairages multicolores"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 367 408
+reflexivemsg 132098 synchronous
+  to durationcanvas_ref 131970
+  yz 637 2035 explicitmsg "eclairageMulticolore.controleur.getIHMJardin()"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 202 614
+reflexivemsg 132354 synchronous
+  to durationcanvas_ref 132226
+  yz 678 2035 msg operation_ref 148867 // "visualiserInfo(in eclairage : Ent) : void"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "eclairageMulticolore"
+  label_xy 208 660
+reflexivemsg 132866 synchronous
+  to durationcanvas_ref 132738
+  yz 768 2035 explicitmsg "eclairageUnicolore.controleur.getIHMJardin()"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 204 747
+reflexivemsg 133122 synchronous
+  to durationcanvas_ref 132994
+  yz 809 2035 msg operation_ref 148867 // "visualiserInfo(in eclairage : Ent) : void"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "eclairageUnicolore"
+  label_xy 205 792
+end

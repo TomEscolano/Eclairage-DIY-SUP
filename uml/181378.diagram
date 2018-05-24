@@ -1,0 +1,47 @@
+format 218
+
+classinstance 128002 class_ref 150787 // UcExporter
+  name ""   xyz 102 4 2005 life_line_z 2000
+durationcanvas 128130 classinstance_ref 128002 // :UcExporter
+  xyzwh 141 79 2010 11 259
+  overlappingdurationcanvas 128386
+    xyzwh 147 114 2020 11 25
+  end
+  overlappingdurationcanvas 128642
+    xyzwh 147 196 2020 11 25
+  end
+  overlappingdurationcanvas 128898
+    xyzwh 147 307 2020 11 25
+  end
+end
+reflexivemsg 128258 synchronous
+  to durationcanvas_ref 128130
+  yz 79 2015 msg operation_ref 156291 // "doIt() : void"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 149 60
+reflexivemsg 128514 synchronous
+  to durationcanvas_ref 128386
+  yz 114 2025 explicitmsg "system()"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "sqlite3 -header -csv /var/eclairage/bdd.db 
+\\\"SELECT e.id,allume,active,nom,consommation,x,y,couleur,
+numeroPrise FROM eclairages e INNER JOIN unicolores u
+ ON u.id = e.id;\\\" > /var/www/html/eclairages_unicolores_save.csv"
+  label_xy 170 95
+reflexivemsg 128770 synchronous
+  to durationcanvas_ref 128642
+  yz 196 2025 explicitmsg "system()"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "sqlite3 -header -csv /var/eclairage/bdd.db
+ \\\"SELECT e.id,allume,active,nom,consommation
+,x,y,adresseMac,adresseIP, versionFirmware, couleur
+,luminosite,niveauBatterie FROM eclairages e INNER JOIN
+ multicolores m ON m.id = e.id;\\\" >  /var/www/html/eclairages_multicolores_save.csv"
+  label_xy 161 179
+reflexivemsg 129026 synchronous
+  to durationcanvas_ref 128898
+  yz 307 3005 explicitmsg "system()"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "rm *.csv"
+  label_xy 162 289
+end

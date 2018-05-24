@@ -1,0 +1,58 @@
+format 218
+
+classinstance 128002 class_ref 144131 // UcGerer
+  name ""   xyz 136 4 2005 life_line_z 2000
+classinstance 128258 class_ref 188674 // cgicc
+  name ""   xyz 359 6 2000 life_line_z 2000
+classinstance 128898 class_ref 135811 // Eclairage
+  name ""   xyz 476 7 2005 life_line_z 2000
+durationcanvas 128386 classinstance_ref 128002 // :UcGerer
+  xyzwh 166 61 2010 11 40
+end
+durationcanvas 128514 classinstance_ref 128258 // :cgicc
+  xyzwh 378 61 2010 11 40
+end
+durationcanvas 129026 classinstance_ref 128002 // :UcGerer
+  xyzwh 166 128 2010 11 40
+end
+durationcanvas 129154 classinstance_ref 128898 // :Eclairage
+  xyzwh 508 128 2010 11 25
+end
+durationcanvas 129410 classinstance_ref 128002 // :UcGerer
+  xyzwh 166 201 2010 11 81
+end
+durationcanvas 129666 classinstance_ref 128898 // :Eclairage
+  xyzwh 508 231 2010 11 25
+end
+msg 128642 synchronous
+  from durationcanvas_ref 128386
+  to durationcanvas_ref 128514
+  yz 61 2015 explicitmsg "getElement()"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "id, action"
+  label_xy 207 42
+msg 128770 return
+  from durationcanvas_ref 128514
+  to durationcanvas_ref 128386
+  yz 90 2020 explicitmsg "id, action"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 249 71
+msg 129282 synchronous
+  from durationcanvas_ref 129026
+  to durationcanvas_ref 129154
+  yz 131 2015 explicitmsg "controleur.ent.setID()"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "id"
+  label_xy 269 112
+reflexivemsg 129538 synchronous
+  to durationcanvas_ref 129410
+  yz 201 2015 msg operation_ref 149379 // "doIt(in eclairage : Ent, in etat : bool) : void"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 173 180
+msg 129794 synchronous
+  from durationcanvas_ref 129410
+  to durationcanvas_ref 129666
+  yz 231 2015 explicitmsg "controleur.ent.setActive(action)"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 243 212
+end

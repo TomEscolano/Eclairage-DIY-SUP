@@ -1,0 +1,244 @@
+format 218
+
+classinstance 128002 class_ref 151043 // UcCommander
+  name ""   xyz 33.9159 5.31465 2005 life_line_z 2000
+classinstance 128130 class_ref 177666 // SqlitePersiBny
+  name ""   xyz 294.741 13.4405 2005 life_line_z 2000
+classinstance 128258 class_ref 136707 // EclairageUnicolore
+  name ""   xyz 497.139 14.7062 2005 life_line_z 2000
+classinstance 128386 class_ref 136963 // EclairageMulticolore
+  name ""   xyz 691.754 18.7692 2010 life_line_z 2000
+classinstance 128514 class_ref 188674 // cgicc
+  name ""   xyz 945.76 22.8321 2015 life_line_z 2000
+fragment 129154 "alt"
+  xyzwh 15.5864 147.866 1960 998 1279
+  separator 4568
+end
+textcanvas 129282 "[type = unicolore]"
+  xyzwh 94.5941 153.049 2010 110 19
+fragment 130050 "alt"
+  xyzwh 29.1948 311.726 1990 954 392
+  separator 7621
+end
+textcanvas 130178 "[nom && couleur && id]"
+  xyzwh 104.566 329.818 2020 150 19
+textcanvas 132098 "[type = multicolore]"
+  xyzwh 103.314 745.362 2000 121 19
+fragment 132610 "alt"
+  xyzwh 28.0549 863.012 1965 969 533
+  separator 7070
+end
+textcanvas 132738 "[nom, couleur, id, x, y]"
+  xyzwh 104.566 873.376 2000 150 20
+fragment 133762 "alt"
+  xyzwh 32.9291 979.103 1975 944 249
+  separator 5883
+end
+durationcanvas 128642 classinstance_ref 128002 // :UcCommander
+  xyzwh 84 79.0418 2010 11 40
+end
+durationcanvas 128770 classinstance_ref 128514 // :cgicc
+  xyzwh 965 79.2446 2010 11 33
+end
+durationcanvas 129410 classinstance_ref 128002 // :UcCommander
+  xyzwh 84 217.097 2010 11 502
+end
+durationcanvas 129666 classinstance_ref 128514 // :cgicc
+  xyzwh 965 261.139 2010 11 38
+end
+durationcanvas 130306 classinstance_ref 128130 // :SqlitePersiBny
+  xyzwh 343 367.713 2010 11 25
+end
+durationcanvas 130562 classinstance_ref 128514 // :cgicc
+  xyzwh 964 439.174 2010 11 35
+end
+durationcanvas 130946 classinstance_ref 128130 // :SqlitePersiBny
+  xyzwh 343 501.321 2010 11 25
+end
+durationcanvas 131586 classinstance_ref 128258 // :EclairageUnicolore
+  xyzwh 560 667.698 2010 11 27
+end
+durationcanvas 131842 classinstance_ref 128002 // :UcCommander
+  xyzwh 84 787.04 2010 11 626
+end
+durationcanvas 132226 classinstance_ref 128514 // :cgicc
+  xyzwh 964 815.355 2010 11 37
+end
+durationcanvas 132866 classinstance_ref 128130 // :SqlitePersiBny
+  xyzwh 343 918.131 2010 11 25
+end
+durationcanvas 133122 classinstance_ref 128514 // :cgicc
+  xyzwh 964 1001.05 2010 11 40
+end
+durationcanvas 133506 classinstance_ref 128130 // :SqlitePersiBny
+  xyzwh 343 1054.27 2010 11 25
+end
+durationcanvas 133890 classinstance_ref 128386 // :EclairageMulticolore
+  xyzwh 758 1165.77 2010 11 25
+end
+durationcanvas 134146 classinstance_ref 128130 // :SqlitePersiBny
+  xyzwh 343 1262.87 2010 11 35
+end
+durationcanvas 134530 classinstance_ref 128386 // :EclairageMulticolore
+  xyzwh 759 1305.97 2010 11 25
+end
+durationcanvas 134786 classinstance_ref 128386 // :EclairageMulticolore
+  xyzwh 759 1334.21 2010 11 30
+end
+msg 128898 synchronous
+  from durationcanvas_ref 128642
+  to durationcanvas_ref 128770
+  yz 79 2015 explicitmsg "getElement()"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "type"
+  label_xy 458 60
+msg 129026 return
+  from durationcanvas_ref 128770
+  to durationcanvas_ref 128642
+  yz 101 2015 explicitmsg "type"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 500 82
+reflexivemsg 129538 synchronous
+  to durationcanvas_ref 129410
+  yz 217 2015 explicitmsg "doIt()"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 92 196
+msg 129794 synchronous
+  from durationcanvas_ref 129410
+  to durationcanvas_ref 129666
+  yz 261 2015 explicitmsg "getElement()"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "nom, couleur, id, x, y"
+  label_xy 406 242
+msg 129922 return
+  from durationcanvas_ref 129666
+  to durationcanvas_ref 129410
+  yz 288 2020 explicitmsg "nom, couleur, id, x, y"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 447 269
+msg 130434 synchronous
+  from durationcanvas_ref 129410
+  to durationcanvas_ref 130306
+  yz 367 2015 msg operation_ref 198658 // "executerSql(in requete : string) : void"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "INSERT INTO 
+eclairages
+(id, nom, couleur, x, y) 
+VALUES(...);"
+  label_xy 103 350
+msg 130690 synchronous
+  from durationcanvas_ref 129410
+  to durationcanvas_ref 130562
+  yz 439 2015 explicitmsg "getElement()"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "numeroPrise"
+  label_xy 457 420
+msg 130818 return
+  from durationcanvas_ref 130562
+  to durationcanvas_ref 129410
+  yz 463 2020 explicitmsg "numeroPrise"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 498 444
+msg 131074 synchronous
+  from durationcanvas_ref 129410
+  to durationcanvas_ref 130946
+  yz 501 2015 msg operation_ref 198658 // "executerSql(in requete : string) : void"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "INSERT INTO
+ unicolores
+(id,numeroPrise) 
+VALUES(...);"
+  label_xy 121 485
+msg 131714 synchronous
+  from durationcanvas_ref 129410
+  to durationcanvas_ref 131586
+  yz 667 2015 explicitmsg "controleur.ihmFormulaire.set()"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "ent, nom, couleur, id, x, y"
+  label_xy 152 648
+reflexivemsg 131970 synchronous
+  to durationcanvas_ref 131842
+  yz 787 2015 explicitmsg "doIt()"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 93 765
+msg 132354 synchronous
+  from durationcanvas_ref 131842
+  to durationcanvas_ref 132226
+  yz 817 2020 explicitmsg "getElement()"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "nom, couleur, id, x, y"
+  label_xy 422 798
+msg 132482 return
+  from durationcanvas_ref 132226
+  to durationcanvas_ref 131842
+  yz 841 2015 explicitmsg "nom, couleur, id, x, y"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 463 822
+msg 132994 synchronous
+  from durationcanvas_ref 131842
+  to durationcanvas_ref 132866
+  yz 920 2015 msg operation_ref 198658 // "executerSql(in requete : string) : void"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "INSERT INTO
+eclairages
+(id, nom, couleur, x, y) 
+VALUES(...);"
+  label_xy 108 903
+msg 133250 synchronous
+  from durationcanvas_ref 131842
+  to durationcanvas_ref 133122
+  yz 1003 2015 explicitmsg "getElement()"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "adresseIP"
+  label_xy 455 984
+msg 133378 return
+  from durationcanvas_ref 133122
+  to durationcanvas_ref 131842
+  yz 1029 2020 explicitmsg "adresseIP"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 497 1010
+msg 133634 synchronous
+  from durationcanvas_ref 131842
+  to durationcanvas_ref 133506
+  yz 1056 2015 msg operation_ref 198658 // "executerSql(in requete : string) : void"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "INSERT INTO
+multicolores
+(id,adresseIP)
+VALUES(...);"
+  label_xy 136 1038
+msg 134018 synchronous
+  from durationcanvas_ref 131842
+  to durationcanvas_ref 133890
+  yz 1165 2015 explicitmsg "controleur.ihmFormulaire.set()"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "ent, nom, couleur, id, x, y"
+  label_xy 251 1146
+msg 134274 synchronous
+  from durationcanvas_ref 131842
+  to durationcanvas_ref 134146
+  yz 1262 2015 msg operation_ref 198658 // "executerSql(in requete : string) : void"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "select seq from sqlite_sequence;"
+  label_xy 96 1241
+msg 134402 return
+  from durationcanvas_ref 134146
+  to durationcanvas_ref 131842
+  yz 1286 2020 explicitmsg "dernier ID"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 188 1267
+msg 134658 synchronous
+  from durationcanvas_ref 131842
+  to durationcanvas_ref 134530
+  yz 1316 2025 explicitmsg "controleur.ent.setID()"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "dernierID"
+  label_xy 329 1297
+msg 134914 synchronous
+  from durationcanvas_ref 131842
+  to durationcanvas_ref 134786
+  yz 1351 2015 explicitmsg "controleur.ihmFormulaire.set()"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "ent, \"multicolore\", x, y"
+  label_xy 262 1332
+end

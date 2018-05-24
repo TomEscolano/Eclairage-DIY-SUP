@@ -1,6 +1,6 @@
 format 218
 "conception" // conception
-  revision 19
+  revision 21
   modified_by 2 "tom"
   // class settings
   
@@ -944,6 +944,56 @@ ${inlines}
 	  stereotype "extend"
 	  on usecase_ref 128002 // superviser
       end
+    end
+
+    sequencediagram 174594 "sequenceSUP"
+      sequencediagramsettings end
+      overlapping_bars size A0
+    end
+
+    sequencediagram 174722 "sequenceUcAjouter"
+      sequencediagramsettings end
+      overlapping_bars size A0
+    end
+
+    sequencediagram 181250 "sequenceUcCommander"
+      sequencediagramsettings end
+      overlapping_bars size A0
+    end
+
+    class 188674 "cgicc"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+    end
+
+    sequencediagram 181378 "sequenceUcExporter"
+      sequencediagramsettings end
+      overlapping_bars size A4
+    end
+
+    sequencediagram 181506 "sequenceUcGerer"
+      sequencediagramsettings end
+      overlapping_bars size A4
+    end
+
+    sequencediagram 181634 "sequenceUcModifier"
+      sequencediagramsettings end
+      overlapping_bars size A0
+    end
+
+    sequencediagram 181762 "sequenceUcSupprimer"
+      sequencediagramsettings end
+      overlapping_bars size A4
     end
   end
 
