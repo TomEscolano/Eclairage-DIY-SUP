@@ -7,7 +7,6 @@ all:
 	g++ -o /usr/lib/cgi-bin/UcGerer.cgi UcGerer.cpp Eclairage.cpp EclairageUnicolore.cpp EclairageMulticolore.cpp ClientTcpComBny.cpp TcpComBny.cpp SqlitePersiBny.cpp -I . -lsqlite3 -lcgicc -D _UT_UcGerer_ -std=c++11
 	g++ -o /usr/lib/cgi-bin/UcModifier.cgi UcModifier.cpp Eclairage.cpp EclairageUnicolore.cpp EclairageMulticolore.cpp ClientTcpComBny.cpp TcpComBny.cpp SqlitePersiBny.cpp -lsqlite3 -lcgicc -I . -D _UT_UcModifier_ -std=c++11
 	g++ -o /usr/lib/cgi-bin/UcSupprimer.cgi Eclairage.cpp UcSupprimer.cpp SqlitePersiBny.cpp -I . -lsqlite3 -lcgicc -D _UT_UcSupprimer_ -std=c++11
-	cp -r html/ /usr/lib/cgi-bin/
 	g++ -o /usr/lib/cgi-bin/UcImporter.cgi UcImporter.cpp UcAjouter.cpp UcModifier.cpp SqlitePersiBny.cpp Eclairage.cpp EclairageMulticolore.cpp EclairageUnicolore.cpp ClientTcpComBny.cpp TcpComBny.cpp -lcgicc -lsqlite3 -I . -D _UT_UcImporter_ -pthread -std=c++11
 
 # Compile le SUP

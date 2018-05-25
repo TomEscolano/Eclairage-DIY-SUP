@@ -1,21 +1,5 @@
-window_sizes 1920 1056 338 1576 1001 0
+window_sizes 1920 1025 338 1576 970 0
 cleanlooks_style
-diagrams
-  usecasediagram_ref 128258 // UseCase
-    1260 800 100 A0 0 0
-  sequencediagram_ref 174594 // sequenceSUP
-    120 110 105 A0 0 0
-  sequencediagram_ref 174722 // sequenceUcAjouter
-    1576 1001 75 A0 72 0
-  sequencediagram_ref 181250 // sequenceUcCommander
-    120 110 78 A0 0 0
-  sequencediagram_ref 181378 // sequenceUcExporter
-    120 110 100 A4 0 0
-  sequencediagram_ref 181506 // sequenceUcGerer
-    120 110 100 A4 0 0
-  active  sequencediagram_ref 181762 // sequenceUcSupprimer
-    1576 1001 100 A4 0 0
-end
 show_stereotypes
 selected sequencediagram_ref 181762 // sequenceUcSupprimer
 open
