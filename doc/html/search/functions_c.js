@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['what',['what',['../classSqlitePersiBnyException.html#ac1ff5b82a1a2f3ff35b1c90ddc7356d7',1,'SqlitePersiBnyException::what()'],['../classTcpIpComBnyException.html#a5a5d21a18a7863b106020a2c6113402d',1,'TcpIpComBnyException::what()']]]
+  ['tcpcombny',['TcpComBny',['../classTcpComBny.html#a657396bbd748486fcdf0017ea49591e6',1,'TcpComBny']]],
+  ['tcpipcombnyexception',['TcpIpComBnyException',['../classTcpIpComBnyException.html#a6ef8fb4ec6b283a18b9f4c98c2ac92d8',1,'TcpIpComBnyException']]]
 ];

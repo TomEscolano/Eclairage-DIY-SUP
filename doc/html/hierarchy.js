@@ -28,8 +28,8 @@ var hierarchy =
       [ "EclairageMulticolore::IHMJardin", "classEclairageMulticolore_1_1IHMJardin.html", null ],
       [ "EclairageUnicolore::IHMJardin", "classEclairageUnicolore_1_1IHMJardin.html", null ]
     ] ],
-    [ "EclairageMulticolore::IHMParametre", "classEclairageMulticolore_1_1IHMParametre.html", null ],
     [ "EclairageUnicolore::IHMParametre", "classEclairageUnicolore_1_1IHMParametre.html", null ],
+    [ "EclairageMulticolore::IHMParametre", "classEclairageMulticolore_1_1IHMParametre.html", null ],
     [ "std::ios_base", null, [
       [ "std::basic_ios< Char >", null, [
         [ "std::basic_istream< Char >", null, [
@@ -46,6 +46,7 @@ var hierarchy =
         ] ]
       ] ]
     ] ],
+    [ "ServeurTcpComBny", "classServeurTcpComBny.html", null ],
     [ "SqlitePersiBny", "classSqlitePersiBny.html", [
       [ "Eclairage::PersiBny", "classEclairage_1_1PersiBny.html", [
         [ "EclairageMulticolore::PersiBny", "classEclairageMulticolore_1_1PersiBny.html", null ],

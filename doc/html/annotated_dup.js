@@ -6,6 +6,7 @@ var annotated_dup =
     [ "EclairageMulticolore", "classEclairageMulticolore.html", "classEclairageMulticolore" ],
     [ "EclairageUnicolore", "classEclairageUnicolore.html", "classEclairageUnicolore" ],
     [ "FichierTextePersiBny", "classFichierTextePersiBny.html", "classFichierTextePersiBny" ],
+    [ "ServeurTcpComBny", "classServeurTcpComBny.html", "classServeurTcpComBny" ],
     [ "SqlitePersiBny", "classSqlitePersiBny.html", "classSqlitePersiBny" ],
     [ "SqlitePersiBnyException", "classSqlitePersiBnyException.html", "classSqlitePersiBnyException" ],
     [ "SUP", "classSUP.html", "classSUP" ],

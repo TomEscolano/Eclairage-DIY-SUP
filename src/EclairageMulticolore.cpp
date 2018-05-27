@@ -206,7 +206,7 @@ void EclairageMulticolore::PersiBny::get(Ent & ent)
 
 void EclairageMulticolore::EclairageComBny::allumer(EclairageMulticolore::Ent & ent, bool etat)
 {
-	this->clientTcpComBny.connecter(ent.getAdresseIP(), 5554);
+	this->clientTcpComBny.connecter(ent.getAdresseIP(), 55554);
 	std::string message = "{\"demande\":\"fe\", \"etat\":" + std::to_string(etat) + ",\"id\":"+ std::to_string(ent.getID())+"}";
 
 	this->clientTcpComBny.fprintf(message.c_str());

@@ -1,3 +1,5 @@
 <map id="Graphe hiérarchique des classes" name="Graphe hiérarchique des classes">
-<area shape="rect" id="node1" href="$classSUP.html" title="SUP" alt="" coords="5,5,56,32"/>
+<area shape="rect" id="node1" title="STL class. " alt="" coords="5,31,109,57"/>
+<area shape="rect" id="node2" href="$classSqlitePersiBnyException.html" title="SqlitePersiBnyException" alt="" coords="157,5,324,32"/>
+<area shape="rect" id="node3" href="$classTcpIpComBnyException.html" title="TcpIpComBnyException" alt="" coords="159,56,323,83"/>
 </map>
