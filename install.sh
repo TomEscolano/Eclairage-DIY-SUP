@@ -7,6 +7,7 @@ make all
 
 sudo cp -r html/ /usr/lib/cgi-bin/
 sudo cp -r img/ /var/www/html/
+sudo cp ../bdd.db /var/eclairage/
 
 sudo chmod -r 777 /var/eclairage/*
 sudo chmod -r 777 /var/www/html/*
