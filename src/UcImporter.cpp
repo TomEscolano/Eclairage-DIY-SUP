@@ -72,7 +72,7 @@ void UcImporter::doIt(UcModifier & ucModifier)
 					eclairage.controleur.ent.setCouleur(donnees[i][5]);
 
 					//Creation de l'eclairage ou modification
-					//ucModifier.doIt(eclairage,cgi);
+					ucModifier.doIt(eclairage,cgi);
 			}
 		}
 
@@ -112,13 +112,13 @@ void UcImporter::doIt(UcModifier & ucModifier)
 					eclairage.controleur.ent.setNiveauBatterie(donnees[i][12]);
 	
 					//Creation de l'eclairage ou modification
-					//ucModifier.doIt(eclairage,cgi);
+					ucModifier.doIt(eclairage,cgi);
 			}			
 		}
 		else
 		{
 			// Erreur
-			std::cout << ":(";
+			std::cout << "<p>Erreur lors de l'importation...</p>";
 		}
 
 		// Suppression du fichier et confirmation
