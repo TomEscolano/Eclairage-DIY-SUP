@@ -1,12 +1,20 @@
-window_sizes 1920 1025 338 1576 970 0
+window_sizes 1920 1056 338 1576 1001 0
 cleanlooks_style
+diagrams
+  deploymentdiagram_ref 167810 // deploiement
+    817 526 100 A4 228 0
+  usecasediagram_ref 128258 // UseCase
+    120 110 87 A0 108 0
+  active  classdiagram_ref 134786 // dcc
+    1576 1001 82 E-Landscape 54 139
+end
 show_stereotypes
-selected sequencediagram_ref 181762 // sequenceUcSupprimer
+selected operation_ref 210306 // doIt
 open
   classview_ref 128003 // vc
   classview_ref 134531 // vc
   usecaseview_ref 128002 // vc
-  classview_ref 128002 // vc
+  class_ref 195202 // UcRecevoirInfo
   deploymentview_ref 154754 // deploiement
   classview_ref 141058 // src
 end

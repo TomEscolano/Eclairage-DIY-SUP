@@ -1,6 +1,6 @@
 format 218
 "conception" // conception
-  revision 21
+  revision 22
   modified_by 2 "tom"
   // class settings
   
@@ -1199,6 +1199,67 @@ ${inlines}
       mysql_decl ""
       
     end
+
+    class 195202 "UcRecevoirInfo"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      operation 210306 "doIt"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      classrelation 201730 // serveurTcpComBny (<directional composition>)
+	relation 201730 *-->
+	  a role_name "serveurTcpComBny" multiplicity "1" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 201730 // serveurTcpComBny (<directional composition>)
+	  b parent class_ref 195330 // ServeurTcpComBny
+      end
+
+      classrelation 201858 // persiBny (<directional composition>)
+	relation 201858 *-->
+	  a role_name "persiBny" multiplicity "1" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 201858 // persiBny (<directional composition>)
+	  b parent class_ref 142210 // SqlitePersiBny
+      end
+    end
+
+    class 195330 "ServeurTcpComBny"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+    end
   end
 
   deploymentview 141186 "vc"
@@ -1481,6 +1542,9 @@ int main()
     end
 
     artifact 167682 "SCE_IR"
+    end
+
+    deploymentnode 141442 "Routeur"
     end
   end
 end

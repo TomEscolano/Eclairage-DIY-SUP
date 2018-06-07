@@ -2,7 +2,7 @@ format 218
 
 deploymentnodecanvas 128130 deploymentnode_ref 128130 // nanoOrdinateur
   name "rpi3"
-  xyzwh 148.606 275.006 0 197 525
+  xyzwh 148 275 0 197 525
 end
 artifactcanvas 128258 artifact_ref 160514 // Supervision
   xyz 162.567 325.844 2000
@@ -22,12 +22,9 @@ end
 artifactcanvas 129026 artifact_ref 161154 // Raspbian
   xyz 186.632 720.923 2000
 end
-deploymentnodecanvas 129154 deploymentnode_ref 134658 // Réseau Local
-  xyzwh 410.536 517.487 2000 110 36
-end
 deploymentnodecanvas 129794 deploymentnode_ref 128130 // nanoOrdinateur
   name "rpi0w"
-  xyzwh 601.388 429.85 2000 183 217
+  xyzwh 603 429 2000 183 217
 end
 artifactcanvas 129922 artifact_ref 161154 // Raspbian
   xyz 620.842 473.147 2005
@@ -35,8 +32,12 @@ end
 artifactcanvas 130050 artifact_ref 167682 // SCE_IR
   xyz 609.855 550.15 2005
 end
-line 129666 ----
-  from ref 129154 z 2001 stereotype "<<tcp/ip>>" xyz 345 507.5 3000 to ref 128130
-line 130690 ----
-  from ref 129154 z 2001 stereotype "<<tcp/ip>>" xyz 523.5 535 3000 to ref 129794
+deploymentnodecanvas 130818 deploymentnode_ref 141442 // Routeur
+  name "D-Link"
+  xyzwh 414 522 2000 116 36
+end
+line 130946 ----
+  from ref 128130 z 2001 stereotype "<<tcp/ip>>" xyz 343 537 3000 to ref 130818
+line 131074 ----
+  from ref 130818 z 2001 stereotype "<<tcp/ip>>" xyz 533 516 3000 to ref 129794
 end

@@ -130,7 +130,7 @@ void EclairageUnicolore::PersiBny::get(Ent & ent)
 
 void EclairageUnicolore::EclairageComBny::allumer(EclairageUnicolore::Ent & ent, bool etat)
 {
-	this->clientTcpComBny.connecter("192.168.140.61", 55554);
+	this->clientTcpComBny.connecter("192.168.1.61", 55554);
 
 	std::string message = "{\"demande\":\"fe\", \"etat\":" + std::to_string(etat) + ",\"id\":"+ std::to_string(ent.getID())+"}";
 
