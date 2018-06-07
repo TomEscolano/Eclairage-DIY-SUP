@@ -12,7 +12,7 @@ int main(int argc, char const *argv[])
 {
 
     ServeurTcpComBny serveurTcpComBny;
-    serveurTcpComBny.associer("192.168.140.61", 55556);
+    serveurTcpComBny.associer("192.168.1.61", 55556);
     serveurTcpComBny.ouvrir(50);
 
     while(true)

@@ -232,7 +232,7 @@ int main()
 {
 	EclairageMulticolore eclairage;
 	eclairage.controleur.ent.setID(2);
-	eclairage.controleur.ent.setAdresseMac("FF:FF:FF:FF");
+	eclairage.controleur.ent.setAdresseMac("FF:FF:FF:FF:FF");
 
 	return 0;
 }
